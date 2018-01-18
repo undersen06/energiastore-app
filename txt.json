@@ -1,0 +1,67 @@
+{
+  "LOG_OUT_TITLE": "Salir de energiaStore",
+  "LOG_OUT_TEXT": "¿Estas seguro que deseas cerrar sesión?",
+  "LOG_OUT_CANCEL_BUTTON": "Cancelar",
+  "LOG_OUT_LEAVE_BUTTON": "Salir",
+
+  "WORKING_ON_TITLE": "Ups!",
+  "WORKING_ON_TEXT": "Esta sección aun esta en desarrollo, vuelve pronto",
+  "WORKING_ON_BUTTON_TEXT": "Entendido",
+
+
+  "WORKING_ON_TUTORIAL_TITLE": "Ups!",
+  "WORKING_ON_TUTORIAL_TEXT": "Este tutorial aun esta en desarrollo, vuelve pronto.",
+  "WORKING_ON_TUTORIAL_BUTTON_TEXT": "Entendido",
+
+
+  "ABOUT_US_TITLE": "EnergiaStore",
+  "ABOUT_US_TEXT": "Todos los derechos reservados 2017 ",
+  "ABOUT_US_BUTTON_TEXT": "Entendido",
+
+  "SETTINGS_MENU_TITLE": "Configuraciones",
+  "SETTINGS_MENU_PROFILE": "Mi perfil",
+  "SETTINGS_MENU_SIGN_UP": "Registrar mi cuenta",
+  "SETTINGS_MENU_CHANGE_LANGUAGE": "Cambiar lenguaje",
+  "SETTINGS_MENU_CHOOSE_COUNTRY":"Seleccionar Pais",
+  "SETTINGS_MENU_TUTORIAL":"Tutoriales",
+  "SETTINGS_MENU_FAQ":"FAQ",
+  "SETTINGS_MENU_ABOUT_US":"Sobre nosotros",
+  "SETTINGS_MENU_LOG_OU":"Cerrar sesión",
+
+
+  "MIDDLEWARE_TITLE":"Como te gustaria utilizar energiaStore ?",
+
+  "MIDDLEWARE_USER_BODY":"Registrate y utiliza todas las funcionalidades",
+  "MIDDLEWARE_PARTNER_BODY":"Ingresa con una cuenta autorizada por energiaStore",
+  "MIDDLEWARE_EXPLORER_BODY":"Ingresa sin registros y conoce la aplicación",
+  "MIDDLEWARE_HELP":"Ayuda",
+
+ "TUTORIALS_TITLE":"Tutoriales",
+ "TUTORIALS_PROFILE":"Tutorial perfiles",
+ "TUTORIALS_QUOTATIONS":"Tutorial Cotizaciones",
+ "TUTORIALS_FACTOR":"Tutorial Mal Factor de potencia",
+
+ "TUTORIALS_TYPEUSER_USER":"Corresponde a aquel usuario que ya posee una cuenta o desea registrarse directamente en energiaStore para su uso personal",
+ "TUTORIALS_TYPEUSER_PARTNER":"Corresponde a aquel usuario que ya posee una cuenta en energiaStore para su uso empresarial.",
+ "TUTORIALS_TYPEUSER_EXPLORER":"Corresponde al usuario que desea utilizar la app sin registro, su cuenta es limitada",
+
+ "UPLOAD_PHOTO_TEXT":"Puedes agregar una foto a tu cotizacion haciendo clic en la imagen de arriba . . .",
+
+ "DUPLICATE_OPTION":"Duplicar",
+
+ "CHOOSE_YOUR_COUNTRY":"Selecciona tu pais"
+
+
+ 
+
+
+
+
+  
+
+
+  
+}
+
+
+{"id":65,"authentication_token":"1dbfxsZS2hVB1ond1mWt","email":null,"username":"dhsbjhd@kmkm.cl","created_at":"2017-12-01T03:37:54.134Z","updated_at":"2017-12-01T03:37:54.134Z"}

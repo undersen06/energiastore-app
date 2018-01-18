@@ -1,0 +1,67 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "io.ionic.starter"
+        },
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+        },
+        "cordova-plugin-app-version": {
+            "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-file-opener2": {
+            "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-ios-camera-permissions": {
+            "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
+            "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
+            "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access",
+            "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-media-capture": {
+            "CAMERA_USAGE_DESCRIPTION": "EnergiaStore desea acceder a tu camara.",
+            "MICROPHONE_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": "EnergiaStore desea acceder a tus fotos.",
+            "PACKAGE_NAME": "com.energia.store"
+        },
+        "cordova-plugin-actionsheet": {
+            "PACKAGE_NAME": "com.energia.store"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+        }
+    }
+}

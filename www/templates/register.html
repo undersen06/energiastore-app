@@ -1,0 +1,61 @@
+<ion-view>
+  <div class="bar bar-header bar-light" style="background-color:transparent;">
+<i class="ion-ios-arrow-back" style="margin-left:10px;font-size:30px;color:white;" ng-click="onBack();"></i>
+  </div>
+
+  <ion-content class="back-color1" id="content-register">
+
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-init="disableSwipe()" show-pager="false">
+      <ion-slide>
+
+        <div class="row" style="margin-top: 10vw;">
+          <div class="col s12 m6">
+            <div class="card card-register" style="padding:0">
+              <div class="card-content white-text">
+                <span class="card-title login-title">{{translations.REGISTER_SLIDER_1_HEADER}}</span>
+
+                <div class="input-field col s12">
+                  <input id="email" type="text" class="validate" ng-model="user.email">
+                  <label for="email">{{translations.REGISTER_SLIDER_1_PLACEHOLDER_EMAIL}}</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate" ng-model="user.password">
+                  <label for="password">{{translations.REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD}}</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="password_confirmation" type="password" class="validate" ng-model="user.password_confirmation">
+                  <label for="password_confirmation">{{translations.REGISTER_SLIDER_1_CONFIRMATION_PASSWORD}}</label>
+                </div>
+              </div>
+            </div>
+            <a class="btn-floating btn-large waves-effect waves-light register-float-button" ng-click="nextButton(0);"><i class="ion-android-arrow-forward"></i></a>
+          </div>
+        </div>
+
+      </ion-slide>
+
+      <ion-slide>
+        <div class="row" style="margin-top: 10vw;">
+          <div class="col s12 m6">
+            <div class="card card-register">
+              <div class="card-content white-text">
+                <span class="card-title login-title">{{translations.REGISTER_SLIDER_2_HEADER}}</span>
+                <br>
+                <img class="logo-register" src="img/logo_white.png" alt="">
+                <br>
+                <span class="card-title login-subtitle">{{translations.REGISTER_SLIDER_2_SUBTITLE}}</span>
+
+
+              </div>
+
+            </div>
+            <a class="btn-floating btn-large waves-effect waves-light register-float-button"><i class="ion-android-arrow-forward" ng-click="finish()"></i></a>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+
+
+    
+  </ion-content>
+</ion-view>

@@ -1,0 +1,53 @@
+{
+  "_from": "git+https://github.com/whiteoctober/cordova-plugin-app-version.git",
+  "_id": "cordova-plugin-app-version@0.1.9",
+  "_inBundle": false,
+  "_integrity": "sha1-zYxBvv9jOGbNtG8uKU76zNhLLqI=",
+  "_location": "/cordova-plugin-app-version",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "cordova-plugin-app-version@git+https://github.com/whiteoctober/cordova-plugin-app-version.git",
+    "name": "cordova-plugin-app-version",
+    "escapedName": "cordova-plugin-app-version",
+    "rawSpec": "git+https://github.com/whiteoctober/cordova-plugin-app-version.git",
+    "saveSpec": "git+https://github.com/whiteoctober/cordova-plugin-app-version.git",
+    "fetchSpec": "https://github.com/whiteoctober/cordova-plugin-app-version.git",
+    "gitCommittish": "master"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/whiteoctober/cordova-plugin-app-version.git#e16bc62ab9556e1df34ef52a57eaa08dda16ba8d",
+  "_spec": "cordova-plugin-app-version@git+https://github.com/whiteoctober/cordova-plugin-app-version.git",
+  "_where": "/Users/tomasdiaz/workspace/freelances/energiaStore/energiaStore-mobile/node_modules",
+  "author": {
+    "name": "whiteoctober"
+  },
+  "bugs": {
+    "url": "https://github.com/whiteoctober/cordova-plugin-app-version/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Cordova plugin to return the version number of the current app",
+  "homepage": "https://github.com/whiteoctober/cordova-plugin-app-version#readme",
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "app",
+    "version",
+    "appversion",
+    "plugin"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-app-version",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whiteoctober/cordova-plugin-app-version.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.9"
+}

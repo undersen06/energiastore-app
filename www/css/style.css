@@ -1,0 +1,426 @@
+/* Empty. Add your own CSS if you like */
+
+
+html, body ,h1, h2, h3, h4, h5, h6, p{
+  font-family: 'Varela Round', sans-serif;
+}
+
+.button{
+  font-size: 14px;
+}
+
+
+.dashboard-button{
+
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+
+.dashboard-button-img{
+  position: relative;
+  width: 65px;
+  bottom: 22px;
+}
+
+h1,h5{
+  color:white;
+}
+
+.ion-ios-settings{
+  color:white;
+}
+.popup{
+  background-color:white;
+}
+
+.popup-head{
+  background-color:white;
+  border-bottom:0px;
+}
+
+.background-welcome{
+  width: 60%;
+  position: absolute;
+  left:50%;
+  transform:translate(-50%);
+}
+
+
+.popup-body{
+  background-color:white;
+}
+
+.popup-buttons{
+  background-color:white;
+}
+
+
+.button-cancel{
+  background-color:white;
+  color:rgb(185, 185, 185);
+  text-transform: uppercase;
+}
+.button-afirmative{
+  background-color:white;
+  color:#62D485;
+  text-transform: uppercase;
+}
+
+
+.popup-title{
+  font-size:22px;
+  color:#656565;
+}
+
+.popup-subtitle{
+  font-size:16px;
+  color:#8c8c8c;
+  font-color:rgb(147, 147, 147);
+  text-align: center;
+}
+.popup{
+  width:70vw !important;
+  max-width: 500px !important;
+}
+
+
+.tab-not-selected{
+  display:grid;
+  background-color:transparent;
+  color: white;
+  font-size: 15px;
+}
+
+.bar-footer {
+  height: 50px !important;
+}
+
+.tab-selected{
+  display:grid;
+  background-color:transparent;
+  font-size:15px;
+  color:white;
+}
+
+.button-traslucid{
+  width: 70vw;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-size: 16px;"
+}
+
+
+
+.button-john{
+  margin: 15px auto !important;
+  bottom:0px !important;
+}
+
+
+.user-color-button{
+  border: 3px solid #62D485;
+  color:#62D485;
+}
+
+.explorer-color-button{
+  border: 3px solid #62BED4;
+  color:#62BED4;
+}
+
+
+.partner-color-button{
+  border: 3px solid #F5A623;
+  color:#F5A623;
+}
+
+.user-color-button-solid{
+  background-color: #62D485;
+  color:white;
+}
+
+.explorer-color-button-solid{
+  color:white;
+  background-color:#62BED4;
+}
+
+
+.partner-color-button-solid{
+  background-color:#F5A623;
+  color:white;
+}
+
+
+
+.user-color{
+  border-color:#62D485 !important;
+  background: #62D485 linear-gradient(0deg, #62D485, #62D485 50%, transparent 50%) !important;
+}
+
+.explorer-color{
+  border-color:#62BED4 !important;
+  background: #62BED4 linear-gradient(0deg, #62BED4, #62BED4 50%, transparent 50%) !important;
+}
+
+.partner-color{
+  border-color:#F5A623 !important;
+  background: #F5A623 linear-gradient(0deg, #F5A623, #F5A623 50%, transparent 50%) !important;
+}
+
+
+
+.user-color-font{
+  color:#62D485 !important;
+}
+
+.explorer-color-font{
+  color:#62BED4 !important;
+}
+
+.partner-color-font{
+  color:#F5A623 !important;
+}
+
+.img-about-us{
+  width:100px;
+}
+
+
+.background-introduction{
+  width: 100%;
+  position: absolute;
+  transform: translate(0,50%);
+}
+
+.color-1{
+  background-color: rgba(58, 167, 13, 0.59);
+}
+
+.title-slider{
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  text-align: center;
+  font-size:20px;
+  top:50vh;
+  position:relative;
+}
+
+.login-subtitle{
+  color: rgb(150, 150, 150);
+  font-weight: 300;
+  text-align: center;
+  font-size:4.5vw !important;
+}
+
+.logo-register{
+  width: 20vw;
+  margin:  0  auto;
+  display: block;
+  position: relative;
+}
+
+.slider{
+  height: 100vh;
+  top:0;
+}
+
+.slider-box{
+  padding:30px;
+}
+
+.icon-intro{
+  color: white;
+  font-size: 30vw !important;
+  display: block !important;
+  text-align: center;
+  margin: 20vw;
+}
+
+.button-init{
+  padding: 10px 20px;
+  margin: 30px auto 0 auto;
+  display: block;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  border-radius: 51px;
+}
+
+/*Login*/
+.login-title{
+  color: black;
+  text-align: center;
+}
+
+.card-login{
+  padding: 20px 20px 20px 20px;
+}
+
+
+/* Register */
+.back-color1{
+  background-color:#8bcb71;
+  transition:1s;
+}
+
+.back-color2{
+  background-color:#5bc9d4;
+  transition:1s;
+}
+
+.back-color3{
+  background-color:#d5b554;
+  transition:1s;
+}
+.card-register{
+  padding: 0 0 26px 0 !important;
+}
+
+.register-float-button{
+  position: relative !important;
+  top: -40px !important;
+  left: 70vw !important;
+  background-color:#51c4f3 !important;
+}
+
+
+
+/* Dashboard */
+
+.image-quotation{
+
+}
+
+
+.factor-send-button{
+  width: 70%;
+  margin: 15px auto !important;
+  display: block !important;
+  /*bottom: -5vh;*/
+  position: relative;
+}
+
+
+.loading-container.active {
+  background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.loading-container .loading {
+
+  background-color: #ffffff !important;
+  color: #383838 !important;
+
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 2s linear infinite;
+  -moz-animation: rotating 2s linear infinite;
+  -ms-animation: rotating 2s linear infinite;
+  -o-animation: rotating 2s linear infinite;
+  animation: rotating 2s linear infinite;
+}
+
+.hide{
+  display:none;
+}
+
+.logo-welcome{
+  width: 30vw;
+  margin: 25vh auto 5vh auto;
+  display: block;
+  position: relative;
+}
+
+.welcome-button{
+  margin: 5vw !important;
+}
+
+
+.modal-img-config{
+  width:100px;top:-55px;
+  position:relative;
+}
+
+/*.popup{
+border-radius: 20px !important;
+width: 75% !important;
+}
+
+.popup-head{
+margin-bottom: 0;
+}*/
+.modal-body-config{
+  top:-60px;
+  position:relative;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.modal-body-subtitle{
+  top:-40px;
+  position:relative;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+
+.modal-title-config{
+  top:-40px;
+  position:relative;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.button-special{
+  background-color: #8bcb71;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+
+.help-icon{
+  font-size: 25px;
+  position: relative;
+  display: block;
+  margin: auto 0 auto 10vw;
+}
+
+
+.popover{
+  height:0px;
+}
+/*.popup-container .popup {
+background-color: white;
+}*/

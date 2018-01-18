@@ -1,0 +1,102 @@
+<ion-view >
+  <ion-header-bar align-title="center" ng-class="design.header">
+    <h5 ng-click="back()" style="margin-left:10px;;width: 30px;"><i class="ion-chevron-left" style="z-index:999;" ></i></h5>
+    <h1 class="title">{{translations.QUOTATION_HEADER}}</h1>
+  </ion-header-bar>
+  <ion-content>
+
+    <ion-refresher  on-refresh="doRefreshQuotation()">
+    </ion-refresher>
+
+
+    <h6 ng-hide="calculations.length != 0" style="text-align: center;margin: 30px;font-size: 20px;">
+      {{translations.QUOTATION_CARD_TITLE}} <strong style="font-weight:600">{{translations.QUOTATION_CARD_TITLE_STRONG}}...</strong>
+    </h6>
+
+    <!-- <button  class="waves-effect waves-light btn factor-send-button button-john" type="button" name="button" ng-click="()()">{{translations.}} </button> -->
+
+
+    <div ng-class="design.button" ng-click="addQuotationPopUp();" class="button-traslucid">
+      {{translations.BUTTON_ADD_PROJECT}}
+    </div>
+
+
+    <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
+      <ion-item ng-repeat="calculation in calculations" style="width:100%;height:100px;display: -webkit-box;" ng-click="goToCalculation(calculation)" ng-if="calculation.energy_cost != null" >
+
+        <div style="width:50px;position:relative;">
+          <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#31c75f !important"></i>
+          <i ng-if="calculation.estimated_cost == null"class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#e3e641 !important"></i>
+        </div>
+
+        <div class="">
+
+
+
+          <h2>{{calculation.name}}</h2>
+          <p>{{calculation.energy_cost | number : fractionSize}} USD</p>
+          <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
+
+          <ion-option-button ng-if="calculation.estimated_cost != null" class="button-positive" ng-click="duplicateProject(calculation)">
+            {{translations.DUPLICATE_OPTION}}
+          </ion-option-button>
+          <!-- <ion-option-button class="button-danger" ng-click="delete(calculation.id)">
+            Eliminar
+          </ion-option-button> -->
+
+        </div>
+
+      </ion-item>
+    </ion-list>
+
+
+
+  </ion-content>
+  <ion-footer-bar ng-class="design.footer">
+    <div class="" style="width: 100%;display: flex;">
+
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button tab-not-selected"  ng-click="goToProjects()">
+          <i class="fa fa-bookmark"></i>
+          {{translations.FOOTER_PROJECT}}
+        </button>
+      </div>
+
+      <div  class="dashboard-button" ng-click="goToDashboard()">
+        <img src="./img/logo.png" class="dashboard-button-img" alt="">
+      </div>
+
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button tab-not-selected"  ng-click="goToQuotes()">
+          <i class="fa fa-money"></i>
+          {{translations.FOOTER_QUOTE}}
+        </button>
+      </div>
+
+    </div>
+  </ion-footer-bar>
+</ion-view>
+
+
+
+<style>
+.item-content{
+  display:-webkit-flex;
+  width:100%;
+}
+
+.item-content-dot{
+  margin: auto;
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+h5{
+  text-align: center;
+}
+
+
+</style>

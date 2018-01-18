@@ -1,0 +1,199 @@
+<ion-view >
+  <ion-view title="Title" >
+    <ion-content id="content-id" class="" has-bouncing="false">
+      <img id="image-logo" src="img/introduction/map.svg"  class="background-welcome " >
+
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+        <ion-slide class="slider-box">
+
+          <h5 style="    top: 20vh;
+          position: relative;
+          text-align: center;color:black;">
+          Choose your language</h5>
+
+          <h6 style="    top: 22vh;
+          position: relative;
+          text-align: center;">
+          Selecciona tu idioma</h6>
+
+
+
+          <div class="" style="    display: flex;top: 30vh;position: relative;">
+
+
+            <div class="" style="margin: 0 auto;">
+            <img src="./img/flag/spain.png" alt=""  ng-click="chooseLanguage('es')"/>
+            <p style="text-align:center">Español</p>
+          </div>
+
+          <div class="" style="margin: 0 auto;">
+          <img src="./img/flag/uk.png" alt="" ng-click="chooseLanguage('en')"/>
+          <p style="text-align:center">English</p>
+        </div>
+
+
+
+
+
+        </div>
+
+
+      </ion-slide>
+
+
+      <ion-slide class="slider-box">
+
+
+        <h5 style="    top: 20vh;
+        position: relative;
+        text-align: center;color:black;">
+        {{translations.CHOOSE_YOUR_COUNTRY}}</h5>
+
+
+        <div class="" style="    display: flex;top: 30vh;position: relative;">
+
+
+          <div class="" style="margin: 0 auto;">
+          <img src="./img/flag/CL.png" alt="" ng-click="chooseCountry('chile')" />
+          <p style="text-align:center">Chile</p>
+        </div>
+
+        <div class="" style="margin: 0 auto;">
+        <img src="./img/flag/AR.png" alt="" ng-click="chooseCountry('argentina')" />
+        <p style="text-align:center">Argentina</p>
+      </div>
+
+      <div class="" style="margin: 0 auto;">
+      <img src="./img/flag/CO.png" alt="" ng-click="chooseCountry('colombia')"/>
+      <p style="text-align:center">Colombia</p>
+    </div>
+
+
+
+      </div>
+
+
+      </ion-slide>
+
+
+    </ion-slide-box>
+  </ion-content>
+</ion-view>
+
+
+<style media="screen">
+
+.slider-pager .slider-pager-page {
+  display: inline-block;
+  margin: 0 3px;
+  width: 15px;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.3;
+}
+
+.slider-one{
+  background-color:#62D485;
+}
+
+.slider-two{
+  background-color:#62BED4
+}
+
+.slider-three{
+  background-color:#F5A623
+}
+
+.slider-pager{
+  bottom:70px;
+}
+
+.animate-background{
+  transition: all 0.6s;
+
+}
+
+.container-bottom-button{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.bottom-button{
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+  font-size:17px;
+  color: rgb(255, 255, 255);
+}
+
+.bottom-button-right{
+  right: 35px;
+}
+
+.bottom-button-left{
+  left: 35px;
+}
+
+.bottom-introduction{
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  height: 43px;
+  background-color: rgba(126,126,126,.30);
+  left: 0;
+}
+
+
+.world-container-active{
+  background: rgb(255, 255, 255);
+}
+
+
+.phone-img{
+  width: 90vw;
+  position: absolute;
+  transform: translate(-50%,0);
+  top: 25%;
+  left: 50%;
+}
+
+
+.notification-div{
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  top: 140px;
+  position: relative;
+
+}
+
+
+.notification-div-left{
+  left: 50vw;
+}
+
+
+.notification-div-left-active{
+  background-color: white;
+  left: 10vw;
+}
+
+.notification-div-right{
+  right: 50vw;
+  margin-top:20px;
+}
+
+.notification-div-right-active{
+  background-color: white;
+  right: 10vw;
+
+}
+
+.animate-notifications{
+  transition: all .7s;
+}
+
+
+
+</style>

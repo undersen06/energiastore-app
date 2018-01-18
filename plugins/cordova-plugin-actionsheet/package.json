@@ -1,0 +1,68 @@
+{
+  "_from": "git+https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git",
+  "_id": "cordova-plugin-actionsheet@2.3.3",
+  "_inBundle": false,
+  "_integrity": "sha1-VlqYcb3rBs9OWFuVIVhoZW9FH80=",
+  "_location": "/cordova-plugin-actionsheet",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git",
+    "rawSpec": "https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git",
+    "saveSpec": "git+https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git",
+    "fetchSpec": "https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git",
+    "gitCommittish": "master"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git#6d0e125d9c4d6b0928285f62cdce7f1941917c83",
+  "_spec": "https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git",
+  "_where": "/Users/tomasdiaz/workspace/freelances/energiaStore/energiaStore-mobile/node_modules",
+  "author": {
+    "name": "Eddy Verbruggen - @EddyVerbruggen"
+  },
+  "bugs": {
+    "url": "https://github.com/EddyVerbruggen/cordova-plugin-actionsheet/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-actionsheet",
+    "platforms": [
+      "ios",
+      "android",
+      "wp8"
+    ]
+  },
+  "deprecated": false,
+  "description": "Show a sheet of options the user can choose from.",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/EddyVerbruggen/cordova-plugin-actionsheet#readme",
+  "keywords": [
+    "ActionSheet",
+    "UIActionSheet",
+    "AlertDialog",
+    "Dialog",
+    "List",
+    "Picker",
+    "Popup",
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android",
+    "cordova-wp8"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-actionsheet",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git"
+  },
+  "version": "2.3.3"
+}

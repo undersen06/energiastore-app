@@ -1,0 +1,117 @@
+<ion-view ng-init="init()">
+  <ion-header-bar align-title="center" class="bar-positive special-color">
+    <div class="buttons">
+      <div class="buttons" style="width: 30px;height: 30px;" ng-click="back();">
+        <i class="ion-ios-arrow-thin-left" style="    margin: auto;font-size: 25px;"></i>
+      </div>
+    </div>
+    <h1 class="title">{{translations.FACTOR_HEADER}}</h1>
+    <div class="buttons" style="width: 30px;height: 30px;" ng-click="openModalHelp();">
+      <i class="ion-ios-help-outline" style="    margin: auto;font-size: 25px;"></i>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+
+    <ion-refresher  on-refresh="doRefreshFactor()">
+    </ion-refresher>
+
+
+    <h6 ng-hide="factors.length != 0" style="text-align: center;margin: 30px;font-size: 20px;">
+      {{translations.FACTOR_CARD_TITLE}} <strong style="font-weight:600">{{translations.FACTOR_CARD_TITLE_STRONG}}</strong>{{FACTOR_CARD_TITLE_POST}}
+    </h6>
+
+    <button  class="waves-effect waves-light btn factor-send-button button-john" type="button" name="button" ng-click="openModalQuote()">{{translations.BUTTON_ADD_FACTOR}} </button>
+
+    <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
+      <ion-item ng-repeat="factor in factors" style="height:100px;display: -webkit-box;" ng-click="viewPdf({{factor}})" >
+
+        <div style="width:50px;position:relative;">
+          <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#31c75f !important"></i>
+          <i ng-if="calculation.estimated_cost == null"class="fa fa-circle item-content-dot" aria-hidden="true" style="color:#e3e641 !important"></i>
+        </div>
+
+        <div class="">
+
+          <p>Id: {{factor.id}}</p>
+          <p>Fecha de cotización: {{factor.created_at | date: 'dd-MM-yyyy'}}</p>
+          <ion-option-button class="button-danger" ng-click="delete(calculation.id)">
+            Eliminar
+          </ion-option-button>
+
+        </div>
+      </ion-item>
+    </ion-list>
+
+
+
+  </ion-content>
+
+
+  <ion-footer-bar>
+    <div class="" style="width: 100%;display: flex;">
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;"  ng-click="goToProjects()">
+<i class="fa fa-bookmark"></i>
+
+Projectos
+        </button>
+
+
+      </div>
+      <!-- <h1 class="title">Title!</h1> -->
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button" style="display:grid;background-color:transparent;" ng-click="goToProfile()" ng-if="user.type_user !== 'explorer'">
+
+          <i class="fa fa-user"></i>
+
+          Perfil
+        </button>
+      </div>
+
+      <div class="buttons" style="margin:0 auto;">
+        <button class="button"  style="display:grid;background-color:transparent;font-size:15px;color:white;"  ng-click="goToQuotes()">
+
+          <i class="fa fa-money"></i>
+
+          Cotizaciones
+        </button>
+      </div>
+    </div>
+</ion-footer-bar>
+</ion-view>
+
+
+
+<style>
+.item-content{
+  display:-webkit-flex
+}
+
+.item-content-dot{
+  margin: auto;
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.popup-head{
+  min-height: 40px;
+}
+.popup-body {
+  padding: 10px;
+  overflow: visible;
+  height:30vh;
+}
+
+.bar-footer {
+    height: 50px !important;
+    background-color: #8bcb71;
+}
+
+h5{
+  text-align: center;
+}
+
+</style>

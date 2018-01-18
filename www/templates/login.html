@@ -1,0 +1,59 @@
+<ion-view>
+  <ion-content ng-class="design.header" >
+
+<i class="ion-ios-arrow-back" style="margin-left: 15px;
+    font-size: 30px;
+    color: white;
+    top: -30px;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+" ng-click="Back();"></i>
+
+<img src="./img/logo.png" alt="" style="    position: absolute;
+    width: 70px;
+    z-index: 99;
+    transform: translate(-50%);
+    left: 50%;
+    top: -15px;">
+    <div class="row" style="margin-top: 10vw;">
+
+      <div class="col s12 m6">
+        <div class="card card-login">
+          <div class="card-content white-text">
+
+
+            <span class="card-title login-title">{{translations.LOGIN_HEADER}}</span>
+
+            <div class="input-field col s12">
+              <input id="email" type="text" class="validate" ng-model="user.email">
+
+              <label for="email">{{translations.LOGIN_EMAIL_PLACEHOLDER}}</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="password" type="password" class="validate" ng-model="user.password">
+
+              <label for="password">{{translations.LOGIN_PASSWORD_PLACEHOLDER}}</label>
+            </div>
+
+            <br />
+
+            <a class="waves-effect waves-light btn" ng-click="login()" ng-class="design.header" style="width: 100%;">{{translations.LOGIN_BUTTON}}</a>
+
+            </br>
+            </br>
+            <!-- <a class="waves-effect waves-light btn" ng-click="goExplorer()" style="width: 100%;">{{translations.EXPLORER_SECOND}}</a> -->
+
+            <p style="color: black;text-align: center;margin-bottom: 10px;"> {{translations.LOGIN_SIGNUP_TEXT}}</p>
+
+              <a class="waves-effect waves-light btn" ng-click="goToRegister()" ng-class="design.header" style="width: 100%;">{{translations.LOGIN_SIGNUP_BUTTON}}</a>
+               <!-- <strong style="font-weight:600;" ng-class="design.color">{{translations.}}</strong></p> -->
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
