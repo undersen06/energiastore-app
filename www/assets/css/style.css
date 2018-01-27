@@ -2,6 +2,7 @@
 @import '../../js/components/footbar/footbar.css';
 @import '../../js/views/login/login.css';
 @import '../../js/views/welcome/welcome.css';
+@import '../../js/views/introduction/introduction.css';
 
 
 /* Empty. Add your own CSS if you like */
@@ -189,11 +190,6 @@ h1,h5{
 }
 
 
-.background-introduction{
-  width: 100%;
-  position: absolute;
-  transform: translate(0,50%);
-}
 
 .color-1{
   background-color: rgba(58, 167, 13, 0.59);

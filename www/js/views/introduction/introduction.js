@@ -9,22 +9,14 @@ CONTROLLER DEFINITION
   this.app.controller("IntroductionController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout",
   function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout) {
 
-
-    $ionicPlatform.ready(function() {
-
-
-
       var containerId;
       var worldId;
       var notification_1;
       var notification_2;
-      var  hasChangeSlide3;
+      var hasChangeSlide3;
 
 
       $scope.shouldShowBackButton=false;
-
-
-
 
       $scope.init= function(){
 
@@ -92,11 +84,11 @@ CONTROLLER DEFINITION
             $scope.RightButtonText = $scope.translations.NEXT;
 
             $timeout( function() {
-              notification_1.addClass('notification-div-left-active');
+              notification_1.addClass('left-active');
             },100);
 
             $timeout( function() {
-              notification_2.addClass('notification-div-right-active');
+              notification_2.addClass('right-active');
             },300);
 
             break;
@@ -225,7 +217,5 @@ $timeout(function () {
 
 
 
-
-      });
     }]);
   }).call(this);
