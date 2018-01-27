@@ -39,21 +39,16 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-console": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-console@1.0.5"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-camera": {
     "source": {
       "type": "registry",
       "id": "cordova-plugin-camera@^2.4.1"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+    }
   },
   "cordova-plugin-compat": {
     "source": {
@@ -124,14 +119,6 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-team@https://github.com/apache/cordova-plugin-whitelist.git"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-x-toast": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-x-toast@git+https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git"
     },
     "is_top_level": true,
     "variables": {}

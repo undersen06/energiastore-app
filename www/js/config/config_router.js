@@ -44,7 +44,7 @@ ROUTES CONFIGURATION
         url: "/welcome",
         cache: false,
         abstract: false,
-        templateUrl: "templates/common/welcome.html",
+        templateUrl: "js/views/welcome/welcome.html",
         controller: "WelcomeController"
       })
 
@@ -52,7 +52,7 @@ ROUTES CONFIGURATION
         url: "/introduction",
         cache: false,
         abstract: false,
-        templateUrl: "templates/common/introduction.html",
+        templateUrl: "js/views/introduction/introduction.html",
         controller: "IntroductionController"
       })
 
@@ -60,7 +60,7 @@ ROUTES CONFIGURATION
         url: "/middleware",
         cache: false,
         abstract: false,
-        templateUrl: "templates/common/middleware.html",
+        templateUrl: "js/views/middleware/middleware.html",
         controller: "MiddlewareController"
       })
 
@@ -69,7 +69,7 @@ ROUTES CONFIGURATION
         url: "/tutorials/type_user/:flag",
         cache: false,
         abstract: false,
-        templateUrl: "templates/tutorials/tutorial_type_user.html",
+        templateUrl: "js/views/tutorials/tutorials/type_user/tutorial.html",
         controller: "TutorialTypeUserController"
       })
 
@@ -78,7 +78,7 @@ ROUTES CONFIGURATION
         url: "/tutorials/factor/:flag",
         cache: false,
         abstract: false,
-        templateUrl: "templates/tutorials/tutorial_penalty_factor.html",
+        templateUrl: "js/views/tutorials/tutorials/penalty/tutorial.html",
         controller: "TutorialPenaltyController"
       })
 
@@ -87,21 +87,21 @@ ROUTES CONFIGURATION
         url: "/login",
         cache: false,
         abstract: false,
-        templateUrl: "templates/login.html",
+        templateUrl: "js/views/login/login.html",
         controller: "LoginController"
       })
       .state("register", {
         url: "/register",
         cache: false,
         abstract: false,
-        templateUrl: "templates/register.html",
+        templateUrl: "js/views/register/register.html",
         controller: "RegisterController"
       })
       .state("dashboard", {
         url: "/dashboard",
         cache: false,
         abstract: false,
-        templateUrl: "templates/dashboard.html",
+        templateUrl: "js/views/register/dashboard.html",
         controller: "DashboardController"
       })
 
@@ -109,7 +109,7 @@ ROUTES CONFIGURATION
         url: "/settings",
         cache: false,
         abstract: false,
-        templateUrl: "templates/common/settings.html",
+        templateUrl: "js/views/settings/settings.html",
         controller: "SettingsController"
       })
 
@@ -117,7 +117,7 @@ ROUTES CONFIGURATION
         url: "/projects",
         cache: false,
         abstract: false,
-        templateUrl: "templates/project.html",
+        templateUrl: "js/views/project/project.html",
         controller: "ProjectController"
       })
 
@@ -125,18 +125,18 @@ ROUTES CONFIGURATION
         url: "/quotation",
         cache: false,
         abstract: false,
-        templateUrl: "templates/quotation.html",
+        templateUrl: "js/views/quotation/quotation.html",
         controller: "QuotationController"
       })
 
 
-      .state("factor", {
-        url: "/factor",
-        cache: false,
-        abstract: false,
-        templateUrl: "templates/factor.html",
-        controller: "FactorController"
-      })
+      // .state("factor", {
+      //   url: "/factor",
+      //   cache: false,
+      //   abstract: false,
+      //   templateUrl: "templates/factor.html",
+      //   controller: "FactorController"
+      // })
 
       .state("profile", {
         url: "/profile",
@@ -150,7 +150,7 @@ ROUTES CONFIGURATION
         url: "/quotation/:id_quotation/motors/:project_name",
         cache: false,
         abstract: false,
-        templateUrl: "templates/motor.html",
+        templateUrl: "js/views/motors/motor.html",
         controller: "MotorsController"
       })
 
@@ -158,7 +158,7 @@ ROUTES CONFIGURATION
         url: "/quotation/:id_quotation/motors/finalize",
         cache: false,
         abstract: false,
-        templateUrl: "templates/finalize_quotation.html",
+        templateUrl: "js/views/quotation/finalize/quotation.html",
         controller: "FinalizedQuotationController"
       })
 
@@ -166,7 +166,7 @@ ROUTES CONFIGURATION
         url: "/factor",
         cache: false,
         abstract: false,
-        templateUrl: "templates/factor.html",
+        templateUrl: "js/views/factormp/factor.html",
         controller: "FactorController"
       })
 
@@ -174,7 +174,7 @@ ROUTES CONFIGURATION
         url: "/tutorials",
         cache: false,
         abstract: false,
-        templateUrl: "templates/common/tutorials.html",
+        templateUrl: "js/views/tutorials/tutorials.html",
         controller: "TutorialsController"
       })
 

@@ -1,0 +1,60 @@
+#welcome-view{
+  #content-id{
+    #image-logo{
+      &.background-welcome{
+        width: 60%;
+        position: absolute;
+        left:50%;
+        transform:translate(-50%);
+      }
+    }
+    h5{
+      top: 20vh;
+      position: relative;
+      text-align: center;
+      color:black;
+    }
+
+    h6{
+      top: 22vh;
+      position: relative;
+      text-align: center;
+    }
+
+    .slider-slides{
+      .slider-box{
+        .language-container{
+          display: flex;
+          top: 30vh;
+          position: relative;
+
+          div{
+            &.country-opt{
+              margin: 0 auto;
+
+              p{
+                text-align:center
+              }
+            }
+          }
+        }
+
+        .country-container{
+          display: flex;
+          top: 30vh;
+          position: relative;
+
+          div{
+
+            &.country-opt{
+              margin: 0 auto;
+              p{
+                text-align:center
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

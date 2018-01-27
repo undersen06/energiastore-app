@@ -1,8 +1,8 @@
 {
   "_from": "onesignal-cordova-plugin",
-  "_id": "onesignal-cordova-plugin@2.2.2",
+  "_id": "onesignal-cordova-plugin@2.2.5",
   "_inBundle": false,
-  "_integrity": "sha1-gP+X5b3oveCG2TpV5tOPxCvUilg=",
+  "_integrity": "sha512-4mYhkIj2kA2182AwZ9L8+iI+NotDlio5J4eF9m+iucDIqmz8xp74ktZCpQk6ZiBpuPUn8aA2O3M92T9ctCkH6g==",
   "_location": "/onesignal-cordova-plugin",
   "_phantomChildren": {},
   "_requested": {
@@ -19,10 +19,10 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/onesignal-cordova-plugin/-/onesignal-cordova-plugin-2.2.2.tgz",
-  "_shasum": "80ff97e5bde8bde086d93a55e6d38fc42bd48a58",
+  "_resolved": "https://registry.npmjs.org/onesignal-cordova-plugin/-/onesignal-cordova-plugin-2.2.5.tgz",
+  "_shasum": "619e3292101d15d237441c7da468abd0df0dc99c",
   "_spec": "onesignal-cordova-plugin",
-  "_where": "/Users/tomasdiaz/workspace/freelances/energiaStore/energiaStore-mobile/node_modules",
+  "_where": "/Users/tomasdiaz/workspace/freelances/energia-store/energiastore-app",
   "author": {
     "name": "Josh Kasten"
   },
@@ -92,5 +92,5 @@
     "type": "git",
     "url": "git+https://github.com/onesignal/OneSignal-Cordova-SDK.git"
   },
-  "version": "2.2.2"
+  "version": "2.2.5"
 }

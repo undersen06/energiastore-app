@@ -83,11 +83,8 @@
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
-    <engine name="android" spec="^6.3.0" />
-    <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-whitelist" spec="git+https://github.com/apache/cordova-plugin-whitelist.git" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
-    <plugin name="cordova-plugin-x-toast" spec="git+https://github.com/EddyVerbruggen/Toast-PhoneGap-Plugin.git" />
     <plugin name="cordova-plugin-app-version" spec="git+https://github.com/whiteoctober/cordova-plugin-app-version.git" />
     <plugin name="cordova-plugin-team" spec="https://github.com/apache/cordova-plugin-whitelist.git" />
     <plugin name="cordova-plugin-media-capture" spec="^1.4.3">
@@ -108,9 +105,10 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
     </plugin>
-    <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-actionsheet" spec="git+https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git" />
-    <plugin name="onesignal-cordova-plugin" spec="^2.2.2" />
+    <plugin name="onesignal-cordova-plugin" spec="^2.2.5" />
+    <engine name="android" spec="6.4.0" />
+    <engine name="ios" spec="^4.5.4" />
 </widget>

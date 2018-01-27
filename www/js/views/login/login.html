@@ -1,0 +1,43 @@
+<ion-view id="login-view">
+  <ion-content ng-class="design.header" >
+
+<i class="ion-ios-arrow-back" ng-click="Back();"></i>
+
+<img src="assets/img/logo.png" class="logo-login">
+
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card card-login">
+          <div class="card-content white-text">
+
+
+            <span class="card-title login-title">{{translations.LOGIN_HEADER}}</span>
+
+            <div class="input-field col s12">
+              <input id="email" type="text" class="validate" ng-model="user.email">
+
+              <label for="email">{{translations.LOGIN_EMAIL_PLACEHOLDER}}</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="password" type="password" class="validate" ng-model="user.password">
+
+              <label for="password">{{translations.LOGIN_PASSWORD_PLACEHOLDER}}</label>
+            </div>
+
+            <br />
+
+            <a class="waves-effect waves-light btn" ng-click="login()" ng-class="design.header" >{{translations.LOGIN_BUTTON}}</a>
+
+            </br>
+            </br>
+
+            <p> {{translations.LOGIN_SIGNUP_TEXT}}</p>
+
+              <a class="waves-effect waves-light btn" ng-click="goToRegister()" ng-class="design.header" >{{translations.LOGIN_SIGNUP_BUTTON}}</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

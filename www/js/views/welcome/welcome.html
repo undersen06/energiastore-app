@@ -1,0 +1,59 @@
+<ion-view id="welcome-view">
+  <ion-content id="content-id" has-bouncing="false">
+    <img id="image-logo" src="assets/img/introduction/map.svg"  class="background-welcome" />
+
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+      <ion-slide class="slider-box">
+
+        <h5>Choose your language</h5>
+
+        <h6>Selecciona tu idioma</h6>
+
+        <div class="language-container">
+
+          <div class="country-opt" >
+            <img src="assets/img/flag/spain.png" ng-click="chooseLanguage('es')"/>
+            <p>Español</p>
+          </div>
+
+          <div class="country-opt" >
+            <img src="assets/img/flag/uk.png" ng-click="chooseLanguage('en')"/>
+            <p>English</p>
+          </div>
+
+        </div>
+
+
+      </ion-slide>
+
+
+      <ion-slide class="slider-box">
+
+
+        <h5>{{translations.CHOOSE_YOUR_COUNTRY}}</h5>
+
+
+        <div class="country-container" >
+
+
+          <div class="country-opt" >
+            <img src="assets/img/flag/CL.png" alt="" ng-click="chooseCountry('chile')" />
+            <p>Chile</p>
+          </div>
+
+          <div class="country-opt" >
+            <img src="assets/img/flag/AR.png" alt="" ng-click="chooseCountry('argentina')" />
+            <p>Argentina</p>
+          </div>
+
+          <div class="country-opt" >
+            <img src="assets/img/flag/CO.png" alt="" ng-click="chooseCountry('colombia')"/>
+            <p>Colombia</p>
+          </div>
+
+        </div>
+
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>
