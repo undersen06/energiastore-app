@@ -1,118 +1,36 @@
-<ion-view>
+<ion-view id="middleware-view">
   <ion-content>
-
-
-
     <div class="">
-      <span class="main-title" style="top:10vh;position:relative;">{{translations.MIDDLEWARE_TITLE}}</span>
+      <span class="main-title">{{translations.MIDDLEWARE_TITLE}}</span>
+
+      <div class="capsule-container">
+        <div class="capsule user" ng-click="handleGoTo(1)">
+          <span class="profile-title">User</span>
+          <div class="profile-subtitle-container">
+            <span class="profile-subtitle">{{translations.MIDDLEWARE_USER_BODY}}</span>
+          </div>
+        </div>
 
 
+        <div class="capsule partner" ng-click="handleGoTo(2)">
+          <span class="profile-title">Partner</span>
+          <div class="profile-subtitle-container">
+            <span class="profile-subtitle">{{translations.MIDDLEWARE_PARTNER_BODY}}</span>
+          </div>
+        </div>
 
-<div class="" style="position:relative;top:10vh;height:100vh;">
+        <!-- <div class="type_user_capsule explorer" ng-click="handleGoTo(3)">
 
-
-    <div class="type_user_capsule user" ng-click="handleGoTo(1)">
-
-      <span class="profile-title">User</span>
-      <div class="profile-subtitle-container">
-        <span class="profile-subtitle">{{translations.MIDDLEWARE_USER_BODY}}</span>
-      </div>
-    </div>
-
-
-    <div class="type_user_capsule partner" ng-click="handleGoTo(2)">
-
-      <span class="profile-title">Partner</span>
-      <div class="profile-subtitle-container">
-        <span class="profile-subtitle">{{translations.MIDDLEWARE_PARTNER_BODY}}</span>
-      </div>
-
-
-    </div>
-
-
-    <!-- <div class="type_user_capsule explorer" ng-click="handleGoTo(3)">
-
-      <span class="profile-title">Explorer</span>
-      <div class="profile-subtitle-container">
+        <span class="profile-title">Explorer</span>
+        <div class="profile-subtitle-container">
         <span class="profile-subtitle">{{translations.MIDDLEWARE_EXPLORER_BODY}}</span>
       </div>
 
 
     </div> -->
 
-    </div>
-
-
-<span    style=" top: 25px;
-    position: absolute;
-    z-index: 999;
-    right: 0px;
-    margin-right: 30px;
-    color: #61d485;
-    font-size: 16px;" ng-click="getHelp()">{{translations.MIDDLEWARE_HELP}} <i class="ion-chevron-right"></i></span>
-
+  </div>
+  <span  class="help-button" ng-click="getHelp()">{{translations.MIDDLEWARE_HELP}} <i class="ion-chevron-right"></i></span>
 </div>
-
-
-
-  </ion-content>
-
-
+</ion-content>
 </ion-view>
-
-
-<style media="screen">
-.main-title{
-  font-size: 20px;
-  color: #575757;
-  margin: 0 auto;
-  display: -webkit-box;
-  /* padding: 0 13vw; */
-  text-align: center;
-  width: 85vw;
-}
-
-.type_user_capsule{
-  width: 80vw;
-  height: 100px;
-  border-radius: 11px;
-  margin: 50px auto 25px auto;
-}
-
-.profile-subtitle-container{
-   position:relative;
-   top:25px
-}
-
-
-.user{
-  background-color:#62D485;
-}
-
-.explorer{
-  background-color:#62BED4;
-}
-
-.partner{
-  background-color:#F5A623;
-}
-
-.profile-title{
-  font-size: 25px;
-  color: white;
-  position: relative;
-  top: 22px;
-  margin-left: 75px;
-}
-
-
-.profile-subtitle{
-  font-size: 15px;
-  color: white;
-  position: relative;
-  padding-left: 40px;
-  display: -webkit-box;
-  width: calc(85vw - 30px);
-}
-</style>
