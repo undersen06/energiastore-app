@@ -101,7 +101,7 @@ ROUTES CONFIGURATION
         url: "/dashboard",
         cache: false,
         abstract: false,
-        templateUrl: "js/views/register/dashboard.html",
+        templateUrl: "js/views/dashboard/dashboard.html",
         controller: "DashboardController"
       })
 

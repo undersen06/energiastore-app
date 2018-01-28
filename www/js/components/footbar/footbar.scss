@@ -1,3 +1,35 @@
+@import "../../../css/vars.scss";
+
 #footbar-view{
-  
+  background-color:$primary-color;
+
+  .footer-container{
+    width: 100%;
+    display: flex;
+
+    .buttons{
+      margin:0 auto;
+
+      .tab-not-selected{
+        display:grid;
+        background-color:transparent;
+        color: white;
+        font-size: 15px;
+      }
+    }
+
+    .dashboard-button{
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%,0);
+
+
+
+      .dashboard-button-img{
+        position: relative;
+        width: 65px;
+        bottom: 22px;
+      }
+    }
+  }
 }

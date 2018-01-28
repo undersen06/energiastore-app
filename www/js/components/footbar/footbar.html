@@ -1,18 +1,18 @@
-<ion-footer-bar ng-class="design.footer" id="footbar-view">
-  <div class="" style="width: 100%;display: flex;">
+<ion-footer-bar id="footbar-view">
+  <div class="footer-container">
 
-    <div class="buttons" style="margin:0 auto;">
-      <button class="button tab-not-selected"  ng-click="goToProjects()">
+    <div class="buttons">
+      <button class="button tab-not-selected" ng-click="goToProjects()">
         <i class="fa fa-bookmark"></i>
         {{translations.FOOTER_PROJECT}}
       </button>
     </div>
 
     <div  class="dashboard-button" ng-click="goToDashboard()">
-      <img src="./img/logo.png" class="dashboard-button-img" alt="">
+      <img src="assets/img/logo.png" class="dashboard-button-img" alt="">
     </div>
 
-    <div class="buttons" style="margin:0 auto;">
+    <div class="buttons">
       <button class="button tab-not-selected"  ng-click="goToQuotes()">
         <i class="fa fa-money"></i>
         {{translations.FOOTER_QUOTE}}
