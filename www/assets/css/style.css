@@ -1,9 +1,12 @@
 
+@import '../../css/_color_var.css';
+
 @import '../../js/components/footbar/footbar.css';
 @import '../../js/views/login/login.css';
 @import '../../js/views/welcome/welcome.css';
 @import '../../js/views/introduction/introduction.css';
 @import '../../js/views/middleware/middleware.css';
+@import '../../js/views/register/register.css';
 
 
 /* Empty. Add your own CSS if you like */
@@ -205,19 +208,7 @@ h1,h5{
   position:relative;
 }
 
-.login-subtitle{
-  color: rgb(150, 150, 150);
-  font-weight: 300;
-  text-align: center;
-  font-size:4.5vw !important;
-}
 
-.logo-register{
-  width: 20vw;
-  margin:  0  auto;
-  display: block;
-  position: relative;
-}
 
 .slider{
   height: 100vh;
@@ -248,31 +239,9 @@ h1,h5{
 }
 
 /*Login*/
-.login-title{
-  color: black;
-  text-align: center;
-}
-
-.card-login{
-  padding: 20px 20px 20px 20px;
-}
 
 
-/* Register */
-.back-color1{
-  background-color:#8bcb71;
-  transition:1s;
-}
 
-.back-color2{
-  background-color:#5bc9d4;
-  transition:1s;
-}
-
-.back-color3{
-  background-color:#d5b554;
-  transition:1s;
-}
 .card-register{
   padding: 0 0 26px 0 !important;
 }

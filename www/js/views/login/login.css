@@ -17,6 +17,11 @@
 
 #login-view .row {
   margin-top: 10vw; }
+  #login-view .row div.card-login {
+    padding: 20px 20px 20px 20px; }
+    #login-view .row div.card-login span.login-title {
+      color: black;
+      text-align: center; }
   #login-view .row a {
     width: 100%; }
   #login-view .row p {

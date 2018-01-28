@@ -1,18 +1,17 @@
-<ion-view>
-  <div class="bar bar-header bar-light" style="background-color:transparent;">
-<i class="ion-ios-arrow-back" style="margin-left:10px;font-size:30px;color:white;" ng-click="onBack();"></i>
+<ion-view id="register-view">
+  <div class="bar bar-header bar-transparent">
+    <i class="ion-ios-arrow-back" ng-click="onBack();"></i>
   </div>
-
-  <ion-content class="back-color1" id="content-register">
+  <ion-content class="color-1" id="content-register">
 
     <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-init="disableSwipe()" show-pager="false">
-      <ion-slide>
+      <ion-slide class="slider-box-1">
 
-        <div class="row" style="margin-top: 10vw;">
+        <div class="row" >
           <div class="col s12 m6">
-            <div class="card card-register" style="padding:0">
-              <div class="card-content white-text">
-                <span class="card-title login-title">{{translations.REGISTER_SLIDER_1_HEADER}}</span>
+            <div class="card card-register">
+              <div class="card-content">
+                <span class="card-title register-title">{{translations.REGISTER_SLIDER_1_HEADER}}</span>
 
                 <div class="input-field col s12">
                   <input id="email" type="text" class="validate" ng-model="user.email">
@@ -34,14 +33,14 @@
 
       </ion-slide>
 
-      <ion-slide>
-        <div class="row" style="margin-top: 10vw;">
+      <ion-slide class="slider-box-2">
+        <div class="row">
           <div class="col s12 m6">
             <div class="card card-register">
-              <div class="card-content white-text">
-                <span class="card-title login-title">{{translations.REGISTER_SLIDER_2_HEADER}}</span>
+              <div class="card-content">
+                <span class="card-title register-title">{{translations.REGISTER_SLIDER_2_HEADER}}</span>
                 <br>
-                <img class="logo-register" src="img/logo_white.png" alt="">
+                <img class="logo-register" src="assets/img/logo_white.png" alt="">
                 <br>
                 <span class="card-title login-subtitle">{{translations.REGISTER_SLIDER_2_SUBTITLE}}</span>
 
@@ -56,6 +55,6 @@
     </ion-slide-box>
 
 
-    
+
   </ion-content>
 </ion-view>

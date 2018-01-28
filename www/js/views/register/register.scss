@@ -1,0 +1,83 @@
+@import "../../../css/vars.scss";
+
+#register-view{
+
+  div.bar-transparent{
+    background-color:transparent;
+
+    .ion-ios-arrow-back{
+      margin-left:10px;
+      font-size:30px;
+      color:white;
+    }
+  }
+
+  #content-register{
+    &.color-1{
+      background-color: $primary-color;
+    }
+
+    &.color-2{
+      background-color: $secondary-color;
+    }
+
+    .slider-slides{
+      margin-top: 10vw;
+      .slider-box-1{
+        .row{
+          div.card-register{
+            padding: 0 0 26px 0 !important;
+            span.register-title{
+              color: black;
+              text-align: center;
+            }
+          }
+
+          .register-float-button{
+            position: relative !important;
+            top: -40px !important;
+            left: 70vw !important;
+            background-color:#51c4f3 !important;
+          }
+        }
+      }
+
+      .slider-box-2{
+
+        .row{
+          div.card-register{
+            padding: 0 0 26px 0 !important;
+            span.register-title{
+              color: black;
+              text-align: center;
+            }
+          }
+
+          .register-float-button{
+            position: relative !important;
+            top: -40px !important;
+            left: 70vw !important;
+            background-color:#51c4f3 !important;
+          }
+
+
+          .login-subtitle{
+            color: rgb(150, 150, 150);
+            font-weight: 300;
+            text-align: center;
+            font-size:4.5vw !important;
+          }
+
+          .logo-register{
+            width: 20vw;
+            margin:  0  auto;
+            display: block;
+            position: relative;
+          }
+        }
+
+      }
+
+    }
+  }
+}

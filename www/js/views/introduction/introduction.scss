@@ -1,16 +1,18 @@
+@import "../../../css/vars.scss";
+
 #introduction-view{
   #content-id{
 
     &.slider-one{
-      background-color:#62D485;
+      background-color:$primary-color;
     }
 
     &.slider-two{
-      background-color:#62BED4
+      background-color:$secondary-color;
     }
 
     &.slider-three{
-      background-color:#F5A623
+      background-color:tertiary-color;
     }
     &.animate-background{
       transition: all 0.6s;
@@ -130,19 +132,9 @@
               &.animate-notifications{
                 transition: all .7s;
               }
-
             }
-
-
-
-
         }
       }
-
-
-
-
-
     }
 
 
@@ -176,9 +168,6 @@
         }
       }
     }
-
-
-
   }
 
   .slider-pager .slider-pager-page {

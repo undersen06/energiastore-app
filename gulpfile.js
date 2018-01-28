@@ -11,7 +11,7 @@ var changed = require('gulp-changed');
 var replace = require('gulp-replace');
 
 var paths = {
-  sass: ['./www/**/**/*.scss']
+  sass: ['./www/js/**/*.scss']
 };
 
 gulp.task('sass', function(done) {
