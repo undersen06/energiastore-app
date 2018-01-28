@@ -1,10 +1,12 @@
-<ion-view >
+<ion-view id="project-view">
   <ion-header-bar align-title="center" ng-class="design.header">
-    <h5 ng-click="back()" style="margin-left:10px;;width: 30px;"><i class="ion-chevron-left" style="z-index:999;" ></i></h5>
+    <h5 ng-click="back()">
+      <i class="ion-chevron-left"></i>
+    </h5>
     <h1 class="title">{{translations.QUOTATION_HEADER}}</h1>
   </ion-header-bar>
-  <ion-content>
 
+  <ion-content>
     <ion-refresher  on-refresh="doRefreshQuotation()">
     </ion-refresher>
 
@@ -52,29 +54,7 @@
 
 
   </ion-content>
-  <ion-footer-bar ng-class="design.footer">
-    <div class="" style="width: 100%;display: flex;">
-
-      <div class="buttons" style="margin:0 auto;">
-        <button class="button tab-not-selected"  ng-click="goToProjects()">
-          <i class="fa fa-bookmark"></i>
-          {{translations.FOOTER_PROJECT}}
-        </button>
-      </div>
-
-      <div  class="dashboard-button" ng-click="goToDashboard()">
-        <img src="./img/logo.png" class="dashboard-button-img" alt="">
-      </div>
-
-      <div class="buttons" style="margin:0 auto;">
-        <button class="button tab-not-selected"  ng-click="goToQuotes()">
-          <i class="fa fa-money"></i>
-          {{translations.FOOTER_QUOTE}}
-        </button>
-      </div>
-
-    </div>
-  </ion-footer-bar>
+  <<footbar></footbar>
 </ion-view>
 
 
@@ -93,10 +73,5 @@
   top: 50%;
   transform: translate(-50%,-50%);
 }
-
-h5{
-  text-align: center;
-}
-
 
 </style>

@@ -7,11 +7,18 @@
 @import '../../js/views/introduction/introduction.css';
 @import '../../js/views/middleware/middleware.css';
 @import '../../js/views/register/register.css';
-@import '../../js/components/footer/footer.css';
+@import '../../js/components/footbar/footbar.css';
+@import '../../js/views/dashboard/dashboard.css';
+@import '../../js/views/project/project.css';
+@import '../../js/views/factormp/factor.css';
 
 
 /* Empty. Add your own CSS if you like */
 
+
+h1.title{
+  font-size:20px !important;
+}
 
 html, body ,h1, h2, h3, h4, h5, h6, p{
   font-family: 'Varela Round', sans-serif;

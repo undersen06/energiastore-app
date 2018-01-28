@@ -1,0 +1,9 @@
+#project-view .bar-header h5 {
+  width: 44px;
+  top: 0px;
+  position: absolute;
+  text-align: center; }
+  #project-view .bar-header h5 i {
+    z-index: 999; }
+
+/*# sourceMappingURL=project.css.map */

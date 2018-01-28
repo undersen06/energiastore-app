@@ -58,29 +58,7 @@
   </ion-slide-box>
 
 
-  <ion-footer-bar ng-class="design.footer">
-    <div class="" style="width: 100%;display: flex;">
-
-      <div class="buttons" style="margin:0 auto;">
-        <button class="button tab-not-selected"  ng-click="goToProjects()">
-          <i class="fa fa-bookmark"></i>
-          {{translations.FOOTER_PROJECT}}
-        </button>
-      </div>
-
-      <div  class="dashboard-button" ng-click="goToDashboard()">
-        <img src="./img/logo.png" class="dashboard-button-img" alt="">
-      </div>
-
-      <div class="buttons" style="margin:0 auto;">
-        <button class="button tab-not-selected"  ng-click="goToQuotes()">
-          <i class="fa fa-money"></i>
-          {{translations.FOOTER_QUOTE}}
-        </button>
-      </div>
-
-    </div>
-  </ion-footer-bar>
+  <footbar></footbar>
 
 </ion-view>
 

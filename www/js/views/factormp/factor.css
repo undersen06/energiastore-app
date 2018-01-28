@@ -1,0 +1,24 @@
+#factor-view .bar-header h5 {
+  width: 44px;
+  top: 0px;
+  position: absolute;
+  text-align: center; }
+  #factor-view .bar-header h5 i {
+    z-index: 999; }
+
+#factor-view .container {
+  margin-top: 30px;
+  padding: 15px; }
+  #factor-view .container.android-content {
+    height: calc(100vh - 77px); }
+  #factor-view .container.ios-content {
+    height: calc(100vh - 97px); }
+  #factor-view .container img {
+    width: 35%;
+    margin: 0px auto 20px auto;
+    display: block; }
+  #factor-view .container p {
+    text-align: center;
+    color: grey; }
+
+/*# sourceMappingURL=factor.css.map */

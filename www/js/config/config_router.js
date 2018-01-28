@@ -130,13 +130,13 @@ ROUTES CONFIGURATION
       })
 
 
-      // .state("factor", {
-      //   url: "/factor",
-      //   cache: false,
-      //   abstract: false,
-      //   templateUrl: "templates/factor.html",
-      //   controller: "FactorController"
-      // })
+      .state("factor", {
+        url: "/factor",
+        cache: false,
+        abstract: false,
+        templateUrl: "js/views/factormp/factor.html",
+        controller: "FactorController"
+      })
 
       .state("profile", {
         url: "/profile",

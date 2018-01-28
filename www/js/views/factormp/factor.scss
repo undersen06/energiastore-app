@@ -1,0 +1,37 @@
+#factor-view{
+  .bar-header{
+    h5{
+      width: 44px;
+      top: 0px;
+      position: absolute;
+      text-align:center;
+      i{
+        z-index:999
+      }
+    }
+  }
+
+  .container{
+    margin-top:30px;
+    padding:15px;
+
+
+    &.android-content{
+      height:calc(100vh - 77px);
+    }
+    &.ios-content{
+      height:calc(100vh - 97px);
+    }
+
+    img{
+      width: 35%;
+      margin:0px auto 20px auto;
+      display: block;
+    }
+
+    p{
+      text-align: center;
+      color: grey;
+    }
+  }
+}

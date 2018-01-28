@@ -1,0 +1,32 @@
+#dashboard-view{
+  .bar-header{
+
+    .buttons{
+      width: 44px;
+      height: 44px;
+      top: 0px;
+      i{
+        margin: auto;
+        font-size: 25px;
+      }
+    }
+  }
+
+  .dashboard-item{
+    position:relative;
+    display: flex;
+    .dashboard-img{
+      display:inline-block;
+      width: 100%;
+      height: calc((100vh - 44px ) / 3 );
+    }
+    .main-title{
+      position: absolute;
+      bottom: 15px;
+      color: #dadada;
+      text-align:center;
+      width:100%;
+      // background: linear-gradient(90deg #6c6c6c6b , #6c6c6c);
+    }
+  }
+}

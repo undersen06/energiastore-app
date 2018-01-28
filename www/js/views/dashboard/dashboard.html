@@ -1,53 +1,26 @@
-<ion-view>
+<ion-view id="dashboard-view">
   <ion-header-bar align-title="center" ng-class="design.header">
     <div class="buttons">
-
     </div>
     <h1 class="title">{{translations.APP_NAME}}</h1>
-
-    <div class="buttons" style="width: 30px;height: 30px;" ng-click="goToSettings();">
-      <i class="ion-ios-settings" style="    margin: auto;font-size: 25px;"></i>
+    <div class="buttons" ng-click="goToSettings();">
+      <i class="ion-ios-settings"></i>
     </div>
-
   </ion-header-bar>
 
   <ion-content>
 
-    <div class="" style="position:relative;">
-      <img src="./img/ef.jpg" style="display:inline-block; width: 100%;height: calc((100vh - 44px ) / 3 );" alt="" ng-click="goToProjects()">
-      <h4 style="position: absolute;bottom: 15px;color: #dadada;text-align:center;width:100%;background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{translations.MOTOR_DASHBAORD_TEXT}}</h4>
+    <div class="dashboard-item">
+      <img src="assets/img/ef.jpg" class="dashboard-img" alt="" ng-click="goToProjects()">
+      <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{translations.MOTOR_DASHBAORD_TEXT}}</h4>
     </div>
 
-    <div class="" style="position:relative;">
-      <img src="./img/fp.jpg" style="display:inline-block;width: 100%;height: calc((100vh - 44px ) / 3 );    top: -10px;position: relative;" alt="" ng-click="goToPenaltyEnergyEffiency()">
-      <h4 style="position: absolute;bottom: 15px;color: #dadada;text-align:center;width:100%;background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{translations.PENALTY_DASHBAORD_TEXT}}</h4>
+    <div class="dashboard-item">
+      <img src="assets/img/fp.jpg" class="dashboard-img" alt="" ng-click="goToPenaltyEnergyEffiency()">
+      <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{translations.PENALTY_DASHBAORD_TEXT}}</h4>
     </div>
-
 
   </ion-content>
-  <!-- <ion-footer-bar ng-class="design.footer">
-    <div class="" style="width: 100%;display: flex;">
-
-      <div class="buttons" style="margin:0 auto;">
-        <button class="button tab-not-selected"  ng-click="goToProjects()">
-          <i class="fa fa-bookmark"></i>
-          {{translations.FOOTER_PROJECT}}
-        </button>
-      </div>
-
-      <div  class="dashboard-button" ng-click="goToDashboard()">
-        <img src="./img/logo.png" class="dashboard-button-img" alt="">
-      </div>
-
-      <div class="buttons" style="margin:0 auto;">
-        <button class="button tab-not-selected"  ng-click="goToQuotes()">
-          <i class="fa fa-money"></i>
-          {{translations.FOOTER_QUOTE}}
-        </button>
-      </div>
-
-    </div>
-  </ion-footer-bar> -->
 
   <footbar></footbar>
 </ion-view>

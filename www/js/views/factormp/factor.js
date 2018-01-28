@@ -68,7 +68,7 @@ CONTROLLER DEFINITION
         $cordovaStatusbar.show();
       }
 
-      $scope.image = "img/photo.png";
+      $scope.image = "assets/img/photo.png";
 
       $scope.os = ionic.Platform.platform();
       $scope.user = StorageUserModel.getCurrentUser();
