@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("DashboardController", ["$scope", "$state","$ionicPlatform","StorageUserModel","translationService","$resource","$cordovaStatusbar","User",
-  function($scope, $state,$ionicPlatform,StorageUserModel,translationService,$resource,$cordovaStatusbar,User) {
+  this.app.controller("DashboardController", ["$scope", "$state","$ionicPlatform","StorageUserModel","translationService","$resource","$cordovaStatusbar","User","$timeout",
+  function($scope, $state,$ionicPlatform,StorageUserModel,translationService,$resource,$cordovaStatusbar,User,$timeout) {
 
     $scope.design = {};
     switch (StorageUserModel.getCurrentUser().type_user) {
@@ -37,6 +37,19 @@ CONTROLLER DEFINITION
     });
 
     $ionicPlatform.ready(function() {
+      var isLoaded = false;
+
+
+      if($state.params.options == 'reload'){
+        if(!isLoaded){
+          $timeout(function(){
+            location.reload();
+            isLoaded= true;
+          }, 10);
+        }
+
+      }
+
 
       if (window.StatusBar) {
         $cordovaStatusbar.overlaysWebView(false);

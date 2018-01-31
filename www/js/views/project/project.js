@@ -39,25 +39,25 @@ CONTROLLER DEFINITION
 
       $ionicPlatform.ready(function() {
 
-        if (window.StatusBar) {
-          $cordovaStatusbar.overlaysWebView(false);
-          $cordovaStatusbar.style(1);
-          switch (StorageUserModel.getCurrentUser().type_user) {
-            case 'explorer':
-            $cordovaStatusbar.styleHex("#62BED4");
-            break;
-            case 'user':
-            $cordovaStatusbar.styleHex("#62D485");
-            break;
-
-            case 'partner':
-            $cordovaStatusbar.styleHex("#F5A623");
-            break;
-            default:
-
-          }
-          $cordovaStatusbar.show();
-        }
+        // if (window.StatusBar) {
+        //   $cordovaStatusbar.overlaysWebView(false);
+        //   $cordovaStatusbar.style(1);
+        //   switch (StorageUserModel.getCurrentUser().type_user) {
+        //     case 'explorer':
+        //     $cordovaStatusbar.styleHex("#62BED4");
+        //     break;
+        //     case 'user':
+        //     $cordovaStatusbar.styleHex("#62D485");
+        //     break;
+        //
+        //     case 'partner':
+        //     $cordovaStatusbar.styleHex("#F5A623");
+        //     break;
+        //     default:
+        //
+        //   }
+        //   $cordovaStatusbar.show();
+        // }
 
         const languageFilePath = translationService.getTranslation();
         $resource(languageFilePath).get(function(data) {
@@ -118,7 +118,7 @@ CONTROLLER DEFINITION
 
           var myPopup = $ionicPopup.show({
             animation: 'fade-in',
-            title: '<img src="./img/project.png" class="img-about-us">',
+            title: '<img src="assets/img/project.png" class="img-about-us">',
             subTitle: `<span class="popup-title">${$scope.translations.CREATE_QUOTATION_POPUP_TEXT}</span>`,
             template: `<div class="input-field col s12"><input id="quotation_name" type="text" class="validate" ng-model="data.name"><label for="quotation_name">${$scope
               .translations.ADD_QUOTATION_POPUP_FIRST_INPUT}</label></div>
@@ -167,63 +167,7 @@ CONTROLLER DEFINITION
           });
 
 
-          //
-          // // Custom popup
-          // let popup = $ionicPopup.show({
-          //   title: '<div class="congrats"></div><img src="img/special_icons/rsz_settings.png" class="modal-img-config">',
-          //   template: ` <div class="modal-body-config"><h5>${$scope.translations.CREATE_QUOTATION_POPUP_TEXT}</h5><div class="input-field col s12">
-          // <input id="quotation_name" type="text" class="validate" ng-model="data.name"><label for="quotation_name">${$scope
-          //   .translations.ADD_QUOTATION_POPUP_FIRST_INPUT}</label></div>
-          // <div class="input-field col s12">
-          // <input id="quotation_kwh_price" type="number" min="0"  pattern="[0-9]*" class="validate" ng-model="data.price"><label for="quotation_kw_price">${$scope
-          //   .translations.ADD_QUOTATION_POPUP_SECOND_INPUT}</label></div></div>`,
-          //   // subTitle: 'Subtitle',
-          //   scope: $scope,
-          //
-          //   buttons: [
-          //     {
-          //       text: `<b>${$scope.translations
-          //         .QUOTATION_POPUP_ACCEPT_BUTTON}</b>`,
-          //       cssClass: "special-color",
-          //       type: "button-positive",
-          //
-                // onTap: function(e) {
-                //   if (!$scope.data.name) {
-                //     Utils.validateToast($scope.translations.QUOTATION_ERROR_EMPTY_FIRST_INPUT_INFO,);
-                //     e.preventDefault();
-                //   } else if (!$scope.data.price) {
-                //     Utils.validateToast($scope.translations.QUOTATION_ERROR_EMPTY_SECOND_INPUT_INFO);
-                //     e.preventDefault();
-                //   } else {
-                //     if(user.type_user === 'explorer'){
-                //       if(StorageProject.getProjects() === undefined){
-                //
-                //         var project={
-                //           name:$scope.data.name,
-                //           energy_cost:$scope.data.price
-                //         }
-                //
-                //
-                //       StorageProject.addProjects(project);
-                //       $scope.getExplorerCalulation();
-                //
-                //     }else{
-                //       console.log('PopUp solo 1 proyecto en modo explorer');
-                //       //PopUp solo 1 proyecto en modo explorer
-                //     }
-                //     }else{
-                //       $scope.craeteCalculation($scope.data);
-                //     }
-                //
-                //     // return $scope.data.model;
-                //   }
-                // }
-          //     }
-          //   ]
-          // });
-          //
-          //
-          //     IonicClosePopupService.register(popup);
+
         };
 
         $scope.craeteCalculation = function(data) {

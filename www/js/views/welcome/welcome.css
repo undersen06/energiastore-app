@@ -4,33 +4,48 @@
   left: 50%;
   transform: translate(-50%); }
 
-#welcome-view #content-id h5 {
+#welcome-view #content-id .slider-slides .slider-box-1 h5 {
   top: 20vh;
   position: relative;
   text-align: center;
   color: black; }
 
-#welcome-view #content-id h6 {
+#welcome-view #content-id .slider-slides .slider-box-1 h6 {
   top: 22vh;
   position: relative;
   text-align: center; }
 
-#welcome-view #content-id .slider-slides .slider-box .language-container {
+#welcome-view #content-id .slider-slides .slider-box-1 .language-container {
   display: flex;
   top: 30vh;
   position: relative; }
-  #welcome-view #content-id .slider-slides .slider-box .language-container div.country-opt {
+  #welcome-view #content-id .slider-slides .slider-box-1 .language-container div.country-opt {
     margin: 0 auto; }
-    #welcome-view #content-id .slider-slides .slider-box .language-container div.country-opt p {
+    #welcome-view #content-id .slider-slides .slider-box-1 .language-container div.country-opt p {
       text-align: center; }
 
-#welcome-view #content-id .slider-slides .slider-box .country-container {
-  display: flex;
-  top: 30vh;
+#welcome-view #content-id .slider-slides .slider-box-1 .country-container {
   position: relative; }
-  #welcome-view #content-id .slider-slides .slider-box .country-container div.country-opt {
-    margin: 0 auto; }
-    #welcome-view #content-id .slider-slides .slider-box .country-container div.country-opt p {
+  #welcome-view #content-id .slider-slides .slider-box-1 .country-container div.country-opt {
+    margin: 0 auto 20px auto; }
+    #welcome-view #content-id .slider-slides .slider-box-1 .country-container div.country-opt img {
+      margin: 0 auto;
+      display: block; }
+    #welcome-view #content-id .slider-slides .slider-box-1 .country-container div.country-opt p {
       text-align: center; }
+
+#welcome-view #content-id .slider-slides .slider-box-2 h5 {
+  top: 4vh;
+  position: relative;
+  text-align: center;
+  color: black; }
+
+#welcome-view #content-id .slider-slides .slider-box-2 div.country-opt {
+  margin: 40px auto 20px auto; }
+  #welcome-view #content-id .slider-slides .slider-box-2 div.country-opt img {
+    margin: 0 auto;
+    display: block; }
+  #welcome-view #content-id .slider-slides .slider-box-2 div.country-opt p {
+    text-align: center; }
 
 /*# sourceMappingURL=welcome.css.map */

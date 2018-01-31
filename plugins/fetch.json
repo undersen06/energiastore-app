@@ -31,24 +31,13 @@
     "is_top_level": true,
     "variables": {}
   },
-  "ionic-plugin-keyboard": {
-    "source": {
-      "type": "registry",
-      "id": "ionic-plugin-keyboard@~2.2.1"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-camera": {
     "source": {
       "type": "registry",
       "id": "cordova-plugin-camera@^2.4.1"
     },
     "is_top_level": true,
-    "variables": {
-      "CAMERA_USAGE_DESCRIPTION": " ",
-      "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
-    }
+    "variables": {}
   },
   "cordova-plugin-compat": {
     "source": {
@@ -130,5 +119,40 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "ionic-plugin-keyboard": {
+    "source": {
+      "type": "registry",
+      "id": "ionic-plugin-keyboard"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-inappbrowser": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-inappbrowser@^2.0.1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-hidden-statusbar-overlay": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-hidden-statusbar-overlay"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-facebook4": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-facebook4"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "141504656527380",
+      "APP_NAME": "Energia Store"
+    }
   }
 }

@@ -4,8 +4,7 @@
   <meta charset="utf-8">
 
 
-  <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no' />
-
+<meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title></title>
 
   <link rel="manifest" href="manifest.json">
@@ -28,6 +27,8 @@
 <link href="assets/css/animate.css" rel="stylesheet">
 <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
 <script src="https://codepen.io/balapa/pen/c58fffe58d661ae3d4b168a43eb3b2b8.js"></script>
 <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -62,9 +63,13 @@
 <script src="js/config/config_constants.js"></script>
 <script src="js/config/config_platform.js"></script>
 <script src="js/config/config_router.js"></script>
+<script src="js/config/config_woocommerce.js"></script>
 
 
 
+<!-- Filters -->
+
+<script src="js/filters/capitalize.js"></script>
 
 <!-- Views -->
 
@@ -75,6 +80,9 @@
 <script src="js/views/middleware/middleware.js"></script>
 
 <script src="js/views/motors/motor.js"></script>
+<script src="js/views/products/categories/categories.js"></script>
+<script src="js/views/products/product/product.js"></script>
+<script src="js/views/products/products.js"></script>
 <script src="js/views/project/project.js"></script>
 <script src="js/views/quotation/quotation.js"></script>
 <!-- Sub-Quotation view -->
@@ -83,11 +91,12 @@
 
 <script src="js/views/register/register.js"></script>
 <script src="js/views/settings/settings.js"></script>
-<script src="js/views/tutorials/tutorials.js"></script>
+<script src="js/views/settings/options/profile/profile.js"></script>
+<script src="js/views/settings/options/tutorials/tutorials.js"></script>
 <!-- Sub-Tutorials -->
 
-<script src="js/views/tutorials/tutorials/penalty/tutorial.js"></script>
-<script src="js/views/tutorials/tutorials/type_user/tutorial.js"></script>
+<script src="js/views/settings/options/tutorials/tutorials/penalty/tutorial.js"></script>
+<script src="js/views/settings/options/tutorials/tutorials/type_user/tutorial.js"></script>
 
 
 
@@ -150,6 +159,9 @@
 <script src="js/services/quotation_service.js"></script>
 <script src="js/services/pdf_quotation.js"></script>
 <script src="js/services/factor_service.js"></script>
+<script src="js/services/woocommerce.js"></script>
+<script src="js/services/country.js"></script>
+<!-- <script src="js/services/currencies.js"></script> -->
 
 
 
@@ -167,6 +179,7 @@
 
 
 
+<script src="assets/js/woocommerce_api.js"></script>
 
 
 
@@ -240,7 +253,7 @@
     </ion-header-bar>
     <ion-content>
 
-      <img id="image-logo" src="img/introduction/map.svg"  class="background-welcome " >
+      <img id="image-logo" src="assets/img/introduction/map.svg"  class="background-welcome " >
 
         <h5 style="    top: 22vh;
         position: relative;
@@ -252,17 +265,17 @@
 
 
           <div class="" style="margin: 0 auto;">
-          <img src="./img/flag/CL.png" alt="" ng-click="chooseCountry('chile')" />
+          <img src="assets/img/flag/CL.png" alt="" ng-click="chooseCountry('chile')" />
           <p style="text-align:center">Chile</p>
         </div>
 
         <div class="" style="margin: 0 auto;">
-        <img src="./img/flag/AR.png" alt="" ng-click="chooseCountry('argentina')" />
+        <img src="assets/img/flag/AR.png" alt="" ng-click="chooseCountry('argentina')" />
         <p style="text-align:center">Argentina</p>
       </div>
 
       <div class="" style="margin: 0 auto;">
-      <img src="./img/flag/CO.png" alt="" ng-click="chooseCountry('colombia')"/>
+      <img src="assets/img/flag/CO.png" alt="" ng-click="chooseCountry('colombia')"/>
       <p style="text-align:center">Colombia</p>
       </div>
 
@@ -323,7 +336,7 @@
                 <div class="card-content white-text">
                   <span class="card-title login-title">{{translations.REGISTER_SLIDER_2_HEADER}}</span>
                   <br>
-                  <img class="logo-register" src="img/logo_white.png" alt="">
+                  <img class="logo-register" src="assets/img/logo_white.png" alt="">
                   <br>
                   <span class="card-title login-subtitle">{{translations.REGISTER_SLIDER_2_SUBTITLE}}</span>
 
@@ -487,7 +500,7 @@
 </script>
 
 <script id="loading.html" type="text/ng-template">
-  <img  src="./img/logo.png" class="rotating" style="width:80px;" />
+  <img  src="assets/img/logo.png" class="rotating" style="width:80px;" />
   <br />
   <span>{{translations.LOADING}}</span>
 </script>

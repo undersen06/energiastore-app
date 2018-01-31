@@ -1,0 +1,5 @@
+#footbar-view{background-color:#62d485}#footbar-view.bar-footer{height:50px !important}
+#footbar-view.iphone-x{height:70px !important}#footbar-view .footer-container{width:100%;display:flex}
+#footbar-view .footer-container .buttons{margin:0 auto}#footbar-view .footer-container .buttons .tab-not-selected{display:grid;background-color:transparent;color:white;font-size:15px}
+#footbar-view .footer-container .dashboard-button{position:absolute;left:50%;transform:translate(-50%,0)}
+#footbar-view .footer-container .dashboard-button .dashboard-button-img{position:relative;width:65px;bottom:22px}

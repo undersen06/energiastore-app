@@ -1,0 +1,79 @@
+<ion-view>
+  <ion-header-bar align-title="center" ng-class="design.header" ng-init="init()">
+    <h5 ng-click="backButton()" style="margin-left:10px;;width: 30px;"><i class="ion-chevron-left" style="z-index:999;" ></i></h5>
+    <h1 class="title">{{translations.MENU_PROFILE}}</h1>
+</ion-header-bar>
+<ion-content >
+
+  <div class="" style="margin: 0 5vw 0 5vw;top :10vw; position:relative;">
+    <div class="col s12 ">
+
+
+
+      <div class="input-field col s12">
+        <input id="name" type="text" class="validate" ng-model="user.name">
+        <label for="name">{{placeholder.name}}</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="last_name" type="text" class="validate" ng-model="user.last_name">
+        <label for="last_name">{{placeholder.last_name}}</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="phone" type="tel" class="validate" ng-model="user.phone">
+        <label for="phone">{{placeholder.phone}}</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="address" type="text" class="validate" ng-model="user.address">
+        <label for="address">{{placeholder.address}}</label>
+      </div>
+
+
+      <div ng-class="design.button" ng-click="updateInfo();" class="button-traslucid">
+        {{translations.UPDATE_BUTTON}}
+      </div>
+
+
+    </div>
+  </div>
+
+</ion-content>
+<ion-footer-bar ng-class="design.footer">
+  <div class="" style="width: 100%;display: flex;">
+
+    <div class="buttons" style="margin:0 auto;">
+      <button class="button tab-not-selected"  ng-click="goToProjects()">
+        <i class="fa fa-bookmark"></i>
+        {{translations.FOOTER_PROJECT}}
+      </button>
+    </div>
+
+    <div  class="dashboard-button" ng-click="goToDashboard()">
+      <img src="assets/img/logo.png" class="dashboard-button-img" alt="">
+    </div>
+
+    <div class="buttons" style="margin:0 auto;">
+      <button class="button tab-not-selected"  ng-click="goToQuotes()">
+        <i class="fa fa-money"></i>
+        {{translations.FOOTER_QUOTE}}
+      </button>
+    </div>
+
+  </div>
+</ion-footer-bar>
+</ion-view>
+
+
+
+
+
+
+
+<style media="screen">
+.bar-footer {
+  height: 50px !important;
+  background-color: #8bcb71;
+}
+
+</style>

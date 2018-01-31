@@ -1,0 +1,219 @@
+<ion-view ng-init="init();">
+  <ion-view title="Title" >
+    <ion-content id="content-id" class="slider-one animate-background" has-bouncing="false">
+      <img id="image-logo" src="assets/img/introduction/map.svg"  class="background-introduction " >
+
+      <span class="bottom-button bottom-button-right" style="top:25px;z-index:999" ng-click="finish()">{{SkipButton}} &nbsp;<i class="ion-chevron-right"></i></span>
+
+
+
+      <ion-slide-box on-slide-changed="slideHasChanged($index)">
+        <ion-slide class="slider-box">
+
+
+          <h3 class="title-slider-tuto">User</h3>
+          <h4 class="subtitle-slider-tuto">{{translations.TUTORIALS_TYPEUSER_USER}}</h4>
+
+
+        </ion-slide>
+        <ion-slide class="slider-box">
+
+          <h3 class="title-slider-tuto">Partner</h3>
+          <h4 class="subtitle-slider-tuto">{{translations.TUTORIALS_TYPEUSER_PARTNER}}</h4>
+        </ion-slide>
+
+
+        <ion-slide class="slider-box">
+          <h3 class="title-slider-tuto">Explorer</h3>
+          <h4 class="subtitle-slider-tuto">{{translations.TUTORIALS_TYPEUSER_EXPLORER}}</h4>
+        </ion-slide>
+
+
+      </ion-slide-box>
+
+      <div class="bottom-introduction">
+
+        <div class="">
+          <span class="bottom-button bottom-button-right" ng-click="goAhead()">{{RightButtonText}}</span>
+          <span class="bottom-button bottom-button-left" ng-click="goBack()" ng-if="shouldShowBackButton">{{LeftButtonText}}</span>
+
+        </div>
+
+
+      </div>
+    </ion-content>
+  </ion-view>
+
+
+  <style media="screen">
+
+  .title-slider-tuto{
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    text-align: center;
+    font-size: 30px;
+    top: 20vh;
+    position: relative;
+  }
+
+  .subtitle-slider-tuto{
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    text-align: center;
+    font-size: 20px;
+    top: 30vh;
+    position: relative;
+  }
+
+  .world {
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    background: #7BAECB;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
+
+  .land {
+    position: absolute;
+    height: 20px;
+    background: #99CC99;
+    border-radius: 150px;
+  }
+
+  .clouds {
+    width: 170px;
+    height: 170px;
+    border-radius: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+  }
+
+  .cloud {
+    width: 20px;
+    height: 10px;
+    background: white;
+    border-radius: 20px;
+  }
+
+
+
+  .slider-pager .slider-pager-page {
+    display: inline-block;
+    margin: 0 3px;
+    width: 15px;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.3;
+  }
+
+  .slider-one{
+    background-color:#62D485;
+  }
+
+  .slider-two{
+    background-color:#62BED4
+  }
+
+  .slider-three{
+    background-color:#F5A623
+  }
+
+  .slider-pager{
+    bottom:70px;
+  }
+
+  .animate-background{
+    transition: all 0.6s;
+
+  }
+
+  .container-bottom-button{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .bottom-button{
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    font-size:17px;
+    color: rgb(255, 255, 255);
+  }
+
+  .bottom-button-right{
+    right: 35px;
+  }
+
+  .bottom-button-left{
+    left: 35px;
+  }
+
+  .bottom-introduction{
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    height: 43px;
+    background-color: rgba(126,126,126,.30);
+    left: 0;
+  }
+
+
+
+
+  /*PopUp*/
+
+  .popup{
+    background-color:white;
+  }
+  .popup-head{
+    background-color:white;
+    border-bottom:0px;
+  }
+
+  .popup-body{
+    background-color:white;
+  }
+
+  .popup-buttons{
+    background-color:white;
+  }
+
+
+  .button-cancel{
+    background-color:white;
+    color:rgb(185, 185, 185);
+    text-transform: uppercase;
+  }
+  .button-afirmative{
+    background-color:white;
+    color:#62D485;
+    text-transform: uppercase;
+  }
+
+
+  .popup-title{
+    font-size:22px;
+    color:#656565;
+  }
+
+  .popup-subtitle{
+    font-size:16px;
+    color:#8c8c8c;
+    font-color:rgb(147, 147, 147);
+    text-align: center;
+  }
+  .popup{
+    width:70vw !important;
+    max-width: 500px !important;
+  }
+</style>

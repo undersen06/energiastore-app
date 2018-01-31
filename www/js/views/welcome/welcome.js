@@ -6,9 +6,34 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("WelcomeController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout","StorageUserModel","StorageLanguageModel",
-  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel) {
+  this.app.controller("WelcomeController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","StorageLanguageModel","$Country","StorageCountryModel","$q","popUpService",
+  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,StorageLanguageModel,$Country,StorageCountryModel,$q,popUpService) {
     $ionicPlatform.ready(function() {
+
+
+
+
+
+
+       function loadCountries(){
+
+        var promises =[$Country.getAllCurrencies(),$Country.getAllCountries()]
+
+        $q.all(promises).then(function(_resolves){
+          $scope.curencies = _resolves[0].data;
+          $scope.countries = _resolves[1].data;
+        },function(_error){
+
+          popUpService.showpopupCountries().then(function(_response){
+            loadCountries();
+          });
+
+
+        })
+
+      }
+
+
 
 
 
@@ -23,7 +48,15 @@ CONTROLLER DEFINITION
 
       }
       $scope.chooseCountry = function(country){
-        $state.go('introduction')
+
+        var _country = _.find($scope.countries, { 'id': country});
+        var currency = _.find($scope.curencies, { 'id': _country.currency_id});
+
+        StorageCountryModel.selectCountry(_country);
+        StorageCountryModel.selectCurrency(currency);
+
+        $state.go("introduction")
+
       }
 
       $scope.stop = function () {
@@ -31,6 +64,7 @@ CONTROLLER DEFINITION
       };
 
 
+loadCountries();
 
     });
   }]);

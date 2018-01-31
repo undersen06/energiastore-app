@@ -1,5 +1,5 @@
 
-@import '../../css/_color_var.css';
+
 
 @import '../../js/components/footbar/footbar.css';
 @import '../../js/views/login/login.css';
@@ -7,10 +7,11 @@
 @import '../../js/views/introduction/introduction.css';
 @import '../../js/views/middleware/middleware.css';
 @import '../../js/views/register/register.css';
-@import '../../js/components/footbar/footbar.css';
 @import '../../js/views/dashboard/dashboard.css';
 @import '../../js/views/project/project.css';
 @import '../../js/views/factormp/factor.css';
+@import '../../js/views/products/categories/categories.css';
+@import '../../js/views/products/products.css';
 
 
 /* Empty. Add your own CSS if you like */
@@ -87,16 +88,7 @@ h1,h5{
 
 
 
-.bar-footer {
-  height: 50px !important;
-}
 
-.tab-selected{
-  display:grid;
-  background-color:transparent;
-  font-size:15px;
-  color:white;
-}
 
 .button-traslucid{
   width: 70vw;

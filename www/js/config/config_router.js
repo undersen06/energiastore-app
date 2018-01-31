@@ -16,6 +16,8 @@ ROUTES CONFIGURATION
     // $ionicConfigProvider.views.transition('none');
     // $ionicConfigProvider.views.swipeBackEnabled(false);
 
+
+
     $ionicConfigProvider.tabs.position('bottom');
         $ionicConfigProvider.navBar.alignTitle('center');
         $ionicConfigProvider.backButton.previousTitleText(true).text('&emsp;&emsp;');
@@ -69,7 +71,7 @@ ROUTES CONFIGURATION
         url: "/tutorials/type_user/:flag",
         cache: false,
         abstract: false,
-        templateUrl: "js/views/tutorials/tutorials/type_user/tutorial.html",
+        templateUrl: "js/views/settings/options/tutorials/tutorials/type_user/tutorial.html",
         controller: "TutorialTypeUserController"
       })
 
@@ -78,11 +80,9 @@ ROUTES CONFIGURATION
         url: "/tutorials/factor/:flag",
         cache: false,
         abstract: false,
-        templateUrl: "js/views/tutorials/tutorials/penalty/tutorial.html",
+        templateUrl: "js/views/settings/options/tutorials/tutorials/penalty/tutorial.html",
         controller: "TutorialPenaltyController"
       })
-
-
       .state("login", {
         url: "/login",
         cache: false,
@@ -98,13 +98,12 @@ ROUTES CONFIGURATION
         controller: "RegisterController"
       })
       .state("dashboard", {
-        url: "/dashboard",
+        url: "/dashboard/:options",
         cache: false,
         abstract: false,
         templateUrl: "js/views/dashboard/dashboard.html",
         controller: "DashboardController"
       })
-
       .state("settings", {
         url: "/settings",
         cache: false,
@@ -112,7 +111,6 @@ ROUTES CONFIGURATION
         templateUrl: "js/views/settings/settings.html",
         controller: "SettingsController"
       })
-
       .state("project", {
         url: "/projects",
         cache: false,
@@ -120,7 +118,6 @@ ROUTES CONFIGURATION
         templateUrl: "js/views/project/project.html",
         controller: "ProjectController"
       })
-
       .state("quotation", {
         url: "/quotation",
         cache: false,
@@ -128,8 +125,6 @@ ROUTES CONFIGURATION
         templateUrl: "js/views/quotation/quotation.html",
         controller: "QuotationController"
       })
-
-
       .state("factor", {
         url: "/factor",
         cache: false,
@@ -142,7 +137,7 @@ ROUTES CONFIGURATION
         url: "/profile",
         cache: false,
         abstract: false,
-        templateUrl: "templates/profile.html",
+        templateUrl: "js/views/settings/options/profile/profile.html",
         controller: "ProfileController"
       })
 
@@ -174,8 +169,31 @@ ROUTES CONFIGURATION
         url: "/tutorials",
         cache: false,
         abstract: false,
-        templateUrl: "js/views/tutorials/tutorials.html",
+        templateUrl: "js/views/settings/options/tutorials/tutorials.html",
         controller: "TutorialsController"
+      })
+      .state("categories", {
+        url: "/categories",
+        cache: false,
+        abstract: false,
+        templateUrl: "js/views/products/categories/categories.html",
+        controller: "CategoriesController"
+      })
+
+      .state("products", {
+        url: "/categories/:category_id/products",
+        cache: false,
+        abstract: false,
+        templateUrl: "js/views/products/products.html",
+        controller: "ProductsController"
+      })
+
+      .state("product", {
+        url: "/categories/:category_id/product/:product_id",
+        cache: false,
+        abstract: false,
+        templateUrl: "js/views/products/product/product.html",
+        controller: "ProductController"
       })
 
 

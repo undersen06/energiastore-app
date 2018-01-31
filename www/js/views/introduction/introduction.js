@@ -6,14 +6,29 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("IntroductionController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout",
-  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout) {
+  this.app.controller("IntroductionController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout","Woocommerce",
+  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,Woocommerce) {
+    $ionicPlatform.ready(function() {
+      if(ionic.Platform.device().model != undefined){
+        if(ionic.Platform.device().model.startsWith('iPhone10')){
+          $scope.isIphoneX = true
+        }
+      }
+    });
+
+
 
       var containerId;
       var worldId;
       var notification_1;
       var notification_2;
       var hasChangeSlide3;
+
+
+
+
+
+
 
 
       $scope.shouldShowBackButton=false;
@@ -42,12 +57,12 @@ CONTROLLER DEFINITION
         $scope.SkipButtonText = $scope.translations.SKIP;
       });
 
-      if (window.StatusBar) {
-        $cordovaStatusbar.overlaysWebView(false);
-        $cordovaStatusbar.style(1);
-        $cordovaStatusbar.styleHex("#1AA55E");
-        $cordovaStatusbar.show();
-      }
+      // if (window.StatusBar) {
+      //   $cordovaStatusbar.overlaysWebView(false);
+      //   $cordovaStatusbar.style(1);
+      //   $cordovaStatusbar.styleHex("#1AA55E");
+      //   $cordovaStatusbar.show();
+      // }
 
 
 

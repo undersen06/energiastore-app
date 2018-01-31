@@ -6,11 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("MiddlewareController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout","StorageUserModel","$ionicPopup",
-  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,$ionicPopup) {
-
-
-
+  this.app.controller("MiddlewareController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$timeout","StorageUserModel","$ionicPopup",
+  function($scope, $state,$ionicPlatform,$resource,translationService,$timeout,StorageUserModel,$ionicPopup) {
 
     if(StorageUserModel.getCurrentUser()){
       if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
@@ -26,13 +23,7 @@ CONTROLLER DEFINITION
 
     });
 
-
-
     $ionicPlatform.ready(function() {
-
-
-
-
 
       $scope.handleGoTo = function(_index){
 
@@ -72,7 +63,7 @@ CONTROLLER DEFINITION
       $scope.workingOnPopUp = function(){
         var myPopup = $ionicPopup.show({
           animation: 'fade-in',
-          title: '<img src="./img/working-on.png" class="img-about-us">',
+          title: '<img src="assets/img/working-on.png" class="img-about-us">',
           subTitle: `<span class="popup-title">${$scope.translations.WORKING_ON_TITLE}</span>`,
           template: `<p class="popup-subtitle">${$scope.translations.WORKING_ON_TEXT}</p>`,
           scope: $scope,

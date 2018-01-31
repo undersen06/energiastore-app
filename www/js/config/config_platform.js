@@ -36,7 +36,9 @@ PLATFORM CONFIGURATION
 
 
       if (window.StatusBar) {
-                StatusBar.overlaysWebView(false);
+                // StatusBar.overlaysWebView(true);
+                StatusBar.hide();
+                StatusBar.overlaysWebView(true);
             }
 
     });

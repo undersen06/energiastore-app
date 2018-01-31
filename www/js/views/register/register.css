@@ -1,9 +1,13 @@
-#register-view div.bar-transparent {
-  background-color: transparent; }
-  #register-view div.bar-transparent .ion-ios-arrow-back {
-    margin-left: 10px;
-    font-size: 30px;
-    color: white; }
+#register-view #content-register i.ion-ios-arrow-back {
+  margin-left: 15px;
+  font-size: 30px;
+  color: white;
+  top: -30px;
+  margin-top: 10vw;
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  z-index: 999; }
 
 #register-view #content-register.color-1 {
   background-color: #62D485; }

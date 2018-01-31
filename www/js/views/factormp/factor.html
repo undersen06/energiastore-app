@@ -1,5 +1,5 @@
 <ion-view id="factor-view">
-  <ion-header-bar align-title="center" ng-class="design.header">
+  <ion-header-bar align-title="center" ng-class="resizeScreen() ? 'iphone-x-header {{design.header}}' : '{{design.header}}' ">
     <h5 ng-click="back()">
       <i class="ion-chevron-left"></i>
     </h5>
@@ -7,7 +7,7 @@
   </ion-header-bar>
 
 
-  <ion-content scroll="false">
+  <ion-content scroll="false" ng-class="resizeScreen() ? 'iphone-x-content' : ''">
     <div class="container" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
 
 
@@ -38,5 +38,29 @@
 
 </ion-content>
 
-<footbar></footbar>
+<ion-footer-bar id="footbar-fmp-view" ng-class="{'iphone-x' : isIphoneX(),'iphone-x-content' : isPostCamera()}">
+  <div class="footer-container">
+
+    <div class="buttons">
+      <button class="button tab-not-selected" ng-click="goToProjects()">
+        <i class="fa fa-bookmark"></i>
+        {{translations.FOOTER_PROJECT}}
+      </button>
+    </div>
+
+    <div  class="dashboard-button" ng-click="goToDashboard()">
+      <img src="assets/img/logo.png" class="dashboard-button-img" alt="">
+    </div>
+
+    <div class="buttons">
+      <button class="button tab-not-selected"  ng-click="goToQuotes()">
+        <i class="fa fa-money"></i>
+        {{translations.FOOTER_QUOTE}}
+      </button>
+    </div>
+
+  </div>
+</ion-footer-bar>
+
+<!-- <footbar post="postCamera"></footbar> -->
 </ion-view>

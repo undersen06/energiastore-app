@@ -13,7 +13,7 @@
         }}];
 
         $ionicPopup.show({
-          title: '<img src="./img/error.png" class="img-about-us">',
+          title: '<img src="assets/img/error.png" class="img-about-us">',
           template: `<p class="popup-subtitle">${_translation.MODAL_FAIL_CREATE_FACTOR_TEXT}</p>`,
           cssClass: '',
           buttons:button_exit_lesson,
@@ -35,7 +35,7 @@
         }}];
 
         $ionicPopup.show({
-          title: '<div class="congrats"></div><img src="img/special_icons/pulgar3_bad.png" class="modal-img-config">',
+          title: '<div class="congrats"></div><img src=assets/img/special_icons/pulgar3_bad.png" class="modal-img-config">',
           subTitle: `<br><span class="modal-title-config">${_title}</span><br><span class="modal-body-subtitle">${_body}</span>`,
           cssClass: 'successClass',
           buttons:button_exit_lesson,
@@ -54,7 +54,7 @@
         }}];
 
         $ionicPopup.show({
-          title: '<img src="./img/error.png" class="img-about-us">',
+          title: '<img src="assets/img/error.png" class="img-about-us">',
           template: `<p class="popup-subtitle">${_translation.MODAL_PROFILE_FAIL_BODY}</p>`,
           cssClass: 'successClass',
           buttons:button_exit_lesson,
@@ -69,10 +69,10 @@
         let button_exit_lesson = [{ text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function(e) {
           return true;
         }}];
-        
+
 
         $ionicPopup.show({
-          title: '<img src="./img/common/stars.png" class="img-about-us">',
+          title: '<img src="assets/img/common/stars.png" class="img-about-us">',
           template: `<p class="popup-subtitle">${_translation.PROFILE_COMPLETED}</p>`,
           cssClass: '',
           buttons:button_exit_lesson,
@@ -92,7 +92,7 @@
           }}];
 
           $ionicPopup.show({
-            title: '<img src="./img/logout.png" class="img-about-us">',
+            title: '<img src="assets/img/logout.png" class="img-about-us">',
             template: `<p class="popup-subtitle">${_translation.REGISTER_POPUP_LEAVE_TEXT}</p>`,
             cssClass: '',
             buttons:buttons,
@@ -112,7 +112,7 @@
             }}];
 
             $ionicPopup.show({
-              title: '<img src="./img/error.png" class="img-about-us">',
+              title: '<img src="assets/img/error.png" class="img-about-us">',
               template: `<p class="popup-subtitle">${_translation.TOKEN_PROBLEM_TEXT}</p>`,
               buttons:buttons,
               animation: 'fade-in',
@@ -131,7 +131,7 @@
               }}];
 
               $ionicPopup.show({
-                title: '<img src="./img/error.png" class="img-about-us">',
+                title: '<img src="assets/img/error.png" class="img-about-us">',
                 subTitle: `<span class="popup-title">${_translation.WORKING_ON_TITLE}</span>`,
                 template: `<p class="popup-subtitle">${_translation.EXPLORER_ONLY_ONE_PROJECT}</p>`,
                 buttons:buttons,
@@ -154,7 +154,7 @@
                 }}];
 
                 $ionicPopup.show({
-                  title: '<img src="./img/error.png" class="img-about-us">',
+                  title: '<img src="assets/img/error.png" class="img-about-us">',
                   subTitle: `<span class="popup-title">${_translation.WORKING_ON_TITLE}</span>`,
                   template: `<p class="popup-subtitle">${_translation.EXPLORER_ONLY_QUOTATIONS}</p>`,
                   buttons:buttons,
@@ -178,7 +178,7 @@
                 }}];
 
                 $ionicPopup.show({
-                  title: '<img src="img/common/stars.png" class="img-about-us">',
+                  title: '<img src=assets/imgcommon/stars.png" class="img-about-us">',
                   subTitle: `<span class="popup-title">${_translation.REGISTER_EXPLORER_TITLE}</span>`,
                   template: `<p class="popup-subtitle">${_translation.REGISTER_EXPLORER_TEXT}`,
                   buttons:buttons,
@@ -202,9 +202,9 @@
                   }}];
 
                   $ionicPopup.show({
-                    title: '<img src="img/logout.png" class="img-about-us">',
+                    title: '<img src=assets/imglogout.png" class="img-about-us">',
                     subTitle: `<span class="popup-title">${_translation.LOG_OUT_EXPLORER_TITLE}</span>`,
-                    template: `<p class="popup-subtitle">${_translation.LOG_OUT_EXPLORER_TEXT}`,
+                    template: `<p class="popup-subtitle">${_translation.LOG_OUT_EXPLORER_TEXT}</p>`,
                     cssClass: '',
                     buttons:buttons,
                   },).then(function(_res){
@@ -212,6 +212,29 @@
 
                   });
                   return deferred.promise;
+                },
+
+                showpopupCountries : function(_translation){
+                  let deferred = $q.defer();
+                  let button_exit_lesson = [{ text: 'Re-intentar / Try again',  type: 'button-afirmative',onTap: function(e) {
+                    return true;
+                  }}];
+
+                  $ionicPopup.show({
+                    title: '<img src="assets/img/error.png" class="img-about-us">',
+                    subTitle: `<span class="popup-title">Problemas al descargar los paises</span>`,
+                    template: `<p class="popup-subtitle">Problems to download country info.</p>`,
+                    cssClass: '',
+                    buttons:button_exit_lesson,
+                  },).then(function(_res){
+                    deferred.resolve(_res);
+
+                  });
+                  return deferred.promise;
+
+
+
+
                 },
 
               };

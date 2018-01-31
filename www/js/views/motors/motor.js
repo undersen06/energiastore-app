@@ -43,25 +43,25 @@ CONTROLLER DEFINITION
 
     $ionicPlatform.ready(function() {
 
-      if (window.StatusBar) {
-        $cordovaStatusbar.overlaysWebView(false);
-        $cordovaStatusbar.style(1);
-        switch (StorageUserModel.getCurrentUser().type_user) {
-          case 'explorer':
-          $cordovaStatusbar.styleHex("#62BED4");
-          break;
-          case 'user':
-          $cordovaStatusbar.styleHex("#62D485");
-          break;
-
-          case 'partner':
-          $cordovaStatusbar.styleHex("#F5A623");
-          break;
-          default:
-
-        }
-        $cordovaStatusbar.show();
-      }
+      // if (window.StatusBar) {
+      //   $cordovaStatusbar.overlaysWebView(false);
+      //   $cordovaStatusbar.style(1);
+      //   switch (StorageUserModel.getCurrentUser().type_user) {
+      //     case 'explorer':
+      //     $cordovaStatusbar.styleHex("#62BED4");
+      //     break;
+      //     case 'user':
+      //     $cordovaStatusbar.styleHex("#62D485");
+      //     break;
+      //
+      //     case 'partner':
+      //     $cordovaStatusbar.styleHex("#F5A623");
+      //     break;
+      //     default:
+      //
+      //   }
+      //   $cordovaStatusbar.show();
+      // }
 
       const languageFilePath = translationService.getTranslation();
       $resource(languageFilePath).get(function (data) {

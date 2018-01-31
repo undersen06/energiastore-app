@@ -3,12 +3,12 @@
     <img id="image-logo" src="assets/img/introduction/map.svg"  class="background-introduction" />
 
 
-    <span class="bottom-button right top" ng-click="skip()">{{SkipButtonText}}
+    <span class="skip-button right top" ng-click="skip()">{{SkipButtonText}}
       <i class="ion-chevron-right"></i>
     </span>
 
 
-    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
       <ion-slide class="slider-box-1">
 
 
@@ -267,11 +267,11 @@
 
   </ion-slide-box>
 
-  <div class="bottom-introduction">
+  <div class="bottom-introduction" ng-class="isIphoneX == true ? 'iphone-x': ''">
 
     <div class="">
-      <span class="bottom-button right" ng-click="goAhead()">{{RightButtonText}}</span>
-      <span class="bottom-button left" ng-click="goBack()" ng-if="shouldShowBackButton">{{LeftButtonText}}</span>
+      <span class="bottom-button right" ng-class="isIphoneX == true ? 'iphone-x': ''" ng-click="goAhead()">{{RightButtonText}}</span>
+      <span class="bottom-button left" ng-class="isIphoneX == true ? 'iphone-x': ''" ng-click="goBack()" ng-if="shouldShowBackButton">{{LeftButtonText}}</span>
 
     </div>
   </div>

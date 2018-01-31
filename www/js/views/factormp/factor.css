@@ -6,6 +6,13 @@
   #factor-view .bar-header h5 i {
     z-index: 999; }
 
+#factor-view .bar-header.iphone-x-header {
+  height: 64px !important;
+  top: 44px !important; }
+
+#factor-view .bar-header.iphone-x {
+  top: 44px; }
+
 #factor-view .container {
   margin-top: 30px;
   padding: 15px; }
@@ -20,5 +27,32 @@
   #factor-view .container p {
     text-align: center;
     color: grey; }
+
+#factor-view #footbar-fmp-view {
+  background-color: #62D485; }
+  #factor-view #footbar-fmp-view.bar-footer {
+    height: 50px !important; }
+  #factor-view #footbar-fmp-view.iphone-x {
+    height: 70px !important; }
+  #factor-view #footbar-fmp-view.iphone-x-content {
+    bottom: 44px !important; }
+  #factor-view #footbar-fmp-view .footer-container {
+    width: 100%;
+    display: flex; }
+    #factor-view #footbar-fmp-view .footer-container .buttons {
+      margin: 0 auto; }
+      #factor-view #footbar-fmp-view .footer-container .buttons .tab-not-selected {
+        display: grid;
+        background-color: transparent;
+        color: white;
+        font-size: 15px; }
+    #factor-view #footbar-fmp-view .footer-container .dashboard-button {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0); }
+      #factor-view #footbar-fmp-view .footer-container .dashboard-button .dashboard-button-img {
+        position: relative;
+        width: 65px;
+        bottom: 22px; }
 
 /*# sourceMappingURL=factor.css.map */

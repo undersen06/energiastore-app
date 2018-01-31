@@ -1,5 +1,9 @@
 #footbar-view {
   background-color: #62D485; }
+  #footbar-view.bar-footer {
+    height: 50px !important; }
+  #footbar-view.iphone-x {
+    height: 70px !important; }
   #footbar-view .footer-container {
     width: 100%;
     display: flex; }

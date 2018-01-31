@@ -1,0 +1,23 @@
+<ion-view id="categories-view">
+  <ion-header-bar align-title="center" ng-class="design.header">
+    <h5 ng-click="back()">
+      <i class="ion-chevron-left"></i>
+    </h5>
+    <h1 class="title">{{translations.FMP_HEADER}}</h1>
+  </ion-header-bar>
+
+  <ion-content scrolleable="true" class="has-footer has-header" has-bouncing="false">
+
+    <ion-list>
+      <ion-item ng-repeat="category in categories" ng-click="goToProductsByCategory({{category.id}})">
+        {{category.name}}
+      </ion-item>
+
+      </ion-list>
+
+
+
+  </ion-content>
+
+  <footbar></footbar>
+</ion-view>

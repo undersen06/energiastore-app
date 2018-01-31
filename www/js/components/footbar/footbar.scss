@@ -3,6 +3,15 @@
 #footbar-view{
   background-color:$primary-color;
 
+  &.bar-footer {
+    height: 50px !important;
+  }
+
+  &.iphone-x {
+    height: 70px !important;
+  }
+
+
   .footer-container{
     width: 100%;
     display: flex;

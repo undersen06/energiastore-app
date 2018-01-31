@@ -13,9 +13,6 @@
     "cordova-plugin-app-version": {
       "PACKAGE_NAME": "com.spa.energiaStore"
     },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "com.spa.energiaStore"
-    },
     "cordova-plugin-device": {
       "PACKAGE_NAME": "com.spa.energiaStore"
     },
@@ -41,6 +38,23 @@
       "PACKAGE_NAME": "com.spa.energiaStore"
     },
     "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.spa.energiaStore"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.spa.energiaStore"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.spa.energiaStore"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.spa.energiaStore"
+    },
+    "cordova-plugin-hidden-statusbar-overlay": {
+      "PACKAGE_NAME": "com.spa.energiaStore"
+    },
+    "cordova-plugin-facebook4": {
+      "APP_ID": "141504656527380",
+      "APP_NAME": "Energia Store",
       "PACKAGE_NAME": "com.spa.energiaStore"
     }
   },

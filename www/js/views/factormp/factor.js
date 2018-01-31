@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","$ionicModal","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar","Quotation","Utils","$cordovaActionSheet","$ionicLoading","$cordovaFileOpener2","$cordovaFileTransfer","StorageQuotation","StorageFactorModel","User",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$ionicModal,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation,Utils,$cordovaActionSheet,$ionicLoading,$cordovaFileOpener2,$cordovaFileTransfer,StorageQuotation,StorageFactorModel,User) {
+  this.app.controller("FactorController", ["$scope", "$state","$ionicPlatform","$cordovaCamera","FactorPenalty","StorageUserModel","translationService","$resource","popUpService","$cordovaStatusbar","Quotation","Utils","$cordovaActionSheet","$ionicLoading","$cordovaFileOpener2","$cordovaFileTransfer","User",
+  function($scope, $state,$ionicPlatform,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation,Utils,$cordovaActionSheet,$ionicLoading,$cordovaFileOpener2,$cordovaFileTransfer,User) {
 
     $scope.design = {};
     switch (StorageUserModel.getCurrentUser().type_user) {
@@ -36,43 +36,54 @@ CONTROLLER DEFINITION
       break;
     }
 
+    const languageFilePath = translationService.getTranslation();
+    $resource(languageFilePath).get(function (data) {
+      $scope.translations = data;
+      $scope.options = { title: $scope.translations.ACTION_SHEET_PHOTO_TITLE, buttonLabels: [$scope.translations.ACTION_SHEET_PHOTO_CAMERA, $scope.translations.ACTION_SHEET_PHOTO_GALERY], addCancelButtonWithLabel: $scope.translations.CHOOSE_LANGUAGE_CANCEL, androidEnableCancelButton: true, winphoneEnableCancelButton: true };
+    });
+
 
     $ionicPlatform.ready(function() {
 
-      const languageFilePath = translationService.getTranslation();
-      $resource(languageFilePath).get(function (data) {
-        $scope.translations = data;
-        $scope.options = { title: $scope.translations.ACTION_SHEET_PHOTO_TITLE, buttonLabels: [$scope.translations.ACTION_SHEET_PHOTO_CAMERA, $scope.translations.ACTION_SHEET_PHOTO_GALERY], addCancelButtonWithLabel: $scope.translations.CHOOSE_LANGUAGE_CANCEL, androidEnableCancelButton: true, winphoneEnableCancelButton: true };
-      });
+      // if (window.StatusBar) {
+      //   $cordovaStatusbar.overlaysWebView(false);
+      //   $cordovaStatusbar.style(1);
+      //   switch (StorageUserModel.getCurrentUser().type_user) {
+      //     case 'explorer':
+      //     $cordovaStatusbar.styleHex("#62BED4");
+      //     break;
+      //     case 'user':
+      //     $cordovaStatusbar.styleHex("#62D485");
+      //     break;
+      //
+      //     case 'partner':
+      //     $cordovaStatusbar.styleHex("#F5A623");
+      //     break;
+      //     default:
+      //
+      //   }
+      //   $cordovaStatusbar.show();
+      // }
 
-
-
-
-      if (window.StatusBar) {
-        $cordovaStatusbar.overlaysWebView(false);
-        $cordovaStatusbar.style(1);
-        switch (StorageUserModel.getCurrentUser().type_user) {
-          case 'explorer':
-          $cordovaStatusbar.styleHex("#62BED4");
-          break;
-          case 'user':
-          $cordovaStatusbar.styleHex("#62D485");
-          break;
-
-          case 'partner':
-          $cordovaStatusbar.styleHex("#F5A623");
-          break;
-          default:
-
-        }
-        $cordovaStatusbar.show();
-      }
 
       $scope.image = "assets/img/photo.png";
 
       $scope.os = ionic.Platform.platform();
       $scope.user = StorageUserModel.getCurrentUser();
       $scope.register={};
+
+
+      $scope.isIphoneX = false;
+      $scope.postCamera = false;
+
+
+      // $ionicPlatform.ready(function() {
+        if(ionic.Platform.device().model != undefined){
+          if(ionic.Platform.device().model.startsWith('iPhone10')){
+              $scope.isIphoneX = true
+          }
+        }
+      // });
 
 
       const _input_penalty = $('#input-penalty');
@@ -85,7 +96,7 @@ CONTROLLER DEFINITION
       $scope.factorType={};
 
       $scope.back = function(){
-        $state.go("dashboard");
+        $state.go("dashboard",{options:'reload'},{reload: true});
       };
 
       $scope.help = function(){
@@ -125,9 +136,21 @@ CONTROLLER DEFINITION
         $cordovaCamera.getPicture(options).then(function(_imageData) {
           $scope.factorType.photo = "data:image/jpeg;base64," + _imageData;
           $scope.image = $scope.factorType.photo;
+          // cordova.plugins.statusbarOverlay.hide();
+          // cordova.plugins.statusbarOverlay.show();
+          // location.reload();
+          $scope.postCamera = true;
+          debugger;
+
         }, function(_err) {
           Utils.validateToast($scope.ERROR_CAMERA);
           console.log(_err);
+          // cordova.plugins.statusbarOverlay.hide();
+          // cordova.plugins.statusbarOverlay.show();
+          // location.reload();
+          $scope.postCamera = true;
+          debugger;
+
         });
 
       };
@@ -149,10 +172,12 @@ CONTROLLER DEFINITION
           $scope.factorType.photo = "data:image/jpeg;base64," + _imageData;
           $scope.image = $scope.factorType.photo;
           // isPictureChanged=true;
+          $scope.postCamera = true;
         }, function(_err) {
 
           Utils.validateToast($scope.ERROR_GALLERY);
           console.error(_err);
+          $scope.postCamera = true;
 
         });
       };
@@ -171,21 +196,7 @@ CONTROLLER DEFINITION
 
         let calculation = $scope.factorType;
 
-        if(StorageUserModel.getCurrentUser().type_user === 'explorer'){
 
-          popUpService.showPopUpRegister($scope.translations).then(function(_response){
-
-            if(!_response){
-              StorageFactorModel.setFactors(calculation);
-              $scope.openModalRegister();
-            }
-          },function(_error){
-
-          })
-
-          StorageQuotation.setQuotation(calculation);
-
-        }else{
           $ionicLoading.show({
             templateUrl:"loading.html"
           }).then(function () {
@@ -194,37 +205,11 @@ CONTROLLER DEFINITION
             $scope.CreateQuoate(calculation);
           });
         }
-      }
 
 
-      $ionicModal.fromTemplateUrl('modal-register', {
-        scope: $scope,
-        animation: 'slide-in-up'
-
-      }).then(function(modal) {
-        $scope.modalRegister = modal;
-        $scope.modalRegister.hardwareBackButtonClose = false;
-      });
-
-
-      $scope.openModalRegister = function() {
-        $scope.modalRegister.show();
-      };
-      $scope.closeModalRegister = function() {
-        $scope.modalRegister.hide();
-      };
-      // Cleanup the modal when we're done with it!
-      $scope.$on('$destroy', function() {
-        $scope.modalRegister.remove();
-      });
-      // Execute action on hide modal
-      $scope.$on('modalRegister.hidden', function() {
-        // Execute action
-      });
-      // Execute action on remove modal
-      $scope.$on('modalRegister.removed', function() {
-        // Execute action
-      });
+        $scope.resizeScreen = function(){
+          return $scope.isIphoneX && $scope.postCamera;
+        }
 
 
 
@@ -240,7 +225,7 @@ CONTROLLER DEFINITION
           console.error(_error);
           $ionicLoading.hide();
           popUpService.showPopUpFailCreateFactor($scope.translations).then(function(_response){
-            $state.go("dashboard");
+            $state.go("dashboard",{},{reload:true});
           });
         })
       }
@@ -252,8 +237,6 @@ CONTROLLER DEFINITION
           $cordovaActionSheet
           .show($scope.options)
           .then(function(btnIndex) {
-
-
             switch (btnIndex) {
               case 1:
               $scope.openCamera();
@@ -271,22 +254,11 @@ CONTROLLER DEFINITION
       }
 
       $ionicPlatform.registerBackButtonAction(function () {
-        $state.go("dashboard");
+        // $state.go("dashboard");
+        $state.go("dashboard",{},{reload: true, inherit: false, notify: true});
       }, 100);
 
-      $scope.goToProjects= function(){
-        $state.go('project');
-      }
-      $scope.goToProfile= function(){
-        $state.go('settings');
-      }
-      $scope.goToQuotes= function(){
 
-        $state.go('quotation');
-      }
-      $scope.goToDashboard= function(){
-        $state.go("dashboard");
-      }
 
 
 
@@ -302,11 +274,9 @@ CONTROLLER DEFINITION
         var url = `http://kvar.herokuapp.com/api/calculations/${param1}/quotations/${_quotation_id}/pdf`;
 
         $scope.downloadFile(url);
-
-
-
-
       }
+
+
       $scope.downloadFile = function(_url, _file_name) {
 
         var targetPath = cordova.file.dataDirectory;
@@ -373,82 +343,13 @@ CONTROLLER DEFINITION
       };
 
 
-      $scope.validateSlider1 =function(){
-
-        if ($scope.register.email === undefined || $scope.register.email === ''){
-          Utils.validateToast($scope.translations.REGISTER_EMAIL_EMPTY_ERROR);
-          return;
-        }
-
-        if ($scope.register.password === undefined || $scope.register.password === ''){
-          Utils.validateToast($scope.translations.REGISTER_PASSWORD_EMPTY_ERROR);
-          return;
-        }
-
-        if ($scope.register.password_confirmation === undefined || $scope.register.password_confirmation === ''){
-          Utils.validateToast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR);
-          return;
-        }
-
-        if ($scope.register.password_confirmation !== $scope.register.password){
-          Utils.validateToast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR);
-          return;
-        }
-
-        $scope.registerUser();
-
-      };
-
-
-      $scope.registerUser = function (){
-
-        $ionicLoading.show({
-          templateUrl:"loading.html"
-        });
-        User.registerUser($scope.register).then(function(_response){
-
-          StorageUserModel.setCurrentUser(_response.data);
-
-          setTimeout(function () {
-            $ionicLoading.hide();
-
-            $ionicSlideBoxDelegate.slide(1)
-          }, 2000);
-
-        },function(_error){
-
-          $ionicLoading.hide();
-          // Materialize.toast($scope.translations.REGISTER_SLIDER_1_ERROR,4000)
-          console.error(_error)
-
-        })
-      };
-      $scope.finish= function(){
-        $scope.closeModalRegister();
-        $ionicLoading.show({
-          template: `${$scope.translations.LOADING}...`
-        });
-        $scope.persistQuotation();
-
-      };
-      $scope.disableSwipe = function() {
-        $ionicSlideBoxDelegate.enableSlide(false);
-      };
-
-
-      $scope.persistQuotation = function(){
-
-        var factor = StorageFactorModel.getFactors();
-
-        $scope.CreateQuoate(factor);
-
+      $scope.isIphoneX = function(){
+        return $scope.isIphoneX;
       }
 
-
-      $scope.Close = function(){
-        $scope.closeModalRegister();
+      $scope.isPostCamera = function(){
+        return $scope.postCamera;
       }
-
 
     });
   }]);

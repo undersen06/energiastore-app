@@ -1,3 +1,4 @@
+@import "../../../css/vars.scss";
 #factor-view{
   .bar-header{
     h5{
@@ -8,8 +9,17 @@
       i{
         z-index:999
       }
+
+    }
+    &.iphone-x-header{
+      height: 64px !important;
+      top: 44px !important;
+    }
+    &.iphone-x{
+      top: 44px;
     }
   }
+
 
   .container{
     margin-top:30px;
@@ -20,6 +30,7 @@
       height:calc(100vh - 77px);
     }
     &.ios-content{
+
       height:calc(100vh - 97px);
     }
 
@@ -34,4 +45,52 @@
       color: grey;
     }
   }
+
+
+  #footbar-fmp-view{
+    background-color:$primary-color;
+
+    &.bar-footer {
+      height: 50px !important;
+    }
+
+    &.iphone-x {
+      height: 70px !important;
+    }
+    &.iphone-x-content{
+      bottom: 44px !important;
+    }
+
+
+    .footer-container{
+      width: 100%;
+      display: flex;
+
+      .buttons{
+        margin:0 auto;
+
+        .tab-not-selected{
+          display:grid;
+          background-color:transparent;
+          color: white;
+          font-size: 15px;
+        }
+      }
+
+      .dashboard-button{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%,0);
+
+
+
+        .dashboard-button-img{
+          position: relative;
+          width: 65px;
+          bottom: 22px;
+        }
+      }
+    }
+  }
+
 }

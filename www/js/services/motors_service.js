@@ -8,7 +8,7 @@
     return {
       create: function(_user_info,_calculation,calculation_id) {
 
-        
+
 
         let defer = $q.defer();
         $http({
@@ -23,7 +23,8 @@
                 calculation_id:calculation_id,
                 name:_calculation.name,
                 rated_power:_calculation.rated_power, //potencia
-                average_time:_calculation.hours,
+                hours:_calculation.hours,
+                // days:_calculation.hours,
                 volts:_calculation.voltaje,
                 amp:_calculation.amp,
                 efficiency:_calculation.power_factor // power factor

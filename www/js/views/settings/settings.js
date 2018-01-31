@@ -208,7 +208,7 @@ CONTROLLER DEFINITION
 
           var myPopup = $ionicPopup.show({
             animation: 'fade-in',
-            title: '<img src="./img/logout.png" class="img-about-us">',
+            title: '<img src="assets/img/logout.png" class="img-about-us">',
             subTitle: `<span class="popup-title">${$scope.translations.LOG_OUT_TITLE}</span>`,
             template: `<p class="popup-subtitle">${$scope.translations.LOG_OUT_TEXT}</p>`,
             scope: $scope,
@@ -232,7 +232,7 @@ CONTROLLER DEFINITION
     $scope.workingOnPopUp = function(){
       var myPopup = $ionicPopup.show({
         animation: 'fade-in',
-        title: '<img src="./img/working-on.png" class="img-about-us">',
+        title: '<img src="assets/img/working-on.png" class="img-about-us">',
         subTitle: `<span class="popup-title">${$scope.translations.WORKING_ON_TITLE}</span>`,
         template: `<p class="popup-subtitle">${$scope.translations.WORKING_ON_TEXT}</p>`,
         scope: $scope,
@@ -251,7 +251,7 @@ CONTROLLER DEFINITION
 
         var myPopup = $ionicPopup.show({
           animation: 'fade-in',
-          title: '<img src="./img/logo.png" class="img-about-us">',
+          title: '<img src="assets/img/logo.png" class="img-about-us">',
           subTitle: `<span class="popup-title">${$scope.translations.ABOUT_US_TITLE}</span>`,
           template: `<p class="popup-subtitle">${$scope.translations.ABOUT_US_TEXT}</p> `,
           scope: $scope,

@@ -8,25 +8,30 @@
         transform:translate(-50%);
       }
     }
-    h5{
-      top: 20vh;
-      position: relative;
-      text-align: center;
-      color:black;
-    }
-
-    h6{
-      top: 22vh;
-      position: relative;
-      text-align: center;
-    }
 
     .slider-slides{
-      .slider-box{
+      .slider-box-1{
+
+        h5{
+          top: 20vh;
+          position: relative;
+          text-align: center;
+          color:black;
+        }
+
+        h6{
+          top: 22vh;
+          position: relative;
+          text-align: center;
+        }
+
         .language-container{
           display: flex;
           top: 30vh;
           position: relative;
+
+
+
 
           div{
             &.country-opt{
@@ -40,20 +45,44 @@
         }
 
         .country-container{
-          display: flex;
-          top: 30vh;
           position: relative;
-
           div{
-
             &.country-opt{
-              margin: 0 auto;
+              margin: 0 auto 20px auto;
+              img{
+                margin: 0 auto;
+                display: block;
+              }
               p{
                 text-align:center
               }
             }
           }
         }
+      }
+
+      .slider-box-2{
+
+        h5{
+          top: 4vh;
+          position: relative;
+          text-align: center;
+          color:black;
+        }
+
+        div{
+          &.country-opt{
+            margin: 40px auto 20px auto;
+            img{
+              margin: 0 auto;
+              display: block;
+            }
+            p{
+              text-align:center
+            }
+          }
+        }
+
       }
     }
   }

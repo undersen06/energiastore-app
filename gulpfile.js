@@ -9,9 +9,11 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 var changed = require('gulp-changed');
 var replace = require('gulp-replace');
+var uglifycss = require('gulp-uglifycss');
 
 var paths = {
-  sass: ['./www/js/**/*.scss']
+  sass: ['./www/js/**/*.scss'],
+  css: ['./www/js/**/*.css']
 };
 
 gulp.task('sass', function(done) {
@@ -30,6 +32,19 @@ gulp.task('sass', function(done) {
     }
 });
 
+gulp.task('css', function () {
+  gulp.src(paths.css)
+    .pipe(uglifycss({
+      "maxLineLen": 80,
+      "uglyComments": true
+    }))
+     .pipe(gulp.dest('./dist/'));
+
+    // function _baseDest(file) {
+    //     return file.base;
+    // }
+});
+
 gulp.task('change-enviroment', function() {
     console.log("Changing enviroment");
     var env = (process.env.APP_ENV + '').toLowerCase();
@@ -43,8 +58,23 @@ gulp.task('change-enviroment', function() {
 
 gulp.task('watch', function() {
     console.log("Watching sass files");
-    gulp.watch(paths.sass, ['sass']);
+    gulp.watch(paths.sass, ['sass','css']);
 });
+
+// gulp.task('default', ['sass','css']);
+//
+// //OLD CLI
+// gulp.task('serve:before', ['change-enviroment', 'sass', 'watch','css']);
+//
+// gulp.task('run:before', ['change-enviroment', 'sass','css']);
+//
+// gulp.task('build:before', ['change-enviroment', 'sass','css']);
+//
+// //NEW CLI
+// gulp.task('ionic:watch:before', ['change-enviroment', 'sass','css']);
+//
+// gulp.task('ionic:build:before', ['change-enviroment', 'sass','css']);
+
 
 gulp.task('default', ['sass']);
 

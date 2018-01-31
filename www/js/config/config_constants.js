@@ -33,7 +33,10 @@
     // INDEX_MOTORS_BY_CALCULATION: "api/calculations/",
     DESTROY_CALCULATION: "api/calculations",
 
-    CREATE_PF_QUOATATION : "api/pf_quotation"
+    CREATE_PF_QUOATATION : "api/pf_quotation",
+
+    GET_COUNTRIES : "api/countries",
+    GET_CURRENCIES : "api/currencies"
 
 
 
