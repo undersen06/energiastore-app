@@ -37,39 +37,6 @@ CONTROLLER DEFINITION
     });
 
     $ionicPlatform.ready(function() {
-      var isLoaded = false;
-
-
-      if($state.params.options == 'reload'){
-        if(!isLoaded){
-          $timeout(function(){
-            location.reload();
-            isLoaded= true;
-          }, 10);
-        }
-
-      }
-
-
-      if (window.StatusBar) {
-        $cordovaStatusbar.overlaysWebView(false);
-        $cordovaStatusbar.style(1);
-        switch (StorageUserModel.getCurrentUser().type_user) {
-          case 'explorer':
-          $cordovaStatusbar.styleHex("#62BED4");
-          break;
-          case 'user':
-          $cordovaStatusbar.styleHex("#62D485");
-          break;
-
-          case 'partner':
-          $cordovaStatusbar.styleHex("#F5A623");
-          break;
-          default:
-
-        }
-        $cordovaStatusbar.show();
-      }
 
       var user = StorageUserModel.getCurrentUser();
       $scope.register = {};

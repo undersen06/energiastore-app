@@ -231,6 +231,25 @@
 
                   });
                   return deferred.promise;
+                },
+
+                showpopupFacebookEmailError : function(_translation){
+                  let deferred = $q.defer();
+                  let button_exit_lesson = [{ text: 'Re-intentar / Try again',  type: 'button-afirmative',onTap: function(e) {
+                    return true;
+                  }}];
+
+                  $ionicPopup.show({
+                    title: '<img src="assets/img/error.png" class="img-about-us">',
+                    subTitle: `<span class="popup-title">Error</span>`,
+                    template: `<p class="popup-subtitle">Nos es imposible obtener el email desde facebbok, desea registrar su cuenta de manera manual (una vez registrado podra utilizar facebook para iniciar sesion de amnera normal) .</p>`,
+                    cssClass: '',
+                    buttons:button_exit_lesson,
+                  },).then(function(_res){
+                    deferred.resolve(_res);
+
+                  });
+                  return deferred.promise;
 
 
 

@@ -1,5 +1,9 @@
 #welcome-view{
-  #content-id{
+  #welcome-content{
+
+    &.iphone-x{
+      top:30px !important;
+    }
     #image-logo{
       &.background-welcome{
         width: 60%;

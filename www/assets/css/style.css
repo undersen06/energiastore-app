@@ -13,9 +13,22 @@
 @import '../../js/views/products/categories/categories.css';
 @import '../../js/views/products/products.css';
 
+/* Tutorial */
+@import '../../js/views/settings/options/tutorials/tutorials/type_user/tutorial.css';
+
+
+/* Choose country */
+@import '../../js/views/settings/options/country/country.css';
+
+
+
+/* Motor */
+@import '../../js/views/motors/motor.css';
+@import '../../js/views/motors/create/motor.css';
+
+
 
 /* Empty. Add your own CSS if you like */
-
 
 h1.title{
   font-size:20px !important;

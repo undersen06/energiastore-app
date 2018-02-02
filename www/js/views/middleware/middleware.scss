@@ -11,23 +11,29 @@
     width: 85vw;
     top:10vh;
     position:relative;
+    &.iphone-x{
+      top: 15vh;
+    }
   }
 
   span.help-button{
-    top: 25px;
+    top: 30px;
     position: absolute;
     z-index: 999;
     right: 0px;
     margin-right: 30px;
     color: $primary-color;
     font-size: 16px;
+    &.iphone-x{
+      top: 60px;
+    }
   }
 
 
   .capsule-container{
 
     position:relative;
-    top:10vh;
+    top:15vh;
     height:100vh;
 
     .capsule{

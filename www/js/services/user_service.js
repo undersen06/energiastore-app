@@ -58,6 +58,31 @@
       },
 
 
+      updateCountry: function(_user,_country_id) {
+debugger;
+        let defer = $q.defer();
+        $http({
+          url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
+          method: 'PATCH',
+          headers:{
+            username:_user.username,
+            token:_user.authentication_token
+          },
+          data:{
+            user:{
+              country:_country_id
+            }
+          }
+        }).then(function(_response) {
+          defer.resolve(_response);
+
+        }, function(_error) {
+          defer.reject(_error);
+        });
+        return defer.promise;
+      },
+
+
     }
   }]);
 }).call(this);

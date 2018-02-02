@@ -1,0 +1,8 @@
+#create_motor-view .bar-header .buttons{width:44px;height:44px;top:0;color:white}
+#create_motor-view .bar-header .buttons i{margin:auto;font-size:25px}#create_motor-view #create_motor-content{overflow:scroll !important}
+#create_motor-view #create_motor-content #create_motor-content-div{margin-top:30px;padding:15px 15px 15px 20px}
+#create_motor-view #create_motor-content #create_motor-content-div .input-field{width:80%;display:-webkit-box}
+#create_motor-view #create_motor-content #create_motor-content-div .input-field.special{width:calc(80% - 25px)}
+#create_motor-view #create_motor-content #create_motor-content-div .input-field.special span{top:11px;position:relative;left:10px}
+#create_motor-view #create_motor-content #create_motor-content-div .input-field.special input.special{padding-left:25px;left:-10px;position:relative}
+#create_motor-view #create_motor-content #create_motor-content-div .native-select{display:block;-webkit-appearance:none}

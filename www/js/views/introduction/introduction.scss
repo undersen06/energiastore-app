@@ -1,7 +1,8 @@
 @import "../../../css/vars.scss";
 
 #introduction-view{
-  #content-id{
+  #introduction-content{
+
 
     &.slider-one{
       background-color:$primary-color;
@@ -38,8 +39,11 @@
         right: 35px;
       }
       &.top{
-        top:25px;
+        top: 30px;
         z-index:999
+      }
+      &.iphone-x{
+        top:60px !important;
       }
     }
 

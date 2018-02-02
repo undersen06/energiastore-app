@@ -1,7 +1,7 @@
 <ion-view id="middleware-view">
   <ion-content>
     <div class="">
-      <span class="main-title">{{translations.MIDDLEWARE_TITLE}}</span>
+      <span class="main-title" ng-class="isIphoneX() ? 'iphone-x':''">{{translations.MIDDLEWARE_TITLE}}</span>
 
       <div class="capsule-container">
         <div class="capsule user" ng-click="handleGoTo(1)">
@@ -30,7 +30,7 @@
     </div> -->
 
   </div>
-  <span  class="help-button" ng-click="getHelp()">{{translations.MIDDLEWARE_HELP}} <i class="ion-chevron-right"></i></span>
+  <span  class="help-button" ng-class="isIphoneX() ? 'iphone-x':''" ng-click="getHelp()">{{translations.MIDDLEWARE_HELP}} <i class="ion-chevron-right"></i></span>
 </div>
 </ion-content>
 </ion-view>

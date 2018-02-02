@@ -1,33 +1,33 @@
-#login-view i {
-  margin-left: 15px;
-  font-size: 30px;
-  color: white;
-  top: -30px;
-  position: absolute;
-  width: 44px;
-  height: 44px; }
-
-#login-view img.logo-login {
-  position: absolute;
-  width: 70px;
-  z-index: 99;
-  transform: translate(-50%);
-  left: 50%;
-  top: -15px; }
-
-#login-view .row {
-  margin-top: 10vw; }
-  #login-view .row div.card-login {
-    padding: 20px 20px 20px 20px; }
-    #login-view .row div.card-login span.login-title {
+#login-view #login-content #login-container {
+  margin-top: 70px; }
+  #login-view #login-content #login-container i {
+    margin-left: 15px;
+    font-size: 30px;
+    color: white;
+    top: -30px;
+    position: absolute;
+    width: 44px;
+    height: 44px; }
+  #login-view #login-content #login-container img.logo-login {
+    position: absolute;
+    width: 70px;
+    z-index: 99;
+    transform: translate(-50%);
+    left: 50%;
+    top: -15px; }
+  #login-view #login-content #login-container .row {
+    margin-top: 10vw; }
+    #login-view #login-content #login-container .row div.card-login {
+      padding: 20px 20px 20px 20px; }
+      #login-view #login-content #login-container .row div.card-login span.login-title {
+        color: black;
+        text-align: center; }
+    #login-view #login-content #login-container .row a {
+      width: 100%; }
+    #login-view #login-content #login-container .row p {
       color: black;
-      text-align: center; }
-  #login-view .row a {
-    width: 100%; }
-  #login-view .row p {
-    color: black;
-    text-align: center;
-    margin-bottom: 10px; }
+      text-align: center;
+      margin-bottom: 10px; }
 
 #facebook-button {
   background-color: #3b5998; }

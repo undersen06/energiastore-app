@@ -1,33 +1,35 @@
-#introduction-view #content-id.slider-one {
+#introduction-view #introduction-content.slider-one {
   background-color: #62D485; }
 
-#introduction-view #content-id.slider-two {
+#introduction-view #introduction-content.slider-two {
   background-color: #62BED4; }
 
-#introduction-view #content-id.slider-three {
+#introduction-view #introduction-content.slider-three {
   background-color: #F5A623; }
 
-#introduction-view #content-id.animate-background {
+#introduction-view #introduction-content.animate-background {
   transition: all 0.6s; }
 
-#introduction-view #content-id #image-logo.background-introduction {
+#introduction-view #introduction-content #image-logo.background-introduction {
   width: 100%;
   position: absolute;
   transform: translate(0, 50%); }
 
-#introduction-view #content-id .skip-button {
+#introduction-view #introduction-content .skip-button {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
   font-size: 17px;
   color: white; }
-  #introduction-view #content-id .skip-button.right {
+  #introduction-view #introduction-content .skip-button.right {
     right: 35px; }
-  #introduction-view #content-id .skip-button.top {
-    top: 25px;
+  #introduction-view #introduction-content .skip-button.top {
+    top: 30px;
     z-index: 999; }
+  #introduction-view #introduction-content .skip-button.iphone-x {
+    top: 60px !important; }
 
-#introduction-view #content-id .slider-slides .slider-box-1 .world-container {
+#introduction-view #introduction-content .slider-slides .slider-box-1 .world-container {
   position: absolute;
   width: 170px;
   height: 170px;
@@ -35,7 +37,7 @@
   transform: translate(-50%, 59%);
   left: 50%;
   transition: all 2s ease-in; }
-  #introduction-view #content-id .slider-slides .slider-box-1 .world-container .world {
+  #introduction-view #introduction-content .slider-slides .slider-box-1 .world-container .world {
     width: 150px;
     height: 150px;
     border-radius: 150px;
@@ -46,12 +48,12 @@
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     overflow: hidden; }
-    #introduction-view #content-id .slider-slides .slider-box-1 .world-container .world .land {
+    #introduction-view #introduction-content .slider-slides .slider-box-1 .world-container .world .land {
       position: absolute;
       height: 20px;
       background: #99CC99;
       border-radius: 150px; }
-  #introduction-view #content-id .slider-slides .slider-box-1 .world-container .clouds {
+  #introduction-view #introduction-content .slider-slides .slider-box-1 .world-container .clouds {
     width: 170px;
     height: 170px;
     border-radius: 200px;
@@ -61,69 +63,69 @@
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     overflow: hidden; }
-    #introduction-view #content-id .slider-slides .slider-box-1 .world-container .clouds .cloud {
+    #introduction-view #introduction-content .slider-slides .slider-box-1 .world-container .clouds .cloud {
       width: 20px;
       height: 10px;
       background: white;
       border-radius: 20px; }
-  #introduction-view #content-id .slider-slides .slider-box-1 .world-container.world-container-active {
+  #introduction-view #introduction-content .slider-slides .slider-box-1 .world-container.world-container-active {
     background: white; }
 
-#introduction-view #content-id .slider-slides .slider-box-2 .phone-container {
+#introduction-view #introduction-content .slider-slides .slider-box-2 .phone-container {
   position: absolute;
   width: 200px;
   height: 300px;
   margin: AUTO;
   left: 50%;
   transform: translate(-50%); }
-  #introduction-view #content-id .slider-slides .slider-box-2 .phone-container img.phone-img {
+  #introduction-view #introduction-content .slider-slides .slider-box-2 .phone-container img.phone-img {
     width: 90vw;
     position: absolute;
     transform: translate(-50%, 0);
     top: 25%;
     left: 50%; }
-  #introduction-view #content-id .slider-slides .slider-box-2 .phone-container .notification-div {
+  #introduction-view #introduction-content .slider-slides .slider-box-2 .phone-container .notification-div {
     width: 200px;
     height: 50px;
     background-color: transparent;
     top: 140px;
     position: relative; }
-    #introduction-view #content-id .slider-slides .slider-box-2 .phone-container .notification-div.notification-div-left {
+    #introduction-view #introduction-content .slider-slides .slider-box-2 .phone-container .notification-div.notification-div-left {
       left: 50vw; }
-    #introduction-view #content-id .slider-slides .slider-box-2 .phone-container .notification-div.left-active {
+    #introduction-view #introduction-content .slider-slides .slider-box-2 .phone-container .notification-div.left-active {
       background-color: white !important;
       left: 10vw; }
-    #introduction-view #content-id .slider-slides .slider-box-2 .phone-container .notification-div.notification-div-right {
+    #introduction-view #introduction-content .slider-slides .slider-box-2 .phone-container .notification-div.notification-div-right {
       right: 50vw;
       margin-top: 20px; }
-    #introduction-view #content-id .slider-slides .slider-box-2 .phone-container .notification-div.right-active {
+    #introduction-view #introduction-content .slider-slides .slider-box-2 .phone-container .notification-div.right-active {
       background-color: white !important;
       right: 10vw; }
-    #introduction-view #content-id .slider-slides .slider-box-2 .phone-container .notification-div.animate-notifications {
+    #introduction-view #introduction-content .slider-slides .slider-box-2 .phone-container .notification-div.animate-notifications {
       transition: all .7s; }
 
-#introduction-view #content-id .bottom-introduction {
+#introduction-view #introduction-content .bottom-introduction {
   width: 100%;
   bottom: 0;
   position: absolute;
   height: 44px;
   background-color: rgba(126, 126, 126, 0.3);
   left: 0; }
-  #introduction-view #content-id .bottom-introduction.iphone-x {
+  #introduction-view #introduction-content .bottom-introduction.iphone-x {
     height: 64px; }
-  #introduction-view #content-id .bottom-introduction span.bottom-button {
+  #introduction-view #introduction-content .bottom-introduction span.bottom-button {
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
     font-size: 17px;
     color: white; }
-    #introduction-view #content-id .bottom-introduction span.bottom-button.iphone-x {
+    #introduction-view #introduction-content .bottom-introduction span.bottom-button.iphone-x {
       top: 40%; }
-    #introduction-view #content-id .bottom-introduction span.bottom-button.right {
+    #introduction-view #introduction-content .bottom-introduction span.bottom-button.right {
       right: 35px; }
-    #introduction-view #content-id .bottom-introduction span.bottom-button.left {
+    #introduction-view #introduction-content .bottom-introduction span.bottom-button.left {
       left: 35px; }
-    #introduction-view #content-id .bottom-introduction span.bottom-button.top {
+    #introduction-view #introduction-content .bottom-introduction span.bottom-button.top {
       top: 25px;
       z-index: 999; }
 

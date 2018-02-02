@@ -9,11 +9,15 @@ CONTROLLER DEFINITION
   this.app.controller("IntroductionController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout","Woocommerce",
   function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,Woocommerce) {
     $ionicPlatform.ready(function() {
-      if(ionic.Platform.device().model != undefined){
-        if(ionic.Platform.device().model.startsWith('iPhone10')){
-          $scope.isIphoneX = true
+
+      $scope.isIphoneX =  function(){
+        if(ionic.Platform.device().model != undefined){
+          if(ionic.Platform.device().model.startsWith('iPhone10')){
+            return true
+          }
         }
       }
+
     });
 
 
@@ -25,19 +29,13 @@ CONTROLLER DEFINITION
       var hasChangeSlide3;
 
 
-
-
-
-
-
-
       $scope.shouldShowBackButton=false;
 
       $scope.init= function(){
 
 
         $timeout(function(){
-            containerId = $('#content-id');
+            containerId = $('#introduction-content');
             worldId = $('#world-animate');
             notification_1 = $('#notification-id-1');
             notification_2 = $('#notification-id-2');

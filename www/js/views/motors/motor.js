@@ -99,7 +99,7 @@ CONTROLLER DEFINITION
       };
 
 
-      $ionicModal.fromTemplateUrl('modal-motor', {
+      $ionicModal.fromTemplateUrl('js/views/motors/create/motor.mdl.html', {
         scope: $scope,
         animation: 'slide-in-up'
       }).then(function(modal) {

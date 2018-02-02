@@ -45,55 +45,25 @@ CONTROLLER DEFINITION
 
     $ionicPlatform.ready(function() {
 
-      // if (window.StatusBar) {
-      //   $cordovaStatusbar.overlaysWebView(false);
-      //   $cordovaStatusbar.style(1);
-      //   switch (StorageUserModel.getCurrentUser().type_user) {
-      //     case 'explorer':
-      //     $cordovaStatusbar.styleHex("#62BED4");
-      //     break;
-      //     case 'user':
-      //     $cordovaStatusbar.styleHex("#62D485");
-      //     break;
-      //
-      //     case 'partner':
-      //     $cordovaStatusbar.styleHex("#F5A623");
-      //     break;
-      //     default:
-      //
-      //   }
-      //   $cordovaStatusbar.show();
-      // }
-
+      $scope.isIphoneX =  function(){
+        if(ionic.Platform.device().model != undefined){
+          if(ionic.Platform.device().model.startsWith('iPhone10')){
+            return true
+          }
+        }
+      }
 
       $scope.image = "assets/img/photo.png";
-
       $scope.os = ionic.Platform.platform();
       $scope.user = StorageUserModel.getCurrentUser();
       $scope.register={};
-
-
-      $scope.isIphoneX = false;
-      $scope.postCamera = false;
-
-
-      // $ionicPlatform.ready(function() {
-        if(ionic.Platform.device().model != undefined){
-          if(ionic.Platform.device().model.startsWith('iPhone10')){
-              $scope.isIphoneX = true
-          }
-        }
-      // });
-
+      $scope.user =  StorageUserModel.getCurrentUser();
+      $scope.factorType={};
 
       const _input_penalty = $('#input-penalty');
       const _button_camera = $('#button-camera');
       const _button_galley = $('#button-gallery');
 
-
-      $scope.user =  StorageUserModel.getCurrentUser();
-
-      $scope.factorType={};
 
       $scope.back = function(){
         $state.go("dashboard",{options:'reload'},{reload: true});
@@ -105,13 +75,9 @@ CONTROLLER DEFINITION
 
       $scope.doRefresh = function(){
         Quotation.index($scope.user).then(function(_response){
-
-          // _respose.data
-
           for (var i = 0; i < array.length; i++) {
             array[i]
           }
-
         },function(_error){
 
 
@@ -136,20 +102,11 @@ CONTROLLER DEFINITION
         $cordovaCamera.getPicture(options).then(function(_imageData) {
           $scope.factorType.photo = "data:image/jpeg;base64," + _imageData;
           $scope.image = $scope.factorType.photo;
-          // cordova.plugins.statusbarOverlay.hide();
-          // cordova.plugins.statusbarOverlay.show();
-          // location.reload();
-          $scope.postCamera = true;
-          debugger;
 
         }, function(_err) {
           Utils.validateToast($scope.ERROR_CAMERA);
           console.log(_err);
-          // cordova.plugins.statusbarOverlay.hide();
-          // cordova.plugins.statusbarOverlay.show();
-          // location.reload();
-          $scope.postCamera = true;
-          debugger;
+
 
         });
 
@@ -171,13 +128,10 @@ CONTROLLER DEFINITION
         $cordovaCamera.getPicture(options).then(function(_imageData) {
           $scope.factorType.photo = "data:image/jpeg;base64," + _imageData;
           $scope.image = $scope.factorType.photo;
-          // isPictureChanged=true;
-          $scope.postCamera = true;
         }, function(_err) {
 
           Utils.validateToast($scope.ERROR_GALLERY);
           console.error(_err);
-          $scope.postCamera = true;
 
         });
       };
@@ -206,10 +160,6 @@ CONTROLLER DEFINITION
           });
         }
 
-
-        $scope.resizeScreen = function(){
-          return $scope.isIphoneX && $scope.postCamera;
-        }
 
 
 
@@ -342,14 +292,6 @@ CONTROLLER DEFINITION
         );
       };
 
-
-      $scope.isIphoneX = function(){
-        return $scope.isIphoneX;
-      }
-
-      $scope.isPostCamera = function(){
-        return $scope.postCamera;
-      }
 
     });
   }]);

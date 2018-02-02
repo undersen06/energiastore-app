@@ -1,0 +1,51 @@
+#country-modal-view{
+  #content-id{
+
+    #image-logo{
+      &.background-world{
+        width: 100%;
+        position: absolute;
+        transform: translate(0,50%);
+      }
+    }
+
+    .close-button{
+      position: absolute;
+      top: 50%;
+      transform: translate(0,-50%);
+      font-size:17px;
+      &.left{
+        left: 35px;
+      }
+      &.top{
+        top: 30px;
+        z-index:999
+      }
+      &.iphone-x{
+        top:60px !important;
+      }
+    }
+
+
+    h5{
+      top: 4vh;
+      position: relative;
+      text-align: center;
+      color:black;
+    }
+
+    div{
+      &.country-opt{
+        margin: 40px auto 20px auto;
+        img{
+          margin: 0 auto;
+          display: block;
+        }
+        p{
+          text-align:center
+        }
+      }
+    }
+
+  }
+}

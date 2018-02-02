@@ -1,2 +1,8 @@
 #project-view .bar-header h5{width:44px;top:0;position:absolute;text-align:center}
-#project-view .bar-header h5 i{z-index:999}
+#project-view .bar-header h5 i{z-index:999}#project-view #content-id h6{text-align:center;margin:30px;font-size:20px}
+#project-view #content-id h6 strong{font-weight:600}#project-view #content-id .item-content{display:-webkit-flex;width:100%}
+#project-view #content-id .item-content.item{width:100%;height:100px;display:-webkit-box}
+#project-view #content-id .item-content .item-container{width:50px;position:relative}
+#project-view #content-id .item-content .item-container .item-content-dot{margin:auto;display:block;left:50%;position:absolute;top:50%;transform:translate(-50%,-50%)}
+#project-view #content-id .item-content .item-container .item-content-dot.warning{color:#e3e641 !important}
+#project-view #content-id .item-content .item-container .item-content-dot.success{color:#31c75f !important}

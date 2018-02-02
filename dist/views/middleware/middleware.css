@@ -1,6 +1,7 @@
 #middleware-view span.main-title{font-size:20px;color:#575757;margin:0 auto;display:-webkit-box;text-align:center;width:85vw;top:10vh;position:relative}
-#middleware-view span.help-button{top:25px;position:absolute;z-index:999;right:0;margin-right:30px;color:#62d485;font-size:16px}
-#middleware-view .capsule-container{position:relative;top:10vh;height:100vh}#middleware-view .capsule-container .capsule{width:80vw;height:100px;border-radius:11px;margin:50px auto 25px auto}
+#middleware-view span.main-title.iphone-x{top:15vh}#middleware-view span.help-button{top:30px;position:absolute;z-index:999;right:0;margin-right:30px;color:#62d485;font-size:16px}
+#middleware-view span.help-button.iphone-x{top:60px}#middleware-view .capsule-container{position:relative;top:15vh;height:100vh}
+#middleware-view .capsule-container .capsule{width:80vw;height:100px;border-radius:11px;margin:50px auto 25px auto}
 #middleware-view .capsule-container .capsule.user{background-color:#62d485}#middleware-view .capsule-container .capsule.explorer{background-color:#62bed4}
 #middleware-view .capsule-container .capsule.partner{background-color:#f5a623}#middleware-view .capsule-container .capsule span.profile-title{font-size:25px;color:white;position:relative;top:22px;margin-left:75px}
 #middleware-view .capsule-container .capsule div.profile-subtitle-container{position:relative;top:25px}

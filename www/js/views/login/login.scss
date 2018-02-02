@@ -1,43 +1,49 @@
 #login-view{
 
-  i{
-    margin-left: 15px;
-    font-size: 30px;
-    color: white;
-    top: -30px;
-    position: absolute;
-    width: 44px;
-    height: 44px;
-  }
-  img.logo-login{
-    position: absolute;
-    width: 70px;
-    z-index: 99;
-    transform: translate(-50%);
-    left: 50%;
-    top: -15px;
-  }
+  #login-content{
+    #login-container{
+      margin-top:70px;
 
-  .row{
-    margin-top: 10vw;
-
-    div.card-login{
-        padding: 20px 20px 20px 20px;
-
-        span.login-title{
-            color: black;
-            text-align: center;
-        }
+      i{
+        margin-left: 15px;
+        font-size: 30px;
+        color: white;
+        top: -30px;
+        position: absolute;
+        width: 44px;
+        height: 44px;
+      }
+      img.logo-login{
+        position: absolute;
+        width: 70px;
+        z-index: 99;
+        transform: translate(-50%);
+        left: 50%;
+        top: -15px;
       }
 
-    a{
-      width:100%;
-    }
+      .row{
+        margin-top: 10vw;
 
-    p{
-      color: black;
-      text-align: center;
-      margin-bottom: 10px;
+        div.card-login{
+          padding: 20px 20px 20px 20px;
+
+          span.login-title{
+            color: black;
+            text-align: center;
+          }
+        }
+
+        a{
+          width:100%;
+        }
+
+        p{
+          color: black;
+          text-align: center;
+          margin-bottom: 10px;
+        }
+      }
     }
   }
 }

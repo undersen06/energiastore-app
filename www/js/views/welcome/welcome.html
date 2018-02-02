@@ -1,5 +1,5 @@
 <ion-view id="welcome-view">
-  <ion-content id="content-id" has-bouncing="false">
+  <ion-content id="welcome-content" has-bouncing="false" ng-class="isIphoneX() ? 'iphone-x' : ''">
     <img id="image-logo" src="assets/img/introduction/map.svg"  class="background-welcome" />
 
     <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">

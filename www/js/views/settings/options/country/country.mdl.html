@@ -1,0 +1,25 @@
+<ion-modal-view id="country-modal-view">
+  <ion-content id="content-id">
+
+    <img id="image-logo" src="assets/img/introduction/map.svg"  class="background-world" >
+
+    <span class="close-button left top" ng-click="modalChooseCountry.hide()()" ng-class="isIphoneX() ? 'iphone-x' : ''">{{SkipButtonText}}
+      <i class="ion-chevron-left"></i>
+    </span>
+
+    <h5>{{translations.CHOOSE_YOUR_COUNTRY}}</h5>
+
+
+    <div class="country-container" >
+
+      <div class="country-opt" ng-repeat="country in countries">
+        <img src="assets/img/flag/{{country.name}}.png" alt="" ng-click="chooseCountry({{country.id}})"/>
+        <p>{{country.name | capitalize }}</p>
+      </div>
+
+
+    </div>
+
+    </div>
+  </ion-content>
+</ion-modal-view>

@@ -39,25 +39,7 @@ CONTROLLER DEFINITION
 
       $ionicPlatform.ready(function() {
 
-        // if (window.StatusBar) {
-        //   $cordovaStatusbar.overlaysWebView(false);
-        //   $cordovaStatusbar.style(1);
-        //   switch (StorageUserModel.getCurrentUser().type_user) {
-        //     case 'explorer':
-        //     $cordovaStatusbar.styleHex("#62BED4");
-        //     break;
-        //     case 'user':
-        //     $cordovaStatusbar.styleHex("#62D485");
-        //     break;
-        //
-        //     case 'partner':
-        //     $cordovaStatusbar.styleHex("#F5A623");
-        //     break;
-        //     default:
-        //
-        //   }
-        //   $cordovaStatusbar.show();
-        // }
+        var projectPopUp;
 
         const languageFilePath = translationService.getTranslation();
         $resource(languageFilePath).get(function(data) {
@@ -116,7 +98,7 @@ CONTROLLER DEFINITION
         $scope.addQuotationPopUp = function() {
           $scope.data = {};
 
-          var myPopup = $ionicPopup.show({
+          projectPopUp = $ionicPopup.show({
             animation: 'fade-in',
             title: '<img src="assets/img/project.png" class="img-about-us">',
             subTitle: `<span class="popup-title">${$scope.translations.CREATE_QUOTATION_POPUP_TEXT}</span>`,
@@ -126,7 +108,7 @@ CONTROLLER DEFINITION
                <input id="quotation_kwh_price" type="number" min="0"  pattern="[0-9]*" class="validate" ng-model="data.price"><label for="quotation_kw_price">${$scope
                  .translations.ADD_QUOTATION_POPUP_SECOND_INPUT}</label></div>`,
             scope: $scope,
-            buttons: [  { text: $scope.translations.CHOOSE_LANGUAGE_CANCELs,
+            buttons: [  { text: 'Cancelar',
               type: 'button-cancel'
             },
               {
@@ -318,9 +300,11 @@ CONTROLLER DEFINITION
 
             })
           }
+        }
 
-
-
+        $scope.closePopUp = function(){
+          debugger;
+          projectPopUp.close();
         }
 
 

@@ -1,5 +1,5 @@
 <ion-view id="factor-view">
-  <ion-header-bar align-title="center" ng-class="resizeScreen() ? 'iphone-x-header {{design.header}}' : '{{design.header}}' ">
+  <ion-header-bar align-title="center" ng-class="design.header">
     <h5 ng-click="back()">
       <i class="ion-chevron-left"></i>
     </h5>
@@ -7,12 +7,12 @@
   </ion-header-bar>
 
 
-  <ion-content scroll="false" ng-class="resizeScreen() ? 'iphone-x-content' : ''">
+  <ion-content scroll="false" >
     <div class="container" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
 
 
       <div class="input-field col s12">
-        <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor">
+        <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor" pattern="[0-9]*">
         <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}}</label>
       </div>
 
@@ -38,29 +38,5 @@
 
 </ion-content>
 
-<ion-footer-bar id="footbar-fmp-view" ng-class="{'iphone-x' : isIphoneX(),'iphone-x-content' : isPostCamera()}">
-  <div class="footer-container">
-
-    <div class="buttons">
-      <button class="button tab-not-selected" ng-click="goToProjects()">
-        <i class="fa fa-bookmark"></i>
-        {{translations.FOOTER_PROJECT}}
-      </button>
-    </div>
-
-    <div  class="dashboard-button" ng-click="goToDashboard()">
-      <img src="assets/img/logo.png" class="dashboard-button-img" alt="">
-    </div>
-
-    <div class="buttons">
-      <button class="button tab-not-selected"  ng-click="goToQuotes()">
-        <i class="fa fa-money"></i>
-        {{translations.FOOTER_QUOTE}}
-      </button>
-    </div>
-
-  </div>
-</ion-footer-bar>
-
-<!-- <footbar post="postCamera"></footbar> -->
+<footbar></footbar>
 </ion-view>

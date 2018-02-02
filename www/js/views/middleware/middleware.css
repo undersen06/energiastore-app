@@ -7,19 +7,23 @@
   width: 85vw;
   top: 10vh;
   position: relative; }
+  #middleware-view span.main-title.iphone-x {
+    top: 15vh; }
 
 #middleware-view span.help-button {
-  top: 25px;
+  top: 30px;
   position: absolute;
   z-index: 999;
   right: 0px;
   margin-right: 30px;
   color: #62D485;
   font-size: 16px; }
+  #middleware-view span.help-button.iphone-x {
+    top: 60px; }
 
 #middleware-view .capsule-container {
   position: relative;
-  top: 10vh;
+  top: 15vh;
   height: 100vh; }
   #middleware-view .capsule-container .capsule {
     width: 80vw;

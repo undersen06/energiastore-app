@@ -1,44 +1,46 @@
 <ion-view id="login-view">
-  <ion-content ng-class="design.header" >
+  <ion-content id="login-content" ng-class="design.header">
 
-<i class="ion-ios-arrow-back" ng-click="Back();"></i>
+    <div id="login-container">
+      <i class="ion-ios-arrow-back" ng-click="Back();"></i>
+      <img src="assets/img/logo.png" class="logo-login">
 
-<img src="assets/img/logo.png" class="logo-login">
-
-    <div class="row">
-      <div class="col s12 m6">
-        <div class="card card-login">
-          <div class="card-content">
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card card-login">
+            <div class="card-content">
 
 
-            <span class="card-title login-title">{{translations.LOGIN_HEADER}}</span>
+              <span class="card-title login-title">{{translations.LOGIN_HEADER}}</span>
 
-            <div class="input-field col s12">
-              <input id="email" type="email" class="validate" ng-model="user.email">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate" ng-model="user.email">
+                <label for="email">{{translations.LOGIN_EMAIL_PLACEHOLDER}}</label>
+              </div>
 
-              <label for="email">{{translations.LOGIN_EMAIL_PLACEHOLDER}}</label>
-            </div>
-            <div class="input-field col s12">
-              <input id="password" type="password" class="validate" ng-model="user.password">
+              <div class="input-field col s12">
+                <input id="password" type="password" class="validate" ng-model="user.password">
+                <label for="password">{{translations.LOGIN_PASSWORD_PLACEHOLDER}}</label>
+              </div>
 
-              <label for="password">{{translations.LOGIN_PASSWORD_PLACEHOLDER}}</label>
-            </div>
+              <br />
 
-            <br />
-
-            <a class="waves-effect waves-light btn" ng-click="login()" ng-class="design.header" >{{translations.LOGIN_BUTTON}}</a>
+              <a class="waves-effect waves-light btn" ng-click="login()" ng-class="design.header" >{{translations.LOGIN_BUTTON}}</a>
 
             </br>
-            </br>
+          </br>
 
-            <p> {{translations.LOGIN_SIGNUP_TEXT}}</p>
+          <p> {{translations.LOGIN_SIGNUP_TEXT}}</p>
 
-              <a class="waves-effect waves-light btn" ng-click="goToRegister()" ng-class="design.header" >{{translations.LOGIN_SIGNUP_BUTTON}}</a>
-              <a class="waves-effect waves-light btn" id="facebook-button" ng-click="goToRegister()" >{{translations.LOGIN_SIGNUP_BUTTON}}</a>
+          <a class="waves-effect waves-light btn" ng-click="goToRegister()" ng-class="design.header" >{{translations.LOGIN_SIGNUP_BUTTON}}</a>
+        </br>
+      </br>
+      <a class="waves-effect waves-light btn" id="facebook-button" ng-click="useFacebook()" >Inicia con Facebook</a>
 
-          </div>
-        </div>
-      </div>
     </div>
-  </ion-content>
+  </div>
+</div>
+</div>
+</div>
+</ion-content>
 </ion-view>

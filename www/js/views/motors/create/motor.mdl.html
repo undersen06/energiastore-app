@@ -1,0 +1,140 @@
+
+<ion-modal-view id="create_motor-view">
+  <ion-header-bar align-title="center" ng-class="design.header">
+    <div class="buttons">
+    </div>
+    <h1 class="title">{{translations.APP_NAME}}</h1>
+    <div class="buttons" ng-click="closeModalMotor();">
+      <i class="ion-android-close"></i>
+    </div>
+  </ion-header-bar>
+
+  <ion-content id="create_motor-content" >
+    <div id="create_motor-content-div" >
+
+
+      <div class="input-field" >
+        <input id="motor-name"  type="text" class="validate" ng-model="motor.name">
+        <label class="" for="motor-name">{{translations.MODAL_HELPER_MOTOR_TITLE}}</label>
+        <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(1)"></i>
+      </div>
+
+
+      <div class="input-field" >
+        <input id="motor-voltaje"  type="number" step="0.01" class="validate" ng-model="motor.voltaje" pattern="[0-9]*">
+        <label for="motor-voltaje" id="voltaje-id">{{translations.MODAL_HELPER_VOLTAJE_TITLE}}</label>
+        <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(2)"></i>
+      </div>
+
+      <div class="input-field" style="width:80%; display: -webkit-box;">
+        <input id="motor-amp"  type="number" step="0.01" class="validate" ng-model="motor.amp" pattern="[0-9]*">
+        <label for="motor-amp">{{translations.MODAL_HELPER_AMP_TITLE}}</label>
+        <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(3)"></i>
+      </div>
+
+
+      <div class="input-field special" >
+        <span>0.</span>
+        <input id="rated-power" type="number" class="validate special" ng-model="motor.power_factor" max="99" pattern="[0-9]*">
+        <label for="rated-power" id="rated-power-label">{{translations.MODAL_HELPER_POWER_FACTOR_TITLE}}</label>
+        <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(4)"></i>
+      </div>
+
+
+      <div class="input-field">
+        <input id="rated-power" type="number" class="validate" ng-model="motor.rated_power" pattern="[0-9]*" >
+        <label for="rated-power">{{translations.MODAL_HELPER_RATED_POWER_TITLE}}</label>
+        <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(4)"></i>
+      </div>
+
+      <!-- <div class="input-field" style="width:80%; display: -webkit-box;"> -->
+      <!-- <input id="hours-day" type="number" min="1" max="24" class="validate" ng-model="motor.hours"> -->
+      <label for="hours-day">{{translations.MODAL_HELPER_HOURS_DAY_TITLE}}</label>
+      <div  style="width:80%; display: -webkit-box;">
+        <select name="singleSelect" ng-model="motor.hours" class="native-select">
+          <option value="" disabled>{{translations.MOTOR_SELECT_HOURS}}</option>
+          <option value="1">1 hora</option>
+          <option value="2">2 horas</option>
+          <option value="3">3 horas</option>
+          <option value="4">4 horas</option>
+          <option value="5">5 horas</option>
+          <option value="6">6 horas</option>
+          <option value="7">7 horas</option>
+          <option value="8">8 horas</option>
+          <option value="9">9 horas</option>
+          <option value="10">10 horas</option>
+          <option value="11">11 horas</option>
+          <option value="12">12 horas</option>
+          <option value="13">13 horas</option>
+          <option value="14">14 horas</option>
+          <option value="15">15 horas</option>
+          <option value="16">16 horas</option>
+          <option value="17">17 horas</option>
+          <option value="18">18 horas</option>
+          <option value="19">19 horas</option>
+          <option value="20">20 horas</option>
+          <option value="21">21 horas</option>
+          <option value="22">22 horas</option>
+          <option value="23">23 horas</option>
+          <option value="24">24 horas</option>
+
+        </select>
+        <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(5)"></i>
+      </div>
+
+      <!-- </div> -->
+
+      <!-- <div class="input-field" style="width:80%; display: -webkit-box;"> -->
+      <!-- <input id="days-month" type="number" min="1" max="31" class="validate" ng-model="motor.days"> -->
+      <label for="days-month">{{translations.MODAL_HELPER_DAYS_MONTH_TITLE}}</label>
+      <div  style="width:80%; display: -webkit-box;">
+        <select name="singleSelect" ng-model="motor.days" class="native-select">
+          <option value="" disabled>{{translations.MOTOR_SELECT_DAYS}}</option>
+          <option value="1">1 dia</option>
+          <option value="2">2 dias</option>
+          <option value="3">3 dias</option>
+          <option value="4">4 dias</option>
+          <option value="5">5 dias</option>
+          <option value="6">6 dias</option>
+          <option value="7">7 dias</option>
+          <option value="8">8 dias</option>
+          <option value="9">9 dias</option>
+          <option value="10">10 dias</option>
+          <option value="11">11 dias</option>
+          <option value="12">12 dias</option>
+          <option value="13">13 dias</option>
+          <option value="14">14 dias</option>
+          <option value="15">15 dias</option>
+          <option value="16">16 dias</option>
+          <option value="17">17 dias</option>
+          <option value="18">18 dias</option>
+          <option value="19">19 dias</option>
+          <option value="20">20 dias</option>
+          <option value="21">21 dias</option>
+          <option value="22">22 dias</option>
+          <option value="23">23 dias</option>
+          <option value="25">25 dias</option>
+          <option value="26">26 dias</option>
+          <option value="27">27 dias</option>
+          <option value="28">28 dias</option>
+          <option value="29">29 dias</option>
+          <option value="30">30 dias</option>
+          <option value="31">31 dias</option>
+
+
+        </select>
+        <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(6)"></i>
+      </div>
+
+
+
+      <div ng-class="design.button" ng-click="createMotor();" class="button-traslucid">
+        {{translations.MODAL_CREATE_MOTOR_BUTTON}}
+      </div>
+    </div>
+
+
+
+
+  </ion-content>
+</ion-modal-view>

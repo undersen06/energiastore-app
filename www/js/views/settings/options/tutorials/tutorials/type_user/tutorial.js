@@ -14,18 +14,27 @@ CONTROLLER DEFINITION
       $scope.translations = data;
       $scope.RightButtonText = $scope.translations.NEXT;
       $scope.LeftButtonText =  $scope.translations.BACK;
-      $scope.SkipButton = $scope.translations.SKIP;
+      $scope.SkipButtonText = $scope.translations.SKIP;
 
-      
+
+
     });
 
 
     $ionicPlatform.ready(function() {
 
+      $scope.isIphoneX =  function(){
+        if(ionic.Platform.device().model != undefined){
+          if(ionic.Platform.device().model.startsWith('iPhone10')){
+            return true
+          }
+        }
+      }
 
 
 
-      const containerId = $('#content-id');
+
+      const containerId = $('#type_user-content');
       // const worldId = $('#world-animate');
       // const notification_1 = $('#notification-id-1');
       // const notification_2 = $('#notification-id-2');

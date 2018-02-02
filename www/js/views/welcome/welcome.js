@@ -10,10 +10,13 @@ CONTROLLER DEFINITION
   function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,StorageLanguageModel,$Country,StorageCountryModel,$q,popUpService) {
     $ionicPlatform.ready(function() {
 
-
-
-
-
+      $scope.isIphoneX =  function(){
+        if(ionic.Platform.device().model != undefined){
+          if(ionic.Platform.device().model.startsWith('iPhone10')){
+            return true
+          }
+        }
+      }
 
        function loadCountries(){
 

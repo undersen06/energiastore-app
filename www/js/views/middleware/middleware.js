@@ -8,6 +8,18 @@ CONTROLLER DEFINITION
 (function() {
   this.app.controller("MiddlewareController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$timeout","StorageUserModel","$ionicPopup",
   function($scope, $state,$ionicPlatform,$resource,translationService,$timeout,StorageUserModel,$ionicPopup) {
+    $ionicPlatform.ready(function() {
+
+      $scope.isIphoneX =  function(){
+        if(ionic.Platform.device().model != undefined){
+          if(ionic.Platform.device().model.startsWith('iPhone10')){
+            return true
+          }
+        }
+      }
+    })
+
+
 
     if(StorageUserModel.getCurrentUser()){
       if(StorageUserModel.getCurrentUser().type_user === 'explorer'){

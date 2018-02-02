@@ -25,6 +25,26 @@
         });
         return defer.promise;
       },
+
+      login_facebook: function(_user) {
+        let defer = $q.defer();
+        $http({
+          url: ENV.LOCAL + ENV.SIGN_IN,
+          method: 'POST',
+          data:{
+            user:{
+              username:_user.email,
+              password:_user.password
+            }
+          }
+        }).then(function(_response) {
+          defer.resolve(_response);
+
+        }, function(_error) {
+          defer.reject(_error);
+        });
+        return defer.promise;
+      },
       logout: function() {
         let defer = $q.defer();
         $http({

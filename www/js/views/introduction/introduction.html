@@ -1,277 +1,281 @@
 <ion-view ng-init="init();" id="introduction-view">
-  <ion-content id="content-id" class="slider-one animate-background" has-bouncing="false">
-    <img id="image-logo" src="assets/img/introduction/map.svg"  class="background-introduction" />
-
-
-    <span class="skip-button right top" ng-click="skip()">{{SkipButtonText}}
-      <i class="ion-chevron-right"></i>
-    </span>
-
-
-    <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
-      <ion-slide class="slider-box-1">
+  <ion-content id="introduction-content" class="slider-one animate-background" has-bouncing="false" >
 
 
 
-          <div class="world-container" id="world-animate">
-            <div class="world">
-              <div class="land"></div>
-              <div class="land"></div>
-              <div class="land"></div>
-              <div class="land"></div>
-              <div class="land"></div>
-              <div class="land"></div>
-              <div class="land"></div>
-              <div class="land"></div>
-              <div class="land"></div>
+      <img id="image-logo" src="assets/img/introduction/map.svg"  class="background-introduction" />
+
+
+      <span class="skip-button right top" ng-click="skip()" ng-class="isIphoneX() ? 'iphone-x' : ''">{{SkipButtonText}}
+        <i class="ion-chevron-right"></i>
+      </span>
+
+
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+        <ion-slide class="slider-box-1">
+
+
+
+            <div class="world-container" id="world-animate">
+              <div class="world">
+                <div class="land"></div>
+                <div class="land"></div>
+                <div class="land"></div>
+                <div class="land"></div>
+                <div class="land"></div>
+                <div class="land"></div>
+                <div class="land"></div>
+                <div class="land"></div>
+                <div class="land"></div>
+              </div>
+              <div class="clouds">
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+              </div>
             </div>
-            <div class="clouds">
-              <div class="cloud"></div>
-              <div class="cloud"></div>
-              <div class="cloud"></div>
-              <div class="cloud"></div>
-              <div class="cloud"></div>
-              <div class="cloud"></div>
-              <div class="cloud"></div>
-              <div class="cloud"></div>
-              <div class="cloud"></div>
-            </div>
-          </div>
 
 
-          <h4 class="title-slider" >
-            {{translations.SLIDER_1}}
-          </h4>
+            <h4 class="title-slider" >
+              {{translations.SLIDER_1}}
+            </h4>
 
 
 
 
 
+        </ion-slide>
+        <ion-slide class="slider-box-2">
+
+          <div class="phone-container">
+          <img src="assets/img/introduction/phone.png" alt="" class="phone-img" />
+
+
+          <div id="notification-id-1" class="notification-div notification-div-left animate-notifications"></div>
+
+          <div id="notification-id-2" class="notification-div notification-div-right animate-notifications" ></div>
+
+
+        </div>
+
+
+        <h4 class="title-slider">
+          {{translations.SLIDER_2}}
+        </h4>
       </ion-slide>
-      <ion-slide class="slider-box-2">
-
-        <div class="phone-container">
-        <img src="assets/img/introduction/phone.png" alt="" class="phone-img" />
 
 
-        <div id="notification-id-1" class="notification-div notification-div-left animate-notifications"></div>
-
-        <div id="notification-id-2" class="notification-div notification-div-right animate-notifications" ></div>
-
-
-      </div>
-
-
-      <h4 class="title-slider">
-        {{translations.SLIDER_2}}
-      </h4>
-    </ion-slide>
-
-
-    <ion-slide class="slider-box-3">
+      <ion-slide class="slider-box-3">
 
 
 
-      <div class='main-ctr'>
-        <div class='calendar-ctr'>
-          <div class='top-ctr'>
-            <div class='top top-0'></div>
-            <div class='top top-1'>
-              <div class='number'>1</div>
+        <div class='main-ctr'>
+          <div class='calendar-ctr'>
+            <div class='top-ctr'>
+              <div class='top top-0'></div>
+              <div class='top top-1'>
+                <div class='number'>1</div>
+              </div>
+              <div class='top top-2'>
+                <div class='number'>2</div>
+              </div>
+              <div class='top top-3'>
+                <div class='number'>3</div>
+              </div>
+              <div class='top top-4'>
+                <div class='number'>4</div>
+              </div>
+              <div class='top top-5'>
+                <div class='number'>5</div>
+              </div>
+              <div class='top top-6'>
+                <div class='number'>6</div>
+              </div>
+              <div class='top top-7'>
+                <div class='number'>7</div>
+              </div>
+              <div class='top top-8'>
+                <div class='number'>8</div>
+              </div>
+              <div class='top top-9'>
+                <div class='number'>9</div>
+              </div>
+              <div class='top top-10'>
+                <div class='number'>10</div>
+              </div>
+              <div class='top top-11'>
+                <div class='number'>11</div>
+              </div>
+              <div class='top top-12'>
+                <div class='number'>12</div>
+              </div>
+              <div class='top top-13'>
+                <div class='number'>13</div>
+              </div>
+              <div class='top top-14'>
+                <div class='number'>14</div>
+              </div>
+              <div class='top top-15'>
+                <div class='number'>15</div>
+              </div>
+              <div class='top top-16'>
+                <div class='number'>16</div>
+              </div>
+              <div class='top top-17'>
+                <div class='number'>17</div>
+              </div>
+              <div class='top top-18'>
+                <div class='number'>18</div>
+              </div>
+              <div class='top top-19'>
+                <div class='number'>19</div>
+              </div>
+              <div class='top top-20'>
+                <div class='number'>20</div>
+              </div>
+              <div class='top top-21'>
+                <div class='number'>21</div>
+              </div>
+              <div class='top top-22'>
+                <div class='number'>22</div>
+              </div>
+              <div class='top top-23'>
+                <div class='number'>23</div>
+              </div>
+              <div class='top top-24'>
+                <div class='number'>24</div>
+              </div>
+              <div class='top top-25'>
+                <div class='number'>25</div>
+              </div>
+              <div class='top top-26'>
+                <div class='number'>26</div>
+              </div>
+              <div class='top top-27'>
+                <div class='number'>27</div>
+              </div>
+              <div class='top top-28'>
+                <div class='number'>28</div>
+              </div>
+              <div class='top-29'>
+                <div class='number'>29</div>
+              </div>
             </div>
-            <div class='top top-2'>
-              <div class='number'>2</div>
-            </div>
-            <div class='top top-3'>
-              <div class='number'>3</div>
-            </div>
-            <div class='top top-4'>
-              <div class='number'>4</div>
-            </div>
-            <div class='top top-5'>
-              <div class='number'>5</div>
-            </div>
-            <div class='top top-6'>
-              <div class='number'>6</div>
-            </div>
-            <div class='top top-7'>
-              <div class='number'>7</div>
-            </div>
-            <div class='top top-8'>
-              <div class='number'>8</div>
-            </div>
-            <div class='top top-9'>
-              <div class='number'>9</div>
-            </div>
-            <div class='top top-10'>
-              <div class='number'>10</div>
-            </div>
-            <div class='top top-11'>
-              <div class='number'>11</div>
-            </div>
-            <div class='top top-12'>
-              <div class='number'>12</div>
-            </div>
-            <div class='top top-13'>
-              <div class='number'>13</div>
-            </div>
-            <div class='top top-14'>
-              <div class='number'>14</div>
-            </div>
-            <div class='top top-15'>
-              <div class='number'>15</div>
-            </div>
-            <div class='top top-16'>
-              <div class='number'>16</div>
-            </div>
-            <div class='top top-17'>
-              <div class='number'>17</div>
-            </div>
-            <div class='top top-18'>
-              <div class='number'>18</div>
-            </div>
-            <div class='top top-19'>
-              <div class='number'>19</div>
-            </div>
-            <div class='top top-20'>
-              <div class='number'>20</div>
-            </div>
-            <div class='top top-21'>
-              <div class='number'>21</div>
-            </div>
-            <div class='top top-22'>
-              <div class='number'>22</div>
-            </div>
-            <div class='top top-23'>
-              <div class='number'>23</div>
-            </div>
-            <div class='top top-24'>
-              <div class='number'>24</div>
-            </div>
-            <div class='top top-25'>
-              <div class='number'>25</div>
-            </div>
-            <div class='top top-26'>
-              <div class='number'>26</div>
-            </div>
-            <div class='top top-27'>
-              <div class='number'>27</div>
-            </div>
-            <div class='top top-28'>
-              <div class='number'>28</div>
-            </div>
-            <div class='top-29'>
-              <div class='number'>29</div>
-            </div>
-          </div>
-          <div class='bottom-ctr'>
-            <div class='bottom bottom-0'></div>
-            <div class='bottom bottom-1'>
-              <div class='number'>1</div>
-            </div>
-            <div class='bottom bottom-2'>
-              <div class='number'>2</div>
-            </div>
-            <div class='bottom bottom-3'>
-              <div class='number'>3</div>
-            </div>
-            <div class='bottom bottom-4'>
-              <div class='number'>4</div>
-            </div>
-            <div class='bottom bottom-5'>
-              <div class='number'>5</div>
-            </div>
-            <div class='bottom bottom-6'>
-              <div class='number'>6</div>
-            </div>
-            <div class='bottom bottom-7'>
-              <div class='number'>7</div>
-            </div>
-            <div class='bottom bottom-8'>
-              <div class='number'>8</div>
-            </div>
-            <div class='bottom bottom-9'>
-              <div class='number'>9</div>
-            </div>
-            <div class='bottom bottom-10'>
-              <div class='number'>10</div>
-            </div>
-            <div class='bottom bottom-11'>
-              <div class='number'>11</div>
-            </div>
-            <div class='bottom bottom-12'>
-              <div class='number'>12</div>
-            </div>
-            <div class='bottom bottom-13'>
-              <div class='number'>13</div>
-            </div>
-            <div class='bottom bottom-14'>
-              <div class='number'>14</div>
-            </div>
-            <div class='bottom bottom-15'>
-              <div class='number'>15</div>
-            </div>
-            <div class='bottom bottom-16'>
-              <div class='number'>16</div>
-            </div>
-            <div class='bottom bottom-17'>
-              <div class='number'>17</div>
-            </div>
-            <div class='bottom bottom-18'>
-              <div class='number'>18</div>
-            </div>
-            <div class='bottom bottom-19'>
-              <div class='number'>19</div>
-            </div>
-            <div class='bottom bottom-20'>
-              <div class='number'>20</div>
-            </div>
-            <div class='bottom bottom-21'>
-              <div class='number'>21</div>
-            </div>
-            <div class='bottom bottom-22'>
-              <div class='number'>22</div>
-            </div>
-            <div class='bottom bottom-23'>
-              <div class='number'>23</div>
-            </div>
-            <div class='bottom bottom-24'>
-              <div class='number'>24</div>
-            </div>
-            <div class='bottom bottom-25'>
-              <div class='number'>25</div>
-            </div>
-            <div class='bottom bottom-26'>
-              <div class='number'>26</div>
-            </div>
-            <div class='bottom bottom-27'>
-              <div class='number'>27</div>
-            </div>
-            <div class='bottom bottom-28'>
-              <div class='number'>28</div>
-            </div>
-            <div class='bottom bottom-29'>
-              <div class='number'>29</div>
+            <div class='bottom-ctr'>
+              <div class='bottom bottom-0'></div>
+              <div class='bottom bottom-1'>
+                <div class='number'>1</div>
+              </div>
+              <div class='bottom bottom-2'>
+                <div class='number'>2</div>
+              </div>
+              <div class='bottom bottom-3'>
+                <div class='number'>3</div>
+              </div>
+              <div class='bottom bottom-4'>
+                <div class='number'>4</div>
+              </div>
+              <div class='bottom bottom-5'>
+                <div class='number'>5</div>
+              </div>
+              <div class='bottom bottom-6'>
+                <div class='number'>6</div>
+              </div>
+              <div class='bottom bottom-7'>
+                <div class='number'>7</div>
+              </div>
+              <div class='bottom bottom-8'>
+                <div class='number'>8</div>
+              </div>
+              <div class='bottom bottom-9'>
+                <div class='number'>9</div>
+              </div>
+              <div class='bottom bottom-10'>
+                <div class='number'>10</div>
+              </div>
+              <div class='bottom bottom-11'>
+                <div class='number'>11</div>
+              </div>
+              <div class='bottom bottom-12'>
+                <div class='number'>12</div>
+              </div>
+              <div class='bottom bottom-13'>
+                <div class='number'>13</div>
+              </div>
+              <div class='bottom bottom-14'>
+                <div class='number'>14</div>
+              </div>
+              <div class='bottom bottom-15'>
+                <div class='number'>15</div>
+              </div>
+              <div class='bottom bottom-16'>
+                <div class='number'>16</div>
+              </div>
+              <div class='bottom bottom-17'>
+                <div class='number'>17</div>
+              </div>
+              <div class='bottom bottom-18'>
+                <div class='number'>18</div>
+              </div>
+              <div class='bottom bottom-19'>
+                <div class='number'>19</div>
+              </div>
+              <div class='bottom bottom-20'>
+                <div class='number'>20</div>
+              </div>
+              <div class='bottom bottom-21'>
+                <div class='number'>21</div>
+              </div>
+              <div class='bottom bottom-22'>
+                <div class='number'>22</div>
+              </div>
+              <div class='bottom bottom-23'>
+                <div class='number'>23</div>
+              </div>
+              <div class='bottom bottom-24'>
+                <div class='number'>24</div>
+              </div>
+              <div class='bottom bottom-25'>
+                <div class='number'>25</div>
+              </div>
+              <div class='bottom bottom-26'>
+                <div class='number'>26</div>
+              </div>
+              <div class='bottom bottom-27'>
+                <div class='number'>27</div>
+              </div>
+              <div class='bottom bottom-28'>
+                <div class='number'>28</div>
+              </div>
+              <div class='bottom bottom-29'>
+                <div class='number'>29</div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
 
 
-      <h4 class="title-slider">
-        {{translations.SLIDER_3}}
-      </h4>
-    </ion-slide>
+        <h4 class="title-slider">
+          {{translations.SLIDER_3}}
+        </h4>
+      </ion-slide>
 
 
-  </ion-slide-box>
+    </ion-slide-box>
 
-  <div class="bottom-introduction" ng-class="isIphoneX == true ? 'iphone-x': ''">
+
+  <div class="bottom-introduction" ng-class="isIphoneX ? 'iphone-x': ''">
 
     <div class="">
-      <span class="bottom-button right" ng-class="isIphoneX == true ? 'iphone-x': ''" ng-click="goAhead()">{{RightButtonText}}</span>
-      <span class="bottom-button left" ng-class="isIphoneX == true ? 'iphone-x': ''" ng-click="goBack()" ng-if="shouldShowBackButton">{{LeftButtonText}}</span>
+      <span class="bottom-button right" ng-class="isIphoneX ? 'iphone-x': ''" ng-click="goAhead()">{{RightButtonText}}</span>
+      <span class="bottom-button left" ng-class="isIphoneX ? 'iphone-x': ''" ng-click="goBack()" ng-if="shouldShowBackButton">{{LeftButtonText}}</span>
 
     </div>
   </div>
