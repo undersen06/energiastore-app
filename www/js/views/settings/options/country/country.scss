@@ -6,6 +6,8 @@
         width: 100%;
         position: absolute;
         transform: translate(0,50%);
+        z-index: 1;
+        top:0px;
       }
     }
 
@@ -34,18 +36,25 @@
       color:black;
     }
 
+    .country-container{
+      position: relative;
+      z-index:999;
     div{
+      z-index:999;
       &.country-opt{
+        z-index:999;
         margin: 40px auto 20px auto;
         img{
           margin: 0 auto;
           display: block;
+          z-index:999;
         }
         p{
           text-align:center
         }
       }
     }
+  }
 
   }
 }

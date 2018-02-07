@@ -108,6 +108,10 @@ CONTROLLER DEFINITION
 
           alert('Hola');
 
+          // register:
+
+          // "type:facebook"
+
 
         }else{
 
@@ -133,15 +137,28 @@ CONTROLLER DEFINITION
 function get_status_login(){
   facebookConnectPlugin.getLoginStatus(function success(success){
 
-    popUpService.showpopupFacebookEmailError()
+    // popUpService.showpopupFacebookEmailError()
 
     if(success.status == "connected"){
+      debugger;
+      User.login_facebook().then(function(_response){
+
+
+      },function(_error){
+        debugger;
+
+      })
+
+      // {
+      //   type:"facebook",
+      //   username:"user_id"
+      // }
 
       // call api michel, verify if user exist, if not exist send to register
 
     }else{
 
-      login_facebook();
+      login_facebook(status);
 
     }
 

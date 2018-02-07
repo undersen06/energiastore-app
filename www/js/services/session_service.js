@@ -26,15 +26,15 @@
         return defer.promise;
       },
 
-      login_facebook: function(_user) {
+      loginFacebook: function(_user,_facebook_data) {
         let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.SIGN_IN,
           method: 'POST',
           data:{
             user:{
-              username:_user.email,
-              password:_user.password
+              type:"facebook",
+              username:_facebook_data
             }
           }
         }).then(function(_response) {
@@ -45,6 +45,7 @@
         });
         return defer.promise;
       },
+
       logout: function() {
         let defer = $q.defer();
         $http({

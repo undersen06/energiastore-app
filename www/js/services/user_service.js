@@ -27,6 +27,27 @@
         return defer.promise;
       },
 
+      registerUserFacebook: function(_user) {
+        let defer = $q.defer();
+        $http({
+          url: ENV.LOCAL + ENV.SIGN_UP,
+          method: 'POST',
+          data:{
+            user:{
+              username:_user.email,
+              password:_user.password,
+              password_confirmation:_user.password_confirmation
+            }
+          }
+        }).then(function(_response) {
+          defer.resolve(_response);
+
+        }, function(_error) {
+          defer.reject(_error);
+        });
+        return defer.promise;
+      },
+
       updateUser: function(_user,_info) {
 
         let defer = $q.defer();
@@ -45,7 +66,7 @@
               name:_info.name,
               last_name:_info.last_name,
               city:_info.city,
-              country:_info.country
+              // country:_info.country
             }
           }
         }).then(function(_response) {
@@ -58,8 +79,7 @@
       },
 
 
-      updateCountry: function(_user,_country_id) {
-debugger;
+      updateCountry: function(_user,_country) {
         let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
@@ -70,7 +90,7 @@ debugger;
           },
           data:{
             user:{
-              country:_country_id
+              country :_country
             }
           }
         }).then(function(_response) {

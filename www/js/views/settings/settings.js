@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout","StorageUserModel","StorageLanguageModel","$ionicPopup","$cordovaActionSheet","StorageStatus","StorageProject","StorageMotor","StorageQuotation","$ionicModal","User","$ionicLoading","popUpService","$Country","$q",
-  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup,$cordovaActionSheet,StorageStatus,StorageProject,StorageMotor,StorageQuotation,$ionicModal,User,$ionicLoading,popUpService,$Country,$q) {
+  this.app.controller("SettingsController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","$timeout","StorageUserModel","StorageLanguageModel","$ionicPopup","$cordovaActionSheet","StorageStatus","StorageProject","StorageMotor","StorageQuotation","$ionicModal","User","$ionicLoading","popUpService","$Country","$q","StorageCountryModel",
+  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup,$cordovaActionSheet,StorageStatus,StorageProject,StorageMotor,StorageQuotation,$ionicModal,User,$ionicLoading,popUpService,$Country,$q,StorageCountryModel) {
 
     $scope.user = StorageUserModel.getCurrentUser();
 
@@ -181,11 +181,14 @@ CONTROLLER DEFINITION
 
 
       $scope.chooseCountry = function(country){
+        User.updateCountry($scope.user,country.name).then(function(_success){
+            StorageCountryModel.selectCountry(country);
 
-        User.updateCountry($scope.user,country).then(function(_success){
+            var currency = _.find($scope.curencies, { 'id': country.currency_id});
             debugger;
+            StorageCountryModel.selectCurrency(currency);
         },function(_error){
-          debugger;
+          // debugger;
 
         })
 
