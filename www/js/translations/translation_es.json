@@ -188,7 +188,7 @@
 
   "MOTOR_NAME_LIST":"Nombre motor",
   "AMP_NAME_LIST":"Amperaje",
-  "HOURS_NAME_LIST":"Horas encendido",
+  "HOURS_NAME_LIST":"Tiempo promedio",
   "VOLTS_NAME_LIST":"Voltios",
   "POWER_FACTOR_NAME_LIST":"Power Factor",
   "UPDATE_BUTTON":"Actualizar",

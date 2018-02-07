@@ -6,3 +6,4 @@
 #project-view #content-id .item-content .item-container .item-content-dot{margin:auto;display:block;left:50%;position:absolute;top:50%;transform:translate(-50%,-50%)}
 #project-view #content-id .item-content .item-container .item-content-dot.warning{color:#e3e641 !important}
 #project-view #content-id .item-content .item-container .item-content-dot.success{color:#31c75f !important}
+.last-project{margin-bottom:50px}

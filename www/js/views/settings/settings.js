@@ -183,10 +183,7 @@ CONTROLLER DEFINITION
       $scope.chooseCountry = function(country){
         User.updateCountry($scope.user,country.name).then(function(_success){
             StorageCountryModel.selectCountry(country);
-
-            var currency = _.find($scope.curencies, { 'id': country.currency_id});
-            debugger;
-            StorageCountryModel.selectCurrency(currency);
+            StorageCountryModel.selectCurrency(_.find($scope.curencies, { 'id': country.currency_id}));
         },function(_error){
           // debugger;
 

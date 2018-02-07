@@ -232,10 +232,11 @@ CONTROLLER DEFINITION
           var motor={
             name:$scope.motor.name,
             amp:$scope.motor.amp,
-            average_time:$scope.motor.hours,
             volts:$scope.motor.voltaje,
             efficiency:$scope.motor.power_factor,
             rated_power:$scope.motor.rated_power,
+            hours:$scope.motor.hours,
+            days:$scope.motor.days,
           }
 
           motors.push(motor);

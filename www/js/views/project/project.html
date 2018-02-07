@@ -24,7 +24,7 @@
 
 
     <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-      <ion-item ng-repeat="calculation in calculations"  class="item" ng-click="goToCalculation(calculation)" ng-if="calculation.energy_cost != null" >
+      <ion-item ng-repeat="calculation in calculations"  class="item" ng-click="goToCalculation(calculation)" ng-if="calculation.energy_cost != null" ng-class="{'last-project':$last}">
 
         <div class="item-container">
           <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot success" aria-hidden="true"></i>
@@ -54,5 +54,5 @@
 
 
   </ion-content>
-  <<footbar></footbar>
+  <footbar></footbar>
 </ion-view>

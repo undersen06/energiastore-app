@@ -13,7 +13,7 @@ CONTROLLER DEFINITION
       $scope.isIphoneX =  function(){
         if(ionic.Platform.device().model != undefined){
           if(ionic.Platform.device().model.startsWith('iPhone10')){
-            return true
+            return true;
           }
         }
       }
@@ -30,8 +30,6 @@ CONTROLLER DEFINITION
           popUpService.showpopupCountries().then(function(_response){
             loadCountries();
           });
-
-
         })
 
       }
