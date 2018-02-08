@@ -24,7 +24,7 @@
                 name:_calculation.name,
                 rated_power:_calculation.rated_power, //potencia
                 hours:_calculation.hours,
-                // days:_calculation.hours,
+                days:_calculation.days,
                 volts:_calculation.voltaje,
                 amp:_calculation.amp,
                 efficiency:_calculation.power_factor // power factor

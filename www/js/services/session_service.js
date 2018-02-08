@@ -26,7 +26,8 @@
         return defer.promise;
       },
 
-      loginFacebook: function(_user,_facebook_data) {
+      loginFacebook: function(_facebook_data) {
+        debugger;
         let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.SIGN_IN,
@@ -34,7 +35,8 @@
           data:{
             user:{
               type:"facebook",
-              username:_facebook_data
+              username:_facebook_data,
+              password:'asdfg'
             }
           }
         }).then(function(_response) {

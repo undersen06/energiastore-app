@@ -242,7 +242,7 @@
                   $ionicPopup.show({
                     title: '<img src="assets/img/error.png" class="img-about-us">',
                     subTitle: `<span class="popup-title">Error</span>`,
-                    template: `<p class="popup-subtitle">Nos es imposible obtener el email desde facebbok, desea registrar su cuenta de manera manual (una vez registrado podra utilizar facebook para iniciar sesion de amnera normal) .</p>`,
+                    template: `<p class="popup-subtitle">Nos es imposible obtener el email desde facebook, registrate de manera manual para poder continuar .</p>`,
                     cssClass: '',
                     buttons:button_exit_lesson,
                   },).then(function(_res){

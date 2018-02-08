@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("RegisterController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","User","$ionicLoading","StorageUserModel","$resource","translationService","$cordovaStatusbar","Utils","popUpService",
-  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,User,$ionicLoading,StorageUserModel,$resource,translationService,$cordovaStatusbar,Utils,popUpService) {
+  this.app.controller("RegisterController", ["$scope", "$state","$ionicPlatform","$ionicSlideBoxDelegate","User","$ionicLoading","StorageUserModel","$resource","translationService","$cordovaStatusbar","Utils","popUpService","StorageCountryModel",
+  function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,User,$ionicLoading,StorageUserModel,$resource,translationService,$cordovaStatusbar,Utils,popUpService,StorageCountryModel) {
 
     $ionicPlatform.ready(function() {
 
@@ -125,6 +125,13 @@ CONTROLLER DEFINITION
         User.registerUser($scope.user).then(function(_response){
 
           StorageUserModel.setCurrentUser(_response.data);
+
+          var country = StorageCountryModel.getSelectedCountry();
+          User.updateCountry(StorageUserModel.getCurrentUser(),country.name).then(function(_success){
+          },function(_error){
+            // debugger;
+
+          })
 
           setTimeout(function () {
             $ionicLoading.hide();

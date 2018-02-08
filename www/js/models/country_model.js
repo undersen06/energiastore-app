@@ -7,6 +7,7 @@
     let country;
     let selectedCountry;
     let selectedCurrency;
+    let currency;
 
     return {
       getCurrentCountry: function() {
@@ -22,8 +23,29 @@
         return true;
       },
 
+      getCurrencies: function() {
+        return currency = $localStorage.currency;
+      },
+
+      setCurrencies: function(data) {
+        $localStorage.currency = data;
+      },
+
+      destroyCurrencies: function() {
+        delete $localStorage.currency;
+        return true;
+      },
+
       selectCountry: function(_data) {
         $localStorage.selectedCountry = _data;
+      },
+
+      getSelectedCountry: function(_data) {
+        return selectedCountry = $localStorage.selectedCountry;
+      },
+
+      getSelectedCurrency: function(_data) {
+        return selectedCurrency = $localStorage.selectedCurrency;
       },
 
       selectCurrency: function(_data) {

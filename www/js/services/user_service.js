@@ -27,16 +27,17 @@
         return defer.promise;
       },
 
-      registerUserFacebook: function(_user) {
+      registerUserFacebook: function(_facebook_data) {
         let defer = $q.defer();
         $http({
           url: ENV.LOCAL + ENV.SIGN_UP,
           method: 'POST',
           data:{
             user:{
-              username:_user.email,
-              password:_user.password,
-              password_confirmation:_user.password_confirmation
+              username:_facebook_data,
+              password:"asdfg",
+              password_confirmation:"asdfg",
+              type:"facebook"
             }
           }
         }).then(function(_response) {
@@ -91,6 +92,34 @@
           data:{
             user:{
               country :_country
+            }
+          }
+        }).then(function(_response) {
+          defer.resolve(_response);
+
+        }, function(_error) {
+          defer.reject(_error);
+        });
+        return defer.promise;
+      },
+
+      registerUserFacebookInfo: function(_user,_info) {
+
+        let defer = $q.defer();
+        $http({
+          url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
+          method: 'PATCH',
+          headers:{
+            username:_user.username,
+            token:_user.authentication_token
+          },
+          data:{
+            user:{
+              email:_info.email,
+              name:_info.name,
+              last_name:'',
+
+              // country:_info.country
             }
           }
         }).then(function(_response) {

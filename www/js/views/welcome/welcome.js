@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("WelcomeController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","StorageLanguageModel","$Country","StorageCountryModel","$q","popUpService",
-  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,StorageLanguageModel,$Country,StorageCountryModel,$q,popUpService) {
+  this.app.controller("WelcomeController", ["$scope", "$state","$ionicPlatform","$resource","translationService","$cordovaStatusbar","$ionicSlideBoxDelegate","StorageLanguageModel","$Country","StorageCountryModel","$q","popUpService","StorageUserModel","User",
+  function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,StorageLanguageModel,$Country,StorageCountryModel,$q,popUpService,StorageUserModel,User) {
     $ionicPlatform.ready(function() {
 
       $scope.isIphoneX =  function(){
@@ -50,11 +50,21 @@ CONTROLLER DEFINITION
       }
       $scope.chooseCountry = function(country){
 
-        var _country = _.find($scope.countries, { 'id': country});
+        var _country = _.find($scope.countries, { 'id': country.id});
         var currency = _.find($scope.curencies, { 'id': _country.currency_id});
 
         StorageCountryModel.selectCountry(_country);
         StorageCountryModel.selectCurrency(currency);
+
+        if(StorageUserModel.getCurrentUser()!= undefined){
+          if(StorageUserModel.getCurrentUser().id != undefined){
+            User.updateCountry(StorageUserModel.getCurrentUser(),_country.name).then(function(_success){
+            },function(_error){
+              // debugger;
+
+            })
+          }
+        }
 
         $state.go("introduction")
 

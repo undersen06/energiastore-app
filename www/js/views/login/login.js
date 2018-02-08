@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource","$cordovaStatusbar","$ionicLoading","Utils","popUpService",
-  function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource,$cordovaStatusbar,$ionicLoading,Utils,popUpService) {
+  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource","$cordovaStatusbar","$ionicLoading","Utils","popUpService","StorageCountryModel","User",
+  function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource,$cordovaStatusbar,$ionicLoading,Utils,popUpService,StorageCountryModel,User) {
 
     $scope.design = {};
 
@@ -87,45 +87,48 @@ CONTROLLER DEFINITION
 
       };
 
-    function login_facebook(){
-      facebookConnectPlugin.login(["public_profile", "email", "user_friends"],   function success (success) {
-        get_facebook_user_info(success);
-      },
-      function loginError (error) {
-        console.error(error)
-      }
-    );
+      function login_facebook(){
+        facebookConnectPlugin.login(["public_profile", "email", "user_friends"],   function success (success) {
+          get_facebook_user_info(success);
+        },
+        function loginError (error) {
+          console.error(error)
+        }
+      );
     }
 
     function get_facebook_user_info(_data){
 
       facebookConnectPlugin.api(_data.authResponse.userID+"/?fields=name,id,email",["public_profile","email"],
       function onSuccess (result) {
+
+        debugger;
         console.log("Result: ", result);
+
 
 
         if(result.email == undefined){
 
-          alert('Hola');
-
-          // register:
-
-          // "type:facebook"
-
+           popUpService.showpopupFacebookEmailError();
 
         }else{
 
-          $state.go('register');
+          User.registerUserFacebook(_data.authResponse.userID).then(function(_response){
+            var country = StorageCountryModel.getSelectedCountry().name;
+            User.updateCountry(_response.data,country).then(function(_response_country){
+              User.registerUserFacebookInfo(_response.data,result).then(function(_response_user){
 
+                StorageUserModel.setCurrentUser(_response.data);
+                $state.go("dashboard");
+
+
+              },function(_error){
+              })
+            },function(_error){
+            })
+          },function(_error){
+          })
         }
-
-          // login_facebook();
-        /* logs:
-        {
-        "id": "000000123456789",
-        "email": "myemail@example.com"
-      }
-      */
     }, function onError (error) {
       debugger;
       console.error("Failed: ", error);
@@ -140,21 +143,14 @@ function get_status_login(){
     // popUpService.showpopupFacebookEmailError()
 
     if(success.status == "connected"){
-      debugger;
-      User.login_facebook().then(function(_response){
-
+      Session.loginFacebook(success.authResponse.userID).then(function(_response){
+        StorageUserModel.setCurrentUser(_response.data);
+        $state.go("dashboard");
 
       },function(_error){
-        debugger;
+        login_facebook(status);
 
       })
-
-      // {
-      //   type:"facebook",
-      //   username:"user_id"
-      // }
-
-      // call api michel, verify if user exist, if not exist send to register
 
     }else{
 
@@ -163,7 +159,7 @@ function get_status_login(){
     }
 
 
-      // get_facebook_user_info();
+    // get_facebook_user_info();
 
   }, function failure(error){
 
@@ -188,7 +184,27 @@ $scope.login= function (){
   });
 
   Session.login($scope.user).then(function(_response){
+
+    // if state params
+
+    // $scope.chooseCountry = function(country){
     StorageUserModel.setCurrentUser(_response.data);
+
+    var country = StorageCountryModel.getSelectedCountry();
+    User.updateCountry(StorageUserModel.getCurrentUser(),country.name).then(function(_success){
+    },function(_error){
+      // debugger;
+
+    })
+
+
+    //   $state.go("introduction")
+    //
+    // }
+
+
+
+
     $state.go("dashboard");
     console.log(_response);
     $ionicLoading.hide();

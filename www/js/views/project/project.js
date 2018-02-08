@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("ProjectController", ["$scope","$state","$ionicPlatform","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService","Utils","$ionicLoading","httpUtilities","popUpService","StorageProject","Quotation","$cordovaActionSheet","$cordovaStatusbar","Motors",
-    function($scope,$state,$ionicPlatform,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils,$ionicLoading,httpUtilities,popUpService,StorageProject,Quotation,$cordovaActionSheet,$cordovaStatusbar,Motors) {
+  this.app.controller("ProjectController", ["$scope","$state","$ionicPlatform","$ionicPopup","StorageUserModel","Calculation","translationService","$resource","IonicClosePopupService","Utils","$ionicLoading","httpUtilities","popUpService","StorageProject","Quotation","$cordovaActionSheet","$cordovaStatusbar","Motors","StorageCountryModel",
+    function($scope,$state,$ionicPlatform,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils,$ionicLoading,httpUtilities,popUpService,StorageProject,Quotation,$cordovaActionSheet,$cordovaStatusbar,Motors,StorageCountryModel) {
 
       $scope.design = {};
       switch (StorageUserModel.getCurrentUser().type_user) {
@@ -35,6 +35,10 @@ CONTROLLER DEFINITION
         $scope.design.button = 'user-color-button'
         break;
       }
+
+
+      $scope.currency = StorageCountryModel.getSelectedCurrency().symbol;
+      $scope.price = StorageCountryModel.getSelectedCountry().energy_cost;
 
 
       $ionicPlatform.ready(function() {
@@ -97,6 +101,7 @@ CONTROLLER DEFINITION
 
         $scope.addQuotationPopUp = function() {
           $scope.data = {};
+          $scope.data.price = $scope.price;
 
           projectPopUp = $ionicPopup.show({
             animation: 'fade-in',
@@ -105,7 +110,7 @@ CONTROLLER DEFINITION
             template: `<div class="input-field col s12"><input id="quotation_name" type="text" class="validate" ng-model="data.name"><label for="quotation_name">${$scope
               .translations.ADD_QUOTATION_POPUP_FIRST_INPUT}</label></div>
               <div class="input-field col s12">
-               <input id="quotation_kwh_price" type="number" min="0"  pattern="[0-9]*" class="validate" ng-model="data.price"><label for="quotation_kw_price">${$scope
+               <input id="quotation_kwh_price" type="number" min="0"  pattern="[0-9]*" class="validate" ng-model="data.price" ><label for="quotation_kw_price">${$scope
                  .translations.ADD_QUOTATION_POPUP_SECOND_INPUT}</label></div>`,
             scope: $scope,
             buttons: [  { text: 'Cancelar',

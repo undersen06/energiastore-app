@@ -36,7 +36,7 @@
         <div class="country-container" >
 
           <div class="country-opt" ng-repeat="country in countries">
-            <img src="assets/img/flag/{{country.name}}.png" alt="" ng-click="chooseCountry({{country.id}})"/>
+            <img src="assets/img/flag/{{country.name}}.png" alt="" ng-click="chooseCountry({{country}})"/>
             <p>{{country.name | capitalize }}</p>
           </div>
 
