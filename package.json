@@ -19,6 +19,7 @@
     "cordova-plugin-hidden-statusbar-overlay": "^2.0.1",
     "cordova-plugin-inappbrowser": "^2.0.1",
     "cordova-plugin-ios-camera-permissions": "^1.2.0",
+    "cordova-plugin-linkedin": "^1.2.1",
     "cordova-plugin-media-capture": "^1.4.3",
     "cordova-plugin-splashscreen": "^4.0.3",
     "cordova-plugin-statusbar": "~2.2.1",
@@ -105,6 +106,9 @@
       "cordova-plugin-facebook4": {
         "APP_ID": "141504656527380",
         "APP_NAME": "Energia Store"
+      },
+      "cordova-plugin-linkedin": {
+        "APP_ID": "4775284"
       }
     },
     "platforms": [

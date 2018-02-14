@@ -32,4 +32,9 @@
 #facebook-button {
   background-color: #3b5998; }
 
+#linkedin-button {
+  background-color: #ffffff;
+  border: 1px solid #0077b5;
+  color: #0077b5; }
+
 /*# sourceMappingURL=login.css.map */

@@ -68,6 +68,10 @@
       "APP_ID": "141504656527380",
       "APP_NAME": "Energia Store",
       "PACKAGE_NAME": "com.spa.energiaStore"
+    },
+    "cordova-plugin-linkedin": {
+      "APP_ID": "4775284",
+      "PACKAGE_NAME": "com.spa.energiaStore"
     }
   },
   "dependent_plugins": {

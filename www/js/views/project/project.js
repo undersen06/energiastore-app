@@ -100,6 +100,10 @@ CONTROLLER DEFINITION
         };
 
         $scope.addQuotationPopUp = function() {
+
+
+
+
           $scope.data = {};
           $scope.data.price = $scope.price;
 
@@ -107,11 +111,14 @@ CONTROLLER DEFINITION
             animation: 'fade-in',
             title: '<img src="assets/img/project.png" class="img-about-us">',
             subTitle: `<span class="popup-title">${$scope.translations.CREATE_QUOTATION_POPUP_TEXT}</span>`,
-            template: `<div class="input-field col s12"><input id="quotation_name" type="text" class="validate" ng-model="data.name"><label for="quotation_name">${$scope
-              .translations.ADD_QUOTATION_POPUP_FIRST_INPUT}</label></div>
+            template: `<div class="input-field col s12">
+              <input id="quotation_name" type="text" class="validate" ng-model="data.name">
+              <label for="quotation_name">${$scope.translations.ADD_QUOTATION_POPUP_FIRST_INPUT}</label>
+            </div>
               <div class="input-field col s12">
-               <input id="quotation_kwh_price" type="number" min="0"  pattern="[0-9]*" class="validate" ng-model="data.price" ><label for="quotation_kw_price">${$scope
-                 .translations.ADD_QUOTATION_POPUP_SECOND_INPUT}</label></div>`,
+               <input id="quotation_kwh_price" type="number" min="0" step="0.01"  pattern="[0-9]*" class="validate" ng-model="data.price">
+                <label id="quotation_kw_price_label" for="quotation_kw_price">${$scope.translations.ADD_QUOTATION_POPUP_SECOND_INPUT}</label>
+              </div>`,
             scope: $scope,
             buttons: [  { text: 'Cancelar',
               type: 'button-cancel'
@@ -153,6 +160,11 @@ CONTROLLER DEFINITION
               }]
           });
 
+          setTimeout(function () {
+            debugger;
+            $('#quotation_kw_price_label').addClass('active');
+          }, 200);
+
 
 
         };
@@ -179,6 +191,7 @@ CONTROLLER DEFINITION
           Calculation.getAll(StorageUserModel.getCurrentUser()).then(
             function(_response) {
               $scope.calculations = _response.data;
+              debugger;
               $scope.$broadcast("scroll.refreshComplete");
               console.log(_response);
               $ionicLoading.hide()

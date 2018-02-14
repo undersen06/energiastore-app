@@ -108,11 +108,12 @@ CONTROLLER DEFINITION
 
 
       $scope.openModalMotor = function() {
+        debugger;
         $scope.modalMotor.show();
         setTimeout(function () {
           $('#voltaje-id').addClass('active');
           $('#rated-power-label').addClass('active')
-          $scope.motor.voltaje=380;
+          $scope.motor.voltaje = 380;
         }, 1);
       };
       $scope.closeModalMotor = function() {
@@ -255,9 +256,11 @@ CONTROLLER DEFINITION
             Utils.validateToast($scope.translations.MOTOR_ADD_SUCCESS);
             console.log(_response);
             $scope.getMotors();
+            $scope.motor ={};
           },function(_error){
             // Materialize.toast("Problemas al agregar motor",4000);
             // $scope.modalMotor.hide();
+            $scope.motor ={};
             Utils.validateToast($scope.translations.MOTOR_ADD_FAIL);
             console.error(_error);
           })

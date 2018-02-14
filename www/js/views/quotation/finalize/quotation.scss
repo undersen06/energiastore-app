@@ -1,0 +1,46 @@
+@import "../../../../css/vars.scss";
+
+#finalize-quotation-view{
+
+  .bar-header{
+    h5{
+      width: 44px;
+      top: 0px;
+      position: absolute;
+      text-align: center;
+      i{
+        z-index:999
+      }
+    }
+  }
+
+  #content{
+
+    div{
+      margin-top:30px;
+      padding:15px;
+
+      img{
+        width: 35%;
+        margin:0px auto 20px auto;
+        display: block;
+      }
+
+      p{
+        text-align: center;
+        color: grey;
+      }
+
+      div.btn{
+        left:50%;
+        transform:translate(-50%);
+        position: absolute;
+        bottom:100px;
+        padding:0px;
+        background-color: $primary-color;
+      }
+    }
+
+  }
+
+}

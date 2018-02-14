@@ -27,7 +27,7 @@
 </div>
 
       <ion-list  show-delete="shouldShowDelete" style="margin-bottom:20px;">
-    <ion-item ng-repeat="motor in motors | orderBy: 'created_at'" >
+    <ion-item ng-repeat="motor in motors | orderBy: 'created_at'" ng-class="{'last-item-motor':$last}">
 
 
 
@@ -72,6 +72,12 @@
 .scroll-content{
   overflow:visible !important;
 }
+
+.last-item-motor{
+    margin-bottom: 70px
+}
+
+
 
 
 </style>

@@ -362,7 +362,10 @@
 
 
 "MOTOR_DASHBAORD_TEXT":"Eficiencia de motores",
-"PENALTY_DASHBAORD_TEXT":"Mal factor de potencia"
+"PENALTY_DASHBAORD_TEXT":"Mal factor de potencia",
+
+"PROJECT_TAB_TITLE":"Proyectos",
+"MFP_TAB_TITLE":"Mal factor de potencia"
 
 
 }

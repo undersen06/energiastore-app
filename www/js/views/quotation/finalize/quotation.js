@@ -212,6 +212,7 @@ CONTROLLER DEFINITION
 
 
       $scope.openModalMotor = function() {
+        debugger;
         $scope.modalMotor.show();
       };
       $scope.closeModalMotor = function() {

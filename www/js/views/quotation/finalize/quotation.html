@@ -1,14 +1,16 @@
-<ion-view>
+<ion-view id="finalize-quotation-view">
 
-  <ion-header-bar align-title="center" class="bar-positive" ng-class="design.header">
-<h5 ng-click="back()" style="margin-left:10px;;width: 30px;"><i class="ion-chevron-left" style="z-index:999;" ></i></h5>
+  <ion-header-bar align-title="center" ng-class="design.header">
+    <h5 ng-click="back()">
+      <i class="ion-chevron-left"></i>
+    </h5>
     <h1 class="title">{{translations.FINALIZE_QUOTATION_HEADER}}</h1>
   </ion-header-bar>
 
-  <ion-content>
 
+  <ion-content id="content">
 
-    <div style="margin-top:30px;padding:15px;" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
+    <div ng-class="os === 'android' ? 'android-content' : 'ios-content'">
 
 
 
@@ -22,9 +24,9 @@
     </div> -->
 
     <!-- <img ng-src="{{image}}" style="width: 50%;margin: auto;display: block;" alt="" ng-click="showPopUpImage();"> -->
-    <img ng-src="{{image}}" style="width: 35%;margin:0px auto 20px auto;display: block;" alt="" ng-click="showPopUpImage();">
+    <img ng-src="{{image}}" alt="" ng-click="showPopUpImage();">
     <!-- <p style="text-align: center;color: grey;">{{translations.FMP_MODAL_QUOTATION_SEND_BUTTON}}</p> -->
-    <p style="text-align: center;color: grey;">{{translations.UPLOAD_PHOTO_TEXT}}</p>
+    <p>{{translations.UPLOAD_PHOTO_TEXT}}</p>
 
     <!-- <div class="row">
     <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
@@ -36,8 +38,8 @@
 
 
 
-  <div ng-class="design.buttonSolid" class="button-traslucid" style="left:50%;transform:translate(-50%);position: absolute;bottom:50px;" ng-click="validateQuotation();">
-{{translations.CREATE_PDF_BUTTON}}
+  <div ng-class="design.buttonSolid" class="button-traslucid btn" ng-click="validateQuotation();">
+    {{translations.CREATE_PDF_BUTTON}}
   </div>
 
 
@@ -48,29 +50,7 @@
 
 
 </ion-content>
-<ion-footer-bar ng-class="design.footer">
-  <div class="" style="width: 100%;display: flex;">
-
-    <div class="buttons" style="margin:0 auto;">
-      <button class="button tab-not-selected"  ng-click="goToProjects()">
-        <i class="fa fa-bookmark"></i>
-        {{translations.FOOTER_PROJECT}}
-      </button>
-    </div>
-
-    <div  class="dashboard-button" ng-click="goToDashboard()">
-      <img src="assets/img/logo.png" class="dashboard-button-img" alt="">
-    </div>
-
-    <div class="buttons" style="margin:0 auto;">
-      <button class="button tab-not-selected"  ng-click="goToQuotes()">
-        <i class="fa fa-money"></i>
-        {{translations.FOOTER_QUOTE}}
-      </button>
-    </div>
-
-  </div>
-</ion-footer-bar>
+<footbar></footbar>
 </ion-view>
 
 
@@ -86,8 +66,8 @@
   height:calc(100vh - 97px)
 }
 
-.bar-footer {
+/* .bar-footer {
   height: 50px !important;
   background-color: #8bcb71;
-}
+} */
 </style>

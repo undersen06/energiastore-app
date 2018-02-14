@@ -154,5 +154,15 @@
       "APP_ID": "141504656527380",
       "APP_NAME": "Energia Store"
     }
+  },
+  "cordova-plugin-linkedin": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-linkedin"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "4775284"
+    }
   }
 }

@@ -114,6 +114,9 @@
         <variable name="APP_ID" value="141504656527380" />
         <variable name="APP_NAME" value="Energia Store" />
     </plugin>
+    <plugin name="cordova-plugin-linkedin" spec="^1.2.1">
+        <variable name="APP_ID" value="4775284" />
+    </plugin>
     <engine name="android" spec="6.4.0" />
     <engine name="ios" spec="4.5.4" />
 </widget>

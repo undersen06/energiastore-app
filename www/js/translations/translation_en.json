@@ -20,7 +20,7 @@
   "LOGIN_PASSWORD_EMPTY_ERROR":"Complete password",
   "LOGIN_ERROR":"Wrong user.",
 
-
+  "MODAL_HELPER_RATED_POWER_TITLE":"KW",
 
   "REGISTER_SLIDER_1_HEADER":"Register your account…",
   "REGISTER_SLIDER_1_PLACEHOLDER_EMAIL":"Email",
@@ -278,7 +278,7 @@
   "MOTOR_SELECT_HOURS":"Select hours",
   "MOTOR_SELECT_DAYS":"Select days",
 
-  "BUTTON_ADD_MORE_MOTORS":"add more engines",
+  "BUTTON_ADD_MORE_MOTORS":"add more motors",
 
   "FACTOR_HEADER":"Quotes",
   "FACTOR_CARD_TITLE":"you do not have any",
@@ -378,7 +378,10 @@
   "TUTORIAL_WELCOME_TEXT":"Below we will explain the different profiles that exist in energiaStore.",
 
   "MOTOR_DASHBAORD_TEXT":"Motor efficiency",
-  "PENALTY_DASHBAORD_TEXT":"Power factor Penalty"
+  "PENALTY_DASHBAORD_TEXT":"Power factor Penalty",
+
+  "PROJECT_TAB_TITLE":"Projects",
+  "MFP_TAB_TITLE":"Power factor"
 
 
 }
