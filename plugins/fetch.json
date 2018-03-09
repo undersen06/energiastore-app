@@ -164,5 +164,13 @@
     "variables": {
       "APP_ID": "4775284"
     }
+  },
+  "cordova-plugin-appavailability": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/ohh2ahh/AppAvailability.git"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

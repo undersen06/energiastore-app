@@ -117,6 +117,7 @@
     <plugin name="cordova-plugin-linkedin" spec="^1.2.1">
         <variable name="APP_ID" value="4775284" />
     </plugin>
+    <plugin name="cordova-plugin-appavailability" spec="https://github.com/ohh2ahh/AppAvailability.git" />
     <engine name="android" spec="6.4.0" />
     <engine name="ios" spec="4.5.4" />
 </widget>

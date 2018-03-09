@@ -1,0 +1,71 @@
+{
+  "_from": "git+https://github.com/ohh2ahh/AppAvailability.git",
+  "_id": "cordova-plugin-appavailability@0.4.2",
+  "_inBundle": false,
+  "_location": "/cordova-plugin-appavailability",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/ohh2ahh/AppAvailability.git",
+    "rawSpec": "https://github.com/ohh2ahh/AppAvailability.git",
+    "saveSpec": "git+https://github.com/ohh2ahh/AppAvailability.git",
+    "fetchSpec": "https://github.com/ohh2ahh/AppAvailability.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/ohh2ahh/AppAvailability.git#75482c76797e400b76f203b7d1e8a33a4e7db0a9",
+  "_spec": "https://github.com/ohh2ahh/AppAvailability.git",
+  "_where": "/Users/tomasdiaz/workspace/freelances/energia-store/energiastore-app",
+  "author": {
+    "name": "ohh2ahh"
+  },
+  "bugs": {
+    "url": "https://github.com/ohh2ahh/AppAvailability/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-appavailability",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "This plugin for Cordova and PhoneGap allows you to check if an app is installed. It requires an URI Scheme (iOS) or a Package Name (Android).",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/ohh2ahh/AppAvailability#readme",
+  "keywords": [
+    "Cordova",
+    "PhoneGap",
+    "plugin",
+    "app",
+    "availability",
+    "installed",
+    "URIScheme",
+    "URI",
+    "Scheme",
+    "PackageName",
+    "Package",
+    "Name",
+    "iOS",
+    "Android",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-appavailability",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ohh2ahh/AppAvailability.git"
+  },
+  "version": "0.4.2"
+}

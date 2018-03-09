@@ -1,8 +1,8 @@
 'use strict';
 
 (function() {
-  this.app.factory('User', ['$http', '$q', 'ENV','StorageUserModel',
-  function($http, $q, ENV, StorageUserService){
+  this.app.factory('User', ['$http', '$q', 'ENV','StorageUserModel','StorageCountryModel',
+  function($http, $q, ENV, StorageUserService,StorageCountryModel){
 
 
     return {
@@ -49,6 +49,28 @@
         return defer.promise;
       },
 
+      registerUserLinkedin: function(_linkedin_data) {
+        let defer = $q.defer();
+        $http({
+          url: ENV.LOCAL + ENV.SIGN_UP,
+          method: 'POST',
+          data:{
+            user:{
+              username:_linkedin_data,
+              password:"asdfg",
+              password_confirmation:"asdfg",
+              type:"linkedin"
+            }
+          }
+        }).then(function(_response) {
+          defer.resolve(_response);
+
+        }, function(_error) {
+          defer.reject(_error);
+        });
+        return defer.promise;
+      },
+
       updateUser: function(_user,_info) {
 
         let defer = $q.defer();
@@ -67,7 +89,7 @@
               name:_info.name,
               last_name:_info.last_name,
               city:_info.city,
-              // country:_info.country
+              country:StorageCountryModel.getSelectedCountry().name
             }
           }
         }).then(function(_response) {
@@ -118,8 +140,35 @@
               email:_info.email,
               name:_info.name,
               last_name:'',
-
+              country:StorageCountryModel.getSelectedCountry().name
               // country:_info.country
+            }
+          }
+        }).then(function(_response) {
+          defer.resolve(_response);
+
+        }, function(_error) {
+          defer.reject(_error);
+        });
+        return defer.promise;
+      },
+
+      registerUserLinkedInInfo: function(_user,_info) {
+        debugger;
+        let defer = $q.defer();
+        $http({
+          url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
+          method: 'PATCH',
+          headers:{
+            username:_user.username,
+            token:_user.authentication_token
+          },
+          data:{
+            user:{
+              email:_info.email,
+              name:_info.name,
+              last_name:_info.last_name,
+              country :StorageCountryModel.getSelectedCountry().name
             }
           }
         }).then(function(_response) {

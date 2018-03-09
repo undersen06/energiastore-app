@@ -251,8 +251,25 @@
                   });
                   return deferred.promise;
 
+                },
 
+                showpopupLinkedInRegister : function(_translation){
+                  let deferred = $q.defer();
+                  let button_exit_lesson = [{ text: 'Entendido',  type: 'button-afirmative',onTap: function(e) {
+                    return true;
+                  }}];
 
+                  $ionicPopup.show({
+                    title: '<img src="assets/img/error.png" class="img-about-us">',
+                    subTitle: `<span class="popup-title">Error</span>`,
+                    template: `<p class="popup-subtitle">Para utilizar LinkedIn debe tener previamente la aplicación instalada.</p>`,
+                    cssClass: '',
+                    buttons:button_exit_lesson,
+                  },).then(function(_res){
+                    deferred.resolve(_res);
+
+                  });
+                  return deferred.promise;
 
                 },
 

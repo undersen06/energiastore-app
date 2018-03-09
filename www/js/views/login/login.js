@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource","$cordovaStatusbar","$ionicLoading","Utils","popUpService","StorageCountryModel","User","$cordovaOauth",
-  function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource,$cordovaStatusbar,$ionicLoading,Utils,popUpService,StorageCountryModel,User,$cordovaOauth) {
+  this.app.controller("LoginController", ["$scope", "$state","$ionicPlatform","StorageUserModel","Session","translationService","$resource","$cordovaStatusbar","$ionicLoading","Utils","popUpService","StorageCountryModel","User","$cordovaOauth","$cordovaAppAvailability",
+  function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource,$cordovaStatusbar,$ionicLoading,Utils,popUpService,StorageCountryModel,User,$cordovaOauth,$cordovaAppAvailability) {
 
 
     $scope.design = {};
@@ -70,215 +70,246 @@ CONTROLLER DEFINITION
       //   $cordovaStatusbar.show();
       // }
 
-      $scope.useLinkedIn = function(){
-        // $cordovaOauth.linkedin("78xfjlgpcds2mr", "vEsZEHkk6I0bXhs5", ["r_basicprofile","r_emailaddress"], "aaa").then(function(_response){
-        //   debugger;
-        //
-        // },function(_error){
-        //
-        //   debugger;
-        //
-        // })
 
+      $scope.loginLinkedIn =  function(){
         var onError = function(e) {
           debugger;
           console.error('LinkedIn Error: ', e); }
-        var onSuccess = function(r) {
-          debugger;
 
-          console.log('LinkedIn Response: ', r);
-        }
+          //show popup error
+          var onSuccess = function(r) {
 
+            // var a = 'zzwefsss@wdwqwdlinkaaedin.com';
 
-        var scopes = ['r_emailaddress','r_basicprofile', 'rw_company_admin', 'w_share'];
+              // User.registerUserLinkedin(a).then(function(_register_response){
+            User.registerUserLinkedin(r.emailAddress).then(function(_register_response){
 
-        cordova.plugins.LinkedIn.hasActiveSession(function(_response){
+              var user ={
+                email:r.emailAddress,
+                name:r.firstName,
+                last_name:r.lastName
+              }
 
-          console.log("response"+_response);
-
-          debugger;
-
-        },function(_error){
-          console.log("error"+_error);
-          debugger;
-        })
-
-
-
-        cordova.plugins.LinkedIn.login(scopes, true, function(_response) {
-          debugger;
-          // get connections
-          cordova.plugins.LinkedIn.getRequest('people/~:(id,num-connections,picture-url,email-address,first-name,last-name)', onSuccess, onError);
-
-          // share something on profile
-          // see more info at https://developer.linkedin.com/docs/share-on-linkedin
-          // var payload = {
-          //   comment: 'Hello world!',
-          //   visibility: {
-          //     code: 'anyone'
-          //   }
-          // };
-          // cordova.plugins.LinkedIn.postRequest('~/shares', payload, onSuccess, onError);
-
-        }, onError);
-
-      }
-
-      const languageFilePath = translationService.getTranslation();
-      $resource(languageFilePath).get(function (data) {
-        $scope.translations = data;
-      });
-
-      $scope.user ={};
-
-      $scope.goToRegister = function(){
-        $state.go('register');
-
-      };
-
-      $scope.useFacebook = function(){
-        // login_facebook()
-        get_status_login();
-
-      };
-
-      function login_facebook(){
-        facebookConnectPlugin.login(["public_profile", "email", "user_friends"],   function success (success) {
-          get_facebook_user_info(success);
-        },
-        function loginError (error) {
-          console.error(error)
-        }
-      );
-    }
-
-    function get_facebook_user_info(_data){
-
-      facebookConnectPlugin.api(_data.authResponse.userID+"/?fields=name,id,email",["public_profile","email"],
-      function onSuccess (result) {
-
-        debugger;
-        console.log("Result: ", result);
-
-
-
-        if(result.email == undefined){
-
-          popUpService.showpopupFacebookEmailError();
-
-        }else{
-
-          User.registerUserFacebook(_data.authResponse.userID).then(function(_response){
-            var country = StorageCountryModel.getSelectedCountry().name;
-            User.updateCountry(_response.data,country).then(function(_response_country){
-              User.registerUserFacebookInfo(_response.data,result).then(function(_response_user){
-
-                StorageUserModel.setCurrentUser(_response.data);
+              User.registerUserLinkedInInfo(_register_response.data,user).then(function(_info_response){
+                StorageUserModel.setCurrentUser(_register_response.data);
                 $state.go("dashboard");
 
+              },function(_register_error){
 
+                debugger;
+
+              })
+
+
+            },function(_error){
+
+              debugger;
+
+            })
+
+          }
+
+
+
+          var scopes = ['r_emailaddress','r_basicprofile', 'rw_company_admin', 'w_share'];
+
+          cordova.plugins.LinkedIn.hasActiveSession(function(_response){
+            console.log("response"+_response);
+
+          },function(_error){
+            console.log("error"+_error);
+            debugger;
+          })
+
+
+
+          cordova.plugins.LinkedIn.login(scopes, true, function(_response) {
+            debugger;
+            // get connections
+            cordova.plugins.LinkedIn.getRequest('people/~:(id,num-connections,picture-url,email-address,first-name,last-name)', onSuccess, onError);
+
+            // share something on profile
+            // see more info at https://developer.linkedin.com/docs/share-on-linkedin
+            // var payload = {
+            //   comment: 'Hello world!',
+            //   visibility: {
+            //     code: 'anyone'
+            //   }
+            // };
+            // cordova.plugins.LinkedIn.postRequest('~/shares', payload, onSuccess, onError);
+
+          }, onError);
+        }
+
+
+        $scope.useLinkedIn = function(){
+
+          $cordovaAppAvailability.check('linkedin://').then(function(_response) {
+            $scope.loginLinkedIn();
+          }, function (_error) {
+            debugger;
+            // showpopUp error
+
+
+          });
+
+        }
+
+        const languageFilePath = translationService.getTranslation();
+        $resource(languageFilePath).get(function (data) {
+          $scope.translations = data;
+        });
+
+        $scope.user ={};
+
+        $scope.goToRegister = function(){
+          $state.go('register');
+
+        };
+
+        $scope.useFacebook = function(){
+          // login_facebook()
+          get_status_login();
+
+        };
+
+        function login_facebook(){
+          facebookConnectPlugin.login(["public_profile", "email", "user_friends"],   function success (success) {
+            get_facebook_user_info(success);
+          },
+          function loginError (error) {
+            console.error(error)
+          }
+        );
+      }
+
+      function get_facebook_user_info(_data){
+
+        facebookConnectPlugin.api(_data.authResponse.userID+"/?fields=name,id,email",["public_profile","email"],
+        function onSuccess (result) {
+
+          debugger;
+          console.log("Result: ", result);
+
+
+
+          if(result.email == undefined){
+
+            popUpService.showpopupFacebookEmailError();
+
+          }else{
+
+            User.registerUserFacebook(_data.authResponse.userID).then(function(_response){
+              var country = StorageCountryModel.getSelectedCountry().name;
+              User.updateCountry(_response.data,country).then(function(_response_country){
+                User.registerUserFacebookInfo(_response.data,result).then(function(_response_user){
+
+                  StorageUserModel.setCurrentUser(_response.data);
+                  $state.go("dashboard");
+
+
+                },function(_error){
+                })
               },function(_error){
               })
             },function(_error){
             })
-          },function(_error){
-          })
+          }
+        }, function onError (error) {
+          debugger;
+          console.error("Failed: ", error);
         }
-      }, function onError (error) {
-        debugger;
-        console.error("Failed: ", error);
-      }
-    );
-  }
+      );
+    }
 
 
-  function get_status_login(){
-    facebookConnectPlugin.getLoginStatus(function success(success){
+    function get_status_login(){
+      facebookConnectPlugin.getLoginStatus(function success(success){
 
-      // popUpService.showpopupFacebookEmailError()
+        // popUpService.showpopupFacebookEmailError()
 
-      if(success.status == "connected"){
-        Session.loginFacebook(success.authResponse.userID).then(function(_response){
-          StorageUserModel.setCurrentUser(_response.data);
-          $state.go("dashboard");
+        if(success.status == "connected"){
+          Session.loginFacebook(success.authResponse.userID).then(function(_response){
+            StorageUserModel.setCurrentUser(_response.data);
+            $state.go("dashboard");
 
-        },function(_error){
+          },function(_error){
+            login_facebook(status);
+
+          })
+
+        }else{
+
           login_facebook(status);
+
+        }
+
+
+        // get_facebook_user_info();
+
+      }, function failure(error){
+
+      })
+    }
+
+
+    $scope.login= function (){
+      if($scope.user.email === undefined || $scope.user.email === ""){
+        Utils.validateToast($scope.translations.LOGIN_EMAIL_EMPTY_ERROR);
+        return;
+      }
+
+      if($scope.user.password === undefined || $scope.user.password === ""){
+        Utils.validateToast($scope.translations.LOGIN_PASSWORD_EMPTY_ERROR);
+        return;
+      }
+
+      $ionicLoading.show({
+        templateUrl:"loading.html"
+        // template: `${$scope.translations.LOADING}...`
+      });
+
+      Session.login($scope.user).then(function(_response){
+
+        // if state params
+
+        // $scope.chooseCountry = function(country){
+        StorageUserModel.setCurrentUser(_response.data);
+
+        var country = StorageCountryModel.getSelectedCountry();
+        User.updateCountry(StorageUserModel.getCurrentUser(),country.name).then(function(_success){
+        },function(_error){
+          // debugger;
 
         })
 
-      }else{
 
-        login_facebook(status);
-
-      }
-
-
-      // get_facebook_user_info();
-
-    }, function failure(error){
-
-    })
-  }
+        //   $state.go("introduction")
+        //
+        // }
 
 
-  $scope.login= function (){
-    if($scope.user.email === undefined || $scope.user.email === ""){
-      Utils.validateToast($scope.translations.LOGIN_EMAIL_EMPTY_ERROR);
-      return;
-    }
 
-    if($scope.user.password === undefined || $scope.user.password === ""){
-      Utils.validateToast($scope.translations.LOGIN_PASSWORD_EMPTY_ERROR);
-      return;
-    }
 
-    $ionicLoading.show({
-      templateUrl:"loading.html"
-      // template: `${$scope.translations.LOADING}...`
-    });
-
-    Session.login($scope.user).then(function(_response){
-
-      // if state params
-
-      // $scope.chooseCountry = function(country){
-      StorageUserModel.setCurrentUser(_response.data);
-
-      var country = StorageCountryModel.getSelectedCountry();
-      User.updateCountry(StorageUserModel.getCurrentUser(),country.name).then(function(_success){
+        $state.go("dashboard");
+        console.log(_response);
+        $ionicLoading.hide();
       },function(_error){
-        // debugger;
-
+        Materialize.toast($scope.translations.LOGIN_ERROR,4000);
+        console.error(_error);
+        $ionicLoading.hide();
       })
+    };
+
+    $ionicPlatform.registerBackButtonAction(function () {
+      $state.Back();
+    }, 100);
+
+    $scope.Back = function(){
+      $state.go('middleware')
+    }
 
 
-      //   $state.go("introduction")
-      //
-      // }
-
-
-
-
-      $state.go("dashboard");
-      console.log(_response);
-      $ionicLoading.hide();
-    },function(_error){
-      Materialize.toast($scope.translations.LOGIN_ERROR,4000);
-      console.error(_error);
-      $ionicLoading.hide();
-    })
-  };
-
-  $ionicPlatform.registerBackButtonAction(function () {
-    $state.Back();
-  }, 100);
-
-  $scope.Back = function(){
-    $state.go('middleware')
-  }
-
-
-});
+  });
 }]);
 }).call(this);

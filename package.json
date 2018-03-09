@@ -9,6 +9,7 @@
     "cordova-ios": "4.5.4",
     "cordova-plugin-actionsheet": "git+https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git",
     "cordova-plugin-app-version": "git+https://github.com/whiteoctober/cordova-plugin-app-version.git",
+    "cordova-plugin-appavailability": "git+https://github.com/ohh2ahh/AppAvailability.git",
     "cordova-plugin-camera": "^2.4.1",
     "cordova-plugin-device": "^1.1.6",
     "cordova-plugin-facebook4": "^1.9.1",
@@ -109,7 +110,8 @@
       },
       "cordova-plugin-linkedin": {
         "APP_ID": "4775284"
-      }
+      },
+      "cordova-plugin-appavailability": {}
     },
     "platforms": [
       "android",
