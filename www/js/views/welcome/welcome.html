@@ -35,10 +35,21 @@
 
         <div class="country-container" >
 
-          <div class="country-opt" ng-repeat="country in countries">
-            <img src="assets/img/flag/{{country.name | lowercase}}.png" alt="" ng-click="chooseCountry({{country}})"/>
-            <p>{{country.name | capitalize }}</p>
-          </div>
+          <div class="row ">
+            <div class="col col-100">
+
+
+      <div class="col col-33" ng-repeat="country in countries">
+        <div class="country-opt" >
+          <img src="assets/img/flag/{{country.name | lowercase}}.png" alt="" ng-click="chooseCountry({{country}})"/>
+          <p>{{country.name | capitalize }}</p>
+        </div>
+      </div>
+
+</div>
+    </div>
+
+
 
 
         </div>
