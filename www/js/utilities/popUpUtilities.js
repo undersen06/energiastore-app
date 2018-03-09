@@ -167,46 +167,22 @@
               },
 
 
-            showPopUpRegister: function(_translation){
-
-              let deferred = $q.defer();
-              let buttons = [
-                { text: `${_translation.REGISTER_EXPLORER_BUTTON_NO}`,  type: 'button-special',onTap: function(e) {
-                  return true;
-                }},{ text: `${_translation.REGISTER_EXPLORER_BUTTON_YES}`,  type: 'button-afirmative',onTap: function(e) {
-                  return false;
-                }}];
-
-                $ionicPopup.show({
-                  title: '<img src=assets/imgcommon/stars.png" class="img-about-us">',
-                  subTitle: `<span class="popup-title">${_translation.REGISTER_EXPLORER_TITLE}</span>`,
-                  template: `<p class="popup-subtitle">${_translation.REGISTER_EXPLORER_TEXT}`,
-                  buttons:buttons,
-                  animation: 'fade-in'
-                },).then(function(_res){
-                  deferred.resolve(_res);
-
-                });
-                return deferred.promise;
-              },
-
-
-              showPopUpExitExplorer: function(_translation){
+              showPopUpRegister: function(_translation){
 
                 let deferred = $q.defer();
                 let buttons = [
-                  { text: `${_translation.LOGOUT_EXPLORER_BUTTON_STAY}`,  type: 'button-afirmative',onTap: function(e) {
+                  { text: `${_translation.REGISTER_EXPLORER_BUTTON_NO}`,  type: 'button-special',onTap: function(e) {
                     return true;
-                  }},{ text: `${_translation.LOGOUT_EXPLORER_BUTTON_LEAVE}`,  type: 'button-special',onTap: function(e) {
+                  }},{ text: `${_translation.REGISTER_EXPLORER_BUTTON_YES}`,  type: 'button-afirmative',onTap: function(e) {
                     return false;
                   }}];
 
                   $ionicPopup.show({
-                    title: '<img src=assets/imglogout.png" class="img-about-us">',
-                    subTitle: `<span class="popup-title">${_translation.LOG_OUT_EXPLORER_TITLE}</span>`,
-                    template: `<p class="popup-subtitle">${_translation.LOG_OUT_EXPLORER_TEXT}</p>`,
-                    cssClass: '',
+                    title: '<img src=assets/imgcommon/stars.png" class="img-about-us">',
+                    subTitle: `<span class="popup-title">${_translation.REGISTER_EXPLORER_TITLE}</span>`,
+                    template: `<p class="popup-subtitle">${_translation.REGISTER_EXPLORER_TEXT}`,
                     buttons:buttons,
+                    animation: 'fade-in'
                   },).then(function(_res){
                     deferred.resolve(_res);
 
@@ -214,67 +190,110 @@
                   return deferred.promise;
                 },
 
-                showpopupCountries : function(_translation){
+
+                showPopUpExitExplorer: function(_translation){
+
                   let deferred = $q.defer();
-                  let button_exit_lesson = [{ text: 'Re-intentar / Try again',  type: 'button-afirmative',onTap: function(e) {
-                    return true;
-                  }}];
+                  let buttons = [
+                    { text: `${_translation.LOGOUT_EXPLORER_BUTTON_STAY}`,  type: 'button-afirmative',onTap: function(e) {
+                      return true;
+                    }},{ text: `${_translation.LOGOUT_EXPLORER_BUTTON_LEAVE}`,  type: 'button-special',onTap: function(e) {
+                      return false;
+                    }}];
 
-                  $ionicPopup.show({
-                    title: '<img src="assets/img/error.png" class="img-about-us">',
-                    subTitle: `<span class="popup-title">Problemas al descargar los paises</span>`,
-                    template: `<p class="popup-subtitle">Problems to download country info.</p>`,
-                    cssClass: '',
-                    buttons:button_exit_lesson,
-                  },).then(function(_res){
-                    deferred.resolve(_res);
+                    $ionicPopup.show({
+                      title: '<img src=assets/imglogout.png" class="img-about-us">',
+                      subTitle: `<span class="popup-title">${_translation.LOG_OUT_EXPLORER_TITLE}</span>`,
+                      template: `<p class="popup-subtitle">${_translation.LOG_OUT_EXPLORER_TEXT}</p>`,
+                      cssClass: '',
+                      buttons:buttons,
+                    },).then(function(_res){
+                      deferred.resolve(_res);
 
-                  });
-                  return deferred.promise;
-                },
+                    });
+                    return deferred.promise;
+                  },
 
-                showpopupFacebookEmailError : function(_translation){
-                  let deferred = $q.defer();
-                  let button_exit_lesson = [{ text: 'Re-intentar / Try again',  type: 'button-afirmative',onTap: function(e) {
-                    return true;
-                  }}];
+                  showpopupCountries : function(_translation){
+                    let deferred = $q.defer();
+                    let button_exit_lesson = [{ text: 'Re-intentar / Try again',  type: 'button-afirmative',onTap: function(e) {
+                      return true;
+                    }}];
 
-                  $ionicPopup.show({
-                    title: '<img src="assets/img/error.png" class="img-about-us">',
-                    subTitle: `<span class="popup-title">Error</span>`,
-                    template: `<p class="popup-subtitle">Nos es imposible obtener el email desde facebook, registrate de manera manual para poder continuar .</p>`,
-                    cssClass: '',
-                    buttons:button_exit_lesson,
-                  },).then(function(_res){
-                    deferred.resolve(_res);
+                    $ionicPopup.show({
+                      title: '<img src="assets/img/error.png" class="img-about-us">',
+                      subTitle: `<span class="popup-title">Problemas al descargar los paises</span>`,
+                      template: `<p class="popup-subtitle">Problems to download country info.</p>`,
+                      cssClass: '',
+                      buttons:button_exit_lesson,
+                    },).then(function(_res){
+                      deferred.resolve(_res);
 
-                  });
-                  return deferred.promise;
+                    });
+                    return deferred.promise;
+                  },
 
-                },
+                  showpopupFacebookEmailError : function(_translation){
+                    let deferred = $q.defer();
+                    let button_exit_lesson = [{ text: 'Re-intentar / Try again',  type: 'button-afirmative',onTap: function(e) {
+                      return true;
+                    }}];
 
-                showpopupLinkedInRegister : function(_translation){
-                  let deferred = $q.defer();
-                  let button_exit_lesson = [{ text: 'Entendido',  type: 'button-afirmative',onTap: function(e) {
-                    return true;
-                  }}];
+                    $ionicPopup.show({
+                      title: '<img src="assets/img/error.png" class="img-about-us">',
+                      subTitle: `<span class="popup-title">Error</span>`,
+                      template: `<p class="popup-subtitle">Nos es imposible obtener el email desde facebook, registrate de manera manual para poder continuar .</p>`,
+                      cssClass: '',
+                      buttons:button_exit_lesson,
+                    },).then(function(_res){
+                      deferred.resolve(_res);
 
-                  $ionicPopup.show({
-                    title: '<img src="assets/img/error.png" class="img-about-us">',
-                    subTitle: `<span class="popup-title">Error</span>`,
-                    template: `<p class="popup-subtitle">Para utilizar LinkedIn debe tener previamente la aplicación instalada.</p>`,
-                    cssClass: '',
-                    buttons:button_exit_lesson,
-                  },).then(function(_res){
-                    deferred.resolve(_res);
+                    });
+                    return deferred.promise;
 
-                  });
-                  return deferred.promise;
+                  },
 
-                },
+                  showpopupLinkedInRegister : function(_translation){
+                    let deferred = $q.defer();
+                    let button_exit_lesson = [{ text: 'Entendido',  type: 'button-afirmative',onTap: function(e) {
+                      return true;
+                    }}];
 
-              };
+                    $ionicPopup.show({
+                      title: '<img src="assets/img/error.png" class="img-about-us">',
+                      subTitle: `<span class="popup-title">Error</span>`,
+                      template: `<p class="popup-subtitle">Para utilizar LinkedIn debe tener previamente la aplicación instalada.</p>`,
+                      cssClass: '',
+                      buttons:button_exit_lesson,
+                    },).then(function(_res){
+                      deferred.resolve(_res);
 
-            }]);
+                    });
+                    return deferred.promise;
 
-          }).call(this);
+                  },
+                    workingOnPopUp : function(_translation){
+                    let deferred = $q.defer();
+                    let button_exit_lesson = [{ text: 'Entendido',  type: 'button-afirmative',onTap: function(e) {
+                      return true;
+                    }}];
+
+                    $ionicPopup.show({
+                      animation: 'fade-in',
+                      title: '<img src="assets/img/working-on.png" class="img-about-us">',
+                      subTitle: `<span class="popup-title">${_translation.WORKING_ON_TITLE}</span>`,
+                      template: `<p class="popup-subtitle">${_translation.WORKING_ON_TEXT}</p>`,
+                      buttons:button_exit_lesson,
+                    },).then(function(_res){
+                      deferred.resolve(_res);
+
+                    });
+                    return deferred.promise;
+
+                  }
+
+                };
+
+              }]);
+
+            }).call(this);

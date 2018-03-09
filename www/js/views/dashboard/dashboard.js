@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-  this.app.controller("DashboardController", ["$scope", "$state","$ionicPlatform","StorageUserModel","translationService","$resource","$cordovaStatusbar","User","$timeout",
-  function($scope, $state,$ionicPlatform,StorageUserModel,translationService,$resource,$cordovaStatusbar,User,$timeout) {
+  this.app.controller("DashboardController", ["$scope", "$state","$ionicPlatform","StorageUserModel","translationService","$resource","$cordovaStatusbar","User","$timeout","popUpService",
+  function($scope, $state,$ionicPlatform,StorageUserModel,translationService,$resource,$cordovaStatusbar,User,$timeout,popUpService) {
 
     $scope.design = {};
     switch (StorageUserModel.getCurrentUser().type_user) {
@@ -35,6 +35,12 @@ CONTROLLER DEFINITION
     $resource(languageFilePath).get(function (data) {
       $scope.translations = data;
     });
+
+    $scope.goToProducts =  function (){
+      popUpService.workingOnPopUp($scope.translations).then(function(){
+
+      })
+    }
 
     $ionicPlatform.ready(function() {
 
