@@ -35,12 +35,7 @@ ROUTES CONFIGURATION
 		// $stateProvider
 
 		$stateProvider
-			.state('/', {
-				url: '/',
-				cache: false,
-				abstract: false,
-				controller: 'BaseController'
-			})
+	
 
 			.state('welcome', {
 				url: '/welcome',
