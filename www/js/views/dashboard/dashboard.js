@@ -42,7 +42,6 @@ CONTROLLER DEFINITION
 				});
 			};
 
-<<<<<<< HEAD
     $scope.isIphoneX =  function(){
       if(ionic.Platform.device().model != undefined){
         if(ionic.Platform.device().model.startsWith('iPhone10')){
@@ -52,9 +51,6 @@ CONTROLLER DEFINITION
     }
 
     $ionicPlatform.ready(function() {
-=======
-			$ionicPlatform.ready(function() {
->>>>>>> 82f1d7d799c54f28680a349e15bb2efa645f6abc
 
 				StorageUserModel.getCurrentUser();
 				$scope.register = {};
