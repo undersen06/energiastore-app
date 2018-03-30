@@ -1,76 +1,76 @@
 'use strict';
 
 (function() {
-  this.app.factory('Session', ['$http', '$q', 'ENV','StorageUserModel',
-  function($http, $q, ENV,StorageUserModel){
+	this.app.factory('Session', ['$http', '$q', 'ENV','StorageUserModel',
+		function($http, $q, ENV,StorageUserModel){
 
 
-    return {
-      login: function(_user) {
-        let defer = $q.defer();
-        $http({
-          url: ENV.LOCAL + ENV.SIGN_IN,
-          method: 'POST',
-          data:{
-            user:{
-              username:_user.email,
-              password:_user.password
-            }
-          }
-        }).then(function(_response) {
-          defer.resolve(_response);
+			return {
+				login: function(_user) {
+					let defer = $q.defer();
+					$http({
+						url: ENV.LOCAL + ENV.SIGN_IN,
+						method: 'POST',
+						data:{
+							user:{
+								username:_user.email,
+								password:_user.password
+							}
+						}
+					}).then(function(_response) {
+						defer.resolve(_response);
 
-        }, function(_error) {
-          defer.reject(_error);
-        });
-        return defer.promise;
-      },
+					}, function(_error) {
+						defer.reject(_error);
+					});
+					return defer.promise;
+				},
 
-      loginFacebook: function(_facebook_data) {
-        debugger;
-        let defer = $q.defer();
-        $http({
-          url: ENV.LOCAL + ENV.SIGN_IN,
-          method: 'POST',
-          data:{
-            user:{
-              type:"facebook",
-              username:_facebook_data,
-              password:'asdfg'
-            }
-          }
-        }).then(function(_response) {
-          defer.resolve(_response);
+				loginFacebook: function(_facebook_data) {
+					
+					let defer = $q.defer();
+					$http({
+						url: ENV.LOCAL + ENV.SIGN_IN,
+						method: 'POST',
+						data:{
+							user:{
+								type:'facebook',
+								username:_facebook_data,
+								password:'asdfg'
+							}
+						}
+					}).then(function(_response) {
+						defer.resolve(_response);
 
-        }, function(_error) {
-          defer.reject(_error);
-        });
-        return defer.promise;
-      },
+					}, function(_error) {
+						defer.reject(_error);
+					});
+					return defer.promise;
+				},
 
-      logout: function() {
-        let defer = $q.defer();
-        $http({
-          url: ENV.LOCAL + ENV.LOG_OUT,
-          method: 'POST',
-          headers:{
-            username:StorageUserModel.getCurrentUser().username,
-            token:StorageUserModel.getCurrentUser().authentication_token
-          },
-          data:{
-            user:{
-              authentication_token:StorageUserModel.getCurrentUser().authentication_token
-            }
-          }
-        }).then(function(_response) {
-          defer.resolve(_response);
+				logout: function() {
+					let defer = $q.defer();
+					$http({
+						url: ENV.LOCAL + ENV.LOG_OUT,
+						method: 'POST',
+						headers:{
+							username:StorageUserModel.getCurrentUser().username,
+							token:StorageUserModel.getCurrentUser().authentication_token
+						},
+						data:{
+							user:{
+								authentication_token:StorageUserModel.getCurrentUser().authentication_token
+							}
+						}
+					}).then(function(_response) {
+						defer.resolve(_response);
 
-        }, function(_error) {
-          defer.reject(_error);
-        });
-        return defer.promise;
-      }
-    }
+					}, function(_error) {
+						defer.reject(_error);
+					});
+					return defer.promise;
+				}
+			};
 
-  }]);
+		}]);
 }).call(this);

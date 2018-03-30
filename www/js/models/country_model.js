@@ -2,56 +2,52 @@
 'use strict';
 
 (function() {
-  this.app.service('StorageCountryModel', ['$q', '$localStorage', function($q, $localStorage) {
+	this.app.service('StorageCountryModel', ['$q', '$localStorage', function($q, $localStorage) {
 
-    let country;
-    let selectedCountry;
-    let selectedCurrency;
-    let currency;
 
-    return {
-      getCurrentCountry: function() {
-        return country = $localStorage.country;
-      },
+		return {
+			getCurrentCountry: function() {
+				return $localStorage.country;
+			},
 
-      setCurrentCountry: function(data) {
-        $localStorage.country = data;
-      },
+			setCurrentCountry: function(data) {
+				$localStorage.country = data;
+			},
 
-      destroyCurrentCountry: function() {
-        delete $localStorage.country;
-        return true;
-      },
+			destroyCurrentCountry: function() {
+				delete $localStorage.country;
+				return true;
+			},
 
-      getCurrencies: function() {
-        return currency = $localStorage.currency;
-      },
+			getCurrencies: function() {
+				return $localStorage.currency;
+			},
 
-      setCurrencies: function(data) {
-        $localStorage.currency = data;
-      },
+			setCurrencies: function(data) {
+				$localStorage.currency = data;
+			},
 
-      destroyCurrencies: function() {
-        delete $localStorage.currency;
-        return true;
-      },
+			destroyCurrencies: function() {
+				delete $localStorage.currency;
+				return true;
+			},
 
-      selectCountry: function(_data) {
-        $localStorage.selectedCountry = _data;
-      },
+			selectCountry: function(_data) {
+				$localStorage.selectedCountry = _data;
+			},
 
-      getSelectedCountry: function(_data) {
-        return selectedCountry = $localStorage.selectedCountry;
-      },
+			getSelectedCountry: function() {
+				return $localStorage.selectedCountry;
+			},
 
-      getSelectedCurrency: function(_data) {
-        return selectedCurrency = $localStorage.selectedCurrency;
-      },
+			getSelectedCurrency: function() {
+				return  $localStorage.selectedCurrency;
+			},
 
-      selectCurrency: function(_data) {
-        $localStorage.selectedCurrency = _data;
-      }
-    };
+			selectCurrency: function(_data) {
+				$localStorage.selectedCurrency = _data;
+			}
+		};
 
-  }]);
+	}]);
 }).call(this);
