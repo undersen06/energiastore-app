@@ -2,24 +2,22 @@
 'use strict';
 
 (function() {
-  this.app.service('StorageUserModel', ['$q', '$localStorage', function($q, $localStorage) {
+	this.app.service('StorageUserModel', ['$q', '$localStorage', function($q, $localStorage) {
 
-    let user;
+		return {
 
-    return {
+			getCurrentUser: function() {
+				return $localStorage.user;
+			},
+			setCurrentUser: function(data) {
+				$localStorage.user = data;
+			},
+			destroyCurrentUser: function() {
 
-      getCurrentUser: function() {
-        return user = $localStorage.user;
-      },
-      setCurrentUser: function(data) {
-        $localStorage.user = data;
-      },
-      destroyCurrentUser: function() {
+				delete $localStorage.user;
+				return true;
+			}
+		};
 
-        delete $localStorage.user;
-        return true;
-      }
-    };
-
-  }]);
+	}]);
 }).call(this);

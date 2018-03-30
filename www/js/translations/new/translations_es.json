@@ -1,0 +1,69 @@
+{
+    "APP": {
+        "NAME": "energiaStore",
+        "SPINNER_loading":"Registrando cuenta..."
+    },
+    "POPUP": {},
+    "VIEWS": {
+        "DASHBOARD": {
+            "HEADER": "",
+            "MOTOR_DASHBAORD_TEXT": "Eficiencia de motores",
+            "PENALTY_DASHBAORD_TEXT": "Mal factor de potencia",
+            "PENALTY_PRODUCTS_TEXT": "Productos"
+        },
+        "FACTOR_MP": {
+            "FMP_HEADER": "Mal factor de potencia",
+            "FMP_PRE_TEXT": "Solicitar evaluacion de",
+            "FMP_PRE_TEXT_STRONG": "Factor de mala potencia",
+            "FMP_BUTTON": "Ingresar multa",
+            "FMP_MODAL_QUOTATION_HEADER": "Proyecto Factor de potencia",
+            "FMP_MODAL_QUOTATION_OPTION_MANUAL": "Ingresa multa manual",
+            "FMP_MODAL_QUOTATION_AMOUNT": "Monto de multa",
+            "FMP_MODAL_QUOTATION_USE_PHOTO": "Utilizar fotografia de la multa",
+            "FMP_MODAL_QUOTATION_COMMENT": "Si deseas aqui puedes agregar un comentario"
+        },
+        "INTRODUCTION": {
+            "SLIDER_1": "Los recursos naturales se están terminando ¡la eficiencia energética es el camino para un mundo mejor!",
+            "SLIDER_2": "El cambio está en ti ¡comienza a hacer la diferencia y ahorra energia eléctrica!",
+            "SLIDER_3": "! Comienza hoy & contagia la eficiencia energética ¡nuestro planeta lo agradecerá",
+            "SLIDER_BUTTON": "Comenzar con el cambio"
+        },
+        "LOGIN": {
+
+            "LOGIN_HEADER":"Iniciar en EnergiaStore",
+            "LOGIN_EMAIL_PLACEHOLDER":"Correo",
+            "LOGIN_PASSWORD_PLACEHOLDER":"Contraseña",
+            "LOGIN_BUTTON":"Inicia sesión",
+            "LOGIN_SIGNUP_TEXT":"Aún no tienes una cuenta?",
+            "LOGIN_SIGNUP_BUTTON":"Registrate",
+            "LOGIN_EMAIL_EMPTY_ERROR":"Complete Correo",
+            "LOGIN_PASSWORD_EMPTY_ERROR":"Complete contraseña",
+            "LOGIN_ERROR":"Usuario incorrecto."
+
+        },
+        "MIDDLEWARE": {},
+        "MOTORS": {
+            "CREATE": {}
+        },
+        "PRODUCTS": {
+            "PRODUCT": {},
+            "CATEGORIES": {}
+        },
+        "PROJECT": {},
+        "QUOTATION": {
+            "FINALIZE": {}
+        },
+        "REGISTER": {},
+        "SETTINGS": {
+            "OPTIONS": {
+                "COUNTRY": {},
+                "PROFILE": {},
+                "TUTORIAL": {
+                    "PENALTY": {},
+                    "TYPE_USER": {}
+                }
+            }
+        },
+        "WELCOME": {}
+    }
+}

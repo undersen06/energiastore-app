@@ -1,7 +1,8 @@
 'use strict';
 
 (function() {
-  this.app.service('popUpService', ['$q', '$ionicPopup','$rootScope','ENV',  function($q, $ionicPopup,$rootScope,ENV) {
+  this.app.service('popUpService', ['$q', '$ionicPopup','$rootScope','ENV',
+  function($q, $ionicPopup,$rootScope,ENV) {
 
 
     return{

@@ -2,24 +2,22 @@
 'use strict';
 
 (function() {
-  this.app.service('StorageQuotation', ['$q', '$localStorage', function($q, $localStorage) {
+	this.app.service('StorageQuotation', ['$q', '$localStorage', function($q, $localStorage) {
 
-    var quotation;
+		return {
 
-    return {
+			getQuotations: function() {
+				return $localStorage.quotation;
+			},
+			setQuotation: function(data) {
 
-      getQuotations: function() {
-        return quotation = $localStorage.quotation;
-      },
-      setQuotation: function(data) {
+				$localStorage.quotation=data;
+			},
+			destroyQuotation: function() {
+				delete $localStorage.quotation;
+				return true;
+			}
+		};
 
-        $localStorage.quotation=data;
-      },
-      destroyQuotation: function() {
-        delete $localStorage.quotation;
-        return true;
-      }
-    };
-
-  }]);
+	}]);
 }).call(this);
