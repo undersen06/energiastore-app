@@ -1,9 +1,10 @@
 'use strict';
 
 (function() {
-	this.app.factory('User', ['$http', '$q', 'ENV','StorageUserModel','StorageCountryModel',
-		function($http, $q, ENV, StorageUserService,StorageCountryModel){
+	this.app.factory('$User', ['$http', '$q', 'ENV','StorageUserModel','StorageCountryModel',
+		function($http, $q, ENV, StorageUserModel,StorageCountryModel){
 
+			var user = StorageUserModel.getCurrentUser();
 
 			return {
 				registerUser: function(_user) {
@@ -78,8 +79,8 @@
 						url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
 						method: 'PATCH',
 						headers:{
-							username:_user.username,
-							token:_user.authentication_token
+							username: user.username,
+							token: user.token
 						},
 						data:{
 							user:{

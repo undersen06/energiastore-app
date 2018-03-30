@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-	this.app.factory('Woocommerce', ['$http', '$q', 'ENV','StorageUserModel','WC',
+	this.app.factory('$Woocommerce', ['$http', '$q', 'ENV','StorageUserModel','WC',
 		function($http, $q, ENV, StorageUserService,WC){
 
 			var Woocommerce = WC.WC();
