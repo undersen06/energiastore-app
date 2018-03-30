@@ -4,19 +4,11 @@
 (function() {
 	this.app.constant('ENV', {
 
-
-		//////////////////////////////////////////
 		//****************+SERVERS**************//
-		//////////////////////////////////////////
-
 		LOCAL : 'http://kvar.herokuapp.com/',
+	
 		
-
-
-		//////////////////////////////////////////
 		//**************+EndPoinst**************//
-		//////////////////////////////////////////
-
 		// SESSION_MODEL
 		SIGN_UP : 'api/signup',
 		SIGN_IN : 'api/login',
@@ -37,10 +29,6 @@
 
 		GET_COUNTRIES : 'api/countries',
 		GET_CURRENCIES : 'api/currencies'
-
-
-
-
 
 
 	});
