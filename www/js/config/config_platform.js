@@ -97,6 +97,12 @@ PLATFORM CONFIGURATION
 			}
 		});
 
+	});
+
+	this.app.run(function ($state, $ionicPlatform, $Localization, $rootScope) {
+
+		$Localization.getTranslation();
 
 	});
+
 }).call(this);

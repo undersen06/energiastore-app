@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('DashboardController', ['$scope', '$state','$ionicPlatform','StorageUserModel','translationService','$resource','$cordovaStatusbar','User','$timeout','popUpService',
-		function($scope, $state,$ionicPlatform,StorageUserModel,translationService,$resource,$cordovaStatusbar,User,$timeout,popUpService) {
+	this.app.controller('DashboardController', ['$scope', '$state','$ionicPlatform','StorageUserModel','translationService','$resource','$cordovaStatusbar','$User','$timeout','popUpService',
+		function($scope, $state,$ionicPlatform,StorageUserModel,translationService,$resource,$cordovaStatusbar,$User,$timeout,popUpService) {
 
 			$scope.design = {};
 			switch (StorageUserModel.getCurrentUser().type_user) {

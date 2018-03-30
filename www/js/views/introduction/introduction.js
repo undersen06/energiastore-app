@@ -6,8 +6,11 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('IntroductionController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', '$timeout',
-		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, $timeout) {
+	this.app.controller('IntroductionController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', '$timeout','$Localization','$rootScope',
+		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, $timeout,$Localization,$rootScope) {
+
+			$Localization.getTranslation();
+
 			$ionicPlatform.ready(function () {
 
 				$scope.isIphoneX = function () {

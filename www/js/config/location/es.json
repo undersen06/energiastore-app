@@ -1,0 +1,123 @@
+{
+    "APP": {
+        "NAME": "energiaStore",
+        "SPINNER_loading": "Registrando cuenta..."
+    },
+    "POPUP": {
+        "ERROR_LINKEDIN_LOGIN": {
+            "BODY": "LinkedIn a denegado el acceso, intentalo de nuevo.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "ERROR_LINKEDIN_APP_NOT_FOUND": {
+            "BODY": "Al parecer no tienes LinkedIn instalado en tu dispositivo.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "ERROR_LINKEDIN_IS_WEBVIEW": {
+            "BODY": "LinkedIn solo se puede utilizar desde la App.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "ERROR_FACEBOOK_LOGIN": {
+            "BODY": "Facebook a denegado el acceso, intentalo de nuevo.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "ERROR_FACEBOOK_IS_WEBVIEW": {
+            "BODY": "Facebook solo se puede utilizar desde la App.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        }
+    },
+    "TOAST": {
+        "UNKNOW_ERROR": "Error, intentalo más tarde",
+        "ADVICES": {
+            "COMPLETE_NAME": "",
+            "COMPLETE_LASTNAME": "",
+            "COMPLETE_PHONE": "",
+            "COMPLETE_ADDRESS": ""
+        },
+        "LOGIN": {
+            "COMPLETE_EMAIL": "Complete correo",
+            "COMPLETE_PASSWORD": "Complete contraseña",
+            "LOGIN_ERROR": "Usuario incorrecto"
+        },
+        "MOTOR": {},
+        "QUOTATION": {},
+        "REGISTER": {},
+        "FACTOR": {
+            "ERROR_CAMERA": "",
+            "ERROR_GALLERY": "",
+            "QUOTATION_AMOUNT_EMPTY": "",
+            "QUOTATION_AMOUNT_MINIMUM": ""
+        }
+    },
+    "VIEWS": {
+        "DASHBOARD": {
+            "HEADER": "",
+            "MOTOR_DASHBAORD_TEXT": "Eficiencia de motores",
+            "PENALTY_DASHBAORD_TEXT": "Mal factor de potencia",
+            "PENALTY_PRODUCTS_TEXT": "Productos"
+        },
+        "FACTOR_MP": {
+            "FMP_HEADER": "Mal factor de potencia",
+            "FMP_PRE_TEXT": "Solicitar evaluacion de",
+            "FMP_PRE_TEXT_STRONG": "Factor de mala potencia",
+            "FMP_BUTTON": "Ingresar multa",
+            "FMP_MODAL_QUOTATION_HEADER": "Proyecto Factor de potencia",
+            "FMP_MODAL_QUOTATION_OPTION_MANUAL": "Ingresa multa manual",
+            "FMP_MODAL_QUOTATION_AMOUNT": "Monto de multa",
+            "FMP_MODAL_QUOTATION_USE_PHOTO": "Utilizar fotografia de la multa",
+            "FMP_MODAL_QUOTATION_COMMENT": "Si deseas aqui puedes agregar un comentario"
+        },
+        "INTRODUCTION": {
+            "SLIDER_1": "Los recursos naturales se están terminando ¡la eficiencia energética es el camino para un mundo mejor!",
+            "SLIDER_2": "El cambio está en ti ¡comienza a hacer la diferencia y ahorra energia eléctrica!",
+            "SLIDER_3": "! Comienza hoy & contagia la eficiencia energética ¡nuestro planeta lo agradecerá",
+            "SLIDER_BUTTON": "Comenzar con el cambio"
+        },
+        "LOGIN": {
+            "HEADER": "Iniciar en EnergiaStore",
+            "EMAIL": "Correo",
+            "PASSWORD": "Contraseña",
+            "LOGIN_BUTTON": "Inicia sesión",
+            "SIGNUP_TEXT": "Aún no tienes una cuenta?",
+            "SIGNUP_BUTTON": "Registrate",
+            "EMAIL_EMPTY_ERROR": "Complete Correo",
+            "PASSWORD_EMPTY_ERROR": "Complete contraseña",
+            "ERROR_USER": "Usuario incorrecto.",
+            "INIT_FACEBOOK": "Iniciar con Facebook",
+            "INIT_LINKEDIN": "Iniciar con LinkedIn"
+        },
+        "MIDDLEWARE": {},
+        "MOTORS": {
+            "CREATE": {}
+        },
+        "PRODUCTS": {
+            "PRODUCT": {},
+            "CATEGORIES": {}
+        },
+        "PROJECT": {},
+        "QUOTATION": {
+            "FINALIZE": {}
+        },
+        "REGISTER": {},
+        "SETTINGS": {
+            "OPTIONS": {
+                "COUNTRY": {},
+                "PROFILE": {},
+                "TUTORIAL": {
+                    "PENALTY": {},
+                    "TYPE_USER": {}
+                }
+            }
+        },
+        "WELCOME": {}
+    }
+}

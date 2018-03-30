@@ -37,7 +37,10 @@
       "id": "cordova-plugin-camera@^2.4.1"
     },
     "is_top_level": true,
-    "variables": {}
+    "variables": {
+      "CAMERA_USAGE_DESCRIPTION": " ",
+      "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+    }
   },
   "cordova-plugin-compat": {
     "source": {
