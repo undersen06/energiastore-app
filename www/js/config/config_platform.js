@@ -41,9 +41,7 @@ PLATFORM CONFIGURATION
 
 		$ionicPlatform.ready(function () {
 			if (StorageUserModel.getCurrentUser()) {
-				debugger;
 				if (StorageUserModel.getCurrentUser().authentication_token === undefined) {
-
 
 					if (StorageStatus.getStatus() !== undefined) {
 						if (StorageStatus.getStatus().status == true) {
@@ -73,7 +71,6 @@ PLATFORM CONFIGURATION
 					}
 				}
 			} else {
-				debugger;
 
 				if (StorageStatus.getStatus() !== undefined) {
 					if (StorageStatus.getStatus().status == true) {
