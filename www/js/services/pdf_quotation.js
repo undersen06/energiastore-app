@@ -4,7 +4,7 @@
 	this.app.factory('$PDF', ['$http', '$q', 'ENV','StorageUserModel',
 		function($http, $q, ENV,StorageUserModel){
 
-      var user = StorageUserModel.getCurrentUser();
+			var user = StorageUserModel.getCurrentUser();
 
 			return {
 				getPDF: function(_user_info,_calculation_id,_quotation_id) {

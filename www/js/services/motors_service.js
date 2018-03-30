@@ -4,7 +4,7 @@
 	this.app.factory('$Motors', ['$http', '$q', 'ENV','StorageUserModel',
 		function($http, $q, ENV,StorageUserModel){
 
-      var user = StorageUserModel.getCurrentUser();
+			var user = StorageUserModel.getCurrentUser();
 
 			return {
 				create: function(_user_info,_calculation,calculation_id) {
