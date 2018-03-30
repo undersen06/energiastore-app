@@ -42,6 +42,14 @@ CONTROLLER DEFINITION
       })
     }
 
+    $scope.isIphoneX =  function(){
+      if(ionic.Platform.device().model != undefined){
+        if(ionic.Platform.device().model.startsWith('iPhone10')){
+          return true;
+        }
+      }
+    }
+
     $ionicPlatform.ready(function() {
 
       var user = StorageUserModel.getCurrentUser();

@@ -104,14 +104,16 @@
 
   "FMP_MODAL_QUOTATION_HEADER":"Proyecto Factor de potencia",
   "FMP_MODAL_QUOTATION_OPTION_MANUAL":"Ingresa multa manual",
-  "FMP_MODAL_QUOTATION_AMOUNT":"Monto de multa",
+  "FMP_MODAL_QUOTATION_AMOUNT":"Monto de multa mes ",
   "FMP_MODAL_QUOTATION_USE_PHOTO":"Utilizar fotografia de la multa",
   "FMP_MODAL_QUOTATION_COMMENT":"Si deseas aqui puedes agregar un comentario",
+
+  "FMP_QUOTATION_TITLE":"Ingrese los 3 ultimos valores de las multas",
 
   "FMP_MODAL_QUOTATION_OPTION_CAMERA":"Cámara",
   "FMP_MODAL_QUOTATION_OPTION_GALLERY":"Galeria",
 
-  "FMP_MODAL_QUOTATION_SEND_BUTTON":"Enviar",
+  "FMP_MODAL_QUOTATION_SEND_BUTTON":"Calcular",
 
   "SETTINGS_TITLE":"Configuración",
   "SETTINGS_PLACEHOLDER_NAME":"Nombre",

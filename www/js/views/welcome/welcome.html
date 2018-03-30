@@ -35,13 +35,14 @@
 
         <div class="country-container" >
 
-          <div class="row ">
+          <div class="row " >
             <div class="col col-100">
 
 
-      <div class="col col-33" ng-repeat="country in countries">
+      <div class="col col-33" ng-repeat="country in countries" style="padding:0px;">
         <div class="country-opt" >
-          <img src="assets/img/flag/{{country.name | lowercase}}.png" alt="" ng-click="chooseCountry({{country}})"/>
+          <!-- {{country}} -->
+          <img ng-src="http://kvar.herokuapp.com/{{country.image.thumb.url}}" alt="" ng-click="chooseCountry({{country}})"/>
           <p>{{country.name | capitalize }}</p>
         </div>
       </div>

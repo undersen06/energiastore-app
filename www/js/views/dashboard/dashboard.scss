@@ -1,32 +1,39 @@
-#dashboard-view{
-  .bar-header{
-
-    .buttons{
-      width: 44px;
-      height: 44px;
-      top: 0px;
-      i{
-        margin: auto;
+#dashboard-view {
+    .bar-header {
+        .buttons {
+            width: 44px;
+            height: 44px;
+            top: 0px;
+            i {
+                margin: auto;
+                font-size: 25px;
+            }
+        }
+    }
+    .dashboard-item {
+        position: relative;
+        display: flex;
+        .dashboard-img {
+            display: inline-block;
+            width: 90%;
+            height: calc((90vh - 84px) / 3);
+            margin: 10px auto;
+            box-shadow: 6px 6px 13px 2px #9c9c9c;
+            &.iphone-x {
+                height: calc((90vh - 114px) / 3) !important;
+                margin: 10px auto;
+                box-shadow: 6px 6px 13px 2px #9c9c9c;
+            }
+        }
+    }
+    .main-title {
+        position: absolute;
+        bottom: 15px;
+        color: #dadada;
+        text-align: center;
+        width: 90%;
+        left: 50%;
+        transform: translate(-50%, 0);
         font-size: 25px;
-      }
     }
-  }
-
-  .dashboard-item{
-    position:relative;
-    display: flex;
-    .dashboard-img{
-      display:inline-block;
-      width: 100%;
-      height: calc((100vh - 84px ) / 3 );
-    }
-    .main-title{
-      position: absolute;
-      bottom: 15px;
-      color: #dadada;
-      text-align:center;
-      width:100%;
-      // background: linear-gradient(90deg #6c6c6c6b , #6c6c6c);
-    }
-  }
 }

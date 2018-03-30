@@ -14,12 +14,11 @@
   top: 44px; }
 
 #factor-view .container {
-  margin-top: 30px;
   padding: 15px; }
   #factor-view .container.android-content {
-    height: calc(100vh - 77px); }
+    height: calc(100vh + 10px); }
   #factor-view .container.ios-content {
-    height: calc(100vh - 97px); }
+    height: calc(100vh + 30px); }
   #factor-view .container img {
     width: 35%;
     margin: 0px auto 20px auto;

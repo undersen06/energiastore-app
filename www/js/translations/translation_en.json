@@ -108,10 +108,12 @@
   "FMP_MODAL_QUOTATION_OPTION:CAMERA":"Camera",
   "FMP_MODAL_QUOTATION_OPTION_GALLERY":"Photo Gallery",
 
-  "FMP_MODAL_QUOTATION_SEND_BUTTON":"Send",
+  "FMP_MODAL_QUOTATION_SEND_BUTTON":"Calculate",
 
 
+"FMP_QUOTATION_TITLE": "Enter the last 3 values ​​of the penalties",
 
+  
 
 
 

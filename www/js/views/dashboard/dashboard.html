@@ -8,22 +8,46 @@
     </div>
   </ion-header-bar>
 
-  <ion-content>
+  <ion-content has-bouncing="true">
 
-    <div class="dashboard-item">
-      <img src="assets/img/ef.jpg" class="dashboard-img" alt="" ng-click="goToProjects()">
-      <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{translations.MOTOR_DASHBAORD_TEXT}}</h4>
-    </div>
 
-    <div class="dashboard-item">
-      <img src="assets/img/fp.jpg" class="dashboard-img" alt="" ng-click="goToPenaltyEnergyEffiency()">
-      <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{translations.PENALTY_DASHBAORD_TEXT}}</h4>
-    </div>
+    <ion-list>
+      <ion-item>
+        <div class="dashboard-item">
+          <img src="assets/img/ef.jpg" class="dashboard-img" alt="" ng-click="goToProjects()" ng-class="isIphoneX() == true ? 'iphone-x' : ''; ">
+          <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{translations.MOTOR_DASHBAORD_TEXT}}</h4>
+        </div>
+      </ion-item>
 
-    <div class="dashboard-item">
-      <img src="assets/img/products.jpg" class="dashboard-img" alt="" ng-click="goToProducts()">
-      <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{translations.PENALTY_PRODUCTS_TEXT}}</h4>
-    </div>
+      <ion-item>
+        <div class="dashboard-item">
+          <img src="assets/img/fp.jpg" class="dashboard-img" alt="" ng-click="goToPenaltyEnergyEffiency()" ng-class="isIphoneX() == true ? 'iphone-x' : ''; ">
+          <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{translations.PENALTY_DASHBAORD_TEXT}}</h4>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <div class="dashboard-item" style="margin-bottom: 50px;">
+          <img src="assets/img/products.jpg" class="dashboard-img" alt="" ng-click="goToProducts()" ng-class="isIphoneX() == true ? 'iphone-x' : ''; ">
+          <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{translations.PENALTY_PRODUCTS_TEXT}}</h4>
+        </div>
+      </ion-item>
+
+      <!-- <ion-item>
+        <div class="dashboard-item" style="margin-bottom: 50px;">
+          <img src="assets/img/products.jpg" class="dashboard-img" alt="" ng-click="goToProducts()" ng-class="isIphoneX() == true ? 'iphone-x' : ''; ">
+          <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{translations.PENALTY_PRODUCTS_TEXT}}</h4>
+        </div>
+      </ion-item> -->
+    </ion-list>
+
+
+
+
+
+
+
+
 
   </ion-content>
 

@@ -7,13 +7,24 @@
   </ion-header-bar>
 
 
-  <ion-content scroll="false" >
+  <ion-content scroll="true" >
     <div class="container" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
 
+      <h6 style="text-align: center">{{translations.FMP_QUOTATION_TITLE}}</h6>
 
       <div class="input-field col s12">
-        <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor" pattern="[0-9]*">
-        <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}}</label>
+        <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor_1" pattern="[0-9]*">
+        <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}} 1</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor_2" pattern="[0-9]*">
+        <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}} 2</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor_3" pattern="[0-9]*">
+        <label for="input-penalty">{{translations.FMP_MODAL_QUOTATION_AMOUNT}} 3</label>
       </div>
 
 

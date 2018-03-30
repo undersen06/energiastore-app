@@ -9,7 +9,7 @@
     //****************+SERVERS**************//
     //////////////////////////////////////////
 
-    LOCAL : "http://kvar.herokuapp.com/",
+    LOCAL: "http://energiastoreapp.com/",
     //  LOCAL : "http://localhost:3000/",
 
 

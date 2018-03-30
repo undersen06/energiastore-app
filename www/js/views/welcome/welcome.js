@@ -25,9 +25,11 @@ CONTROLLER DEFINITION
         $q.all(promises).then(function(_resolves){
           $scope.curencies = _resolves[0].data;
           $scope.countries = _resolves[1].data;
+          debugger;
         },function(_error){
 
           popUpService.showpopupCountries().then(function(_response){
+            debugger;
             loadCountries();
           });
         })
@@ -49,6 +51,7 @@ CONTROLLER DEFINITION
 
       }
       $scope.chooseCountry = function(country){
+
 
         var _country = _.find($scope.countries, { 'id': country.id});
         var currency = _.find($scope.curencies, { 'id': _country.currency_id});

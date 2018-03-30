@@ -138,10 +138,23 @@ CONTROLLER DEFINITION
 
 
       $scope.createFactorPenalty =  function (){
-        if($scope.factorType.power_factor === undefined || $scope.factorType.power_factor === 0){
+        if($scope.factorType.power_factor_1 === undefined || $scope.factorType.power_factor_1 === 0){
           Utils.validateToast($scope.translations.QUOTATION_AMOUNT_EMPTY);
           return;
         }
+
+        if ($scope.factorType.power_factor_2 === undefined || $scope.factorType.power_factor_2 === 0) {
+          Utils.validateToast($scope.translations.QUOTATION_AMOUNT_EMPTY);
+          return;
+        }
+
+        if ($scope.factorType.power_factor_3 === undefined || $scope.factorType.power_factor_3 === 0) {
+          Utils.validateToast($scope.translations.QUOTATION_AMOUNT_EMPTY);
+          return;
+        }
+
+        var total = $scope.factorType.power_factor_1 + $scope.factorType.power_factor_2 + $scope.factorType.power_factor_3;
+        total = (total / 3 );
 
         if($scope.factorType.power_factor < 100 ){
           Utils.validateToast($scope.translations.QUOTATION_AMOUNT_MINIMUM);
@@ -149,6 +162,8 @@ CONTROLLER DEFINITION
         }
 
         let calculation = $scope.factorType;
+
+        calculation.power_factor = total;
 
 
           $ionicLoading.show({
