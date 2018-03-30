@@ -289,6 +289,47 @@
 
 					});
 					return deferred.promise;
+				},
+
+
+				isWebViewFacebookError: function(_translation){
+					var deferred = $q.defer();
+					var button_exit_lesson = [{ text: 'Entendido',  type: 'button-afirmative',onTap: function() {
+						return true;
+					}}];
+
+					$ionicPopup.show({
+						animation: 'fade-in',
+						title: '<img src="assets/img/facebook.png" class="img-about-us">',
+						subTitle: `<span class="popup-title">${_translation.WORKING_ON_TITLE}</span>`,
+						template: `<p class="popup-subtitle">${_translation.WORKING_ON_TEXT}</p>`,
+						buttons:button_exit_lesson,
+					},null).then(function(_res){
+						deferred.resolve(_res);
+
+					});
+					return deferred.promise;
+
+				},
+
+				isWebViewLinkedInError: function(_translation){
+					var deferred = $q.defer();
+					var button_exit_lesson = [{ text: 'Entendido',  type: 'button-afirmative',onTap: function() {
+						return true;
+					}}];
+
+					$ionicPopup.show({
+						animation: 'fade-in',
+						title: '<img src="assets/img/linkedin.png" class="img-about-us">',
+						subTitle: `<span class="popup-title">${_translation.WORKING_ON_TITLE}</span>`,
+						template: `<p class="popup-subtitle">${_translation.WORKING_ON_TEXT}</p>`,
+						buttons:button_exit_lesson,
+					},null).then(function(_res){
+						deferred.resolve(_res);
+
+					});
+					return deferred.promise;
+
 				}
 
 			};
