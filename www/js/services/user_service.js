@@ -121,7 +121,11 @@
 						defer.resolve(_response);
 
 					}, function(_error) {
-						defer.reject(_error);
+						var error ={
+							INTERNAL_CODE:_error,
+							USER_ERROR_CODE: 'UPDATE_COUNTRY'
+						};
+						defer.reject(error);
 					});
 					return defer.promise;
 				},

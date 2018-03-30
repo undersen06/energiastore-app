@@ -3,7 +3,40 @@
         "NAME": "energiaStore",
         "SPINNER_loading":"Registrando cuenta..."
     },
-    "POPUP": {},
+    "POPUP": {
+
+    },
+    "TOAST":{
+        "ERROR":{
+            "LOGIN_ERROR":"Usuario incorrecto."
+        },
+        "ADVICES":{
+            "COMPLETE_NAME":"",
+            "COMPLETE_LASTNAME":"",
+            "COMPLETE_PHONE":"",
+            "COMPLETE_ADDRESS":""
+        },
+        "LOGIN":{
+
+        },
+        "MOTOR":{
+
+        },
+        "QUOTATION":{
+
+        },
+        "REGISTER":{
+
+        },
+        "FACTOR":{
+            "ERROR_CAMERA":"",
+            "ERROR_GALLERY":"",
+            "QUOTATION_AMOUNT_EMPTY":"",
+            "QUOTATION_AMOUNT_MINIMUM":""
+        }
+
+
+    },
     "VIEWS": {
         "DASHBOARD": {
             "HEADER": "",

@@ -11,8 +11,8 @@ CONTROLLER DEFINITION
 			$ionicPlatform.ready(function() {
 
 				$scope.isIphoneX =  function(){
-					if(this.ionic.Platform.device().model != undefined){
-						if(this.ionic.Platform.device().model.startsWith('iPhone10')){
+					if(ionic.Platform.device().model != undefined){
+						if(ionic.Platform.device().model.startsWith('iPhone10')){
 							return true;
 						}
 					}

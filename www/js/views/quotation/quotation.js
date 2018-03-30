@@ -6,7 +6,7 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('QuotationController', ['$scope','$state','$ionicPlatform','Calculation','StorageUserModel','Motors','$ionicModal','popUpService','$resource','translationService','Quotation','$cordovaStatusbar','Utils','$ionicSlideBoxDelegate','Factor','$cordovaFileTransfer','$cordovaFileOpener2','$ionicLoading','httpUtilities',
+	app.controller('QuotationController', ['$scope','$state','$ionicPlatform','Calculation','StorageUserModel','Motors','$ionicModal','popUpService','$resource','translationService','Quotation','$cordovaStatusbar','Utils','$ionicSlideBoxDelegate','Factor','$cordovaFileTransfer','$cordovaFileOpener2','$ionicLoading','httpUtilities',
 		function($scope,$state,$ionicPlatform,Calculation,StorageUserModel,Motors,$ionicModal,popUpService,$resource,translationService,Quotation,$cordovaStatusbar,Utils,$ionicSlideBoxDelegate,Factor,$cordovaFileTransfer,$cordovaFileOpener2,$ionicLoading,httpUtilities) {
 			$scope.design = {};
 			switch (StorageUserModel.getCurrentUser().type_user) {
