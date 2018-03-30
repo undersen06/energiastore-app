@@ -1,9 +1,10 @@
 'use strict';
 
 (function() {
-	this.app.factory('PDF', ['$http', '$q', 'ENV',
-		function($http, $q, ENV){
+	this.app.factory('$PDF', ['$http', '$q', 'ENV','StorageUserModel',
+		function($http, $q, ENV,StorageUserModel){
 
+			var user = StorageUserModel.getCurrentUser();
 
 			return {
 				getPDF: function(_user_info,_calculation_id,_quotation_id) {
@@ -13,8 +14,8 @@
 						url: ENV.LOCAL + `api/calculations/${_calculation_id}/quotations/${_quotation_id}/pdf`,
 						method: 'GET',
 						headers:{
-							username:_user_info.username,
-							token:_user_info.authentication_token
+							username: user.username,
+							token: user.token
 						}
 					}).then(function(_response) {
 						defer.resolve(_response);

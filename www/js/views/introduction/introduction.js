@@ -6,13 +6,16 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('IntroductionController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', '$timeout', 'Woocommerce',
-		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, $timeout, Woocommerce) {
+	this.app.controller('IntroductionController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', '$timeout','$Localization','$rootScope',
+		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, $timeout,$Localization,$rootScope) {
+
+			$Localization.getTranslation();
+
 			$ionicPlatform.ready(function () {
 
 				$scope.isIphoneX = function () {
-					if (this.ionic.Platform.device().model != undefined) {
-						if (this.ionic.Platform.device().model.startsWith('iPhone10')) {
+					if (ionic.Platform.device().model != undefined) {
+						if (ionic.Platform.device().model.startsWith('iPhone10')) {
 							return true;
 						}
 					}
@@ -20,17 +23,13 @@ CONTROLLER DEFINITION
 
 			});
 
-
-
 			var containerId;
 			var worldId;
 			var notification_1;
 			var notification_2;
 			var hasChangeSlide3;
 
-			const $ = $;
-
-
+		
 			$scope.shouldShowBackButton = false;
 
 			$scope.init = function () {
@@ -46,9 +45,6 @@ CONTROLLER DEFINITION
 				}, 1000);
 			};
 
-
-
-
 			const languageFilePath = translationService.getTranslation();
 			$resource(languageFilePath).get(function (data) {
 				$scope.translations = data;
@@ -57,21 +53,11 @@ CONTROLLER DEFINITION
 				$scope.SkipButtonText = $scope.translations.SKIP;
 			});
 
-			// if (window.StatusBar) {
-			//   $cordovaStatusbar.overlaysWebView(false);
-			//   $cordovaStatusbar.style(1);
-			//   $cordovaStatusbar.styleHex("#1AA55E");
-			//   $cordovaStatusbar.show();
-			// }
-
-
-
-
 			$ionicPlatform.registerBackButtonAction(function () {
 
 				switch ($ionicSlideBoxDelegate.currentIndex()) {
 				case 0:
-					ionic.Platform.exitApp();
+					this.ionic.Platform.exitApp();
 					break;
 				case 1:
 					$ionicSlideBoxDelegate.previous();

@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('ProfileController', ['$scope', '$state','$ionicPlatform','$rootScope','Session','StorageUserModel','User','$resource','translationService','popUpService',
-		function($scope, $state,$ionicPlatform,$rootScope,Session,StorageUserModel,User,$resource,translationService,popUpService) {
+	this.app.controller('ProfileController', ['$scope', '$state','$ionicPlatform','$rootScope','Session','StorageUserModel','$User','$resource','translationService','popUpService',
+		function($scope, $state,$ionicPlatform,$rootScope,Session,StorageUserModel,$User,$resource,translationService,popUpService) {
 
 			$scope.design = {};
 			switch (StorageUserModel.getCurrentUser().type_user) {
@@ -86,7 +86,7 @@ CONTROLLER DEFINITION
 				};
 
 
-				$scope.$on('$ionicView.beforeEnter', function(event) {
+				$scope.$on('$ionicView.beforeEnter', function() {
 					let user = Object.assign({}, StorageUserModel.getCurrentUser());
 
 					if (user.name !== undefined)
@@ -138,12 +138,12 @@ CONTROLLER DEFINITION
 
 
 
-					User.updateUser(StorageUserModel.getCurrentUser(),$scope.user).then(function(_response){
+					$User.updateUser(StorageUserModel.getCurrentUser(),$scope.user).then(function(_response){
 						StorageUserModel.setCurrentUser(_response.data);
 						popUpService.showpopUpProfileCreate($scope.translations).then(function(){
 							$state.go('dashboard');
 						});
-						console.log(_response);
+							console.log(_response);
 					},function(_error){
 						popUpService.showpopUpProfileFail($scope.translations).then(function(){
 							console.error(_error);

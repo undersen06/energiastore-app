@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('RegisterController', ['$scope', '$state','$ionicPlatform','$ionicSlideBoxDelegate','User','$ionicLoading','StorageUserModel','$resource','translationService','$cordovaStatusbar','Utils','popUpService','StorageCountryModel',
-		function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,User,$ionicLoading,StorageUserModel,$resource,translationService,$cordovaStatusbar,Utils,popUpService,StorageCountryModel) {
+	this.app.controller('RegisterController', ['$scope', '$state','$ionicPlatform','$ionicSlideBoxDelegate','$User','$ionicLoading','StorageUserModel','$resource','translationService','Utils','popUpService','StorageCountryModel',
+		function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$User,$ionicLoading,StorageUserModel,$resource,translationService,Utils,popUpService,StorageCountryModel) {
 
 			$ionicPlatform.ready(function() {
 
@@ -122,12 +122,12 @@ CONTROLLER DEFINITION
 					$ionicLoading.show({
 						templateUrl:'loading.html',
 					});
-					User.registerUser($scope.user).then(function(_response){
+					$User.registerUser($scope.user).then(function(_response){
 
 						StorageUserModel.setCurrentUser(_response.data);
 
 						var country = StorageCountryModel.getSelectedCountry();
-						User.updateCountry(StorageUserModel.getCurrentUser(),country.name).then(function(_success){
+						$User.updateCountry(StorageUserModel.getCurrentUser(),country.name).then(function(_success){
 
 						},function(_error){
 							// debugger;

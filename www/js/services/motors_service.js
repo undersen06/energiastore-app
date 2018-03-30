@@ -1,22 +1,21 @@
 'use strict';
 
 (function() {
-	this.app.factory('Motors', ['$http', '$q', 'ENV',
-		function($http, $q, ENV){
+	this.app.factory('$Motors', ['$http', '$q', 'ENV','StorageUserModel',
+		function($http, $q, ENV,StorageUserModel){
 
+			var user = StorageUserModel.getCurrentUser();
 
 			return {
 				create: function(_user_info,_calculation,calculation_id) {
-
-
 
 					let defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.CREATE_CALCULATION+ '/'+calculation_id+'/motors',
 						method: 'POST',
 						headers:{
-							username:_user_info.username,
-							token:_user_info.authentication_token
+							username: user.username,
+							token: user.token
 						},
 						data:{
 							motor:{
@@ -39,14 +38,14 @@
 					return defer.promise;
 				},
 
-				getByCalculation: function(_calculation_id,_user_info) {
+				getByCalculation: function(_calculation_id) {
 					let defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + 'api/calculations/'+_calculation_id+'/motors',
 						method: 'GET',
 						headers:{
-							username:_user_info.username,
-							token:_user_info.authentication_token
+							username: user.username,
+							token: user.token
 						}
 					}).then(function(_response) {
 						defer.resolve(_response);

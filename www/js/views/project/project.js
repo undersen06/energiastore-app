@@ -173,7 +173,6 @@ CONTROLLER DEFINITION
 							Utils.validateToast($scope.translations.QUOTATION_CREATED_MESSAGE);
 							$scope.calculations = {};
 							$scope.getCalculation();
-							console.log(_response);
 							if(this.cordova.plugins){
 								this.cordova.plugins.Keyboard.close();
 							}
@@ -316,7 +315,6 @@ CONTROLLER DEFINITION
 				};
 
 				$scope.closePopUp = function(){
-					
 					projectPopUp.close();
 				};
 

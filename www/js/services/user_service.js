@@ -1,9 +1,10 @@
 'use strict';
 
 (function() {
-	this.app.factory('User', ['$http', '$q', 'ENV','StorageUserModel','StorageCountryModel',
-		function($http, $q, ENV, StorageUserService,StorageCountryModel){
+	this.app.factory('$User', ['$http', '$q', 'ENV','StorageUserModel','StorageCountryModel',
+		function($http, $q, ENV, StorageUserModel,StorageCountryModel){
 
+			var user = StorageUserModel.getCurrentUser();
 
 			return {
 				registerUser: function(_user) {
@@ -78,8 +79,8 @@
 						url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
 						method: 'PATCH',
 						headers:{
-							username:_user.username,
-							token:_user.authentication_token
+							username: user.username,
+							token: user.token
 						},
 						data:{
 							user:{
@@ -120,7 +121,11 @@
 						defer.resolve(_response);
 
 					}, function(_error) {
-						defer.reject(_error);
+						var error ={
+							INTERNAL_CODE:_error,
+							USER_ERROR_CODE: 'UPDATE_COUNTRY'
+						};
+						defer.reject(error);
 					});
 					return defer.promise;
 				},
@@ -179,6 +184,27 @@
 					});
 					return defer.promise;
 				},
+
+				getAvatars : function(){
+
+					let defer = $q.defer();
+					$http({
+						url: ENV.LOCAL + ENV.AVATAR,
+						method: 'PATCH',
+						headers:{
+							username:user.username,
+							token:user.authentication_token
+						}
+					}).then(function(_response) {
+						defer.resolve(_response);
+
+					}, function(_error) {
+						defer.reject(_error);
+					});
+					return defer.promise;
+
+				}
+
 
 
 			};

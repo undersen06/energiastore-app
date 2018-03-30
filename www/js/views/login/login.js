@@ -5,14 +5,17 @@
 CONTROLLER DEFINITION
 =============================================================================
 */
-(function() {
-	this.app.controller('LoginController', ['$scope', '$state','$ionicPlatform','StorageUserModel','Session','translationService','$resource','$cordovaStatusbar','$ionicLoading','Utils','popUpService','StorageCountryModel','User','$cordovaOauth','$cordovaAppAvailability',
-		function($scope, $state,$ionicPlatform,StorageUserModel,Session,translationService,$resource,$cordovaStatusbar,$ionicLoading,Utils,popUpService,StorageCountryModel,User,$cordovaOauth,$cordovaAppAvailability) {
+(function () {
+	this.app.controller('LoginController', ['$scope', '$state', '$ionicPlatform', 'StorageUserModel', '$Session', 'translationService', '$resource', '$cordovaStatusbar', '$ionicLoading', 'Utils', 'popUpService', 'StorageCountryModel', '$User', '$cordovaAppAvailability',
+		function ($scope, $state, $ionicPlatform, StorageUserModel, $Session, translationService, $resource, $cordovaStatusbar, $ionicLoading, Utils, popUpService, StorageCountryModel, $User, $cordovaAppAvailability) {
 
+			
+			const CURRENT_VIEW = 'LOGIN';
 
 			$scope.design = {};
+			
 
-			if(StorageUserModel.getCurrentUser() != undefined){
+			if (StorageUserModel.getCurrentUser() != undefined) {
 				switch (StorageUserModel.getCurrentUser().type_user) {
 				case 'user':
 					$scope.design.header = 'user-color';
@@ -33,77 +36,59 @@ CONTROLLER DEFINITION
 					$scope.design.color = 'user-color-font';
 					break;
 				}
-			}else{
+			} else {
 
 				$scope.design.header = 'user-color';
 				$scope.design.color = 'user-color-font';
-
 			}
-			$ionicPlatform.ready(function() {
 
-				$scope.isIphoneX =  function(){
-					if(this.ionic.Platform.device().model != undefined){
-						if(this.ionic.Platform.device().model.startsWith('iPhone10')){
+			$ionicPlatform.ready(function () {
+				
+
+				$scope.isIphoneX = function () {
+					if (this.ionic.Platform.device().model != undefined) {
+						if (this.ionic.Platform.device().model.startsWith('iPhone10')) {
 							return true;
 						}
 					}
 				};
 
+				$scope.loginLinkedIn = function () {
+					var onError = function () {
 
-				// if (window.StatusBar) {
-				//   $cordovaStatusbar.overlaysWebView(false);
-				//   $cordovaStatusbar.style(1);
-				//   switch (StorageUserModel.getCurrentUser().type_user) {
-				//     case 'explorer':
-				//     $cordovaStatusbar.styleHex("#62BED4");
-				//     break;
-				//     case 'user':
-				//     $cordovaStatusbar.styleHex("#62D485");
-				//     break;
-				//
-				//     case 'partner':
-				//     $cordovaStatusbar.styleHex("#F5A623");
-				//     break;
-				//     default:
-				//
-				//   }
-				//   $cordovaStatusbar.show();
-				// }
+						popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_LOGIN').then(function(){
+
+						});
+					};
 
 
-				$scope.loginLinkedIn =  function(){
-					var onError = function(e) {
-						
-						console.error('LinkedIn Error: ', e); };
+					var onSuccess = function (r) {
+						$User.registerUserLinkedin(r.emailAddress).then(function (_register_response) {
 
-					//show popup error
-					var onSuccess = function(r) {
 
-						// var a = 'zzwefsss@wdwqwdlinkaaedin.com';
 
-						// User.registerUserLinkedin(a).then(function(_register_response){
-						User.registerUserLinkedin(r.emailAddress).then(function(_register_response){
-
-							var user ={
-								email:r.emailAddress,
-								name:r.firstName,
-								last_name:r.lastName
-							};
-
-							User.registerUserLinkedInInfo(_register_response.data,user).then(function(_info_response){
+							$User.registerUserLinkedInInfo(_register_response.data, formatLinkedInUser(r)).then(function () {
 								StorageUserModel.setCurrentUser(_register_response.data);
 								$state.go('dashboard');
 
-							},function(_register_error){
+							}, function () {
 
-								
 
+								popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_LOGIN').then(function(){
+
+								});
 							});
 
 
-						},function(_error){
+						}, function () {
+
+							popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_LOGIN').then(function(){
+
+							});
 
 							
+
+
 
 						});
 
@@ -111,21 +96,21 @@ CONTROLLER DEFINITION
 
 
 
-					var scopes = ['r_emailaddress','r_basicprofile', 'rw_company_admin', 'w_share'];
+					var scopes = ['r_emailaddress', 'r_basicprofile', 'rw_company_admin', 'w_share'];
 
-					this.cordova.plugins.LinkedIn.hasActiveSession(function(_response){
-						console.log('response'+_response);
+					this.cordova.plugins.LinkedIn.hasActiveSession(function () {
 
-					},function(_error){
-						console.log('error'+_error);
-						
+					}, function () {
+						popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_APP_NOT_FOUND' || 'UNKNOW_ERROR').then(function(){
+							
+						});
+
 					});
 
 
 
-					this.cordova.plugins.LinkedIn.login(scopes, true, function(_response) {
-						
-						// get connections
+					this.cordova.plugins.LinkedIn.login(scopes, true, function () {
+
 						this.cordova.plugins.LinkedIn.getRequest('people/~:(id,num-connections,picture-url,email-address,first-name,last-name)', onSuccess, onError);
 
 						// share something on profile
@@ -142,17 +127,23 @@ CONTROLLER DEFINITION
 				};
 
 
-				$scope.useLinkedIn = function(){
+				$scope.useLinkedIn = function () {
 
-					$cordovaAppAvailability.check('linkedin://').then(function(_response) {
-						$scope.loginLinkedIn();
-					}, function (_error) {
-						
-						// showpopUp error
+					if (!ionic.Platform.isWebView()) {
+						//TODO PopUp indicando que es web 
+						popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_APP_NOT_FOUND').then(function(){
 
+						});
+					} else {
 
-					});
+						$cordovaAppAvailability.check('linkedin://').then(function () {
+							$scope.loginLinkedIn();
+						}, function (_error) {
+							popUpService.isWebViewLinkedInError(_error || 'UNKNOW_ERROR').then(function(){
 
+							});
+						});
+					}
 				};
 
 				const languageFilePath = translationService.getTranslation();
@@ -160,143 +151,134 @@ CONTROLLER DEFINITION
 					$scope.translations = data;
 				});
 
-				$scope.user ={};
+				$scope.user = {};
 
-				$scope.goToRegister = function(){
+				$scope.goToRegister = function () {
 					$state.go('register');
 
 				};
 
-				$scope.useFacebook = function(){
-					// login_facebook()
-					get_status_login();
+				$scope.useFacebook = function () {
+					if (!ionic.Platform.isWebView()) {
+						popUpService.isWebViewFacebookError($scope.translations).then(function(){
+
+						});
+					} else {
+
+						get_status_login();
+					}
+
 
 				};
 
-				function login_facebook(){
-					facebookConnectPlugin.login(['public_profile', 'email', 'user_friends'],   function success (success) {
+				function login_facebook() {
+					facebookConnectPlugin.login(['public_profile', 'email', 'user_friends'], function success(success) {
 						get_facebook_user_info(success);
 					},
-					function loginError (error) {
+					function loginError(error) {
 						console.error(error);
 					}
 					);
 				}
 
-				function get_facebook_user_info(_data){
+				function get_facebook_user_info(_data) {
 
-					facebookConnectPlugin.api(_data.authResponse.userID+'/?fields=name,id,email',['public_profile','email'],
-						function onSuccess (result) {
-
+					facebookConnectPlugin.api(_data.authResponse.userID + '/?fields=name,id,email', ['public_profile', 'email'],
+						function onSuccess(result) {
 							
-							console.log('Result: ', result);
-
-
-
-							if(result.email == undefined){
+							if (result.email == undefined) {
 
 								popUpService.showpopupFacebookEmailError();
 
-							}else{
+							} else {
 
-								User.registerUserFacebook(_data.authResponse.userID).then(function(_response){
+								$User.registerUserFacebook(_data.authResponse.userID).then(function (_response) {
 									var country = StorageCountryModel.getSelectedCountry().name;
-									User.updateCountry(_response.data,country).then(function(_response_country){
-										User.registerUserFacebookInfo(_response.data,result).then(function(_response_user){
+									$User.updateCountry(_response.data, country).then(function (_response_country) {
+										$User.registerUserFacebookInfo(_response.data, result).then(function (_response_user) {
 
 											StorageUserModel.setCurrentUser(_response.data);
 											$state.go('dashboard');
 
 
-										},function(_error){
+										}, function (_error) {
 										});
-									},function(_error){
+									}, function (_error) {
 									});
-								},function(_error){
+								}, function (_error) {
 								});
 							}
-						}, function onError (error) {
-							
+						}, function onError(error) {
+
 							console.error('Failed: ', error);
 						}
 					);
 				}
 
 
-				function get_status_login(){
-					facebookConnectPlugin.getLoginStatus(function success(success){
+				function get_status_login() {
+					facebookConnectPlugin.getLoginStatus(function success(success) {
 
 						// popUpService.showpopupFacebookEmailError()
 
-						if(success.status == 'connected'){
-							Session.loginFacebook(success.authResponse.userID).then(function(_response){
+						if (success.status == 'connected') {
+							$Session.loginFacebook(success.authResponse.userID).then(function (_response) {
 								StorageUserModel.setCurrentUser(_response.data);
 								$state.go('dashboard');
 
-							},function(_error){
+							}, function () {
 								login_facebook(status);
 
 							});
 
-						}else{
-
+						} else {
 							login_facebook(status);
-
 						}
 
 
 						// get_facebook_user_info();
 
-					}, function failure(error){
+					}, function failure() {
+						popUpService.isWebViewFacebookError('*****').then(function(){
+
+						});
+
 
 					});
 				}
 
 
-				$scope.login= function (){
-					if($scope.user.email === undefined || $scope.user.email === ''){
-						Utils.validateToast($scope.translations.LOGIN_EMAIL_EMPTY_ERROR);
+				$scope.initLogin = function () {
+					if ($scope.user.email === undefined || $scope.user.email === '') {
+						Utils.validateToast(CURRENT_VIEW,'COMPLETE_EMAIL');
 						return;
 					}
 
-					if($scope.user.password === undefined || $scope.user.password === ''){
-						Utils.validateToast($scope.translations.LOGIN_PASSWORD_EMPTY_ERROR);
+					if ($scope.user.password === undefined || $scope.user.password === '') {
+						Utils.validateToast(CURRENT_VIEW,'COMPLETE_PASSWORD');
 						return;
 					}
 
 					$ionicLoading.show({
-						templateUrl:'loading.html'
-						// template: `${$scope.translations.LOADING}...`
+						templateUrl: 'loading.html'
 					});
 
-					Session.login($scope.user).then(function(_response){
-
-						// if state params
-
-						// $scope.chooseCountry = function(country){
+					$Session.login($scope.user).then(function (_response) {
+						// Login success
 						StorageUserModel.setCurrentUser(_response.data);
+						$User.updateCountry(StorageUserModel.getCurrentUser(), StorageCountryModel.getSelectedCountry().name).then(function (_success) {
+							// Country updated
 
-						var country = StorageCountryModel.getSelectedCountry();
-						User.updateCountry(StorageUserModel.getCurrentUser(),country.name).then(function(_success){
-						},function(_error){
-							// debugger;
-
+						}, function (_error) {
+							// Cannot update the countries
+							popUpService.error(_error);
 						});
 
 
-						//   $state.go("introduction")
-						//
-						// }
-
-
-
-
 						$state.go('dashboard');
-						console.log(_response);
 						$ionicLoading.hide();
-					},function(_error){
-						this.Materialize.toast($scope.translations.LOGIN_ERROR,4000);
-						console.error(_error);
+					}, function (_error) {
+						Utils.validateToast(CURRENT_VIEW,_error.USER_ERROR_CODE);
 						$ionicLoading.hide();
 					});
 				};
@@ -305,9 +287,23 @@ CONTROLLER DEFINITION
 					$state.Back();
 				}, 100);
 
-				$scope.Back = function(){
+				$scope.Back = function () {
 					$state.go('middleware');
 				};
+
+				function formatLinkedInUser(_r) {
+					var user = {
+						email: _r.emailAddress,
+						name: _r.firstName,
+						last_name: _r.lastName
+					};
+					return user;
+				}
+
+
+				// "ERROR_LINKEDIN_LOGIN"
+				// "ERROR_LINKEDIN_APP_NOT_FOUND"
+				// "ERROR_LINKEDIN_IS_WEBVIEW"
 
 
 			});
