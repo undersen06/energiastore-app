@@ -80,7 +80,7 @@
 						method: 'PATCH',
 						headers:{
 							username: user.username,
-							token: user.token
+							token: user.tokauthentication_tokenen
 						},
 						data:{
 							user:{

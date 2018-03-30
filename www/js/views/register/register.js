@@ -130,7 +130,7 @@ CONTROLLER DEFINITION
 						$User.updateCountry(StorageUserModel.getCurrentUser(),country.name).then(function(_success){
 
 						},function(_error){
-							// debugger;
+							
 
 						});
 

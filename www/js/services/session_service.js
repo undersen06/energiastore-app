@@ -60,11 +60,11 @@
 						method: 'POST',
 						headers: {
 							username: user.username,
-							token: user.token
+							token: user.toauthentication_tokenken
 						},
 						data: {
 							user: {
-								authentication_token: user.token
+								authentication_token: user.tokeauthentication_tokenn
 							}
 						}
 					}).then(function (_response) {

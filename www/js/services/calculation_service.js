@@ -5,6 +5,7 @@
 		function($http, $q, ENV,StorageUserModel){
 
 			var user = StorageUserModel.getCurrentUser();
+			
 
 			return {
 				create: function(_data) {
@@ -14,7 +15,7 @@
 						method: 'POST',
 						headers:{
 							username:user.username,
-							token:user.token
+							token:user.authentication_token
 						},
 						data:{
 							calculation:{
@@ -38,7 +39,7 @@
 						method: 'GET',
 						headers:{
 							username:user.username,
-							token:user.token
+							token:user.authentication_token
 						}
 					}).then(function(_response) {
 						defer.resolve(_response);
@@ -56,7 +57,7 @@
 						method: 'GET',
 						headers:{
 							username:user.username,
-							token:user.token
+							token:user.authentication_token
 						}
 					}).then(function(_response) {
 						defer.resolve(_response);
@@ -74,7 +75,7 @@
 						method: 'DELETE',
 						headers:{
 							username:user.username,
-							token:user.token
+							token:authentication_token
 						}
 					}).then(function(_response) {
 						defer.resolve(_response);

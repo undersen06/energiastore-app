@@ -354,7 +354,7 @@
 						message = $rootScope.popup[_error];
 					}
 					
-debugger;
+
 					var deferred = $q.defer();
 					var button_exit_lesson = [{
 						text: message.BUTTON.POSITIVE,

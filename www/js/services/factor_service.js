@@ -15,7 +15,7 @@
 						method: 'GET',
 						headers: {
 							username: user.username,
-							token: user.token
+							token: authentication_token
 						}
 					}).then(function (_response) {
 						defer.resolve(_response);

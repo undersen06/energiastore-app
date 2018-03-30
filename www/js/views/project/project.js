@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('ProjectController', ['$scope','$state','$ionicPlatform','$ionicPopup','StorageUserModel','Calculation','translationService','$resource','IonicClosePopupService','Utils','$ionicLoading','httpUtilities','popUpService','StorageProject','Quotation','$cordovaActionSheet','$cordovaStatusbar','Motors','StorageCountryModel',
-		function($scope,$state,$ionicPlatform,$ionicPopup,StorageUserModel,Calculation,translationService,$resource,IonicClosePopupService,Utils,$ionicLoading,httpUtilities,popUpService,StorageProject,Quotation,$cordovaActionSheet,$cordovaStatusbar,Motors,StorageCountryModel) {
+	this.app.controller('ProjectController', ['$scope','$state','$ionicPlatform','$ionicPopup','StorageUserModel','$Calculation','translationService','$resource','IonicClosePopupService','Utils','$ionicLoading','httpUtilities','popUpService','StorageProject','$Quotation','$cordovaActionSheet','$cordovaStatusbar','$Motors','StorageCountryModel',
+		function($scope,$state,$ionicPlatform,$ionicPopup,StorageUserModel,$Calculation,translationService,$resource,IonicClosePopupService,Utils,$ionicLoading,httpUtilities,popUpService,StorageProject,$Quotation,$cordovaActionSheet,$cordovaStatusbar,$Motors,StorageCountryModel) {
 
 			$scope.design = {};
 			switch (StorageUserModel.getCurrentUser().type_user) {
@@ -168,7 +168,7 @@ CONTROLLER DEFINITION
 				};
 
 				$scope.craeteCalculation = function(data) {
-					Calculation.create(data, StorageUserModel.getCurrentUser()).then(
+					$Calculation.create(data, StorageUserModel.getCurrentUser()).then(
 						function(_response) {
 							Utils.validateToast($scope.translations.QUOTATION_CREATED_MESSAGE);
 							$scope.calculations = {};
@@ -185,7 +185,7 @@ CONTROLLER DEFINITION
 				};
 
 				$scope.getCalculation = function() {
-					Calculation.getAll(StorageUserModel.getCurrentUser()).then(
+					$Calculation.getAll(StorageUserModel.getCurrentUser()).then(
 						function(_response) {
 							$scope.calculations = _response.data;
 							
@@ -265,7 +265,7 @@ CONTROLLER DEFINITION
 
 						calculation.name = calculation.name + '_duplicated';
 
-						Calculation.create(calculation, StorageUserModel.getCurrentUser()).then(
+						$Calculation.create(calculation, StorageUserModel.getCurrentUser()).then(
 							function(_response) {
 
 								$scope.getMotors(calculation.id,_response.data.id);

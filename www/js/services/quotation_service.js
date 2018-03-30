@@ -14,7 +14,7 @@
 						method: 'POST',
 						headers: {
 							username: user.username,
-							token: user.token
+							token: user.authentication_token
 						},
 						data:
 							{
@@ -61,7 +61,7 @@
 						method: 'GET',
 						headers: {
 							username: user.username,
-							token: user.token
+							token: user.authentication_token
 						}
 					}).then(function (_response) {
 						defer.resolve(_response);

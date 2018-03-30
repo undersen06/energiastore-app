@@ -6,34 +6,34 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', 'FactorPenalty', 'StorageUserModel', 'translationService', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer',
-		function ($scope, $state, $ionicPlatform, $cordovaCamera, FactorPenalty, StorageUserModel, translationService, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer) {
+	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', 'translationService', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer',
+		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, translationService, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer) {
 
 			$scope.design = {};
 			switch (StorageUserModel.getCurrentUser().type_user) {
-				case 'user':
+			case 'user':
 
-					$scope.design.header = 'user-color';
-					$scope.design.footer = 'user-color';
-					$scope.design.button = 'user-color-button';
-					break;
+				$scope.design.header = 'user-color';
+				$scope.design.footer = 'user-color';
+				$scope.design.button = 'user-color-button';
+				break;
 
-				case 'partner':
-					$scope.design.header = 'partner-color';
-					$scope.design.footer = 'partner-color';
-					$scope.design.button = 'partner-color-button';
-					break;
+			case 'partner':
+				$scope.design.header = 'partner-color';
+				$scope.design.footer = 'partner-color';
+				$scope.design.button = 'partner-color-button';
+				break;
 
-				case 'explorer':
-					$scope.design.header = 'explorer-color';
-					$scope.design.footer = 'explorer-color';
-					$scope.design.button = 'explorer-color-button';
-					break;
-				default:
-					$scope.design.header = 'user-color';
-					$scope.design.footer = 'user-color';
-					$scope.design.button = 'user-color-button';
-					break;
+			case 'explorer':
+				$scope.design.header = 'explorer-color';
+				$scope.design.footer = 'explorer-color';
+				$scope.design.button = 'explorer-color-button';
+				break;
+			default:
+				$scope.design.header = 'user-color';
+				$scope.design.footer = 'user-color';
+				$scope.design.button = 'user-color-button';
+				break;
 			}
 
 			const languageFilePath = translationService.getTranslation();
@@ -46,15 +46,15 @@ CONTROLLER DEFINITION
 			$ionicPlatform.ready(function () {
 
 				$scope.isIphoneX = function () {
-					if (this.ionic.Platform.device().model != undefined) {
-						if (this.ionic.Platform.device().model.startsWith('iPhone10')) {
+					if (ionic.Platform.device().model != undefined) {
+						if (ionic.Platform.device().model.startsWith('iPhone10')) {
 							return true;
 						}
 					}
 				};
 
 				$scope.image = 'assets/img/photo.png';
-				$scope.os = this.ionic.Platform.platform();
+				$scope.os = ionic.Platform.platform();
 				$scope.user = StorageUserModel.getCurrentUser();
 				$scope.register = {};
 				$scope.user = StorageUserModel.getCurrentUser();
@@ -203,14 +203,14 @@ CONTROLLER DEFINITION
 							.show($scope.options)
 							.then(function (btnIndex) {
 								switch (btnIndex) {
-									case 1:
-										$scope.openCamera();
-										break;
-									case 2:
-										$scope.openGallery();
-										break;
-									default:
-										break;
+								case 1:
+									$scope.openCamera();
+									break;
+								case 2:
+									$scope.openGallery();
+									break;
+								default:
+									break;
 
 								}
 

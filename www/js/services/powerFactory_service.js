@@ -14,7 +14,7 @@
 						method: 'POST',
 						headers: {
 							username: user.username,
-							token: user.token
+							token: user.authentication_token
 						},
 						data: {
 							quotation:
