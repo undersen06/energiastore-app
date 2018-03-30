@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('IntroductionController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', '$timeout', 'Woocommerce',
-		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, $timeout, Woocommerce) {
+	this.app.controller('IntroductionController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', '$timeout',
+		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, $timeout) {
 			$ionicPlatform.ready(function () {
 
 				$scope.isIphoneX = function () {
@@ -71,7 +71,7 @@ CONTROLLER DEFINITION
 
 				switch ($ionicSlideBoxDelegate.currentIndex()) {
 				case 0:
-					ionic.Platform.exitApp();
+					this.ionic.Platform.exitApp();
 					break;
 				case 1:
 					$ionicSlideBoxDelegate.previous();

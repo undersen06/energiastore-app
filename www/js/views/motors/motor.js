@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('MotorsController', ['$scope', '$state','$ionicPlatform','Calculation','StorageUserModel','Motors','$ionicModal','popUpService','$resource','translationService','Quotation','$cordovaStatusbar','Utils','StorageMotor',
-		function($scope, $state,$ionicPlatform,Calculation,StorageUserModel,Motors,$ionicModal,popUpService,$resource,translationService,Quotation,$cordovaStatusbar,Utils,StorageMotor) {
+	this.app.controller('MotorsController', ['$scope', '$state','$ionicPlatform','StorageUserModel','$Motors','$ionicModal','popUpService','$resource','translationService','$cordovaStatusbar','Utils','StorageMotor',
+		function($scope, $state,$ionicPlatform,StorageUserModel,$Motors,$ionicModal,popUpService,$resource,translationService,$cordovaStatusbar,Utils,StorageMotor) {
 
 			$scope.design = {};
 			switch (StorageUserModel.getCurrentUser().type_user) {
@@ -42,26 +42,6 @@ CONTROLLER DEFINITION
 
 
 			$ionicPlatform.ready(function() {
-
-				// if (window.StatusBar) {
-				//   $cordovaStatusbar.overlaysWebView(false);
-				//   $cordovaStatusbar.style(1);
-				//   switch (StorageUserModel.getCurrentUser().type_user) {
-				//     case 'explorer':
-				//     $cordovaStatusbar.styleHex("#62BED4");
-				//     break;
-				//     case 'user':
-				//     $cordovaStatusbar.styleHex("#62D485");
-				//     break;
-				//
-				//     case 'partner':
-				//     $cordovaStatusbar.styleHex("#F5A623");
-				//     break;
-				//     default:
-				//
-				//   }
-				//   $cordovaStatusbar.show();
-				// }
 
 				const languageFilePath = translationService.getTranslation();
 				$resource(languageFilePath).get(function (data) {
@@ -251,7 +231,7 @@ CONTROLLER DEFINITION
 
 					}else{
 
-						Motors.create($scope.user,$scope.motor,$state.params.id_quotation).then(function(_response){
+						$Motors.create($scope.user,$scope.motor,$state.params.id_quotation).then(function(_response){
 							$scope.modalMotor.hide();
 							Utils.validateToast($scope.translations.MOTOR_ADD_SUCCESS);
 							console.log(_response);
@@ -282,7 +262,7 @@ CONTROLLER DEFINITION
 						}
 						$scope.$broadcast('scroll.refreshComplete');
 					}else{
-						Motors.getByCalculation($state.params.id_quotation,StorageUserModel.getCurrentUser()).then(function(_response){
+						$Motors.getByCalculation($state.params.id_quotation,StorageUserModel.getCurrentUser()).then(function(_response){
 							$scope.motors = _response.data;
 							$scope.$broadcast('scroll.refreshComplete');
 
@@ -302,53 +282,6 @@ CONTROLLER DEFINITION
 				$scope.doRefreshMotors = function(){
 					$scope.getMotors();
 				};
-
-
-				$scope.chooseShowpopUpHelp = function (_index){
-					let _title;
-					let _body;
-
-					switch (_index) {
-					case 1:
-						_title = $scope.translations.MODAL_HELPER_MOTOR_TITLE;
-						_body = $scope.translations.MODAL_HELPER_MOTOR_body;
-						break;
-
-					case 2:
-						_title = $scope.translations.MODAL_HELPER_AMP_TITLE;
-						_body = $scope.translations.MODAL_HELPER_AMP_BODY;
-
-						break;
-
-					case 3:
-						_title = $scope.translations.MODAL_HELPER_VOLTAJE_TITLE;
-						_body = $scope.translations.MODAL_HELPER_VOLTAJE_BODY;
-						break;
-
-
-					case 4:
-						_title = $scope.translations.MODAL_HELPER_POWER_FACTOR_TITLE;
-						_body = $scope.translations.MODAL_HELPER_POWER_FACTOR_BODY;
-						break;
-
-					case 5:
-						_title = $scope.translations.MODAL_HELPER_HOURS_DAY_TITLE;
-						_body = $scope.translations.MODAL_HELPER_HOURS_DAY_BODY;
-						break;
-
-					case 6:
-						_title = $scope.translations.MODAL_HELPER_DAYS_MONTH_TITLE;
-						_body = $scope.translations.MODAL_HELPER_DAYS_MONTH_BODY;
-						break;
-					default:
-						break;
-
-						
-					}
-				};
-
-
-
 
 				$scope.goToQuotation= function(){
 					if(StorageUserModel.getCurrentUser().type_user === 'explorer'){

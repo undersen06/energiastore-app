@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('FactorController', ['$scope', '$state','$ionicPlatform','$cordovaCamera','FactorPenalty','StorageUserModel','translationService','$resource','popUpService','$cordovaStatusbar','Quotation','Utils','$cordovaActionSheet','$ionicLoading','$cordovaFileOpener2','$cordovaFileTransfer' ,
-		function($scope, $state,$ionicPlatform,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Quotation,Utils,$cordovaActionSheet,$ionicLoading,$cordovaFileOpener2,$cordovaFileTransfer) {
+	this.app.controller('FactorController', ['$scope', '$state','$ionicPlatform','$cordovaCamera','FactorPenalty','StorageUserModel','translationService','$resource','popUpService','$cordovaStatusbar','Utils','$cordovaActionSheet','$ionicLoading','$cordovaFileOpener2','$cordovaFileTransfer' ,
+		function($scope, $state,$ionicPlatform,$cordovaCamera,FactorPenalty,StorageUserModel,translationService,$resource,popUpService,$cordovaStatusbar,Utils,$cordovaActionSheet,$ionicLoading,$cordovaFileOpener2,$cordovaFileTransfer) {
 
 			$scope.design = {};
 			switch (StorageUserModel.getCurrentUser().type_user) {

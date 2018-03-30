@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('SettingsController', ['$scope', '$state','$ionicPlatform','$resource','translationService','$cordovaStatusbar','$ionicSlideBoxDelegate','$timeout','StorageUserModel','StorageLanguageModel','$ionicPopup','$cordovaActionSheet','StorageStatus','StorageProject','StorageMotor','StorageQuotation','$ionicModal','User','$ionicLoading','popUpService','$Country','$q','StorageCountryModel',
-		function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup,$cordovaActionSheet,StorageStatus,StorageProject,StorageMotor,StorageQuotation,$ionicModal,User,$ionicLoading,popUpService,$Country,$q,StorageCountryModel) {
+	this.app.controller('SettingsController', ['$scope', '$state','$ionicPlatform','$resource','translationService','$cordovaStatusbar','$ionicSlideBoxDelegate','$timeout','StorageUserModel','StorageLanguageModel','$ionicPopup','$cordovaActionSheet','StorageStatus','StorageProject','StorageMotor','StorageQuotation','$ionicModal','$User','$ionicLoading','popUpService','$Country','$q','StorageCountryModel',
+		function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup,$cordovaActionSheet,StorageStatus,StorageProject,StorageMotor,StorageQuotation,$ionicModal,$User,$ionicLoading,popUpService,$Country,$q,StorageCountryModel) {
 
 			$scope.user = StorageUserModel.getCurrentUser();
 
@@ -180,11 +180,13 @@ CONTROLLER DEFINITION
 
 
 				$scope.chooseCountry = function(country){
-					User.updateCountry($scope.user,country.name).then(function(_success){
+					$User.updateCountry($scope.user,country.name).then(function(_success){
 						StorageCountryModel.selectCountry(country);
 						StorageCountryModel.selectCurrency(this._.find($scope.curencies, { 'id': country.currency_id}));
 					},function(_error){
-						// debugger;
+						popUpService.errorPopUp(_error || 'UNKNOW_ERROR').then(function(){
+
+						});
 
 					});
 
@@ -198,14 +200,12 @@ CONTROLLER DEFINITION
 					$q.all(promises).then(function(_resolves){
 						$scope.curencies = _resolves[0].data;
 						$scope.countries = _resolves[1].data;
-					},function(_error){
-						popUpService.showpopupCountries().then(function(_response){
+					},function(){
+						popUpService.showpopupCountries().then(function(){
 							loadCountries();
 						});
 					});
 				}
-
-
 
 				loadCountries();
 
