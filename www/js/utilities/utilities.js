@@ -5,18 +5,13 @@
 		var showingToast = false;
 
 		return {
-			validateToast: function validateToast(message) {
+			validateToast: function(message) {
 				if (!showingToast) {
 					showingToast = true;
-					this.Materialize.toast(message, 4000, '', function () {
+					Materialize.toast(message, 4000, '', function () {
 						showingToast = false;
 					});
 				}
-			},
-
-			isWebView: function () {
-				return this.platform.is('core') || this.platform.is('mobileweb');
-					
 			}
 
 		};
