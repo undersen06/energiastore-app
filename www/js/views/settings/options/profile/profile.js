@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('ProfileController', ['$scope', '$state','$ionicPlatform','$rootScope','Session','StorageUserModel','$User','$resource','translationService','popUpService',
-		function($scope, $state,$ionicPlatform,$rootScope,Session,StorageUserModel,$User,$resource,translationService,popUpService) {
+	this.app.controller('ProfileController', ['$scope', '$state','$ionicPlatform','$rootScope','$Session','StorageUserModel','$User','$resource','translationService','popUpService',
+		function($scope, $state,$ionicPlatform,$rootScope,$Session,StorageUserModel,$User,$resource,translationService,popUpService) {
 
 			$scope.design = {};
 			switch (StorageUserModel.getCurrentUser().type_user) {

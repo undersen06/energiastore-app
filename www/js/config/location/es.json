@@ -67,18 +67,18 @@
         },
         "FACTOR_MP": {
             "FMP_HEADER": "Mal factor de potencia",
-            "FMP_PRE_TEXT": "Solicitar evaluacion de",
+            "FMP_PRE_TEXT": "Solicitar evaluación de",
             "FMP_PRE_TEXT_STRONG": "Factor de mala potencia",
             "FMP_BUTTON": "Ingresar multa",
             "FMP_MODAL_QUOTATION_HEADER": "Proyecto Factor de potencia",
             "FMP_MODAL_QUOTATION_OPTION_MANUAL": "Ingresa multa manual",
             "FMP_MODAL_QUOTATION_AMOUNT": "Monto de multa",
-            "FMP_MODAL_QUOTATION_USE_PHOTO": "Utilizar fotografia de la multa",
-            "FMP_MODAL_QUOTATION_COMMENT": "Si deseas aqui puedes agregar un comentario"
+            "FMP_MODAL_QUOTATION_USE_PHOTO": "Utilizar fotografía de la multa",
+            "FMP_MODAL_QUOTATION_COMMENT": "Si deseas aquí puedes agregar un comentario"
         },
         "INTRODUCTION": {
             "SLIDER_1": "Los recursos naturales se están terminando ¡la eficiencia energética es el camino para un mundo mejor!",
-            "SLIDER_2": "El cambio está en ti ¡comienza a hacer la diferencia y ahorra energia eléctrica!",
+            "SLIDER_2": "El cambio está en ti ¡comienza a hacer la diferencia y ahorra energía eléctrica!",
             "SLIDER_3": "! Comienza hoy & contagia la eficiencia energética ¡nuestro planeta lo agradecerá",
             "SLIDER_BUTTON": "Comenzar con el cambio"
         },
@@ -95,7 +95,13 @@
             "INIT_FACEBOOK": "Iniciar con Facebook",
             "INIT_LINKEDIN": "Iniciar con LinkedIn"
         },
-        "MIDDLEWARE": {},
+        "MIDDLEWARE": {
+            "MIDDLEWARE_TITLE": "Como te gustaría utilizar energiaStore ?",
+            "MIDDLEWARE_USER_BODY": "Registrate y utiliza todas las funcionalidades",
+            "MIDDLEWARE_PARTNER_BODY": "Ingresa con una cuenta autorizada por energiaStore",
+            "MIDDLEWARE_EXPLORER_BODY": "Ingresa sin registros y conoce la aplicación",
+            "MIDDLEWARE_HELP": "Ayuda"
+        },
         "MOTORS": {
             "CREATE": {}
         },
@@ -107,7 +113,20 @@
         "QUOTATION": {
             "FINALIZE": {}
         },
-        "REGISTER": {},
+        "REGISTER": {
+            "REGISTER_SLIDER_1_HEADER": "Registremos tu cuenta...",
+            "REGISTER_SLIDER_1_PLACEHOLDER_EMAIL": "Correo",
+            "REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD": "Contraseña",
+            "REGISTER_SLIDER_1_CONFIRMATION_PASSWORD": "Confirmación contraseña",
+            "REGISTER_EMAIL_EMPTY_ERROR": "Complete Correo",
+            "REGISTER_PASSWORD_EMPTY_ERROR": "Complete contraseña",
+            "REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR": "Complete confirmación contraseña",
+            "REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR": "Password no coinciden",
+            "REGISTER_SLIDER_1_SPINNER": "Registrando cuenta",
+            "REGISTER_SLIDER_1_ERROR": "Intente con otra cuenta",
+            "REGISTER_SLIDER_2_HEADER": "! Felicitaciones ¡",
+            "REGISTER_SLIDER_2_SUBTITLE": "! Ya eres parte de EnergiaStore¡"
+        },
         "SETTINGS": {
             "OPTIONS": {
                 "COUNTRY": {},
@@ -116,7 +135,19 @@
                     "PENALTY": {},
                     "TYPE_USER": {}
                 }
-            }
+            },
+            "SETTINGS_MENU_TITLE": "Configuraciones",
+            "SETTINGS_MENU_PROFILE": "Mi perfil",
+            "SETTINGS_MENU_SIGN_UP": "Registrar mi cuenta",
+            "SETTINGS_MENU_CHANGE_LANGUAGE": "Cambiar lenguaje",
+            "SETTINGS_MENU_CHOOSE_COUNTRY": "Seleccionar País",
+            "SETTINGS_MENU_TUTORIAL": "Tutoriales",
+            "SETTINGS_MENU_FAQ": "FAQ",
+            "SETTINGS_MENU_ABOUT_US": "Sobre nosotros",
+            "SETTINGS_MENU_LOG_OUT": "Cerrar sesión",
+            "ABOUT_US_TITLE": "EnergiaStore",
+            "ABOUT_US_TEXT": "Todos los derechos reservados 2017 ",
+            "ABOUT_US_BUTTON_TEXT": "Entendido"
         },
         "WELCOME": {}
     }

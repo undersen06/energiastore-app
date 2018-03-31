@@ -1,96 +1,85 @@
-<ion-view ng-init="init();">
+<ion-view ng-init="init();" id="settings-view">
 
   <ion-header-bar align-title="left" class="">
 
-    <h5 ng-click="goBack()" style="margin-left:10px;;width: 30px;"><i class="ion-chevron-left" style="z-index:999;" ></i></h5>
-    <h5>{{translations.SETTINGS_MENU_TITLE}}</h5>
+    <h5 ng-click="goBack()">
+      <i class="ion-chevron-left"></i>
+    </h5>
+    <h5>{{settings.SETTINGS_MENU_TITLE}}</h5>
 
   </ion-header-bar>
 
-<ion-content style="background-color:rgba(175, 175, 175, 0.30);">
+  <ion-content id="content-id">
 
 
-  <ion-list>
-    <ion-item ng-click="goToProfile()" ng-if="user.type_user != 'explorer'">
-      <span>{{translations.SETTINGS_MENU_PROFILE}}</span>
+    <ion-list>
+      <ion-item ng-click="goToProfile()" ng-if="user.type_user != 'explorer'">
+        <span>{{settings.SETTINGS_MENU_PROFILE}}</span>
 
-      <i class="ion-chevron-right button-right"></i>
-    </ion-item>
+        <i class="ion-chevron-right button-right"></i>
+      </ion-item>
 
-    <ion-item ng-click="goToRegister()" ng-if="user.type_user == 'explorer'">
-      <span>{{translations.SETTINGS_MENU_SIGN_UP}}</span>
+      <ion-item ng-click="goToRegister()" ng-if="user.type_user == 'explorer'">
+        <span>{{settings.SETTINGS_MENU_SIGN_UP}}</span>
 
-      <i class="ion-chevron-right button-right"></i>
-    </ion-item>
+        <i class="ion-chevron-right button-right"></i>
+      </ion-item>
 
-    <ion-item ng-click="chooseLanguaje()">
-      <span>{{translations.SETTINGS_MENU_CHANGE_LANGUAGE}}</span>
+      <ion-item ng-click="chooseLanguaje()">
+        <span>{{settings.SETTINGS_MENU_CHANGE_LANGUAGE}}</span>
 
-      <i class="ion-chevron-right button-right"></i>
-    </ion-item>
+        <i class="ion-chevron-right button-right"></i>
+      </ion-item>
 
-    <ion-item ng-click="openModalChooseCountry()">
-      <span>{{translations.SETTINGS_MENU_CHOOSE_COUNTRY}}</span>
+      <ion-item ng-click="openModalChooseCountry()">
+        <span>{{settings.SETTINGS_MENU_CHOOSE_COUNTRY}}</span>
 
-      <i class="ion-chevron-right button-right"></i>
-    </ion-item>
+        <i class="ion-chevron-right button-right"></i>
+      </ion-item>
 
-  </ion-list>
-
-
-
-<br />
-<br />
-<ion-list>
-  <ion-item ng-click="goToTutorials()">
-    <span>{{translations.SETTINGS_MENU_TUTORIAL}}</span>
-
-    <i class="ion-chevron-right button-right"></i>
-  </ion-item>
-</ion-list>
+    </ion-list>
 
 
-<br />
-<br />
 
-<ion-list>
+    <br />
+    <br />
+    <ion-list>
+      <ion-item ng-click="goToTutorials()">
+        <span>{{settings.SETTINGS_MENU_TUTORIAL}}</span>
 
-  <ion-item ng-click="FAQ()">
-    <span>{{translations.SETTINGS_MENU_FAQ}}</span>
-
-    <i class="ion-chevron-right button-right"></i>
-  </ion-item>
-  <ion-item ng-click="aboutUs()">
-    <span>{{translations.SETTINGS_MENU_ABOUT_US}}</span>
-
-    <i class="ion-chevron-right button-right"></i>
-  </ion-item>
-</ion-list>
+        <i class="ion-chevron-right button-right"></i>
+      </ion-item>
+    </ion-list>
 
 
-<br />
-<br />
+    <br />
+    <br />
 
-<ion-list>
-  <ion-item ng-click="logOut()">
-    <span>{{translations.SETTINGS_MENU_LOG_OU}}</span>
+    <ion-list>
 
-    <i class="ion-chevron-right button-right"></i>
-  </ion-item>
-</ion-list>
-</ion-content>
+      <ion-item ng-click="FAQ()">
+        <span>{{settings.SETTINGS_MENU_FAQ}}</span>
+
+        <i class="ion-chevron-right button-right"></i>
+      </ion-item>
+      <ion-item ng-click="aboutUs()">
+        <span>{{settings.SETTINGS_MENU_ABOUT_US}}</span>
+
+        <i class="ion-chevron-right button-right"></i>
+      </ion-item>
+    </ion-list>
+
+
+    <br />
+    <br />
+
+    <ion-list>
+      <ion-item ng-click="logOut()">
+        <span>{{settings.SETTINGS_MENU_LOG_OUT}}</span>
+
+        <i class="ion-chevron-right button-right"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 
 </ion-view>
-
-<style>
-
-h1,h5{
-  color:black;
-}
-
-.button-right{
-  right: 25px;
-  position: absolute;
-}
-
-</style>

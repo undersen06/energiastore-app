@@ -139,7 +139,7 @@ CONTROLLER DEFINITION
 						$cordovaAppAvailability.check('linkedin://').then(function () {
 							$scope.loginLinkedIn();
 						}, function (_error) {
-							popUpService.isWebViewLinkedInError(_error || 'UNKNOW_ERROR').then(function(){
+							popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_APP_NOT_FOUND' || 'UNKNOW_ERROR').then(function(){
 
 							});
 						});
@@ -232,6 +232,7 @@ CONTROLLER DEFINITION
 							});
 
 						} else {
+							debugger;
 							login_facebook(status);
 						}
 

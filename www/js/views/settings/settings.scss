@@ -1,0 +1,24 @@
+#settings-view{
+
+    .bar-header{
+        h5{
+            margin-left:10px;
+            color:black;
+            i{
+                z-index:999;
+            }
+        }
+    }
+
+    #content-id{
+        background-color:rgba(175, 175, 175, 0.30);
+    }
+
+    .button-right{
+        right: 25px;
+        position: absolute;
+      }
+      
+
+
+}

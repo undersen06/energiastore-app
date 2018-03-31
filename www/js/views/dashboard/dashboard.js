@@ -42,22 +42,22 @@ CONTROLLER DEFINITION
 				});
 			};
 
-    $scope.isIphoneX =  function(){
-      if(ionic.Platform.device().model != undefined){
-        if(ionic.Platform.device().model.startsWith('iPhone10')){
-          return true;
-        }
-      }
-    }
+			$scope.isIphoneX =  function(){
+				if(ionic.Platform.device().model != undefined){
+					if(ionic.Platform.device().model.startsWith('iPhone10')){
+						return true;
+					}
+				}
+			};
 
-    $ionicPlatform.ready(function() {
+			$ionicPlatform.ready(function() {
 
 				StorageUserModel.getCurrentUser();
 				$scope.register = {};
 				$scope.user = StorageUserModel.getCurrentUser();
 
 
-				$scope.goToPenaltyEnergyEffiency = function(){
+				$scope.goToPenaltyEnergyEfficiency = function(){
 					$state.go('factor');
 				};
 

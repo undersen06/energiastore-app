@@ -5,51 +5,53 @@
 CONTROLLER DEFINITION
 =============================================================================
 */
-(function() {
-	this.app.controller('SettingsController', ['$scope', '$state','$ionicPlatform','$resource','translationService','$cordovaStatusbar','$ionicSlideBoxDelegate','$timeout','StorageUserModel','StorageLanguageModel','$ionicPopup','$cordovaActionSheet','StorageStatus','StorageProject','StorageMotor','StorageQuotation','$ionicModal','$User','$ionicLoading','popUpService','$Country','$q','StorageCountryModel',
-		function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup,$cordovaActionSheet,StorageStatus,StorageProject,StorageMotor,StorageQuotation,$ionicModal,$User,$ionicLoading,popUpService,$Country,$q,StorageCountryModel) {
+(function () {
+	this.app.controller('SettingsController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', '$timeout', 'StorageUserModel', 'StorageLanguageModel', '$ionicPopup', '$cordovaActionSheet', 'StorageStatus', 'StorageProject', 'StorageMotor', 'StorageQuotation', '$ionicModal', '$User', '$ionicLoading', 'popUpService', '$Country', '$q', 'StorageCountryModel', '$rootScope','$cordovaAppVersion',
+		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, $timeout, StorageUserModel, StorageLanguageModel, $ionicPopup, $cordovaActionSheet, StorageStatus, StorageProject, StorageMotor, StorageQuotation, $ionicModal, $User, $ionicLoading, popUpService, $Country, $q, StorageCountryModel, $rootScope,$cordovaAppVersion) {
 
 			$scope.user = StorageUserModel.getCurrentUser();
 
-			$ionicPlatform.ready(function() {
+			$ionicPlatform.ready(function () {
 
 				const languageFilePath = translationService.getTranslation();
 				$resource(languageFilePath).get(function (data) {
 					$scope.translations = data;
-					$scope.options = { title: $scope.translations.CHOOSE_LANGUAGE_TEXT, buttonLabels: [$scope.translations.CHOOSE_LANGUAGE_ENGLISH,$scope.translations.CHOOSE_LANGUAGE_SPANISH], addCancelButtonWithLabel: $scope.translations.CHOOSE_LANGUAGE_CANCEL, androidEnableCancelButton: true, winphoneEnableCancelButton: true };
-					$scope.button_exit_lesson = [{ text: $scope.translations.MODAL_FAIL_CREATE_FACTOR_BUTTON,  type: 'button-special',onTap: function() {
-					}}];
+					$scope.options = { title: $scope.translations.CHOOSE_LANGUAGE_TEXT, buttonLabels: [$scope.translations.CHOOSE_LANGUAGE_ENGLISH, $scope.translations.CHOOSE_LANGUAGE_SPANISH], addCancelButtonWithLabel: $scope.translations.CHOOSE_LANGUAGE_CANCEL, androidEnableCancelButton: true, winphoneEnableCancelButton: true };
+					$scope.button_exit_lesson = [{
+						text: $scope.translations.MODAL_FAIL_CREATE_FACTOR_BUTTON, type: 'button-special', onTap: function () {
+						}
+					}];
 					// $scope.init();
 				});
 
 
 				$scope.register = {};
-				$scope.modalChooseCountry={};
+				$scope.modalChooseCountry = {};
 
-				$scope.goToProfile =  function(){
+				$scope.goToProfile = function () {
 					$state.go('profile');
 				};
-				$scope.chooseLanguaje =  function(){
+				$scope.chooseLanguaje = function () {
 					$scope.showLanguageOptions();
 				};
-				$scope.chooseCountry =  function(){
+				$scope.chooseCountry = function () {
 
 				};
 
-				$scope.goToTutorials =  function(){
+				$scope.goToTutorials = function () {
 					$state.go('tutorials');
 				};
 
-				$scope.goBack = function(){
+				$scope.goBack = function () {
 					$state.go('dashboard');
 				};
 
-				$scope.FAQ =  function(){
+				$scope.FAQ = function () {
 					$scope.workingOnPopUp();
 				};
 
 
-				$scope.logOut = function (){
+				$scope.logOut = function () {
 					$ionicPopup.show({
 						animation: 'fade-in',
 						title: '<img src="assets/img/logout.png" class="img-about-us">',
@@ -63,7 +65,7 @@ CONTROLLER DEFINITION
 						{
 							text: `${$scope.translations.LOG_OUT_LEAVE_BUTTON}`,
 							type: 'button-afirmative',
-							onTap: function() {
+							onTap: function () {
 								$scope.deleteData();
 							}
 						}
@@ -72,7 +74,7 @@ CONTROLLER DEFINITION
 				};
 
 
-				$scope.workingOnPopUp = function(){
+				$scope.workingOnPopUp = function () {
 					$ionicPopup.show({
 						animation: 'fade-in',
 						title: '<img src="assets/img/working-on.png" class="img-about-us">',
@@ -83,60 +85,66 @@ CONTROLLER DEFINITION
 							{
 								text: `${$scope.translations.WORKING_ON_BUTTON_TEXT}`,
 								type: 'button-afirmative',
-								onTap: function() {
+								onTap: function () {
 								}
 							}]
 					});
 				};
 
-				$scope.aboutUs = function(){
-					$ionicPopup.show({
-						animation: 'fade-in',
-						title: '<img src="assets/img/logo.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${$scope.translations.ABOUT_US_TITLE}</span>`,
-						template: `<p class="popup-subtitle">${$scope.translations.ABOUT_US_TEXT}</p> `,
-						scope: $scope,
-						buttons: [
-							{
-								text: `${$scope.translations.ABOUT_US_BUTTON_TEXT}`,
-								type: 'button-afirmative',
-								onTap: function() {
-									// $state.go('middleware')
+				$scope.aboutUs = function () {
+
+					$cordovaAppVersion.getVersionNumber().then(function (version) {
+
+						$ionicPopup.show({
+							animation: 'fade-in',
+							title: '<img src="assets/img/logo.png" class="img-about-us">',
+							subTitle: `<span class="popup-title">${$rootScope.settings.ABOUT_US_TITLE}</span>`,
+							template: `<p class="popup-subtitle">${$rootScope.settings.ABOUT_US_TEXT}</p> 
+							<p class="popup-subtitle">${version}</p> `,
+							scope: $scope,
+							buttons: [
+								{
+									text: `${$rootScope.settings.ABOUT_US_BUTTON_TEXT}`,
+									type: 'button-afirmative',
+									onTap: function () {
+										// $state.go('middleware')
+									}
 								}
-							}
-						]
-					});
+							]
+						});
+
+					},false);
 				};
 
 
-				if (window.cordova){
-					$scope.showLanguageOptions = function(){
+				if (window.cordova) {
+					$scope.showLanguageOptions = function () {
 						$cordovaActionSheet
 							.show($scope.options)
-							.then(function(btnIndex) {
+							.then(function (btnIndex) {
 								switch (btnIndex) {
-								case 1:
-									StorageLanguageModel.setCurrentLanguage('en');
-									break;
+									case 1:
+										StorageLanguageModel.setCurrentLanguage('en');
+										break;
 
-								case 2:
-									StorageLanguageModel.setCurrentLanguage('es');
-									break;
+									case 2:
+										StorageLanguageModel.setCurrentLanguage('es');
+										break;
 								}
 
 								StorageLanguageModel.getCurrentLanguage();
 
 								const languageFilePath = translationService.getTranslation();
-								$resource(languageFilePath).get(function(data) {
+								$resource(languageFilePath).get(function (data) {
 									$scope.translations = data;
-									$scope.options = { title: $scope.translations.CHOOSE_LANGUAGE_TEXT, buttonLabels: [$scope.translations.CHOOSE_LANGUAGE_ENGLISH,$scope.translations.CHOOSE_LANGUAGE_SPANISH], addCancelButtonWithLabel: $scope.translations.CHOOSE_LANGUAGE_CANCEL, androidEnableCancelButton: true, winphoneEnableCancelButton: true };
+									$scope.options = { title: $scope.translations.CHOOSE_LANGUAGE_TEXT, buttonLabels: [$scope.translations.CHOOSE_LANGUAGE_ENGLISH, $scope.translations.CHOOSE_LANGUAGE_SPANISH], addCancelButtonWithLabel: $scope.translations.CHOOSE_LANGUAGE_CANCEL, androidEnableCancelButton: true, winphoneEnableCancelButton: true };
 								});
 							});
 					};
 				}
 
 
-				$scope.deleteData= function (){
+				$scope.deleteData = function () {
 					StorageUserModel.destroyCurrentUser();
 					StorageStatus.destroyStatus();
 					StorageProject.destroyProjects();
@@ -153,38 +161,38 @@ CONTROLLER DEFINITION
 					scope: $scope,
 					animation: 'slide-in-up'
 
-				}).then(function(modal) {
+				}).then(function (modal) {
 					$scope.modalChooseCountry = modal;
 					$scope.modalChooseCountry.hardwareBackButtonClose = false;
 				});
 
 
-				$scope.openModalChooseCountry = function() {
+				$scope.openModalChooseCountry = function () {
 					$scope.modalChooseCountry.show();
 				};
-				$scope.closeModalChooseCountry = function() {
+				$scope.closeModalChooseCountry = function () {
 					$scope.modalChooseCountry.hide();
 				};
 				// Cleanup the modal when we're done with it!
-				$scope.$on('$destroy', function() {
+				$scope.$on('$destroy', function () {
 					$scope.modalChooseCountry.remove();
 				});
 				// Execute action on hide modal
-				$scope.$on('modalChooseCountry.hidden', function() {
+				$scope.$on('modalChooseCountry.hidden', function () {
 					// Execute action
 				});
 				// Execute action on remove modal
-				$scope.$on('modalChooseCountry.removed', function() {
+				$scope.$on('modalChooseCountry.removed', function () {
 					// Execute action
 				});
 
 
-				$scope.chooseCountry = function(country){
-					$User.updateCountry($scope.user,country.name).then(function(_success){
+				$scope.chooseCountry = function (country) {
+					$User.updateCountry($scope.user, country.name).then(function (_success) {
 						StorageCountryModel.selectCountry(country);
-						StorageCountryModel.selectCurrency(this._.find($scope.curencies, { 'id': country.currency_id}));
-					},function(_error){
-						popUpService.errorPopUp(_error || 'UNKNOW_ERROR').then(function(){
+						StorageCountryModel.selectCurrency(this._.find($scope.curencies, { 'id': country.currency_id }));
+					}, function (_error) {
+						popUpService.errorPopUp(_error || 'UNKNOW_ERROR').then(function () {
 
 						});
 
@@ -195,13 +203,13 @@ CONTROLLER DEFINITION
 				};
 
 
-				function loadCountries(){
-					var promises =[$Country.getAllCurrencies(),$Country.getAllCountries()];
-					$q.all(promises).then(function(_resolves){
+				function loadCountries() {
+					var promises = [$Country.getAllCurrencies(), $Country.getAllCountries()];
+					$q.all(promises).then(function (_resolves) {
 						$scope.curencies = _resolves[0].data;
 						$scope.countries = _resolves[1].data;
-					},function(){
-						popUpService.showpopupCountries().then(function(){
+					}, function () {
+						popUpService.showpopupCountries().then(function () {
 							loadCountries();
 						});
 					});
