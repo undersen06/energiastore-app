@@ -3,12 +3,11 @@
 (function() {
 	this.app.component('footBar', {
 		templateUrl: 'js/components/footbar/footbar.html',
-		controller: function ($scope,$state,translationService,$resource,$ionicPlatform) {
+		controller: function ($scope,$state,translationService,$resource,$ionicPlatform,$rootScope) {
 
-			const languageFilePath = translationService.getTranslation();
-			$resource(languageFilePath).get(function (data) {
-				$scope.translations = data;
-			});
+			
+			$scope.footbar = $rootScope.footbar;
+
 
 			$scope.goToDashboard = function(){
 				$state.go('dashboard');
@@ -29,6 +28,8 @@
 				}
 
 			});
+
+			console.log($rootScope);
 
 
 		}

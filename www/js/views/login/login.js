@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('LoginController', ['$scope', '$state', '$ionicPlatform', 'StorageUserModel', '$Session', 'translationService', '$resource', '$cordovaStatusbar', '$ionicLoading', 'Utils', 'popUpService', 'StorageCountryModel', '$User', '$cordovaAppAvailability',
-		function ($scope, $state, $ionicPlatform, StorageUserModel, $Session, translationService, $resource, $cordovaStatusbar, $ionicLoading, Utils, popUpService, StorageCountryModel, $User, $cordovaAppAvailability) {
+	this.app.controller('LoginController', ['$scope', '$state', '$ionicPlatform', 'StorageUserModel', '$Session', 'translationService', '$resource', '$cordovaStatusbar', '$ionicLoading', 'Utils', 'popUpService', 'StorageCountryModel', '$User', '$cordovaAppAvailability','$log',
+		function ($scope, $state, $ionicPlatform, StorageUserModel, $Session, translationService, $resource, $cordovaStatusbar, $ionicLoading, Utils, popUpService, StorageCountryModel, $User, $cordovaAppAvailability,$log) {
 
 			
 			const CURRENT_VIEW = 'LOGIN';
@@ -81,17 +81,9 @@ CONTROLLER DEFINITION
 
 
 						}, function () {
-
 							popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_LOGIN').then(function(){
-
 							});
-
-							
-
-
-
 						});
-
 					};
 
 
@@ -110,18 +102,7 @@ CONTROLLER DEFINITION
 
 
 					this.cordova.plugins.LinkedIn.login(scopes, true, function () {
-
 						this.cordova.plugins.LinkedIn.getRequest('people/~:(id,num-connections,picture-url,email-address,first-name,last-name)', onSuccess, onError);
-
-						// share something on profile
-						// see more info at https://developer.linkedin.com/docs/share-on-linkedin
-						// var payload = {
-						//   comment: 'Hello world!',
-						//   visibility: {
-						//     code: 'anyone'
-						//   }
-						// };
-						// cordova.plugins.LinkedIn.postRequest('~/shares', payload, onSuccess, onError);
 
 					}, onError);
 				};
@@ -130,7 +111,6 @@ CONTROLLER DEFINITION
 				$scope.useLinkedIn = function () {
 
 					if (!ionic.Platform.isWebView()) {
-						//TODO PopUp indicando que es web 
 						popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_APP_NOT_FOUND').then(function(){
 
 						});
@@ -139,6 +119,7 @@ CONTROLLER DEFINITION
 						$cordovaAppAvailability.check('linkedin://').then(function () {
 							$scope.loginLinkedIn();
 						}, function (_error) {
+							$log.error(_error);
 							popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_APP_NOT_FOUND' || 'UNKNOW_ERROR').then(function(){
 
 							});
@@ -176,7 +157,7 @@ CONTROLLER DEFINITION
 						get_facebook_user_info(success);
 					},
 					function loginError(error) {
-						console.error(error);
+						$log.error(error);
 					}
 					);
 				}
@@ -195,22 +176,26 @@ CONTROLLER DEFINITION
 								$User.registerUserFacebook(_data.authResponse.userID).then(function (_response) {
 									var country = StorageCountryModel.getSelectedCountry().name;
 									$User.updateCountry(_response.data, country).then(function (_response_country) {
+										$log.info(_response_country);
 										$User.registerUserFacebookInfo(_response.data, result).then(function (_response_user) {
-
+											$log.info(_response_user);
 											StorageUserModel.setCurrentUser(_response.data);
 											$state.go('dashboard');
 
 
 										}, function (_error) {
+											$log.error(_error);
 										});
 									}, function (_error) {
+										$log.error(_error);
 									});
 								}, function (_error) {
+									$log.error(_error);
 								});
 							}
 						}, function onError(error) {
 
-							console.error('Failed: ', error);
+							$log.error(error);
 						}
 					);
 				}
@@ -232,7 +217,7 @@ CONTROLLER DEFINITION
 							});
 
 						} else {
-							debugger;
+							
 							login_facebook(status);
 						}
 
@@ -268,6 +253,7 @@ CONTROLLER DEFINITION
 						// Login success
 						StorageUserModel.setCurrentUser(_response.data);
 						$User.updateCountry(StorageUserModel.getCurrentUser(), StorageCountryModel.getSelectedCountry().name).then(function (_success) {
+							$log.info(_success);
 							// Country updated
 
 						}, function (_error) {

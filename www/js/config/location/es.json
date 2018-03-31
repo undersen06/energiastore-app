@@ -60,9 +60,8 @@
     },
     "VIEWS": {
         "DASHBOARD": {
-            "HEADER": "",
-            "MOTOR_DASHBAORD_TEXT": "Eficiencia de motores",
-            "PENALTY_DASHBAORD_TEXT": "Mal factor de potencia",
+            "MOTOR_DASHBOARD_TEXT": "Eficiencia de motores",
+            "PENALTY_DASHBOARD_TEXT": "Mal factor de potencia",
             "PENALTY_PRODUCTS_TEXT": "Productos"
         },
         "FACTOR_MP": {
@@ -132,8 +131,17 @@
                 "COUNTRY": {},
                 "PROFILE": {},
                 "TUTORIAL": {
-                    "PENALTY": {},
-                    "TYPE_USER": {}
+                    "TUTORIAL_TYPE_USER_TITLE": "Fin Tutorial",
+                    "TUTORIAL_TYPE_USER_TEXT": "si aun tienes dudas puedes contactarnos en la sección de configuración.",
+                    "TUTORIAL_WELCOME_TITLE": "Bienvenido",
+                    "TUTORIAL_WELCOME_TEXT": "A continuación te explicaremos los distintos perfiles que existen en energiaStore",
+                    "TUTORIALS_TITLE": "Tutoriales",
+                    "TUTORIALS_PROFILE": "Tutorial perfiles",
+                    "TUTORIALS_QUOTATIONS": "Tutorial Cotizaciones",
+                    "TUTORIALS_FACTOR": "Tutorial Mal Factor de potencia",
+                    "TUTORIALS_TYPE_USER_USER": "Corresponde a aquel usuario que ya posee una cuenta o desea registrarse directamente en energiaStore para su uso personal",
+                    "TUTORIALS_TYPE_USER_PARTNER": "Corresponde a aquel usuario que ya posee una cuenta en energiaStore para su uso empresarial.",
+                    "TUTORIALS_TYPE_USER_EXPLORER": "Corresponde al usuario que desea utilizar la app sin registro, su cuenta es limitada"
                 }
             },
             "SETTINGS_MENU_TITLE": "Configuraciones",
@@ -146,9 +154,13 @@
             "SETTINGS_MENU_ABOUT_US": "Sobre nosotros",
             "SETTINGS_MENU_LOG_OUT": "Cerrar sesión",
             "ABOUT_US_TITLE": "EnergiaStore",
-            "ABOUT_US_TEXT": "Todos los derechos reservados 2017 ",
+            "ABOUT_US_TEXT": "Todos los derechos reservados 2018",
             "ABOUT_US_BUTTON_TEXT": "Entendido"
         },
-        "WELCOME": {}
+        "WELCOME": {},
+        "FOOTBAR": {
+            "PROJECTS": "Proyectos",
+            "QUOTATIONS": "Cotizaciones"
+        }
     }
 }

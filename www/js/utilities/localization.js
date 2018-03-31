@@ -15,7 +15,7 @@ this.app.service('$Localization',
 
 					// Views
 					$rootScope.login =  data.VIEWS.LOGIN;
-					$rootScope.dasboard =  data.VIEWS.DASHBOARD;
+					$rootScope.dashboard =  data.VIEWS.DASHBOARD;
 					$rootScope.factor_mp =  data.VIEWS.FACTOR_MP;
 					$rootScope.introduction =  data.VIEWS.INTRODUCTION;
 					$rootScope.middleware =  data.VIEWS.MIDDLEWARE;
@@ -26,6 +26,7 @@ this.app.service('$Localization',
 					$rootScope.register =  data.VIEWS.REGISTER;
 					$rootScope.settings =  data.VIEWS.SETTINGS;
 					$rootScope.welcome =  data.VIEWS.WELCOME;
+					$rootScope.footbar =  data.VIEWS.FOOTBAR;
 
 					// Toast
 					$rootScope.toast =  data.TOAST;
