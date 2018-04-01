@@ -3,7 +3,7 @@
     <h5 ng-click="back()">
       <i class="ion-chevron-left"></i>
     </h5>
-    <h1 class="title">{{translations.QUOTATION_HEADER}}</h1>
+    <h1 class="title">{{project.QUOTATION_HEADER}}</h1>
   </ion-header-bar>
 
   <ion-content id="content-id">
@@ -12,14 +12,14 @@
 
 
     <h6 ng-hide="calculations.length != 0" >
-      {{translations.QUOTATION_CARD_TITLE}} <strong >{{translations.QUOTATION_CARD_TITLE_STRONG}}...</strong>
+      {{project.QUOTATION_CARD_TITLE}} <strong >{{project.QUOTATION_CARD_TITLE_STRONG}}...</strong>
     </h6>
 
     <!-- <button  class="waves-effect waves-light btn factor-send-button button-john" type="button" name="button" ng-click="()()">{{translations.}} </button> -->
 
 
     <div ng-class="design.button" ng-click="addQuotationPopUp();" class="button-traslucid">
-      {{translations.BUTTON_ADD_PROJECT}}
+      {{project.BUTTON_ADD_PROJECT}}
     </div>
 
 
@@ -37,10 +37,10 @@
 
           <h2>{{calculation.name}}</h2>
           <!-- <p>{{calculation.energy_cost | number : fractionSize}} {{currency}}</p> -->
-          <p>{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
+          <p>{{project.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
 
           <ion-option-button ng-if="calculation.estimated_cost != null" class="button-positive" ng-click="duplicateProject(calculation)">
-            {{translations.DUPLICATE_OPTION}}
+            {{project.DUPLICATE_OPTION}}
           </ion-option-button>
           <!-- <ion-option-button class="button-danger" ng-click="delete(calculation.id)">
             Eliminar

@@ -119,7 +119,25 @@
             "PRODUCT": {},
             "CATEGORIES": {}
         },
-        "PROJECT": {},
+        "PROJECT": {
+            "QUOTATION_POPUP_CANCEL_BUTTON": "Cancelar",
+            "QUOTATION_POPUP_ACCEPT_BUTTON": "Crear",
+            "ADD_QUOTATION_POPUP_TITLE": "Crear Proyecto",
+            "ADD_QUOTATION_POPUP_FIRST_INPUT": "Nombre Proyecto",
+            "ADD_QUOTATION_POPUP_SECOND_INPUT": "Precio KW (USD)",
+            "QUOTATION_ERROR_DOWNLOAD_INFO": "Error al descargar los proyectos",
+            "QUOTATION_ERROR_EMPTY_FIRST_INPUT_INFO": "Ingrese nombre proyecto",
+            "QUOTATION_ERROR_EMPTY_SECOND_INPUT_INFO": "Ingrese precio KWH",
+            "QUOTATION_CREATED_MESSAGE": "Proyecto creado",
+            "QUOTATION_FAIL_MESSAGE": "Error al crear el proyecto",
+            "QUOTATION_CARD_TITLE": "Aún no tienes ningún",
+            "QUOTATION_CARD_TITLE_STRONG": "proyecto",
+            "QUOTATION_CARD_BODY_PRE": "Haz click en  ",
+            "QUOTATION_CARD_BODY_POST": "para agregar tu primera cotización",
+            "QUOTATION_CARD_ELEMENT_COST_KW": "para agregar tu primera cotización",
+            "QUOTATION_CARD_ELEMENT_ID": "Id",
+            "QUOTATION_CARD_ELEMENT_CREATED_AT": "Fecha de creación"
+        },
         "QUOTATION": {
             "FINALIZE": {},
             "QUOTATION_HEADER": "Cotizaciones",

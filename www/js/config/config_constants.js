@@ -7,6 +7,8 @@
 		//****************+SERVERS**************//
 
 		LOCAL : 'http://kvar.herokuapp.com/',
+		// LOCAL : 'http://energiastoreapp.com/',
+
 	
 		
 
@@ -31,7 +33,8 @@
 
 		GET_COUNTRIES : 'api/countries',
 		GET_CURRENCIES : 'api/currencies',
-		GET_AVATARS : 'api/avatars'
+		GET_AVATARS : 'api/avatars',
+		GET_PROVIDER: 'api/providers'
 
 
 	});

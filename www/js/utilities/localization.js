@@ -21,7 +21,7 @@ this.app.service('$Localization',
 					$rootScope.middleware =  data.VIEWS.MIDDLEWARE;
 					$rootScope.motors =  data.VIEWS.MOTORS;
 					$rootScope.products =  data.VIEWS.PRODUCTS;
-					$rootScope.projects =  data.VIEWS.PROJECTS;
+					$rootScope.project =  data.VIEWS.PROJECT;
 					$rootScope.quotation =  data.VIEWS.QUOTATION;
 					$rootScope.register =  data.VIEWS.REGISTER;
 					$rootScope.settings =  data.VIEWS.SETTINGS;
