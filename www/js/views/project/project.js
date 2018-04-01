@@ -6,35 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('ProjectController', ['$scope', '$state', '$ionicPlatform', '$ionicPopup', 'StorageUserModel', '$Calculation', 'IonicClosePopupService', 'Utils', '$ionicLoading', 'httpUtilities', 'popUpService', 'StorageProject', '$Quotation', '$cordovaActionSheet', '$cordovaStatusbar', '$Motors', 'StorageCountryModel', '$rootScope', '$log',
-		function ($scope, $state, $ionicPlatform, $ionicPopup, StorageUserModel, $Calculation, IonicClosePopupService, Utils, $ionicLoading, httpUtilities, popUpService, StorageProject, $Quotation, $cordovaActionSheet, $cordovaStatusbar, $Motors, StorageCountryModel, $rootScope, $log) {
-
-			$scope.design = {};
-			switch (StorageUserModel.getCurrentUser().type_user) {
-			case 'user':
-
-				$scope.design.header = 'user-color';
-				$scope.design.footer = 'user-color';
-				$scope.design.button = 'user-color-button';
-				break;
-
-			case 'partner':
-				$scope.design.header = 'partner-color';
-				$scope.design.footer = 'partner-color';
-				$scope.design.button = 'partner-color-button';
-				break;
-
-			case 'explorer':
-				$scope.design.header = 'explorer-color';
-				$scope.design.footer = 'explorer-color';
-				$scope.design.button = 'explorer-color-button';
-				break;
-			default:
-				$scope.design.header = 'user-color';
-				$scope.design.footer = 'user-color';
-				$scope.design.button = 'user-color-button';
-				break;
-			}
+	this.app.controller('ProjectController', ['$scope', '$state', '$ionicPlatform', '$ionicPopup', 'StorageUserModel', '$Calculation', 'IonicClosePopupService', 'Utils', '$ionicLoading', 'httpUtilities', 'popUpService', 'StorageProject', '$Quotation', '$cordovaActionSheet', '$cordovaStatusbar', '$Motors', 'StorageCountryModel', '$rootScope', '$log', '$Providers', '$ionicModal',
+		function ($scope, $state, $ionicPlatform, $ionicPopup, StorageUserModel, $Calculation, IonicClosePopupService, Utils, $ionicLoading, httpUtilities, popUpService, StorageProject, $Quotation, $cordovaActionSheet, $cordovaStatusbar, $Motors, StorageCountryModel, $rootScope, $log, $Providers, $ionicModal) {
 
 
 			$scope.currency = StorageCountryModel.getSelectedCurrency().symbol;
@@ -42,13 +15,9 @@ CONTROLLER DEFINITION
 
 
 			$ionicPlatform.ready(function () {
-
 				var projectPopUp;
-
-
 				$scope.has_quotation = false;
 				$scope.calculations = {};
-				var user = StorageUserModel.getCurrentUser();
 				$scope.user = StorageUserModel.getCurrentUser();
 
 				$scope.back = function () {
@@ -59,88 +28,37 @@ CONTROLLER DEFINITION
 					$ionicLoading.show({
 						templateUrl: 'loading.html'
 					}).then(function () {
-
-						if (user.type_user === 'explorer') {
-							$scope.getExplorerCalculation();
-						} else {
-							$scope.getCalculation();
-						}
-
-
+						$scope.getCalculation();
 					});
 				};
-
-				$scope.getExplorerCalculation = function () {
-
-					if (StorageProject.getProjects() !== undefined) {
-						$scope.calculations[0] = StorageProject.getProjects();
-					}
-
-					$ionicLoading.hide();
-					$scope.$broadcast('scroll.refreshComplete');
-
-				};
-
 
 				$scope.doRefreshQuotation = function () {
-					if (user.type_user === 'explorer') {
-						$scope.getExplorerCalculation();
-					} else {
-						$scope.getCalculation();
-					}
-					// $scope.getCalculation();
+					$scope.getCalculation();
 				};
 
-				$scope.addQuotationPopUp = function () {
 
+				$ionicModal.fromTemplateUrl('js/views/project/create/create.mdl.html', {
+					scope: $scope,
+					animation: 'slide-in-up'
+				}).then(function (modal) {
+					$scope.modalProject = modal;
+				});
 
-
-
-					$scope.data = {};
-					$scope.data.price = $scope.price;
-
-					projectPopUp = $ionicPopup.show({
-						animation: 'fade-in',
-						title: '<img src="assets/img/project.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${$rootScope.project.CREATE_QUOTATION_POPUP_TEXT}</span>`,
-						template: `<div class="input-field col s12">
-              <input id="quotation_name" type="text" class="validate" ng-model="data.name">
-              <label for="quotation_name">${$rootScope.project.ADD_QUOTATION_POPUP_FIRST_INPUT}</label>
-            </div>
-              <div class="input-field col s12">
-               <input id="quotation_kwh_price" type="number" min="0" step="0.01"  pattern="[0-9]*" class="validate" ng-model="data.price">
-                <label id="quotation_kw_price_label" for="quotation_kw_price">${$rootScope.project.ADD_QUOTATION_POPUP_SECOND_INPUT}</label>
-              </div>`,
-						scope: $scope,
-						buttons: [{
-							text: 'Cancelar',
-							type: 'button-cancel'
-						},
-						{
-							text: `${$rootScope.project.QUOTATION_POPUP_ACCEPT_BUTTON}`,
-							type: 'button-affirmative',
-							onTap: function (e) {
-								if (!$scope.data.name) {
-									Utils.validateToast($rootScope.project.QUOTATION_ERROR_EMPTY_FIRST_INPUT_INFO);
-									e.preventDefault();
-								} else if (!$scope.data.price) {
-									Utils.validateToast($rootScope.project.QUOTATION_ERROR_EMPTY_SECOND_INPUT_INFO);
-									e.preventDefault();
-								} else {
-									$scope.createCalculation($scope.data);
-								}
-							}
-						}]
-					});
-
-					setTimeout(function () {
-
-						$('#quotation_kw_price_label').addClass('active');
-					}, 200);
-
-
-
+				$scope.openModal = function () {
+					$scope.modalProject.show();
 				};
+				$scope.closeModalMotor = function () {
+					$scope.modalProject.hide();
+				};
+				$scope.$on('$destroy', function () {
+					$scope.modalProject.remove();
+				});
+				
+				$scope.$on('modalProject.hidden', function () {
+				});
+				
+				$scope.$on('modalProject.removed', function () {	
+				});
 
 				$scope.createCalculation = function (data) {
 					$Calculation.create(data, StorageUserModel.getCurrentUser()).then(
@@ -174,8 +92,6 @@ CONTROLLER DEFINITION
 
 							// Utils.validateToast($scope.translations.QUOTATION_ERROR_DOWNLOAD_INFO);
 							$scope.$broadcast('scroll.refreshComplete');
-							
-
 						}
 					);
 				};
@@ -188,7 +104,6 @@ CONTROLLER DEFINITION
 
 					$state.go('motors', queries, { reload: true });
 				};
-
 
 				$scope.goToProjects = function () {
 					$state.go('project');
@@ -204,14 +119,11 @@ CONTROLLER DEFINITION
 					$state.go('dashboard');
 				};
 
-
-
 				$scope.showPDF = function (values) {
 					if (StorageUserModel.getCurrentUser().type_user !== 'explorer') {
 						$scope.getAvailablePDF(values);
 					}
 				};
-
 
 				$scope.getAvailablePDF = function (value) {
 					$Quotation.getAvailablePDFById(StorageUserModel.getCurrentUser(), value.id).then(function (_response) {
@@ -226,6 +138,17 @@ CONTROLLER DEFINITION
 				$scope.shouldShowDelete = false;
 				$scope.shouldShowReorder = false;
 				$scope.listCanSwipe = true;
+
+				$scope.getProviders = function () {
+					$Providers.getProviders().then(function (_response) {
+						$log.info(_response);
+						$scope.providers = _.filter(_response.data, { 'country_id': StorageCountryModel.getSelectedCountry().id });
+
+					}, function (_error) {
+						$log.error(_error);
+
+					});
+				};
 
 
 
@@ -256,8 +179,6 @@ CONTROLLER DEFINITION
 				};
 
 				$scope.getMotors = function (old_calculation_id, new_calculation_id) {
-
-
 					$Motors.getByCalculation(old_calculation_id, StorageUserModel.getCurrentUser()).then(function (_response) {
 						$scope.insertMotors(_response.data, new_calculation_id);
 						$log.error(_response);
@@ -269,9 +190,7 @@ CONTROLLER DEFINITION
 				};
 
 				$scope.insertMotors = function (motors, old_calculation_id) {
-
 					for (var i = 0; i <= motors.length - 1; i++) {
-
 						var motor = motors[i];
 						var _motor = {
 							calculation_id: old_calculation_id,
@@ -288,7 +207,6 @@ CONTROLLER DEFINITION
 							$ionicLoading.hide();
 						}, function (_error) {
 							$log.error(_error);
-
 						});
 					}
 				};
@@ -297,8 +215,7 @@ CONTROLLER DEFINITION
 					projectPopUp.close();
 				};
 
-
-
+				$scope.getProviders();
 
 			});
 		}

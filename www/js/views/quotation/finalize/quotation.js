@@ -9,61 +9,16 @@ CONTROLLER DEFINITION
 	this.app.controller('FinalizedQuotationController', ['$scope', '$state','$ionicPlatform','StorageUserModel','translationService','$resource','$cordovaStatusbar','$ionicLoading','Utils','Quotation','$cordovaActionSheet','$cordovaCamera','PDF','$cordovaFileTransfer','$cordovaFileOpener2','$timeout','$ionicModal','popUpService','$ionicSlideBoxDelegate','Calculation','User','Motors','StorageProject','StorageMotor',
 		function($scope, $state,$ionicPlatform,StorageUserModel,translationService,$resource,$cordovaStatusbar,$ionicLoading,Utils,Quotation,$cordovaActionSheet,$cordovaCamera,PDF,$cordovaFileTransfer,$cordovaFileOpener2,$timeout,$ionicModal,popUpService,$ionicSlideBoxDelegate,Calculation,User,Motors,StorageProject,StorageMotor) {
 
-			$scope.design = {};
-			switch (StorageUserModel.getCurrentUser().type_user) {
-			case 'user':
-
-				$scope.design.header = 'user-color';
-				$scope.design.footer = 'user-color';
-				$scope.design.buttonSolid = 'user-color-button-solid';
-				break;
-
-			case 'partner':
-				$scope.design.header = 'partner-color';
-				$scope.design.footer = 'partner-color';
-				$scope.design.buttonSolid = 'partner-color-button-solid';
-				break;
-
-			case 'explorer':
-				$scope.design.header = 'explorer-color';
-				$scope.design.footer = 'explorer-color';
-				$scope.design.buttonSolid = 'explorer-color-button-solid';
-				break;
-			default:
-				$scope.design.header = 'user-color';
-				$scope.design.footer = 'user-color';
-				$scope.design.buttonSolid = 'user-color-button-solid';
-				break;
-			}
-
-
 
 			$ionicPlatform.ready(function() {
+
 				const languageFilePath = translationService.getTranslation();
 				$resource(languageFilePath).get(function (data) {
 					$scope.translations = data;
 					$scope.options = { title: $scope.translations.ACTION_SHEET_PHOTO_TITLE, buttonLabels: [$scope.translations.ACTION_SHEET_PHOTO_CAMERA, $scope.translations.ACTION_SHEET_PHOTO_GALERY], addCancelButtonWithLabel: $scope.translations.CHOOSE_LANGUAGE_CANCEL, androidEnableCancelButton: true, winphoneEnableCancelButton: true };
 				});
 
-				// if (window.StatusBar) {
-				//   $cordovaStatusbar.overlaysWebView(false);
-				//   $cordovaStatusbar.style(1);
-				//   switch (StorageUserModel.getCurrentUser().type_user) {
-				//     case 'explorer':
-				//     $cordovaStatusbar.styleHex("#62BED4");
-				//     break;
-				//     case 'user':
-				//     $cordovaStatusbar.styleHex("#62D485");
-				//     break;
-				//
-				//     case 'partner':
-				//     $cordovaStatusbar.styleHex("#F5A623");
-				//     break;
-				//     default:
-				//
-				//   }
-				//   $cordovaStatusbar.show();
-				// }
+			
 
 
 				$scope.image = 'assets/img/photo.png';

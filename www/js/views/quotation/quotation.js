@@ -8,36 +8,7 @@ CONTROLLER DEFINITION
 (function () {
 	app.controller('QuotationController', ['$scope', '$state', '$ionicPlatform', '$Calculation', 'StorageUserModel', '$Motors', 'popUpService', '$Quotation', 'Utils', '$ionicSlideBoxDelegate', '$Factor', '$cordovaFileTransfer', '$cordovaFileOpener2', '$ionicLoading', 'httpUtilities', '$log',
 		function ($scope, $state, $ionicPlatform, $Calculation, StorageUserModel, $Motors, popUpService, $Quotation, Utils, $ionicSlideBoxDelegate, $Factor, $cordovaFileTransfer, $cordovaFileOpener2, $ionicLoading, httpUtilities, $log) {
-			$scope.design = {};
-			switch (StorageUserModel.getCurrentUser().type_user) {
-			case 'user':
-
-				$scope.design.header = 'user-color';
-				$scope.design.footer = 'user-color';
-				$scope.design.color = '#62D485';
-				$scope.design.button = 'user-color-button';
-				break;
-
-			case 'partner':
-				$scope.design.header = 'partner-color';
-				$scope.design.footer = 'partner-color';
-				$scope.design.color = '#62BED4';
-				$scope.design.button = 'partner-color-button';
-				break;
-
-			case 'explorer':
-				$scope.design.header = 'explorer-color';
-				$scope.design.footer = 'explorer-color';
-				$scope.design.color = '#F5A623';
-				$scope.design.button = 'explorer-color-button';
-				break;
-			default:
-				$scope.design.header = 'user-color';
-				$scope.design.footer = 'user-color';
-				$scope.design.color = '#62D485';
-				$scope.design.button = 'user-color-button';
-				break;
-			}
+			
 
 			$ionicPlatform.ready(function () {
 

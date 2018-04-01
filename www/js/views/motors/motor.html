@@ -15,7 +15,7 @@
 
 
         <h6 ng-hide="motors.length != 0" style="text-align: center;margin: 30px 50px 0 50px;font-size: 15px;">
-          {{translations.MOTOR_CARD_TITLE_EMPTY}}
+          {{motor.MOTOR_CARD_TITLE_EMPTY}}
         </h6>
 
 
@@ -33,13 +33,13 @@
 
 <div class="">
 
-      <h2>{{translations.MOTOR_NAME_LIST}} :{{motor.name}}</h2>
-      <p>{{translations.AMP_NAME_LIST}}: {{motor.amp}}</p>
-      <p>{{translations.HOURS_NAME_LIST}}: {{motor.average_time}}</p>
-      <p>{{translations.VOLTS_NAME_LIST}}: {{motor.volts}}</p>
-      <p>{{translations.KW_NAME_LIST}}: {{motor.rated_power}}</p>
-      <p>{{translations.POWER_FACTOR_NAME_LIST}}: {{motor.efficiency}}</p>
-      <p ng-if="user.type_user === undefined">{{translations.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{motor.created_at | date: 'dd-MM-yyyy'}}</p>
+      <h2>{{motor.MOTOR_NAME_LIST}} :{{motor.name}}</h2>
+      <p>{{motor.AMP_NAME_LIST}}: {{motor.amp}}</p>
+      <p>{{motor.HOURS_NAME_LIST}}: {{motor.average_time}}</p>
+      <p>{{motor.VOLTS_NAME_LIST}}: {{motor.volts}}</p>
+      <p>{{motor.KW_NAME_LIST}}: {{motor.rated_power}}</p>
+      <p>{{motor.POWER_FACTOR_NAME_LIST}}: {{motor.efficiency}}</p>
+      <p ng-if="user.type_user === undefined">{{motor.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{motor.created_at | date: 'dd-MM-yyyy'}}</p>
 </div>
     </ion-item>
   </ion-list>
@@ -47,7 +47,7 @@
 
 </ion-content>
 
-<footbar></footbar>
+<foot-bar></foot-bar>
 
 
 

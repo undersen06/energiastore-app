@@ -1,4 +1,4 @@
-<ion-view id="project-view">
+<ion-view id="project-view" ng-init="init()">
   <ion-header-bar align-title="center" ng-class="design.header">
     <h5 ng-click="back()">
       <i class="ion-chevron-left"></i>
@@ -7,28 +7,30 @@
   </ion-header-bar>
 
   <ion-content id="content-id">
-    <ion-refresher  on-refresh="doRefreshQuotation()">
+    <ion-refresher on-refresh="doRefreshQuotation()">
     </ion-refresher>
 
 
-    <h6 ng-hide="calculations.length != 0" >
-      {{project.QUOTATION_CARD_TITLE}} <strong >{{project.QUOTATION_CARD_TITLE_STRONG}}...</strong>
+    <h6 ng-hide="calculations.length != 0">
+      {{project.QUOTATION_CARD_TITLE}}
+      <strong>{{project.QUOTATION_CARD_TITLE_STRONG}}...</strong>
     </h6>
 
     <!-- <button  class="waves-effect waves-light btn factor-send-button button-john" type="button" name="button" ng-click="()()">{{translations.}} </button> -->
 
 
-    <div ng-class="design.button" ng-click="addQuotationPopUp();" class="button-traslucid">
+    <div ng-class="design.button" ng-click="openModal();" class="button-traslucid">
       {{project.BUTTON_ADD_PROJECT}}
     </div>
 
 
-    <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-      <ion-item ng-repeat="calculation in calculations"  class="item" ng-click="goToCalculation(calculation)" ng-if="calculation.energy_cost != null" ng-class="{'last-project':$last}">
+    <ion-list show-delete="shouldShowDelete" can-swipe="listCanSwipe">
+      <ion-item ng-repeat="calculation in calculations" class="item" ng-click="goToCalculation(calculation)" ng-if="calculation.energy_cost != null"
+        ng-class="{'last-project':$last}">
 
         <div class="item-container">
           <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot success" aria-hidden="true"></i>
-          <i ng-if="calculation.estimated_cost == null"class="fa fa-circle item-content-dot warning" aria-hidden="true"></i>
+          <i ng-if="calculation.estimated_cost == null" class="fa fa-circle item-content-dot warning" aria-hidden="true"></i>
         </div>
 
         <div class="">
@@ -51,8 +53,6 @@
       </ion-item>
     </ion-list>
 
-
-
   </ion-content>
-  <footbar></footbar>
+  <foot-bar></foot-bar>
 </ion-view>

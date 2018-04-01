@@ -1,0 +1,33 @@
+<ion-modal-view id="create_project_modals">
+    <ion-header-bar align-title="center" ng-class="design.header">
+        <div class="buttons">
+        </div>
+        <h1 class="title">{{translations.APP_NAME}}</h1>
+        <div class="buttons" ng-click="closeModalMotor();">
+            <i class="ion-android-close"></i>
+        </div>
+    </ion-header-bar>
+
+    <ion-content id="content">
+
+        <img src="assets/img/project.png" class="img-about-us">
+
+        <span class="popup-title">{{popup.CREATE_PROJECT.TITLE}</span>
+
+        <div class="input-field col s12">
+            <input id="quotation_name" type="text" class="validate" ng-model="project.name">
+            <label for="quotation_name">{{project.ADD_QUOTATION_POPUP_FIRST_INPUT}}</label>
+          </div>
+
+        <ul class="list">
+
+            <ion-checkbox ng-model="filter.red">Red</ion-checkbox>
+
+        </ul>
+
+
+
+        <button ng-click="createCalculation(project.name)"></button>
+
+    </ion-content>
+</ion-modal-view>

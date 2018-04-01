@@ -54,17 +54,8 @@
   "MOTOR_ADD_FAIL": "Problemas al agregar motor",
   "MENU_SWITCH_LANGUAGE": "Cambiar lenguaje",
   "MENU_LOG_OUT": "Cerrar sesión",
-  "ADD_PHOTO_BUTTON_TEXT": "AGREGAR FOTO",
-  "FINALIZE_QUOTATION_HEADER": "Finalizar Proyecto",
-  "INPUT_COMMENTS_TEXT_BOX": "Comentarios (opcional)",
-  "MOTORS_HEADER": "Motores",
-  "MOTOR_NAME_LIST": "Nombre motor",
-  "AMP_NAME_LIST": "Amperage",
-  "HOURS_NAME_LIST": "Tiempo promedio",
-  "VOLTS_NAME_LIST": "Voltios",
-  "POWER_FACTOR_NAME_LIST": "Power Factor",
-  "UPDATE_BUTTON": "Actualizar",
-  "CREATE_QUOTATION_POPUP_TEXT": "Creación de proyecto",
+  
+  
   "LOADING": "Cargando",
   "ACTION_SHEET_PHOTO_TITLE": "Agregar foto",
   "ACTION_SHEET_PHOTO_CAMERA": "Cámara",
@@ -104,7 +95,7 @@
   "FOOTER_QUOTE": "Cotizaciones",
   
   "UPLOAD_PHOTO_TEXT": "Puedes agregar una foto a tu cotización haciendo clic en la imagen de arriba . . .",
-  "DUPLICATE_OPTION": "Duplicar",
+  
   "CHOOSE_YOUR_COUNTRY": "Selecciona tu país",
   "TAB_PROJECTS": "Proyectos",
   "TAB_PFP": "Factor de potencia",
@@ -112,6 +103,6 @@
   "NEXT": "Siguiente",
   "BACK": "Atrás",
   "SKIP": "Saltar",
-  "OK_BUTTON_QUOTE": "Entendido",
-  "BUTTON_ADD_PROJECT": "Agregar proyecto"
+  "OK_BUTTON_QUOTE": "Entendido"
+  
 }

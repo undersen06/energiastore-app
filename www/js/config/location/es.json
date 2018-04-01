@@ -40,6 +40,16 @@
             "BUTTON": {
                 "POSITIVE": "Entendido"
             }
+        },
+        "CREATE_PROJECT": {
+            "TITLE": "Creación de proyecto",
+            "BUTTON": {
+                "POSITIVE": "Crear",
+                "NEGATIVE": "Cancelar"
+            }
+        },
+        "SELECT_PROVIDER":{
+            "TITLE":"Seleccione un proveedor"
         }
     },
     "TOAST": {
@@ -56,13 +66,21 @@
             "LOGIN_ERROR": "Usuario incorrecto"
         },
         "MOTOR": {},
-        "QUOTATION": {},
+        "QUOTATION": {
+            "ADD_PHOTO_BUTTON_TEXT": "AGREGAR FOTO",
+            "FINALIZE_QUOTATION_HEADER": "Finalizar Proyecto",
+            "INPUT_COMMENTS_TEXT_BOX": "Comentarios (opcional)",
+            "UPDATE_BUTTON": "Actualizar"
+        },
         "REGISTER": {},
         "FACTOR": {
             "ERROR_CAMERA": "",
             "ERROR_GALLERY": "",
             "QUOTATION_AMOUNT_EMPTY": "",
             "QUOTATION_AMOUNT_MINIMUM": ""
+        },
+        "PROJECT": {
+            "COMPLETE_PROJECT_NAME": "Ingrese nombre proyecto"
         }
     },
     "VIEWS": {
@@ -113,7 +131,13 @@
             "MIDDLEWARE_HELP": "Ayuda"
         },
         "MOTORS": {
-            "CREATE": {}
+            "MOTORS_HEADER": "Motores",
+            "MOTOR_NAME_LIST": "Nombre motor",
+            "AMP_NAME_LIST": "Amperage",
+            "HOURS_NAME_LIST": "Tiempo promedio",
+            "VOLTS_NAME_LIST": "Voltios",
+            "POWER_FACTOR_NAME_LIST": "Power Factor",
+            "MOTOR_CARD_ELEMENT_CREATED_AT": "Fecha de creación"
         },
         "PRODUCTS": {
             "PRODUCT": {},
@@ -126,8 +150,6 @@
             "ADD_QUOTATION_POPUP_FIRST_INPUT": "Nombre Proyecto",
             "ADD_QUOTATION_POPUP_SECOND_INPUT": "Precio KW (USD)",
             "QUOTATION_ERROR_DOWNLOAD_INFO": "Error al descargar los proyectos",
-            "QUOTATION_ERROR_EMPTY_FIRST_INPUT_INFO": "Ingrese nombre proyecto",
-            "QUOTATION_ERROR_EMPTY_SECOND_INPUT_INFO": "Ingrese precio KWH",
             "QUOTATION_CREATED_MESSAGE": "Proyecto creado",
             "QUOTATION_FAIL_MESSAGE": "Error al crear el proyecto",
             "QUOTATION_CARD_TITLE": "Aún no tienes ningún",
@@ -136,7 +158,10 @@
             "QUOTATION_CARD_BODY_POST": "para agregar tu primera cotización",
             "QUOTATION_CARD_ELEMENT_COST_KW": "para agregar tu primera cotización",
             "QUOTATION_CARD_ELEMENT_ID": "Id",
-            "QUOTATION_CARD_ELEMENT_CREATED_AT": "Fecha de creación"
+            "QUOTATION_CARD_ELEMENT_CREATED_AT": "Fecha de creación",
+            "QUOTATION_HEADER": "Cotizaciones",
+            "BUTTON_ADD_PROJECT": "Agregar proyecto",
+            "DUPLICATE_OPTION": "Duplicar"
         },
         "QUOTATION": {
             "FINALIZE": {},
