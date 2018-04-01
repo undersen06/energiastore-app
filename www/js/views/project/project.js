@@ -67,7 +67,7 @@ CONTROLLER DEFINITION
 					}).then(function () {
 
 						if(user.type_user === 'explorer'){
-							$scope.getExplorerCalulation();
+							$scope.getExplorerCalculation();
 						}else{
 							$scope.getCalculation();
 						}
@@ -76,7 +76,7 @@ CONTROLLER DEFINITION
 					});
 				};
 
-				$scope.getExplorerCalulation = function(){
+				$scope.getExplorerCalculation = function(){
 
 					if(StorageProject.getProjects()!== undefined){
 						$scope.calculations[0] = StorageProject.getProjects();
@@ -90,7 +90,7 @@ CONTROLLER DEFINITION
 
 				$scope.doRefreshQuotation = function() {
 					if(user.type_user === 'explorer'){
-						$scope.getExplorerCalulation();
+						$scope.getExplorerCalculation();
 					}else{
 						$scope.getCalculation();
 					}
@@ -123,7 +123,7 @@ CONTROLLER DEFINITION
 						},
 						{
 							text: `${$scope.translations.QUOTATION_POPUP_ACCEPT_BUTTON}`,
-							type: 'button-afirmative',
+							type: 'button-affirmative',
 							onTap: function(e) {
 								if (!$scope.data.name) {
 									Utils.validateToast($scope.translations.QUOTATION_ERROR_EMPTY_FIRST_INPUT_INFO);
@@ -142,14 +142,14 @@ CONTROLLER DEFINITION
 
 
 											StorageProject.addProjects(project);
-											$scope.getExplorerCalulation();
+											$scope.getExplorerCalculation();
 
 										}else{
 
 											popUpService.showPopupOnlyOneProject($scope.translations).then();
 										}
 									}else{
-										$scope.craeteCalculation($scope.data);
+										$scope.createCalculation($scope.data);
 									}
 
 									// return $scope.data.model;
@@ -167,7 +167,7 @@ CONTROLLER DEFINITION
 
 				};
 
-				$scope.craeteCalculation = function(data) {
+				$scope.createCalculation = function(data) {
 					$Calculation.create(data, StorageUserModel.getCurrentUser()).then(
 						function(_response) {
 							Utils.validateToast($scope.translations.QUOTATION_CREATED_MESSAGE);
@@ -233,13 +233,13 @@ CONTROLLER DEFINITION
 
 				$scope.showPDF = function(values){
 					if(StorageUserModel.getCurrentUser().type_user !== 'explorer'){
-						$scope.getAvaliablePDF(values);
+						$scope.getAvailablePDF(values);
 					}
 				};
 
 
-				$scope.getAvaliablePDF = function(value){
-					Quotation.getAvaliablesPDFById(StorageUserModel.getCurrentUser(),value.id).then(function(_response){
+				$scope.getAvailablePDF = function(value){
+					$Quotation.getAvailablePDFById(StorageUserModel.getCurrentUser(),value.id).then(function(_response){
 
 					},function(_error){
 
@@ -281,7 +281,7 @@ CONTROLLER DEFINITION
 				$scope.getMotors = function(old_calculation_id,new_calculation_id){
 
 
-					Motors.getByCalculation(old_calculation_id,StorageUserModel.getCurrentUser()).then(function(_response){
+					$Motors.getByCalculation(old_calculation_id,StorageUserModel.getCurrentUser()).then(function(_response){
 						$scope.insertMotors(_response.data,new_calculation_id);
 
 					},function(_error){
@@ -300,12 +300,12 @@ CONTROLLER DEFINITION
 							name:motor.name,
 							rated_power:motor.rated_power, //potencia
 							hours:motor.hours,
-							volatje:motor.volts,
+							voltaje:motor.volts,
 							amp:motor.amp,
 							power_factor:motor.fdp
 						};
 
-						Motors.create(StorageUserModel.getCurrentUser(),_motor,old_calculation_id).then(function(_response){
+						$Motors.create(StorageUserModel.getCurrentUser(),_motor,old_calculation_id).then(function(_response){
 
 							$ionicLoading.hide();
 						},function(_error){

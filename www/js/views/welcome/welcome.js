@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('WelcomeController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', 'StorageLanguageModel', '$Country', 'StorageCountryModel', '$q', 'popUpService', 'StorageUserModel', '$User',
-		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, StorageLanguageModel, $Country, StorageCountryModel, $q, popUpService, StorageUserModel, $User) {
+	this.app.controller('WelcomeController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', 'StorageLanguageModel', '$Country', 'StorageCountryModel', '$q', 'popUpService', 'StorageUserModel', '$User','$log',
+		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, StorageLanguageModel, $Country, StorageCountryModel, $q, popUpService, StorageUserModel, $User,$log) {
 			$ionicPlatform.ready(function () {
 
 				$scope.isIphoneX = function () {
@@ -24,12 +24,13 @@ CONTROLLER DEFINITION
 
 
 					$q.all(promises).then(function (_resolves) {
-						$scope.curencies = _resolves[0].data;
+						$scope.currencies = _resolves[0].data;
 						$scope.countries = _resolves[1].data;
 
 					}, function (_error) {
+						$log.error(_error);
 
-						popUpService.showpopupCountries().then(function (_response) {
+						popUpService.showPopupCountries().then(function () {
 							loadCountries();
 						});
 					});
@@ -54,7 +55,7 @@ CONTROLLER DEFINITION
 
 
 					var _country = _.find($scope.countries, { 'id': country.id });
-					var currency = _.find($scope.curencies, { 'id': _country.currency_id });
+					var currency = _.find($scope.currencies, { 'id': _country.currency_id });
 
 
 					StorageCountryModel.selectCountry(_country);
@@ -66,7 +67,7 @@ CONTROLLER DEFINITION
 
 							}, function (_error) {
 
-								popUpService.errorPopUp(_error || 'UNKNOW_ERROR').then(function () {
+								popUpService.errorPopUp(_error || 'UNKNOWN_ERROR').then(function () {
 
 								});
 

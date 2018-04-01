@@ -93,7 +93,7 @@ CONTROLLER DEFINITION
 					this.cordova.plugins.LinkedIn.hasActiveSession(function () {
 
 					}, function () {
-						popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_APP_NOT_FOUND' || 'UNKNOW_ERROR').then(function(){
+						popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_APP_NOT_FOUND' || 'UNKNOWN_ERROR').then(function(){
 							
 						});
 
@@ -120,7 +120,7 @@ CONTROLLER DEFINITION
 							$scope.loginLinkedIn();
 						}, function (_error) {
 							$log.error(_error);
-							popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_APP_NOT_FOUND' || 'UNKNOW_ERROR').then(function(){
+							popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_APP_NOT_FOUND' || 'UNKNOWN_ERROR').then(function(){
 
 							});
 						});
@@ -169,7 +169,7 @@ CONTROLLER DEFINITION
 							
 							if (result.email == undefined) {
 
-								popUpService.showpopupFacebookEmailError();
+								popUpService.showPopupFacebookEmailError();
 
 							} else {
 
@@ -204,7 +204,7 @@ CONTROLLER DEFINITION
 				function get_status_login() {
 					facebookConnectPlugin.getLoginStatus(function success(success) {
 
-						// popUpService.showpopupFacebookEmailError()
+						// popUpService.showPopupFacebookEmailError()
 
 						if (success.status == 'connected') {
 							$Session.loginFacebook(success.authResponse.userID).then(function (_response) {

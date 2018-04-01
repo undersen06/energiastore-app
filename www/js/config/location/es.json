@@ -110,7 +110,11 @@
         },
         "PROJECT": {},
         "QUOTATION": {
-            "FINALIZE": {}
+            "FINALIZE": {},
+            "QUOTATION_HEADER": "Cotizaciones",
+            "PROJECT_TAB_TITLE": "Proyectos",
+            "MFP_TAB_TITLE": "Mal factor de potencia"
+            
         },
         "REGISTER": {
             "REGISTER_SLIDER_1_HEADER": "Registremos tu cuenta...",

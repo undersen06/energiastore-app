@@ -27,6 +27,7 @@ this.app.service('$Localization',
 					$rootScope.settings =  data.VIEWS.SETTINGS;
 					$rootScope.welcome =  data.VIEWS.WELCOME;
 					$rootScope.footbar =  data.VIEWS.FOOTBAR;
+					$rootScope.app =  data.APP;
 
 					// Toast
 					$rootScope.toast =  data.TOAST;

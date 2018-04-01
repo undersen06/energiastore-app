@@ -10,7 +10,7 @@
 				showPopUpFailCreateFactor: function (_translation) {
 					let deferred = $q.defer();
 					let button_exit_lesson = [{
-						text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON, type: 'button-afirmative', onTap: function () {
+						text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON, type: 'button-affirmative', onTap: function () {
 							return true;
 						}
 					}];
@@ -29,7 +29,7 @@
 
 
 
-				showpopUpProfileFail: function (_translation) {
+				showPopUpProfileFail: function (_translation) {
 					let deferred = $q.defer();
 					let button_exit_lesson = [{
 						text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON, type: 'button-special', onTap: function () {
@@ -48,14 +48,14 @@
 					});
 					return deferred.promise;
 				},
-				showpopUpProfileCreate: function (_translation) {
+
+				showPopUpProfileCreate: function (_translation) {
 					let deferred = $q.defer();
 					let button_exit_lesson = [{
 						text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON, type: 'button-special', onTap: function () {
 							return true;
 						}
 					}];
-
 
 					$ionicPopup.show({
 						title: '<img src="assets/img/common/stars.png" class="img-about-us">',
@@ -76,7 +76,7 @@
 								return 2;
 							}
 						}, {
-							text: `${_translation.REGISTER_POPUP_CONTINUE_BUTTON}`, type: 'button-afirmative', onTap: function () {
+							text: `${_translation.REGISTER_POPUP_CONTINUE_BUTTON}`, type: 'button-affirmative', onTap: function () {
 								return 1;
 							}
 						}];
@@ -98,7 +98,7 @@
 					let deferred = $q.defer();
 					let buttons = [
 						{
-							text: `${_translation.TOKEN_PROBLEM_BUTTON}`, type: 'button-afirmative', onTap: function () {
+							text: `${_translation.TOKEN_PROBLEM_BUTTON}`, type: 'button-affirmative', onTap: function () {
 								return true;
 							}
 						}];
@@ -119,7 +119,7 @@
 					let deferred = $q.defer();
 					let buttons = [
 						{
-							text: `${_translation.TOKEN_PROBLEM_BUTTON}`, type: 'button-afirmative', onTap: function () {
+							text: `${_translation.TOKEN_PROBLEM_BUTTON}`, type: 'button-affirmative', onTap: function () {
 								return true;
 							}
 						}];
@@ -144,7 +144,7 @@
 					let deferred = $q.defer();
 					let buttons = [
 						{
-							text: `${_translation.OK_BUTTON_QUOTE}`, type: 'button-afirmative', onTap: function () {
+							text: `${_translation.OK_BUTTON_QUOTE}`, type: 'button-affirmative', onTap: function () {
 								return true;
 							}
 						}];
@@ -172,7 +172,7 @@
 								return true;
 							}
 						}, {
-							text: `${_translation.REGISTER_EXPLORER_BUTTON_YES}`, type: 'button-afirmative', onTap: function () {
+							text: `${_translation.REGISTER_EXPLORER_BUTTON_YES}`, type: 'button-affirmative', onTap: function () {
 								return false;
 							}
 						}];
@@ -196,7 +196,7 @@
 					let deferred = $q.defer();
 					let buttons = [
 						{
-							text: `${_translation.LOGOUT_EXPLORER_BUTTON_STAY}`, type: 'button-afirmative', onTap: function () {
+							text: `${_translation.LOGOUT_EXPLORER_BUTTON_STAY}`, type: 'button-affirmative', onTap: function () {
 								return true;
 							}
 						}, {
@@ -206,7 +206,7 @@
 						}];
 
 					$ionicPopup.show({
-						title: '<img src=assets/imglogout.png" class="img-about-us">',
+						title: '<img src=assets/img/logout.png" class="img-about-us">',
 						subTitle: `<span class="popup-title">${_translation.LOG_OUT_EXPLORER_TITLE}</span>`,
 						template: `<p class="popup-subtitle">${_translation.LOG_OUT_EXPLORER_TEXT}</p>`,
 						cssClass: '',
@@ -218,17 +218,17 @@
 					return deferred.promise;
 				},
 
-				showpopupCountries: function (_translation) {
+				showPopupCountries: function (_translation) {
 					let deferred = $q.defer();
 					let button_exit_lesson = [{
-						text: 'Re-intentar / Try again', type: 'button-afirmative', onTap: function () {
+						text: 'Re-intentar / Try again', type: 'button-affirmative', onTap: function () {
 							return true;
 						}
 					}];
 
 					$ionicPopup.show({
 						title: '<img src="assets/img/error.png" class="img-about-us">',
-						subTitle: '<span class="popup-title">Problemas al descargar los paises</span>',
+						subTitle: '<span class="popup-title">Problemas al descargar los países</span>',
 						template: '<p class="popup-subtitle">Problems to download country info.</p>',
 						cssClass: '',
 						buttons: button_exit_lesson,
@@ -239,10 +239,10 @@
 					return deferred.promise;
 				},
 
-				showpopupFacebookEmailError: function (_translation) {
+				showPopupFacebookEmailError: function (_translation) {
 					let deferred = $q.defer();
 					let button_exit_lesson = [{
-						text: 'Re-intentar / Try again', type: 'button-afirmative', onTap: function () {
+						text: 'Re-intentar / Try again', type: 'button-affirmative', onTap: function () {
 							return true;
 						}
 					}];
@@ -261,10 +261,10 @@
 
 				},
 
-				showpopupLinkedInRegister: function (_translation) {
+				showPopupLinkedInRegister: function (_translation) {
 					let deferred = $q.defer();
 					let button_exit_lesson = [{
-						text: 'Entendido', type: 'button-afirmative', onTap: function () {
+						text: 'Entendido', type: 'button-affirmative', onTap: function () {
 							return true;
 						}
 					}];
@@ -285,7 +285,7 @@
 				workingOnPopUp: function (_translation) {
 					let deferred = $q.defer();
 					let button_exit_lesson = [{
-						text: 'Entendido', type: 'button-afirmative', onTap: function () {
+						text: 'Entendido', type: 'button-affirmative', onTap: function () {
 							return true;
 						}
 					}];
@@ -307,7 +307,7 @@
 				errorPopUp: function (_translation) {
 					let deferred = $q.defer();
 					let button_exit_lesson = [{
-						text: 'Entendido', type: 'button-afirmative', onTap: function () {
+						text: 'Entendido', type: 'button-affirmative', onTap: function () {
 							return true;
 						}
 					}];
@@ -329,7 +329,7 @@
 				isWebViewFacebookError: function (_translation) {
 					var deferred = $q.defer();
 					var button_exit_lesson = [{
-						text: 'Entendido', type: 'button-afirmative', onTap: function () {
+						text: 'Entendido', type: 'button-affirmative', onTap: function () {
 							return true;
 						}
 					}];
@@ -358,14 +358,11 @@
 					var deferred = $q.defer();
 					var button_exit_lesson = [{
 						text: message.BUTTON.POSITIVE,
-						type: 'button-afirmative',
+						type: 'button-affirmative',
 						onTap: function () {
 							return true;
 						}
 					}];
-
-
-
 
 					$ionicPopup.show({
 						animation: 'fade-in',
@@ -378,9 +375,7 @@
 
 					});
 					return deferred.promise;
-
 				}
-
 			};
 
 		}]);

@@ -29,9 +29,6 @@
 
 			});
 
-			console.log($rootScope);
-
-
 		}
 	});
 }).call(this);

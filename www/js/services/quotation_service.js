@@ -54,7 +54,7 @@
 
 
 
-				getAvaliablesPDFById: function (a, id) {
+				getAvailablePDFById: function (a, id) {
 					let defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + 'api/calculations/' + id + '/quotations',

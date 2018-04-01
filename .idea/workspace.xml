@@ -97,7 +97,7 @@
       <find>var</find>
       <find>pop</find>
       <find>log</find>
-      <find>showpopUpProfileFail</find>
+      <find>showPopUpProfileFail</find>
       <find>MODAL_LOGOUT_TITLE</find>
       <find>MODAL_WELCOME_TEXT</find>
       <find>showpopUpLogOut</find>

@@ -1,5 +1,4 @@
 {
-  "QUOTATION_HEADER": "Proyectos",
   "QUOTATION_POPUP_CANCEL_BUTTON": "Cancelar",
   "QUOTATION_POPUP_ACCEPT_BUTTON": "Crear",
   "ADD_QUOTATION_POPUP_TITLE": "Crear Proyecto",
@@ -43,17 +42,17 @@
   "FMP_MODAL_QUOTATION_AMOUNT": "Monto de multa mes ",
   "FMP_MODAL_QUOTATION_USE_PHOTO": "Utilizar fotografiá de la multa",
   "FMP_MODAL_QUOTATION_COMMENT": "Si deseas aquí puedes agregar un comentario",
-  "FMP_QUOTATION_TITLE": "Ingrese los 3 ultimos valores de las multas",
+  "FMP_QUOTATION_TITLE": "Ingrese los 3 últimos valores de las multas",
   "FMP_MODAL_QUOTATION_OPTION_CAMERA": "Cámara",
-  "FMP_MODAL_QUOTATION_OPTION_GALLERY": "Galeria",
+  "FMP_MODAL_QUOTATION_OPTION_GALLERY": "Galería",
   "FMP_MODAL_QUOTATION_SEND_BUTTON": "Calcular",
   "SETTINGS_TITLE": "Configuración",
   "SETTINGS_PLACEHOLDER_NAME": "Nombre",
   "SETTINGS_PLACEHOLDER_LAST_NAME": "Apellido",
   "SETTINGS_PLACEHOLDER_PHONE": "Teléfono",
   "SETTINGS_PLACEHOLDER_ADDRESS": "Dirección",
-  "MODAL_WELCOME_BUTTON": "Vamos alla",
-  "MODAL_WELCOME_TEXT": "Bienvendio a EnergiaStore, comencemos completando tu perfil con tu información básica.",
+  "MODAL_WELCOME_BUTTON": "Vamos allá",
+  "MODAL_WELCOME_TEXT": "Bienvenido a EnergiaStore, comencemos completando tu perfil con tu información básica.",
   "MODAL_CREATE_FACTOR_BUTTON": "Entendido",
   "MODAL_CREATE_FACTOR_TEXT": "Cotización realizada de manera exitosa, EnergiaStore se pondrá en contacto con usted para enviar su cotización.",
   "MODAL_FAIL_CREATE_FACTOR_BUTTON": "Entendido",
@@ -120,7 +119,6 @@
   "REGISTER_POPUP_LEAVE_TEXT": "¿ Esta seguro que desea salir del registro ?",
   "TOKEN_PROBLEM_BUTTON": "Entendido",
   "TOKEN_PROBLEM_TEXT": "Esta cuenta esta en uso desde otro dispositivo, vuelve a iniciar sesión.",
-  "BUTTON_ADD_PROJECT": "Agregar proyecto",
   "BUTTON_ADD_MOTOR": "Agregar motor",
   "EXPLORER_TITLE": "Bienvenido explorador",
   "EXPLORER_TEXT": "Has seleccionado el perfil explorar, este perfil te permite explorar la aplicación y utilizarla sin un registro.",
@@ -177,6 +175,8 @@
   "SKIP": "Saltar",
   "OK_BUTTON_QUOTE": "Entendido",
   
-  "PROJECT_TAB_TITLE": "Proyectos",
-  "MFP_TAB_TITLE": "Mal factor de potencia"
+  
+
+  "BUTTON_ADD_PROJECT": "Agregar proyecto",
+  
 }

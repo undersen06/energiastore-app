@@ -1,13 +1,13 @@
 <ion-view id="middleware-view">
   <ion-content>
     <div class="">
-      <span class="main-title" ng-class="isIphoneX() ? 'iphone-x':''">{{translations.MIDDLEWARE_TITLE}}</span>
+      <span class="main-title" ng-class="isIphoneX() ? 'iphone-x':''">{{middleware.MIDDLEWARE_TITLE}}</span>
 
       <div class="capsule-container">
         <div class="capsule user" ng-click="handleGoTo(1)">
           <span class="profile-title">User</span>
           <div class="profile-subtitle-container">
-            <span class="profile-subtitle">{{translations.MIDDLEWARE_USER_BODY}}</span>
+            <span class="profile-subtitle">{{middleware.MIDDLEWARE_USER_BODY}}</span>
           </div>
         </div>
 
@@ -15,22 +15,12 @@
         <div class="capsule partner" ng-click="handleGoTo(2)">
           <span class="profile-title">Partner</span>
           <div class="profile-subtitle-container">
-            <span class="profile-subtitle">{{translations.MIDDLEWARE_PARTNER_BODY}}</span>
+            <span class="profile-subtitle">{{middleware.MIDDLEWARE_PARTNER_BODY}}</span>
           </div>
         </div>
 
-        <!-- <div class="type_user_capsule explorer" ng-click="handleGoTo(3)">
-
-        <span class="profile-title">Explorer</span>
-        <div class="profile-subtitle-container">
-        <span class="profile-subtitle">{{translations.MIDDLEWARE_EXPLORER_BODY}}</span>
-      </div>
-
-
-    </div> -->
-
   </div>
-  <span  class="help-button" ng-class="isIphoneX() ? 'iphone-x':''" ng-click="getHelp()">{{translations.MIDDLEWARE_HELP}} <i class="ion-chevron-right"></i></span>
+  <span  class="help-button" ng-class="isIphoneX() ? 'iphone-x':''" ng-click="getHelp()">{{middleware.MIDDLEWARE_HELP}} <i class="ion-chevron-right"></i></span>
 </div>
 </ion-content>
 </ion-view>

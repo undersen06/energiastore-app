@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('SettingsController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', '$timeout', 'StorageUserModel', 'StorageLanguageModel', '$ionicPopup', '$cordovaActionSheet', 'StorageStatus', 'StorageProject', 'StorageMotor', 'StorageQuotation', '$ionicModal', '$User', '$ionicLoading', 'popUpService', '$Country', '$q', 'StorageCountryModel', '$rootScope','$cordovaAppVersion',
-		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, $timeout, StorageUserModel, StorageLanguageModel, $ionicPopup, $cordovaActionSheet, StorageStatus, StorageProject, StorageMotor, StorageQuotation, $ionicModal, $User, $ionicLoading, popUpService, $Country, $q, StorageCountryModel, $rootScope,$cordovaAppVersion) {
+	this.app.controller('SettingsController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', '$timeout', 'StorageUserModel', 'StorageLanguageModel', '$ionicPopup', '$cordovaActionSheet', 'StorageStatus', 'StorageProject', 'StorageMotor', 'StorageQuotation', '$ionicModal', '$User', '$ionicLoading', 'popUpService', '$Country', '$q', 'StorageCountryModel', '$rootScope','$cordovaAppVersion','$log',
+		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, $timeout, StorageUserModel, StorageLanguageModel, $ionicPopup, $cordovaActionSheet, StorageStatus, StorageProject, StorageMotor, StorageQuotation, $ionicModal, $User, $ionicLoading, popUpService, $Country, $q, StorageCountryModel, $rootScope,$cordovaAppVersion,$log) {
 
 			$scope.user = StorageUserModel.getCurrentUser();
 
@@ -31,7 +31,7 @@ CONTROLLER DEFINITION
 				$scope.goToProfile = function () {
 					$state.go('profile');
 				};
-				$scope.chooseLanguaje = function () {
+				$scope.chooseLanguage = function () {
 					$scope.showLanguageOptions();
 				};
 				$scope.chooseCountry = function () {
@@ -64,7 +64,7 @@ CONTROLLER DEFINITION
 						},
 						{
 							text: `${$scope.translations.LOG_OUT_LEAVE_BUTTON}`,
-							type: 'button-afirmative',
+							type: 'button-affirmative',
 							onTap: function () {
 								$scope.deleteData();
 							}
@@ -84,7 +84,7 @@ CONTROLLER DEFINITION
 						buttons: [
 							{
 								text: `${$scope.translations.WORKING_ON_BUTTON_TEXT}`,
-								type: 'button-afirmative',
+								type: 'button-affirmative',
 								onTap: function () {
 								}
 							}]
@@ -105,7 +105,7 @@ CONTROLLER DEFINITION
 							buttons: [
 								{
 									text: `${$rootScope.settings.ABOUT_US_BUTTON_TEXT}`,
-									type: 'button-afirmative',
+									type: 'button-affirmative',
 									onTap: function () {
 										// $state.go('middleware')
 									}
@@ -123,13 +123,13 @@ CONTROLLER DEFINITION
 							.show($scope.options)
 							.then(function (btnIndex) {
 								switch (btnIndex) {
-									case 1:
-										StorageLanguageModel.setCurrentLanguage('en');
-										break;
+								case 1:
+									StorageLanguageModel.setCurrentLanguage('en');
+									break;
 
-									case 2:
-										StorageLanguageModel.setCurrentLanguage('es');
-										break;
+								case 2:
+									StorageLanguageModel.setCurrentLanguage('es');
+									break;
 								}
 
 								StorageLanguageModel.getCurrentLanguage();
@@ -189,10 +189,11 @@ CONTROLLER DEFINITION
 
 				$scope.chooseCountry = function (country) {
 					$User.updateCountry($scope.user, country.name).then(function (_success) {
+						$log.info(_success);
 						StorageCountryModel.selectCountry(country);
-						StorageCountryModel.selectCurrency(this._.find($scope.curencies, { 'id': country.currency_id }));
+						StorageCountryModel.selectCurrency(this._.find($scope.currencies, { 'id': country.currency_id }));
 					}, function (_error) {
-						popUpService.errorPopUp(_error || 'UNKNOW_ERROR').then(function () {
+						popUpService.errorPopUp(_error || 'UNKNOWN_ERROR').then(function () {
 
 						});
 
@@ -206,10 +207,10 @@ CONTROLLER DEFINITION
 				function loadCountries() {
 					var promises = [$Country.getAllCurrencies(), $Country.getAllCountries()];
 					$q.all(promises).then(function (_resolves) {
-						$scope.curencies = _resolves[0].data;
+						$scope.currencies = _resolves[0].data;
 						$scope.countries = _resolves[1].data;
 					}, function () {
-						popUpService.showpopupCountries().then(function () {
+						popUpService.showPopupCountries().then(function () {
 							loadCountries();
 						});
 					});

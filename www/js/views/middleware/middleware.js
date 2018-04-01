@@ -82,7 +82,7 @@ CONTROLLER DEFINITION
 						buttons: [
 							{
 								text: `${$scope.translations.WORKING_ON_BUTTON_TEXT}`,
-								type: 'button-afirmative',
+								type: 'button-affirmative',
 								onTap: function() {
 									// $state.go('middleware')
 								}
