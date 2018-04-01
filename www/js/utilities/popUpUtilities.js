@@ -115,31 +115,6 @@
 					return deferred.promise;
 				},
 
-				showPopupOnlyOneProject: function (_translation) {
-					let deferred = $q.defer();
-					let buttons = [
-						{
-							text: `${_translation.TOKEN_PROBLEM_BUTTON}`, type: 'button-affirmative', onTap: function () {
-								return true;
-							}
-						}];
-
-					$ionicPopup.show({
-						title: '<img src="assets/img/error.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${_translation.WORKING_ON_TITLE}</span>`,
-						template: `<p class="popup-subtitle">${_translation.EXPLORER_ONLY_ONE_PROJECT}</p>`,
-						buttons: buttons,
-						animation: 'fade-in',
-					}, null).then(function (_res) {
-						deferred.resolve(_res);
-
-					});
-					return deferred.promise;
-				},
-
-
-
-
 				showPopupQuotationOnlyUser: function (_translation) {
 					let deferred = $q.defer();
 					let buttons = [
@@ -178,7 +153,7 @@
 						}];
 
 					$ionicPopup.show({
-						title: '<img src=assets/imgcommon/stars.png" class="img-about-us">',
+						title: '<img src=assets/img/common/stars.png" class="img-about-us">',
 						subTitle: `<span class="popup-title">${_translation.REGISTER_EXPLORER_TITLE}</span>`,
 						template: `<p class="popup-subtitle">${_translation.REGISTER_EXPLORER_TEXT}`,
 						buttons: buttons,
@@ -191,34 +166,8 @@
 				},
 
 
-				showPopUpExitExplorer: function (_translation) {
 
-					let deferred = $q.defer();
-					let buttons = [
-						{
-							text: `${_translation.LOGOUT_EXPLORER_BUTTON_STAY}`, type: 'button-affirmative', onTap: function () {
-								return true;
-							}
-						}, {
-							text: `${_translation.LOGOUT_EXPLORER_BUTTON_LEAVE}`, type: 'button-special', onTap: function () {
-								return false;
-							}
-						}];
-
-					$ionicPopup.show({
-						title: '<img src=assets/img/logout.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${_translation.LOG_OUT_EXPLORER_TITLE}</span>`,
-						template: `<p class="popup-subtitle">${_translation.LOG_OUT_EXPLORER_TEXT}</p>`,
-						cssClass: '',
-						buttons: buttons,
-					}, null).then(function (_res) {
-						deferred.resolve(_res);
-
-					});
-					return deferred.promise;
-				},
-
-				showPopupCountries: function (_translation) {
+				showPopupCountries: function () {
 					let deferred = $q.defer();
 					let button_exit_lesson = [{
 						text: 'Re-intentar / Try again', type: 'button-affirmative', onTap: function () {
@@ -261,27 +210,6 @@
 
 				},
 
-				showPopupLinkedInRegister: function (_translation) {
-					let deferred = $q.defer();
-					let button_exit_lesson = [{
-						text: 'Entendido', type: 'button-affirmative', onTap: function () {
-							return true;
-						}
-					}];
-
-					$ionicPopup.show({
-						title: '<img src="assets/img/error.png" class="img-about-us">',
-						subTitle: '<span class="popup-title">Error</span>',
-						template: '<p class="popup-subtitle">Para utilizar LinkedIn debe tener previamente la aplicación instalada.</p>',
-						cssClass: '',
-						buttons: button_exit_lesson,
-					}, null).then(function (_res) {
-						deferred.resolve(_res);
-
-					});
-					return deferred.promise;
-
-				},
 				workingOnPopUp: function () {
 					let deferred = $q.defer();
 					let button_exit_lesson = [{

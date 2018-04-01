@@ -30,7 +30,8 @@
 		CREATE_PF_QUOTATION : 'api/pf_quotation',
 
 		GET_COUNTRIES : 'api/countries',
-		GET_CURRENCIES : 'api/currencies'
+		GET_CURRENCIES : 'api/currencies',
+		GET_AVATARS : 'api/avatars'
 
 
 	});
