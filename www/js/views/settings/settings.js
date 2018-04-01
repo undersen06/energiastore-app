@@ -47,7 +47,7 @@ CONTROLLER DEFINITION
 				};
 
 				$scope.FAQ = function () {
-					$scope.workingOnPopUp();
+					popUpService.workingOnPopUp();
 				};
 
 
@@ -55,15 +55,15 @@ CONTROLLER DEFINITION
 					$ionicPopup.show({
 						animation: 'fade-in',
 						title: '<img src="assets/img/logout.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${$scope.translations.LOG_OUT_TITLE}</span>`,
-						template: `<p class="popup-subtitle">${$scope.translations.LOG_OUT_TEXT}</p>`,
+						subTitle: `<span class="popup-title">${$rootScope.settings.LOG_OUT_TITLE}</span>`,
+						template: `<p class="popup-subtitle">${$rootScope.settings.LOG_OUT_TEXT}</p>`,
 						scope: $scope,
 						buttons: [{
-							text: `${$scope.translations.LOG_OUT_CANCEL_BUTTON}`,
+							text: `${$rootScope.settings.LOG_OUT_CANCEL_BUTTON}`,
 							type: 'button-cancel'
 						},
 						{
-							text: `${$scope.translations.LOG_OUT_LEAVE_BUTTON}`,
+							text: `${$rootScope.settings.LOG_OUT_LEAVE_BUTTON}`,
 							type: 'button-affirmative',
 							onTap: function () {
 								$scope.deleteData();
@@ -74,27 +74,9 @@ CONTROLLER DEFINITION
 				};
 
 
-				$scope.workingOnPopUp = function () {
-					$ionicPopup.show({
-						animation: 'fade-in',
-						title: '<img src="assets/img/working-on.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${$scope.translations.WORKING_ON_TITLE}</span>`,
-						template: `<p class="popup-subtitle">${$scope.translations.WORKING_ON_TEXT}</p>`,
-						scope: $scope,
-						buttons: [
-							{
-								text: `${$scope.translations.WORKING_ON_BUTTON_TEXT}`,
-								type: 'button-affirmative',
-								onTap: function () {
-								}
-							}]
-					});
-				};
 
 				$scope.aboutUs = function () {
-
 					$cordovaAppVersion.getVersionNumber().then(function (version) {
-
 						$ionicPopup.show({
 							animation: 'fade-in',
 							title: '<img src="assets/img/logo.png" class="img-about-us">',
@@ -196,10 +178,7 @@ CONTROLLER DEFINITION
 						popUpService.errorPopUp(_error || 'UNKNOWN_ERROR').then(function () {
 
 						});
-
 					});
-
-
 					$scope.closeModalChooseCountry();
 				};
 

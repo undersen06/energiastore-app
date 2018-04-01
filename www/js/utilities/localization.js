@@ -25,6 +25,7 @@ this.app.service('$Localization',
 					$rootScope.quotation =  data.VIEWS.QUOTATION;
 					$rootScope.register =  data.VIEWS.REGISTER;
 					$rootScope.settings =  data.VIEWS.SETTINGS;
+					$rootScope.tutorials =  data.VIEWS.SETTINGS.OPTIONS.TUTORIAL;
 					$rootScope.welcome =  data.VIEWS.WELCOME;
 					$rootScope.footbar =  data.VIEWS.FOOTBAR;
 					$rootScope.app =  data.APP;

@@ -33,10 +33,17 @@
             "BUTTON": {
                 "POSITIVE": "Entendido"
             }
+        },
+        "WORKING_ON": {
+            "TITLE": "Ups!",
+            "BODY": "Esta sección aun esta en desarrollo, vuelve pronto",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
         }
     },
     "TOAST": {
-        "UNKNOW_ERROR": "Error, intentalo más tarde",
+        "UNKNOWN_ERROR": "Error, intentalo más tarde",
         "ADVICES": {
             "COMPLETE_NAME": "",
             "COMPLETE_LASTNAME": "",
@@ -73,7 +80,11 @@
             "FMP_MODAL_QUOTATION_OPTION_MANUAL": "Ingresa multa manual",
             "FMP_MODAL_QUOTATION_AMOUNT": "Monto de multa",
             "FMP_MODAL_QUOTATION_USE_PHOTO": "Utilizar fotografía de la multa",
-            "FMP_MODAL_QUOTATION_COMMENT": "Si deseas aquí puedes agregar un comentario"
+            "FMP_MODAL_QUOTATION_COMMENT": "Si deseas aquí puedes agregar un comentario",
+            "FMP_QUOTATION_TITLE": "Ingrese los 3 últimos valores de las multas",
+            "FMP_MODAL_QUOTATION_OPTION_CAMERA": "Cámara",
+            "FMP_MODAL_QUOTATION_OPTION_GALLERY": "Galería",
+            "FMP_MODAL_QUOTATION_SEND_BUTTON": "Calcular"
         },
         "INTRODUCTION": {
             "SLIDER_1": "Los recursos naturales se están terminando ¡la eficiencia energética es el camino para un mundo mejor!",
@@ -114,7 +125,6 @@
             "QUOTATION_HEADER": "Cotizaciones",
             "PROJECT_TAB_TITLE": "Proyectos",
             "MFP_TAB_TITLE": "Mal factor de potencia"
-            
         },
         "REGISTER": {
             "REGISTER_SLIDER_1_HEADER": "Registremos tu cuenta...",
@@ -145,7 +155,22 @@
                     "TUTORIALS_FACTOR": "Tutorial Mal Factor de potencia",
                     "TUTORIALS_TYPE_USER_USER": "Corresponde a aquel usuario que ya posee una cuenta o desea registrarse directamente en energiaStore para su uso personal",
                     "TUTORIALS_TYPE_USER_PARTNER": "Corresponde a aquel usuario que ya posee una cuenta en energiaStore para su uso empresarial.",
-                    "TUTORIALS_TYPE_USER_EXPLORER": "Corresponde al usuario que desea utilizar la app sin registro, su cuenta es limitada"
+                    "TUTORIALS_TYPE_USER_EXPLORER": "Corresponde al usuario que desea utilizar la app sin registro, su cuenta es limitada",
+                    "FMP_MODAL_HEADER": "¿Factor de mala potencia?",
+                    "FMP_MODAL_FIRST_TEXT_HEADER": "¿Por qué me cobran las compañías de electricidad esta multa?",
+                    "FMP_MODAL_FIRST_TEXT_FIRST_LINE": "La legislación chilena permite que las empresas distribuidoras de energía eléctrica, cobren a cada cliente un recargo de un 1% sobre la facturación de energía por cada centésima (0,01) en que el Factor de Potencia (F.P.) de una instalación sea inferior a 0,93.",
+                    "FMP_MODAL_FIRST_TEXT_SECOND_LINE": "Eso significa que sí el factor de potencia de un empalme es de 0,86, la distribuidora cobrará un recargo de 8% (0,93-0,85=0,08=8/100).",
+                    "FMP_MODAL_FIRST_TEXT_THIRD_LINE": "¿Por qué genero ésta Multa?",
+                    "FMP_MODAL_FIRST_TEXT_FORTH_LINE": "Consumo eléctrico de máquinas rotativas ( motores),",
+                    "FMP_MODAL_FIRST_TEXT_FIFTH_LINE": "Lámparas de descarga no compensadas",
+                    "FMP_MODAL_FIRST_TEXT_SIXTH_LINE": "Iluminación fluorescente no compensada",
+                    "FMP_MODAL_FIRST_TEXT_SEVENTH_LINE": "Multiples otros factores",
+                    "FMP_MODAL_SECOND_TEXT_HEADER": "¿Como leer mi multa por mal factor de potencia?",
+                    "FMP_MODAL_SECOND_TEXT_FIRST_LINE": "Por ejemplo, en el recibo de electricidad de un establecimiento escolar, donde se registran las energías activa y reactiva por medio de dos medidores de energía, aparecen los siguientes cargos:",
+                    "FMP_MODAL_SECOND_TEXT_SECOND_LINE": "El consumo de energía activa es de 4238 kWh y el de energía reactiva es de 3102 kVArh. Por lo tanto, el factor de potencia mensual es:",
+                    "FMP_MODAL_SECOND_TEXT_THIRD_LINE": "Entonces, el recargo por factor de potencia que aparece en el recibo se obtiene de: 0,93-0,8069 = 0,1231 x 358466 =  $44.127.-",
+                    "FMP_MODAL_THIRD_TEXT_HEADER": "¿Cómo me pueden ayudar a no pagar más esta multa?",
+                    "FMP_MODAL_THIRD_TEXT_SECOND_LINE": "En EnergiaStore, realizamos un ESTUDIO DE FACTOR DE POTENCIA Y MEJORAMIENTO DE FACTOR DE POTENCIA, OPTIMIZANDO SU INSTALACIÓN ELÉCTRICA”. Los invitamos a cotizar su proyecto AQUÍ o con nosotros al correo energia@energiastore.cl o al fono: +569-999999"
                 }
             },
             "SETTINGS_MENU_TITLE": "Configuraciones",
@@ -159,7 +184,11 @@
             "SETTINGS_MENU_LOG_OUT": "Cerrar sesión",
             "ABOUT_US_TITLE": "EnergiaStore",
             "ABOUT_US_TEXT": "Todos los derechos reservados 2018",
-            "ABOUT_US_BUTTON_TEXT": "Entendido"
+            "ABOUT_US_BUTTON_TEXT": "Entendido",
+            "LOG_OUT_TITLE": "Salir de energiaStore",
+            "LOG_OUT_TEXT": "¿Estas seguro que deseas cerrar sesión?",
+            "LOG_OUT_CANCEL_BUTTON": "Cancelar",
+            "LOG_OUT_LEAVE_BUTTON": "Salir"
         },
         "WELCOME": {},
         "FOOTBAR": {

@@ -37,9 +37,7 @@ CONTROLLER DEFINITION
 			});
 
 			$scope.goToProducts =  function (){
-				popUpService.workingOnPopUp($scope.translations).then(function(){
-
-				});
+				popUpService.workingOnPopUp();
 			};
 
 			$scope.isIphoneX =  function(){

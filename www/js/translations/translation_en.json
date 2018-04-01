@@ -340,10 +340,7 @@
   "MIDDLEWARE_EXPLORER_BODY":"Enter without register & learn about energiaStore",
   "MIDDLEWARE_HELP":"Help",
 
-  "TUTORIALS_TITLE":"Tutorials",
-  "TUTORIALS_PROFILE":"Tutorial profiles",
-  "TUTORIALS_QUOTATIONS":"Tutorial Quotes",
-  "TUTORIALS_FACTOR":"Power Factor Penalty Tutorial",
+  
 
   "TUTORIALS_TYPEUSER_USER":"Corresponds to that user who already owns an account or wishes to register directly at energiaStore for their personal use",
   "TUTORIALS_TYPEUSER_PARTNER":"Corresponds to that user who already has an energy accountStore for business use.",

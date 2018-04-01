@@ -282,10 +282,10 @@
 					return deferred.promise;
 
 				},
-				workingOnPopUp: function (_translation) {
+				workingOnPopUp: function () {
 					let deferred = $q.defer();
 					let button_exit_lesson = [{
-						text: 'Entendido', type: 'button-affirmative', onTap: function () {
+						text: $rootScope.popup.WORKING_ON.BUTTON.POSITIVE, type: 'button-affirmative', onTap: function () {
 							return true;
 						}
 					}];
@@ -293,15 +293,14 @@
 					$ionicPopup.show({
 						animation: 'fade-in',
 						title: '<img src="assets/img/working-on.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${_translation.WORKING_ON_TITLE}</span>`,
-						template: `<p class="popup-subtitle">${_translation.WORKING_ON_TEXT}</p>`,
+						subTitle: `<span class="popup-title">${$rootScope.popup.WORKING_ON.TITLE}</span>`,
+						template: `<p class="popup-subtitle">${$rootScope.popup.WORKING_ON.BODY}</p>`,
 						buttons: button_exit_lesson,
 					}, null).then(function (_res) {
 						deferred.resolve(_res);
 
 					});
 					return deferred.promise;
-
 				},
 
 				errorPopUp: function (_translation) {

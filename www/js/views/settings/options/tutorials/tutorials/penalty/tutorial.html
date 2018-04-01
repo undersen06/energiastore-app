@@ -1,6 +1,6 @@
-<ion-view ng-init="chooseLanguage();">
+<ion-view ng-init="chooseLanguage();" id="penalty-tutorial-view">
   <ion-view>
-    <ion-content id="content-id" class="slider-one animate-background" has-bouncing="false">
+    <ion-content id="content" class="slider-one animate-background" has-bouncing="false">
       <img id="image-logo" src="assets/img/introduction/map.svg"  class="background-introduction " >
 
       <span class="bottom-button bottom-button-right" style="top:25px;z-index:999" ng-click="finish()">{{SkipButton}} &nbsp;<i class="ion-chevron-right"></i></span>
@@ -8,21 +8,21 @@
         <ion-slide class="slider-box">
 
         </br>
-        <h5 style="text-align:center"> {{translations.FMP_MODAL_FIRST_TEXT_HEADER}}</h5>
+        <h5 style="text-align:center"> {{tutorials.FMP_MODAL_FIRST_TEXT_HEADER}}</h5>
 
 
-        <h4 class="subtitle-slider-tutorialrial">{{translations.FMP_MODAL_FIRST_TEXT_FIRST_LINE}}</h4>
-        <h4 class="subtitle-slider-tutorialrial">{{translations.FMP_MODAL_FIRST_TEXT_SECOND_LINE}}</h4>
+        <h4 class="subtitle-slider-tutorial">{{tutorials.FMP_MODAL_FIRST_TEXT_FIRST_LINE}}</h4>
+        <h4 class="subtitle-slider-tutorial">{{tutorials.FMP_MODAL_FIRST_TEXT_SECOND_LINE}}</h4>
 
 
       </ion-slide>
       <ion-slide class="slider-box">
       </br>
-      <h5 style="text-align:center"> {{translations.FMP_MODAL_SECOND_TEXT_HEADER}}</h5>
+      <h5 style="text-align:center"> {{tutorials.FMP_MODAL_SECOND_TEXT_HEADER}}</h5>
 
-      <h4 class="subtitle-slider-tutorialrial">{{translations.FMP_MODAL_SECOND_TEXT_FIRST_LINE}}</h4>
-      <h4 class="subtitle-slider-tutorialrial">{{translations.FMP_MODAL_SECOND_TEXT_SECOND_LINE}}</h4>
-      <h4 class="subtitle-slider-tutorialrial">{{translations.FMP_MODAL_SECOND_TEXT_THIRD_LINE}}</h4>
+      <h4 class="subtitle-slider-tutorial">{{tutorials.FMP_MODAL_SECOND_TEXT_FIRST_LINE}}</h4>
+      <h4 class="subtitle-slider-tutorial">{{tutorials.FMP_MODAL_SECOND_TEXT_SECOND_LINE}}</h4>
+      <h4 class="subtitle-slider-tutorial">{{tutorials.FMP_MODAL_SECOND_TEXT_THIRD_LINE}}</h4>
 
     </ion-slide>
 
@@ -62,7 +62,7 @@
   position: relative;
 }
 
-.subtitle-slider-tutorialrial{
+.subtitle-slider-tutorial{
   color: rgb(255, 255, 255);
   font-weight: 400;
   text-align: center;

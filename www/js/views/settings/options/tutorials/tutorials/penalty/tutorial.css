@@ -1,2 +1,78 @@
+#penalty-tutorial-view #content.slider-one {
+  background-color: #62D485; }
+
+#penalty-tutorial-view #content.slider-two {
+  background-color: #62BED4; }
+
+#penalty-tutorial-view #content.slider-three {
+  background-color: #F5A623; }
+
+#penalty-tutorial-view #content.animate-background {
+  transition: all 0.6s; }
+
+#penalty-tutorial-view #content #image-logo.background-introduction {
+  width: 100%;
+  position: absolute;
+  transform: translate(0, 50%); }
+
+#penalty-tutorial-view #content .skip-button {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  font-size: 17px;
+  color: white; }
+  #penalty-tutorial-view #content .skip-button.right {
+    right: 35px; }
+  #penalty-tutorial-view #content .skip-button.top {
+    top: 30px;
+    z-index: 999; }
+  #penalty-tutorial-view #content .skip-button.iphone-x {
+    top: 60px !important; }
+
+#penalty-tutorial-view #content .slider-slides .slider-box-tuto {
+  text-align: center; }
+  #penalty-tutorial-view #content .slider-slides .slider-box-tuto .slider-container {
+    top: 25vh;
+    position: relative; }
+    #penalty-tutorial-view #content .slider-slides .slider-box-tuto .slider-container .title {
+      font-size: 30px;
+      color: white; }
+    #penalty-tutorial-view #content .slider-slides .slider-box-tuto .slider-container .subtitle {
+      padding: 30px;
+      font-size: 20px;
+      color: white; }
+
+#penalty-tutorial-view #content .bottom-introduction {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  height: 44px;
+  background-color: rgba(126, 126, 126, 0.3);
+  left: 0; }
+  #penalty-tutorial-view #content .bottom-introduction.iphone-x {
+    height: 64px; }
+  #penalty-tutorial-view #content .bottom-introduction span.bottom-button {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 17px;
+    color: white; }
+    #penalty-tutorial-view #content .bottom-introduction span.bottom-button.iphone-x {
+      top: 40%; }
+    #penalty-tutorial-view #content .bottom-introduction span.bottom-button.right {
+      right: 35px; }
+    #penalty-tutorial-view #content .bottom-introduction span.bottom-button.left {
+      left: 35px; }
+    #penalty-tutorial-view #content .bottom-introduction span.bottom-button.top {
+      top: 25px;
+      z-index: 999; }
+
+#penalty-tutorial-view .slider-pager .slider-pager-page {
+  display: inline-block;
+  margin: 0 3px;
+  width: 15px;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.3; }
 
 /*# sourceMappingURL=tutorial.css.map */

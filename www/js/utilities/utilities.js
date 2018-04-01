@@ -8,7 +8,7 @@
 			validateToast: function (_views, _error) {
 				var message = $rootScope.toast.UNKNOW_ERROR;
 
-				if(_error != undefined && _views != undefined){
+				if (_error != undefined && _views != undefined) {
 					message = $rootScope.toast[_views][_error];
 				}
 
@@ -23,24 +23,24 @@
 				var design = {};
 				if (StorageUserModel.getCurrentUser() != undefined) {
 					switch (StorageUserModel.getCurrentUser().type_user) {
-						case 'user':
-							design.header = 'user-color';
-							design.color = 'user-color-font';
-							break;
+					case 'user':
+						design.header = 'user-color';
+						design.color = 'user-color-font';
+						break;
 
-						case 'partner':
-							design.header = 'partner-color';
-							design.color = 'partner-color-font';
-							break;
+					case 'partner':
+						design.header = 'partner-color';
+						design.color = 'partner-color-font';
+						break;
 
-						case 'explorer':
-							design.header = 'explorer-color';
-							design.color = 'explorer-color-font';
-							break;
-						default:
-							design.header = 'user-color';
-							design.color = 'user-color-font';
-							break;
+					case 'explorer':
+						design.header = 'explorer-color';
+						design.color = 'explorer-color-font';
+						break;
+					default:
+						design.header = 'user-color';
+						design.color = 'user-color-font';
+						break;
 					}
 				} else {
 
