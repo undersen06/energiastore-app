@@ -30,7 +30,7 @@ PLATFORM CONFIGURATION
 
 			if (window.StatusBar) {
 				// StatusBar.overlaysWebView(true);
-				
+
 				StatusBar.hide();
 				StatusBar.overlaysWebView(true);
 			}
@@ -100,9 +100,39 @@ PLATFORM CONFIGURATION
 
 	});
 
-	this.app.run(function ($state, $ionicPlatform, $Localization, $rootScope) {
-
+	this.app.run(function ($state, $ionicPlatform, $Localization, $rootScope, StorageUserModel) {
 		$Localization.getTranslation();
+
+		$rootScope.design = {};
+		switch (StorageUserModel.getCurrentUser().type_user) {
+		case 'user':
+
+			$rootScope.design.header = 'user-color';
+			$rootScope.design.footer = 'user-color';
+			$rootScope.design.button = 'user-color-button';
+			$rootScope.design.buttonSolid = 'user-color-button-solid';
+			break;
+
+		case 'partner':
+			$rootScope.design.header = 'partner-color';
+			$rootScope.design.footer = 'partner-color';
+			$rootScope.design.button = 'partner-color-button';
+			$rootScope.design.buttonSolid = 'partner-color-button-solid';
+			break;
+
+		case 'explorer':
+			$rootScope.design.header = 'explorer-color';
+			$rootScope.design.footer = 'explorer-color';
+			$rootScope.design.button = 'explorer-color-button';
+			$rootScope.design.buttonSolid = 'explorer-color-button-solid';
+			break;
+		default:
+			$rootScope.design.header = 'user-color';
+			$rootScope.design.footer = 'user-color';
+			$rootScope.design.button = 'user-color-button';
+			$rootScope.design.buttonSolid = 'user-color-button-solid';
+			break;
+		}
 
 	});
 
