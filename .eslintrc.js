@@ -26,6 +26,7 @@ module.exports = {
     "globals": {
         "_": true,
         "ionic":true,
+        "$": true,
         "Materialize":true
     }
 };

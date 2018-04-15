@@ -2,7 +2,12 @@
     <ion-header-bar align-title="center" ng-class="design.header">
         <div class="buttons">
         </div>
-        <h1 class="title">{{translations.APP_NAME}}</h1>
+        <!-- <h1 class="title">{{translations.APP_NAME}}</h1> -->
+        <h1 class="title">{{project.CREATE_PROJECT_TITLE}}</h1>
+
+         <!-- " CREATE_PROJECT_BUTTON_POSITIVE"
+                CREATE_PROJECT_BUTTON_NEGATIVE"
+                :" -->
         <div class="buttons" ng-click="closeModalMotor();">
             <i class="ion-android-close"></i>
         </div>
@@ -10,18 +15,20 @@
 
     <ion-content id="content">
 
-        <img src="assets/img/project.png" class="img-about-us">
+        <!-- <img src="assets/img/project.png" class="createProjectImg" style="margin:0 auto;"> -->
 
-        <span class="popup-title">{{popup.CREATE_PROJECT.TITLE}</span>
+        <!-- <span class="popup-title">{{popup.CREATE_PROJECT.TITLE}</span> -->
 
         <div class="input-field col s12">
-            <input id="quotation_name" type="text" class="validate" ng-model="project.name">
+<input id="quotation_name" type="text" class="validate" ng-model="project_create.name">
             <label for="quotation_name">{{project.ADD_QUOTATION_POPUP_FIRST_INPUT}}</label>
           </div>
 
+    <p style="text-align: center">{{project.CREATE_PROJECT_SELECT_PROVIDER}}</p>
+
         <ul class="list">
 
-            <ion-checkbox ng-model="filter.red">Red</ion-checkbox>
+            <ion-checkbox ng-repeat="provider in providers" ng-click="selectProvider(provider)" ng-model="filter.red">{{provider.name}}</ion-checkbox>
 
         </ul>
 
@@ -30,4 +37,12 @@
         <button ng-click="createCalculation(project.name)"></button>
 
     </ion-content>
+
+    <ion-footer-bar ng-class="design.header" ng-click="validateProject()">
+        <!-- <button ng-click="add()" class="button button-block dialog-footer">
+           
+        </button> -->
+        <p style="color:white;font-size:16px;margin:auto;">Create</p>
+         
+    </ion-footer-bar>
 </ion-modal-view>

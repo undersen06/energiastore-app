@@ -6,7 +6,7 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	app.controller('QuotationController', ['$scope', '$state', '$ionicPlatform', '$Calculation', 'StorageUserModel', '$Motors', 'popUpService', '$Quotation', 'Utils', '$ionicSlideBoxDelegate', '$Factor', '$cordovaFileTransfer', '$cordovaFileOpener2', '$ionicLoading', 'httpUtilities', '$log',
+	this.app.controller('QuotationController', ['$scope', '$state', '$ionicPlatform', '$Calculation', 'StorageUserModel', '$Motors', 'popUpService', '$Quotation', 'Utils', '$ionicSlideBoxDelegate', '$Factor', '$cordovaFileTransfer', '$cordovaFileOpener2', '$ionicLoading', 'httpUtilities', '$log',
 		function ($scope, $state, $ionicPlatform, $Calculation, StorageUserModel, $Motors, popUpService, $Quotation, Utils, $ionicSlideBoxDelegate, $Factor, $cordovaFileTransfer, $cordovaFileOpener2, $ionicLoading, httpUtilities, $log) {
 			
 
@@ -55,7 +55,7 @@ CONTROLLER DEFINITION
 
 
 				$scope.downloadFile = function (_url) {
-					var targetPath = this.cordova.file.dataDirectory;
+					var targetPath = cordova.file.dataDirectory;
 					var trustHosts = true;
 					var params = {};
 					params.headers = {
@@ -91,9 +91,9 @@ CONTROLLER DEFINITION
 
 
 				$scope.openFile = function (_path_file) {
-					// // let path = targetPath +'/'+ _file_name;
+					// // var path = targetPath +'/'+ _file_name;
 					// var path = targetPath + _file_name;
-					// console.log(path);
+					
 
 					$cordovaFileOpener2
 						.open(_path_file, 'application/pdf').then(
@@ -120,14 +120,14 @@ CONTROLLER DEFINITION
 							//
 							// $scope.calculations = _response.data;
 							// $scope.$broadcast("scroll.refreshComplete");
-							// console.log(_response);
+							
 							$ionicLoading.hide();
 						},
 						function (_error) {
 							$ionicLoading.hide();
 							httpUtilities.validateHTTPResponse(_error, popUpService, $scope.translations);
 
-							// Utils.validateToast($scope.translations.QUOTATION_ERROR_DOWNLOAD_INFO);
+							// Utils.validateToast('QUOTATION_ERROR_DOWNLOAD_INFO');
 							$scope.$broadcast('scroll.refreshComplete');
 							$log.error(_error);
 
@@ -172,4 +172,4 @@ CONTROLLER DEFINITION
 			});
 		}
 	]);
-}.call());
+}.call(this));

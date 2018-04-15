@@ -8,7 +8,7 @@
 			return {
 				getAllCountries: function() {
 
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.GET_COUNTRIES,
 						method: 'GET',
@@ -22,7 +22,7 @@
 				},
 
 				getAllCurrencies: function() {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.GET_CURRENCIES,
 						method: 'GET',

@@ -8,7 +8,7 @@
 
 			return {
 				login: function (_user) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.SIGN_IN,
 						method: 'POST',
@@ -33,7 +33,7 @@
 
 				loginFacebook: function (_facebook_data) {
 
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.SIGN_IN,
 						method: 'POST',
@@ -54,7 +54,7 @@
 				},
 
 				logout: function () {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.LOG_OUT,
 						method: 'POST',

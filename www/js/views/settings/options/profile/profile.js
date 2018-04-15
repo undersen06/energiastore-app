@@ -58,7 +58,7 @@ CONTROLLER DEFINITION
 				$scope.init = function () {
 
 
-					let user = StorageUserModel.getCurrentUser();
+					var user = StorageUserModel.getCurrentUser();
 
 
 					$scope.placeholder.name = 'Nombre';
@@ -75,7 +75,7 @@ CONTROLLER DEFINITION
 
 
 				$scope.$on('$ionicView.beforeEnter', function () {
-					let user = Object.assign({}, StorageUserModel.getCurrentUser());
+					var user = Object.assign({}, StorageUserModel.getCurrentUser());
 
 					if (user.name !== undefined)
 						$scope.placeholder.name = user.name;

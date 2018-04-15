@@ -8,7 +8,7 @@
 
 			return {
 				getProviders: function() {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.GET_PROVIDER,
 						method: 'GET',

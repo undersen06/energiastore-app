@@ -8,7 +8,7 @@
 
 			return {
 				registerUser: function(_user) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.SIGN_UP,
 						method: 'POST',
@@ -29,7 +29,7 @@
 				},
 
 				registerUserFacebook: function(_facebook_data) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.SIGN_UP,
 						method: 'POST',
@@ -51,7 +51,7 @@
 				},
 
 				registerUserLinkedin: function(_linkedin_data) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.SIGN_UP,
 						method: 'POST',
@@ -74,13 +74,13 @@
 
 				updateUser: function(_user,_info) {
 
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
 						method: 'PATCH',
 						headers:{
 							username: user.username,
-							token: user.tokauthentication_tokenen
+							token: user.authentication_token
 						},
 						data:{
 							user:{
@@ -104,7 +104,7 @@
 
 
 				updateCountry: function(_user,_country) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
 						method: 'PATCH',
@@ -132,7 +132,7 @@
 
 				registerUserFacebookInfo: function(_user,_info) {
 
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
 						method: 'PATCH',
@@ -160,7 +160,7 @@
 
 				registerUserLinkedInInfo: function(_user,_info) {
 					
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
 						method: 'PATCH',
@@ -187,7 +187,7 @@
 
 				getAvatars : function(){
 
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: 'http://energiastoreapp.com/' + ENV.GET_AVATARS,
 						method: 'GET',

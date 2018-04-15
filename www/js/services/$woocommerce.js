@@ -9,7 +9,7 @@
 
 			return {
 				getAllCategories: function(index) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					Woocommerce.get('products/categories?page='+index, function(err, data, res){
 						if(!err){
 							defer.resolve(JSON.parse(res));
@@ -22,7 +22,7 @@
 				},
 
 				getProductsByCategory: function(index) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					Woocommerce.get('products?category='+index, function(err, data, res){
 						if(!err){
 							defer.resolve(JSON.parse(res));
@@ -35,7 +35,7 @@
 				},
 
 				getProductsByid: function(index) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					Woocommerce.get('products/'+index, function(err, data, res){
 						if(!err){
 							defer.resolve(JSON.parse(res));

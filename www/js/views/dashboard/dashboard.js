@@ -41,7 +41,7 @@ CONTROLLER DEFINITION
 				};
 
 				$ionicPlatform.registerBackButtonAction(function () {
-					this.ionic.Platform.exitApp();
+					ionic.Platform.exitApp();
 				}, 100);
 
 

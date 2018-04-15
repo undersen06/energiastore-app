@@ -6,8 +6,8 @@
 
 		//****************+SERVERS**************//
 
-		LOCAL : 'http://kvar.herokuapp.com/',
-		// LOCAL : 'http://energiastoreapp.com/',
+		
+		LOCAL : 'http://energiastoreapp.com/',
 
 	
 		

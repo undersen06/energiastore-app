@@ -8,7 +8,7 @@
             return {
                 getAllFactors: function (_user_info) {
 
-                    let defer = $q.defer();
+                    var defer = $q.defer();
                     $http({
                         url: ENV.LOCAL + `api/providers`,
                         method: 'GET',

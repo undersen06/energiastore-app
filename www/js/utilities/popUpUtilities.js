@@ -8,8 +8,8 @@
 			return {
 
 				showPopUpFailCreateFactor: function (_translation) {
-					let deferred = $q.defer();
-					let button_exit_lesson = [{
+					var deferred = $q.defer();
+					var button_exit_lesson = [{
 						text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON, type: 'button-affirmative', onTap: function () {
 							return true;
 						}
@@ -30,8 +30,8 @@
 
 
 				showPopUpProfileFail: function (_translation) {
-					let deferred = $q.defer();
-					let button_exit_lesson = [{
+					var deferred = $q.defer();
+					var button_exit_lesson = [{
 						text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON, type: 'button-special', onTap: function () {
 							return true;
 						}
@@ -50,8 +50,8 @@
 				},
 
 				showPopUpProfileCreate: function (_translation) {
-					let deferred = $q.defer();
-					let button_exit_lesson = [{
+					var deferred = $q.defer();
+					var button_exit_lesson = [{
 						text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON, type: 'button-special', onTap: function () {
 							return true;
 						}
@@ -69,8 +69,8 @@
 					return deferred.promise;
 				},
 				showPopupLeaveRegister: function (_translation) {
-					let deferred = $q.defer();
-					let buttons = [
+					var deferred = $q.defer();
+					var buttons = [
 						{
 							text: `${_translation.REGISTER_POPUP_LEAVE_BUTTON}`, type: 'button-special', onTap: function () {
 								return 2;
@@ -95,8 +95,8 @@
 
 
 				showPopupTokenProblem: function (_translation) {
-					let deferred = $q.defer();
-					let buttons = [
+					var deferred = $q.defer();
+					var buttons = [
 						{
 							text: `${_translation.TOKEN_PROBLEM_BUTTON}`, type: 'button-affirmative', onTap: function () {
 								return true;
@@ -116,8 +116,8 @@
 				},
 
 				showPopupQuotationOnlyUser: function (_translation) {
-					let deferred = $q.defer();
-					let buttons = [
+					var deferred = $q.defer();
+					var buttons = [
 						{
 							text: `${_translation.OK_BUTTON_QUOTE}`, type: 'button-affirmative', onTap: function () {
 								return true;
@@ -140,8 +140,8 @@
 
 				showPopUpRegister: function (_translation) {
 
-					let deferred = $q.defer();
-					let buttons = [
+					var deferred = $q.defer();
+					var buttons = [
 						{
 							text: `${_translation.REGISTER_EXPLORER_BUTTON_NO}`, type: 'button-special', onTap: function () {
 								return true;
@@ -168,8 +168,8 @@
 
 
 				showPopupCountries: function () {
-					let deferred = $q.defer();
-					let button_exit_lesson = [{
+					var deferred = $q.defer();
+					var button_exit_lesson = [{
 						text: 'Re-intentar / Try again', type: 'button-affirmative', onTap: function () {
 							return true;
 						}
@@ -189,8 +189,8 @@
 				},
 
 				showPopupFacebookEmailError: function (_translation) {
-					let deferred = $q.defer();
-					let button_exit_lesson = [{
+					var deferred = $q.defer();
+					var button_exit_lesson = [{
 						text: 'Re-intentar / Try again', type: 'button-affirmative', onTap: function () {
 							return true;
 						}
@@ -211,8 +211,8 @@
 				},
 
 				workingOnPopUp: function () {
-					let deferred = $q.defer();
-					let button_exit_lesson = [{
+					var deferred = $q.defer();
+					var button_exit_lesson = [{
 						text: $rootScope.popup.WORKING_ON.BUTTON.POSITIVE, type: 'button-affirmative', onTap: function () {
 							return true;
 						}
@@ -232,8 +232,8 @@
 				},
 
 				errorPopUp: function (_translation) {
-					let deferred = $q.defer();
-					let button_exit_lesson = [{
+					var deferred = $q.defer();
+					var button_exit_lesson = [{
 						text: 'Entendido', type: 'button-affirmative', onTap: function () {
 							return true;
 						}

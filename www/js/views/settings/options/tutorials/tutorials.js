@@ -1,11 +1,10 @@
-'use strict';
-
 /*
 =============================================================================
 CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
+	'use strict';
 	this.app.controller('TutorialsController', ['$scope', '$state','$ionicPlatform','popUpService',
 		function($scope, $state,$ionicPlatform,popUpService) {
 			$ionicPlatform.ready(function() {
@@ -20,8 +19,6 @@ CONTROLLER DEFINITION
 						$state.go('tutorialFactor',{flag:'config'});
 						break;
 					default:
-						// $scope.popUpNotTutorial();
-						//TODO: Replace to workingOnPopup
 						popUpService.workingOnPopUp();
 						break;
 

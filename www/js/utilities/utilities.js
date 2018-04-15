@@ -5,12 +5,8 @@
 		var showingToast = false;
 
 		return {
-			validateToast: function (_views, _error) {
-				var message = $rootScope.toast.UNKNOWN_ERROR;
-
-				if (_error != undefined && _views != undefined) {
-					message = $rootScope.toast[_views][_error];
-				}
+			validateToast: function (_error) {
+				var message = $rootScope.toast[_error] ||  $rootScope.toast.UNKNOWN_ERROR ;
 
 				if (!showingToast) {
 					showingToast = true;

@@ -6,16 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', 'translationService', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer',
-		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, translationService, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer) {
-
-
-			const languageFilePath = translationService.getTranslation();
-			$resource(languageFilePath).get(function (data) {
-				$scope.translations = data;
-				$scope.options = { title: $scope.translations.ACTION_SHEET_PHOTO_TITLE, buttonLabels: [$scope.translations.ACTION_SHEET_PHOTO_CAMERA, $scope.translations.ACTION_SHEET_PHOTO_GALERY], addCancelButtonWithLabel: $scope.translations.CHOOSE_LANGUAGE_CANCEL, androidEnableCancelButton: true, winphoneEnableCancelButton: true };
-			});
-
+	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', 'translationService', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer','$log',
+		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, translationService, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer, $log) {
 
 			$ionicPlatform.ready(function () {
 
@@ -34,9 +26,6 @@ CONTROLLER DEFINITION
 				$scope.user = StorageUserModel.getCurrentUser();
 				$scope.factorType = {};
 
-				// const _input_penalty = $('#input-penalty');
-				// const _button_camera = $('#button-camera');
-				// const _button_galley = $('#button-gallery');
 
 
 				$scope.back = function () {
@@ -47,20 +36,11 @@ CONTROLLER DEFINITION
 					$state.go('dashboard');
 				};
 
-				// $scope.doRefresh = function(){
-				// 	Quotation.index($scope.user).then(function(_response){
-				// 		for (var i = 0; i < array.length; i++) {
-				// 			array[i];
-				// 		}
-				// 	},function(_error){
-
-
-				// 	});
-				// };
+		
 
 				$scope.openCamera = function () {
 
-					let options = {
+					var options = {
 						quality: 50,
 						destinationType: Camera.DestinationType.DATA_URL,
 						sourceType: Camera.PictureSourceType.CAMERA,
@@ -77,9 +57,9 @@ CONTROLLER DEFINITION
 						$scope.factorType.photo = 'data:image/jpeg;base64,' + _imageData;
 						$scope.image = $scope.factorType.photo;
 
-					}, function (_err) {
-						Utils.validateToast($scope.ERROR_CAMERA);
-						console.log(_err);
+					}, function (_error) {
+						Utils.validateToast('ERROR_CAMERA');
+						$log.error(_error);
 
 
 					});
@@ -88,7 +68,7 @@ CONTROLLER DEFINITION
 
 				$scope.openGallery = function () {
 
-					let options = {
+					var options = {
 						quality: 50,
 						destinationType: Camera.DestinationType.DATA_URL,
 						sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
@@ -104,8 +84,8 @@ CONTROLLER DEFINITION
 						$scope.image = $scope.factorType.photo;
 					}, function (_err) {
 
-						Utils.validateToast($scope.ERROR_GALLERY);
-						console.error(_err);
+						Utils.validateToast('ERROR_GALLERY');
+						$log.error(_err);
 
 					});
 				};
@@ -113,17 +93,17 @@ CONTROLLER DEFINITION
 
 				$scope.createFactorPenalty = function () {
 					if ($scope.factorType.power_factor_1 === undefined || $scope.factorType.power_factor_1 === 0) {
-						Utils.validateToast($scope.translations.QUOTATION_AMOUNT_EMPTY);
+						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
 						return;
 					}
 
 					if ($scope.factorType.power_factor_2 === undefined || $scope.factorType.power_factor_2 === 0) {
-						Utils.validateToast($scope.translations.QUOTATION_AMOUNT_EMPTY);
+						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
 						return;
 					}
 
 					if ($scope.factorType.power_factor_3 === undefined || $scope.factorType.power_factor_3 === 0) {
-						Utils.validateToast($scope.translations.QUOTATION_AMOUNT_EMPTY);
+						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
 						return;
 					}
 
@@ -131,11 +111,11 @@ CONTROLLER DEFINITION
 					total = (total / 3);
 
 					if ($scope.factorType.power_factor < 100) {
-						Utils.validateToast($scope.translations.QUOTATION_AMOUNT_MINIMUM);
+						Utils.validateToast('QUOTATION_AMOUNT_MINIMUM');
 						return;
 					}
 
-					let calculation = $scope.factorType;
+					var calculation = $scope.factorType;
 
 					calculation.power_factor = total;
 
@@ -154,14 +134,13 @@ CONTROLLER DEFINITION
 
 				$scope.CreateQuoate = function (calculation) {
 
-					FactorPenalty.create(calculation, $scope.user).then(function (_response) {
+					$FactorPenalty.create(calculation, $scope.user).then(function (_response) {
 
 						$scope.getPDF(_response.data.calculation, _response.data.id);
-						// $ionicLoading.hide();
-						console.log(_response);
+						$log.info(_response);
 					}, function (_error) {
 
-						console.error(_error);
+						$log.error(_error);
 						$ionicLoading.hide();
 						popUpService.showPopUpFailCreateFactor($scope.translations).then(function () {
 							$state.go('dashboard', {}, { reload: true });
@@ -205,7 +184,7 @@ CONTROLLER DEFINITION
 
 				$scope.downloadFile = function (_url) {
 
-					var targetPath = this.cordova.file.dataDirectory;
+					var targetPath = cordova.file.dataDirectory;
 					var trustHosts = true;
 					var params = {};
 					params.headers = {
@@ -216,26 +195,18 @@ CONTROLLER DEFINITION
 					$cordovaFileTransfer.download(_url, targetPath + 'pdf.pdf', params, trustHosts).then(
 						function (result) {
 							$ionicLoading.hide();
-							console.log(result);
+							$log.info(result);
+
 							$scope.openFile(targetPath + 'pdf.pdf');
 
 
 						},
-						function (err) {
-
+						function (_error) {
 							// $scope.openFile(_file_name);
-							console.log(err);
+							$log.error(_error);
 							// Error
 						},
-						function (progress) {
-							// Materialize.toast("Descargando PDF",4000);
-							$timeout(function () {
-								$scope.downloadProgress =
-									progress.loaded / progress.total * 100;
-								if ($scope.downloadProgress === 100) {
-									$('#btn-play-pdf').removeClass('disabled');
-								}
-							});
+						function () {
 						}
 					);
 				};
@@ -246,7 +217,7 @@ CONTROLLER DEFINITION
 					$cordovaFileOpener2
 						.open(_path_file, 'application/pdf').then(
 							function (_response) {
-								console.log(_response);
+								$log.info(_response);
 
 								setTimeout(function () {
 
@@ -254,8 +225,8 @@ CONTROLLER DEFINITION
 								}, 1000);
 
 							},
-							function (err) {
-								console.error(err);
+							function (_error) {
+								$log.error(_error);
 
 								// An error occurred. Show a message to the user
 							}

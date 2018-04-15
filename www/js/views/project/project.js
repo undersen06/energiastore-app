@@ -12,7 +12,8 @@ CONTROLLER DEFINITION
 
 			$scope.currency = StorageCountryModel.getSelectedCurrency().symbol;
 			$scope.price = StorageCountryModel.getSelectedCountry().energy_cost;
-
+			$scope.provider = undefined;
+			$scope.project_create = {};
 
 			$ionicPlatform.ready(function () {
 				var projectPopUp;
@@ -47,32 +48,36 @@ CONTROLLER DEFINITION
 				$scope.openModal = function () {
 					$scope.modalProject.show();
 				};
-				$scope.closeModalMotor = function () {
+				$scope.closeModalProject = function () {
 					$scope.modalProject.hide();
 				};
 				$scope.$on('$destroy', function () {
 					$scope.modalProject.remove();
 				});
-				
-				$scope.$on('modalProject.hidden', function () {
-				});
-				
-				$scope.$on('modalProject.removed', function () {	
-				});
+
+				$scope.$on('modalProject.hidden', function () {});
+
+				$scope.$on('modalProject.removed', function () {});
 
 				$scope.createCalculation = function (data) {
 					$Calculation.create(data, StorageUserModel.getCurrentUser()).then(
 						function (_response) {
 							$log.info(_response);
-							Utils.validateToast($scope.translations.QUOTATION_CREATED_MESSAGE);
+							Utils.validateToast('QUOTATION_CREATED_MESSAGE');
+							$scope.closeModalProject();
 							$scope.calculations = {};
 							$scope.getCalculation();
-							if (this.cordova.plugins) {
-								this.cordova.plugins.Keyboard.close();
+							try{
+								if (cordova != undefined) {
+									cordova.plugins.Keyboard.close();
+								}
+							}catch(e){
+								$log.error(e);
 							}
+							
 						},
 						function (_error) {
-							Utils.validateToast($scope.translations.QUOTATION_FAIL_MESSAGE);
+							Utils.validateToast('QUOTATION_FAIL_MESSAGE');
 							$log.error(_error);
 
 						}
@@ -82,15 +87,17 @@ CONTROLLER DEFINITION
 				$scope.getCalculation = function () {
 					$Calculation.getAll(StorageUserModel.getCurrentUser()).then(
 						function (_response) {
+							
 							$scope.calculations = _response.data;
 							$scope.$broadcast('scroll.refreshComplete');
 							$ionicLoading.hide();
 						},
 						function (_error) {
 							$ionicLoading.hide();
-							httpUtilities.validateHTTPResponse(_error, popUpService, $scope.translations);
+							$log.error(_error);
+							// httpUtilities.validateHTTPResponse(_error, popUpService, $scope.translations);
 
-							// Utils.validateToast($scope.translations.QUOTATION_ERROR_DOWNLOAD_INFO);
+							 Utils.validateToast('QUOTATION_ERROR_DOWNLOAD_INFO');
 							$scope.$broadcast('scroll.refreshComplete');
 						}
 					);
@@ -102,7 +109,9 @@ CONTROLLER DEFINITION
 						project_name: calculation.name || ''
 					};
 
-					$state.go('motors', queries, { reload: true });
+					$state.go('motors', queries, {
+						reload: true
+					});
 				};
 
 				$scope.goToProjects = function () {
@@ -141,8 +150,11 @@ CONTROLLER DEFINITION
 
 				$scope.getProviders = function () {
 					$Providers.getProviders().then(function (_response) {
-						$log.info(_response);
-						$scope.providers = _.filter(_response.data, { 'country_id': StorageCountryModel.getSelectedCountry().id });
+						// $log.info(_response)
+
+						$scope.providers = _.filter(_response.data, {
+							'country_id': StorageCountryModel.getSelectedCountry().id
+						});
 
 					}, function (_error) {
 						$log.error(_error);
@@ -160,7 +172,6 @@ CONTROLLER DEFINITION
 				$scope.duplicateProject = function (calculation) {
 
 					$ionicLoading.show({
-						templateUrl: 'loading.html'
 					}).then(function () {
 
 						calculation.name = calculation.name + '_duplicated';
@@ -171,7 +182,7 @@ CONTROLLER DEFINITION
 								$scope.getMotors(calculation.id, _response.data.id);
 							},
 							function (_error) {
-								Utils.validateToast($scope.translations.QUOTATION_FAIL_MESSAGE);
+								Utils.validateToast('QUOTATION_FAIL_MESSAGE');
 								$log.error(_error);
 							}
 						);
@@ -216,6 +227,40 @@ CONTROLLER DEFINITION
 				};
 
 				$scope.getProviders();
+
+				$scope.validateProject = function () {
+
+					$log.info($scope.provider);
+
+					if ($scope.project_create.name == undefined) {
+						Utils.validateToast('COMPLETE_PROJECT_NAME');
+						return;
+					}
+					if ($scope.provider == undefined) {
+						Utils.validateToast('SELECT_PROVIDER');
+						return;
+					}
+
+
+					$scope.createCalculation(prepareDataToServer($scope.project_create, $scope.provider));
+					
+				};
+
+				function prepareDataToServer(project, provider) {
+					return {
+						provider_id: provider.id,
+						name: project.name
+					};
+
+				}
+
+				$scope.selectProvider = function (provider) {
+					if ($scope.provider == provider) {
+						$scope.provider = undefined;
+					} else {
+						$scope.provider = provider;
+					}
+				};
 
 			});
 		}

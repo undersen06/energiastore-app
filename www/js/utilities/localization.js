@@ -33,7 +33,7 @@ this.app.service('$Localization',
 					// Toast
 					$rootScope.toast =  data.TOAST;
 					$rootScope.popup =  data.POPUP;
-
+					
 
 
 					

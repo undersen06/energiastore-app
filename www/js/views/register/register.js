@@ -6,15 +6,15 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('RegisterController', ['$scope', '$state','$ionicPlatform','$ionicSlideBoxDelegate','$User','$ionicLoading','StorageUserModel','$resource','translationService','Utils','popUpService','StorageCountryModel','$log','$rootScope',
-		function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$User,$ionicLoading,StorageUserModel,$resource,translationService,Utils,popUpService,StorageCountryModel,$log,$rootScope) {
+	this.app.controller('RegisterController', ['$scope', '$state','$ionicPlatform','$ionicSlideBoxDelegate','$User','$ionicLoading','StorageUserModel','$resource','translationService','Utils','popUpService','StorageCountryModel','$log',
+		function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$User,$ionicLoading,StorageUserModel,$resource,translationService,Utils,popUpService,StorageCountryModel,$log) {
 			$ionicPlatform.ready(function() {
 
 				$scope.user={};
 
 				$scope.slideHasChanged= function(index){
 
-					let _content_register = $('#content-register');
+					var _content_register = $('#content-register');
 
 					switch (index) {
 					case 0:
@@ -56,22 +56,22 @@ CONTROLLER DEFINITION
 				$scope.validateSlider1 =function(){
 
 					if ($scope.user.email === undefined || $scope.user.email === ''){
-						Utils.validateToast($rootScope.register.REGISTER_EMAIL_EMPTY_ERROR);
+						Utils.validateToast('REGISTER_EMAIL_EMPTY_ERROR');
 						return;
 					}
 
 					if ($scope.user.password === undefined || $scope.user.password === ''){
-						Utils.validateToast($rootScope.register.REGISTER_PASSWORD_EMPTY_ERROR);
+						Utils.validateToast('REGISTER_PASSWORD_EMPTY_ERROR');
 						return;
 					}
 
 					if ($scope.user.password_confirmation === undefined || $scope.user.password_confirmation === ''){
-						Utils.validateToast($rootScope.register.REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR);
+						Utils.validateToast('REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR');
 						return;
 					}
 
 					if ($scope.user.password_confirmation !== $scope.user.password){
-						Utils.validateToast($rootScope.register.REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR);
+						Utils.validateToast('REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR');
 						return;
 					}
 

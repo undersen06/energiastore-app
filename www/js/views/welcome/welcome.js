@@ -1,4 +1,4 @@
-'use strict';
+
 
 /*
 =============================================================================
@@ -8,6 +8,7 @@ CONTROLLER DEFINITION
 (function () {
 	this.app.controller('WelcomeController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', 'StorageLanguageModel', '$Country', 'StorageCountryModel', '$q', 'popUpService', 'StorageUserModel', '$User','$log',
 		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, StorageLanguageModel, $Country, StorageCountryModel, $q, popUpService, StorageUserModel, $User,$log) {
+			'use strict';
 			$ionicPlatform.ready(function () {
 
 				$scope.isIphoneX = function () {
@@ -89,4 +90,4 @@ CONTROLLER DEFINITION
 
 			});
 		}]);
-}).call(this);
+}).call();

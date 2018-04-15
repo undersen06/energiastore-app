@@ -9,7 +9,7 @@
 
 			return {
 				create: function(_data) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.CREATE_CALCULATION,
 						method: 'POST',
@@ -18,10 +18,7 @@
 							token:user.authentication_token
 						},
 						data:{
-							calculation:{
-								name:_data.name,
-								energy_cost:_data.price
-							}
+							calculation:_data
 						}
 					}).then(function(_response) {
 						defer.resolve(_response);
@@ -33,7 +30,7 @@
 				},
 
 				getByIndex: function(_calculation_id) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.INDEX_CALCULATION+_calculation_id,
 						method: 'GET',
@@ -51,7 +48,7 @@
 				},
 
 				getAll: function() {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.INDEX_CALCULATION,
 						method: 'GET',
@@ -69,7 +66,7 @@
 				},
 
 				delete: function(_user) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.SIGN_UP+'/'+_user.id,
 						method: 'DELETE',

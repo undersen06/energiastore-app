@@ -9,7 +9,7 @@
 			return {
 				getAllFactors: function () {
 
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + 'api/quotations',
 						method: 'GET',

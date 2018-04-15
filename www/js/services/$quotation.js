@@ -8,7 +8,7 @@
 
 			return {
 				Create: function (_user_info, _quotation) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + `api/calculations/${_quotation.calculation_id}/quotations`,
 						method: 'POST',
@@ -35,7 +35,7 @@
 				},
 
 				index: function (_user_info) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + 'api/calculations/',
 						method: 'GET',
@@ -55,7 +55,7 @@
 
 
 				getAvailablePDFById: function (a, id) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + 'api/calculations/' + id + '/quotations',
 						method: 'GET',

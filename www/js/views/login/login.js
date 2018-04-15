@@ -10,7 +10,7 @@ CONTROLLER DEFINITION
 		function ($scope, $state, $ionicPlatform, StorageUserModel, $Session, translationService, $resource, $cordovaStatusbar, $ionicLoading, Utils, popUpService, StorageCountryModel, $User, $cordovaAppAvailability,$log) {
 
 			
-			const CURRENT_VIEW = 'LOGIN';
+			// const CURRENT_VIEW = 'LOGIN';
 
 			$scope.design = {};
 			
@@ -46,8 +46,8 @@ CONTROLLER DEFINITION
 				
 
 				$scope.isIphoneX = function () {
-					if (this.ionic.Platform.device().model != undefined) {
-						if (this.ionic.Platform.device().model.startsWith('iPhone10')) {
+					if (ionic.Platform.device().model != undefined) {
+						if (ionic.Platform.device().model.startsWith('iPhone10')) {
 							return true;
 						}
 					}
@@ -90,7 +90,7 @@ CONTROLLER DEFINITION
 
 					var scopes = ['r_emailaddress', 'r_basicprofile', 'rw_company_admin', 'w_share'];
 
-					this.cordova.plugins.LinkedIn.hasActiveSession(function () {
+					cordova.plugins.LinkedIn.hasActiveSession(function () {
 
 					}, function () {
 						popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_APP_NOT_FOUND' || 'UNKNOWN_ERROR').then(function(){
@@ -101,8 +101,8 @@ CONTROLLER DEFINITION
 
 
 
-					this.cordova.plugins.LinkedIn.login(scopes, true, function () {
-						this.cordova.plugins.LinkedIn.getRequest('people/~:(id,num-connections,picture-url,email-address,first-name,last-name)', onSuccess, onError);
+					cordova.plugins.LinkedIn.login(scopes, true, function () {
+						 cordova.plugins.LinkedIn.getRequest('people/~:(id,num-connections,picture-url,email-address,first-name,last-name)', onSuccess, onError);
 
 					}, onError);
 				};
@@ -236,12 +236,12 @@ CONTROLLER DEFINITION
 
 				$scope.initLogin = function () {
 					if ($scope.user.email === undefined || $scope.user.email === '') {
-						Utils.validateToast(CURRENT_VIEW,'COMPLETE_EMAIL');
+						Utils.validateToast('COMPLETE_EMAIL');
 						return;
 					}
 
 					if ($scope.user.password === undefined || $scope.user.password === '') {
-						Utils.validateToast(CURRENT_VIEW,'COMPLETE_PASSWORD');
+						Utils.validateToast('COMPLETE_PASSWORD');
 						return;
 					}
 
@@ -265,7 +265,7 @@ CONTROLLER DEFINITION
 						$state.go('dashboard');
 						$ionicLoading.hide();
 					}, function (_error) {
-						Utils.validateToast(CURRENT_VIEW,_error.USER_ERROR_CODE);
+						Utils.validateToast(_error.USER_ERROR_CODE);
 						$ionicLoading.hide();
 					});
 				};
@@ -291,6 +291,8 @@ CONTROLLER DEFINITION
 				// "ERROR_LINKEDIN_LOGIN"
 				// "ERROR_LINKEDIN_APP_NOT_FOUND"
 				// "ERROR_LINKEDIN_IS_WEBVIEW"
+
+			
 
 
 			});

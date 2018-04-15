@@ -41,47 +41,39 @@
                 "POSITIVE": "Entendido"
             }
         },
-        "CREATE_PROJECT": {
-            "TITLE": "Creación de proyecto",
-            "BUTTON": {
-                "POSITIVE": "Crear",
-                "NEGATIVE": "Cancelar"
-            }
-        },
-        "SELECT_PROVIDER":{
-            "TITLE":"Seleccione un proveedor"
+        "SELECT_PROVIDER": {
+            "TITLE": "Seleccione un proveedor"
         }
     },
     "TOAST": {
         "UNKNOWN_ERROR": "Error, intentalo más tarde",
-        "ADVICES": {
-            "COMPLETE_NAME": "",
-            "COMPLETE_LASTNAME": "",
-            "COMPLETE_PHONE": "",
-            "COMPLETE_ADDRESS": ""
-        },
-        "LOGIN": {
-            "COMPLETE_EMAIL": "Complete correo",
-            "COMPLETE_PASSWORD": "Complete contraseña",
-            "LOGIN_ERROR": "Usuario incorrecto"
-        },
-        "MOTOR": {},
-        "QUOTATION": {
-            "ADD_PHOTO_BUTTON_TEXT": "AGREGAR FOTO",
-            "FINALIZE_QUOTATION_HEADER": "Finalizar Proyecto",
-            "INPUT_COMMENTS_TEXT_BOX": "Comentarios (opcional)",
-            "UPDATE_BUTTON": "Actualizar"
-        },
-        "REGISTER": {},
-        "FACTOR": {
-            "ERROR_CAMERA": "",
-            "ERROR_GALLERY": "",
-            "QUOTATION_AMOUNT_EMPTY": "",
-            "QUOTATION_AMOUNT_MINIMUM": ""
-        },
-        "PROJECT": {
-            "COMPLETE_PROJECT_NAME": "Ingrese nombre proyecto"
-        }
+
+        "COMPLETE_NAME": "",
+        "COMPLETE_LASTNAME": "",
+        "COMPLETE_PHONE": "",
+        "COMPLETE_ADDRESS": "",
+
+        "COMPLETE_EMAIL": "Complete correo",
+        "COMPLETE_PASSWORD": "Complete contraseña",
+        "LOGIN_ERROR": "Usuario incorrecto",
+
+        "ADD_PHOTO_BUTTON_TEXT": "AGREGAR FOTO",
+        "FINALIZE_QUOTATION_HEADER": "Finalizar Proyecto",
+        "INPUT_COMMENTS_TEXT_BOX": "Comentarios (opcional)",
+        "UPDATE_BUTTON": "Actualizar",
+
+        "ERROR_CAMERA": "",
+        "ERROR_GALLERY": "",
+        "QUOTATION_AMOUNT_EMPTY": "",
+        "QUOTATION_AMOUNT_MINIMUM": "",
+
+        "COMPLETE_PROJECT_NAME": "Ingrese nombre proyecto",
+        "SELECT_PROVIDER":"Seleccione un proveedor",
+        
+        "QUOTATION_ERROR_DOWNLOAD_INFO": "Error al descargar los proyectos",
+        "QUOTATION_CREATED_MESSAGE": "Proyecto creado",
+        "QUOTATION_FAIL_MESSAGE": "Error al crear el proyecto"
+
     },
     "VIEWS": {
         "DASHBOARD": {
@@ -149,9 +141,6 @@
             "ADD_QUOTATION_POPUP_TITLE": "Crear Proyecto",
             "ADD_QUOTATION_POPUP_FIRST_INPUT": "Nombre Proyecto",
             "ADD_QUOTATION_POPUP_SECOND_INPUT": "Precio KW (USD)",
-            "QUOTATION_ERROR_DOWNLOAD_INFO": "Error al descargar los proyectos",
-            "QUOTATION_CREATED_MESSAGE": "Proyecto creado",
-            "QUOTATION_FAIL_MESSAGE": "Error al crear el proyecto",
             "QUOTATION_CARD_TITLE": "Aún no tienes ningún",
             "QUOTATION_CARD_TITLE_STRONG": "proyecto",
             "QUOTATION_CARD_BODY_PRE": "Haz click en  ",
@@ -161,7 +150,11 @@
             "QUOTATION_CARD_ELEMENT_CREATED_AT": "Fecha de creación",
             "QUOTATION_HEADER": "Cotizaciones",
             "BUTTON_ADD_PROJECT": "Agregar proyecto",
-            "DUPLICATE_OPTION": "Duplicar"
+            "DUPLICATE_OPTION": "Duplicar",
+            "CREATE_PROJECT_TITLE": "Creación de proyecto",
+            "CREATE_PROJECT_BUTTON_POSITIVE": "Crear",
+            "CREATE_PROJECT_BUTTON_NEGATIVE": "Cancelar",
+            "CREATE_PROJECT_SELECT_PROVIDER": "Seleccione proveedor de servicio."
         },
         "QUOTATION": {
             "FINALIZE": {},

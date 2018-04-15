@@ -18,7 +18,7 @@ CONTROLLER DEFINITION
 
 
 				if (window.cordova && window.cordova.plugins.Keyboard) {
-					this.cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
+					cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
 				}
 
 				$scope.motors = [];

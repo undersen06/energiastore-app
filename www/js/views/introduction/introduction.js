@@ -57,7 +57,7 @@ CONTROLLER DEFINITION
 
 				switch ($ionicSlideBoxDelegate.currentIndex()) {
 				case 0:
-					this.ionic.Platform.exitApp();
+					ionic.Platform.exitApp();
 					break;
 				case 1:
 					$ionicSlideBoxDelegate.previous();

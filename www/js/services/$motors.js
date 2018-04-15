@@ -9,7 +9,7 @@
 			return {
 				create: function(_user_info,_calculation,calculation_id) {
 
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.CREATE_CALCULATION+ '/'+calculation_id+'/motors',
 						method: 'POST',
@@ -39,7 +39,7 @@
 				},
 
 				getByCalculation: function(_calculation_id) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + 'api/calculations/'+_calculation_id+'/motors',
 						method: 'GET',
