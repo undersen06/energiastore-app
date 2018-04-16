@@ -132,7 +132,7 @@ CONTROLLER DEFINITION
 
 				$scope.onBack = function (){
 					if ($ionicSlideBoxDelegate.currentIndex() === 0 ){
-						popUpService.showPopupLeaveRegister($scope.translations).then(function(_response){
+						popUpService.showPopupLeaveRegister().then(function(_response){
 							_response === 2 ? $state.go('login') : '';
 						});
 					}

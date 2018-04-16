@@ -1,6 +1,12 @@
 
 'use strict';
 
+
+//    "MODAL_CREATE_FACTOR_BUTTON": "Entendido",
+// "MODAL_CREATE_FACTOR_TEXT": "Cotización realizada de manera exitosa, EnergiaStore se pondrá en contacto con usted para enviar su cotización.",
+
+// "MODAL_FAIL_CREATE_FACTOR_TEXT": "Ups no hemos podido realizar tu cotización, por favor intentalo mas tarde.",
+
 (function() {
 	this.app.constant('ENV', {
 

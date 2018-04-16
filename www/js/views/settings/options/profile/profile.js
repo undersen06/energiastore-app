@@ -6,59 +6,24 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('ProfileController', ['$scope', '$state', '$ionicPlatform', '$rootScope', '$Session', 'StorageUserModel', '$User', '$resource', 'translationService', 'popUpService', '$log',
-		function ($scope, $state, $ionicPlatform, $rootScope, $Session, StorageUserModel, $User, $resource, translationService, popUpService, $log) {
-
-			$scope.design = {};
-			switch (StorageUserModel.getCurrentUser().type_user) {
-			case 'user':
-
-				$scope.design.header = 'user-color';
-				$scope.design.footer = 'user-color';
-				$scope.design.button = 'user-color-button';
-				break;
-
-			case 'partner':
-				$scope.design.header = 'partner-color';
-				$scope.design.footer = 'partner-color';
-				$scope.design.button = 'partner-color-button';
-				break;
-
-			case 'explorer':
-				$scope.design.header = 'explorer-color';
-				$scope.design.footer = 'explorer-color';
-				$scope.design.button = 'explorer-color-button';
-				break;
-			default:
-				$scope.design.header = 'user-color';
-				$scope.design.footer = 'user-color';
-				$scope.design.button = 'user-color-button';
-				break;
-			}
+	this.app.controller('ProfileController', ['$scope', '$state', '$ionicPlatform', '$rootScope', '$Session', 'StorageUserModel', '$User', '$resource', 'translationService', 'popUpService', '$log', 'Utils', '$timeout', '$ionicSlideBoxDelegate','StorageCountryModel',
+		function ($scope, $state, $ionicPlatform, $rootScope, $Session, StorageUserModel, $User, $resource, translationService, popUpService, $log, Utils, $timeout, $ionicSlideBoxDelegate, StorageCountryModel) {
 
 			$ionicPlatform.ready(function () {
 
 
-				$User.getAvatars().then(function(_response){
+				$User.getAvatars().then(function (_response) {
 					$log.info(_response);
 
-				},function(_error){
+				}, function (_error) {
 					$log.info(_error);
 				});
-
-				const languageFilePath = translationService.getTranslation();
-				$resource(languageFilePath).get(function (data) {
-					$scope.translations = data;
-				});
-
-
 				$scope.placeholder = {};
 				$scope.user = {};
 
 				$scope.init = function () {
-
-
 					var user = StorageUserModel.getCurrentUser();
+					$scope.getAvailableAvatar();
 
 
 					$scope.placeholder.name = 'Nombre';
@@ -66,10 +31,18 @@ CONTROLLER DEFINITION
 					$scope.placeholder.phone = 'Teléfono';
 					$scope.placeholder.address = 'Dirección';
 
-					if (user.name !== undefined) { $scope.placeholder.name = user.name; }
-					if (user.last_name !== undefined) { $scope.placeholder.name = user.last_name; }
-					if (user.phone !== undefined) { $scope.placeholder.name = user.phone; }
-					if (user.address !== undefined) { $scope.placeholder.name = user.address; }
+					if (user.name !== null) {
+						$scope.placeholder.name = user.name;
+					}
+					if (user.last_name !== null) {
+						$scope.placeholder.last_name = user.last_name;
+					}
+					if (user.phone !== null) {
+						$scope.placeholder.phone = user.phone;
+					}
+					if (user.address !== null) {
+						$scope.placeholder.address = user.address;
+					}
 
 				};
 
@@ -91,6 +64,18 @@ CONTROLLER DEFINITION
 
 				});
 
+				$scope.getAvailableAvatar = function () {
+					$User.getAvatars().then(function (_response) {
+						$log.info(_response);
+						$scope.avatars = _response.data;
+						$timeout(function () {
+							$ionicSlideBoxDelegate.update();
+						});
+					}, function (_error) {
+						$log.error(_error);
+					});
+				};
+
 
 				$scope.changeLanguage = function () {
 
@@ -107,43 +92,71 @@ CONTROLLER DEFINITION
 				$scope.updateInfo = function () {
 
 					if ($scope.user.name === undefined || $scope.user.name === '') {
-						this.Materialize.toast('Complete nombre', 4000);
+						// this.Materialize.toast('Complete nombre', 4000);
+						Utils.validateToast('COMPLETE_NAME_PROFILE');
 						return;
 					}
 
 					if ($scope.user.last_name === undefined || $scope.user.last_name === '') {
-						this.Materialize.toast('Complete apellido', 4000);
+						// this.Materialize.toast('Complete apellido', 4000);
+						Utils.validateToast('COMPLETE_LAST_NAME_PROFILE');
 						return;
 					}
 					if ($scope.user.phone === undefined || $scope.user.phone === '') {
-						this.Materialize.toast('Complete teléfono', 4000);
+						// this.Materialize.toast('Complete teléfono', 4000);
+						Utils.validateToast('COMPLETE_PHONE_PROFILE');
 						return;
 					}
 					if ($scope.user.address === undefined || $scope.user.address === '') {
-						this.Materialize.toast('Complete dirección', 4000);
+						// this.Materialize.toast('Complete dirección', 4000);
+						Utils.validateToast('COMPLETE_ADDRESS_PROFILE');
 						return;
 					}
 
-
-
-					$User.updateUser(StorageUserModel.getCurrentUser(), $scope.user).then(function (_response) {
+					$User.updateUser(prepareUserData($scope.user)).then(function (_response) {
 						StorageUserModel.setCurrentUser(_response.data);
 						popUpService.showPopUpProfileCreate($scope.translations).then(function () {
 							$state.go('dashboard');
 						});
 						$log.info(_response);
 					}, function (_error) {
-						popUpService.showPopUpProfileFail($scope.translations).then(function () {
-							$log.error(_error);
+						$log.error(_error);
+						popUpService.showPopUpProfileFail().then(function () {
+							
 							$state.go('settings');
 						});
-
-
 					});
-
-
-
 				};
+
+				function prepareUserData(_data) {
+					var user = {};
+					if (_data.name != undefined && _data.name != null && _data.name != '') {
+						user.name = _data.name;
+					}
+
+					if (_data.last_name != undefined || _data.last_name != null || _data.last_name != '') {
+						user.last_name = _data.last_name;
+					}
+
+					if (_data.phone != undefined || _data.phone != null || _data.phone != '') {
+						user.phone = _data.phone;
+					}
+
+					if (_data.address != undefined || _data.address != null || _data.address != '') {
+						user.address = _data.address;
+					}
+
+					user.country = StorageCountryModel.getSelectedCountry().name;
+					user.city= '';
+					user.profile = {};
+					user.profile.avatar = $scope.avatars[$ionicSlideBoxDelegate.currentIndex()].avatar_url;
+
+
+					return user;
+
+				}
+
+
 
 				$scope.deleteData = function () {
 					StorageUserModel.destroyCurrentUser();
@@ -168,5 +181,6 @@ CONTROLLER DEFINITION
 
 
 			});
-		}]);
+		}
+	]);
 }).call(this);

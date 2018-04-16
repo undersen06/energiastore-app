@@ -41,9 +41,41 @@
                 "POSITIVE": "Entendido"
             }
         },
-        "SELECT_PROVIDER": {
-            "TITLE": "Seleccione un proveedor"
+        "UPDATE_PROFILE_ERROR": {
+            "TITLE": "Ups!",
+            "BODY": "Problemas al actualizar tu perfil, intentalo más tarde",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+
+        "UPDATE_PROFILE_SUCCESS": {
+            "BODY": "Perfil actualizado satisfactoriamente.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "LEAVE_SIGN_UP": {
+            "BODY": "¿ Esta seguro que desea salir del registro ?",
+            "BUTTON": {
+                "POSITIVE": "Continuar",
+                "NEGATIVE": "Salir"
+            }
+        },
+        "TOKEN_PROBLEM": {
+            "BODY": "Esta cuenta esta en uso desde otro dispositivo, vuelve a iniciar sesión.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "FACEBOOK_EMAIL_ERROR": {
+            "BUTTON": {
+                "POSITIVE": "Re-intentar / Try again"
+            },
+            "TITLE": "Esta cuenta esta en uso desde otro dispositivo, vuelve a iniciar sesión.",
+            "BODY": "No hemos podido obtener tu email desde facebook, intentalo de manera manual."
         }
+
     },
     "TOAST": {
         "UNKNOWN_ERROR": "Error, intentalo más tarde",
@@ -68,11 +100,17 @@
         "QUOTATION_AMOUNT_MINIMUM": "",
 
         "COMPLETE_PROJECT_NAME": "Ingrese nombre proyecto",
-        "SELECT_PROVIDER":"Seleccione un proveedor",
-        
+        "SELECT_PROVIDER": "Seleccione un proveedor",
+
         "QUOTATION_ERROR_DOWNLOAD_INFO": "Error al descargar los proyectos",
         "QUOTATION_CREATED_MESSAGE": "Proyecto creado",
-        "QUOTATION_FAIL_MESSAGE": "Error al crear el proyecto"
+        "QUOTATION_FAIL_MESSAGE": "Error al crear el proyecto",
+
+
+        "COMPLETE_NAME_PROFILE": "Complete su nombre",
+        "COMPLETE_LAST_NAME_PROFILE": "Complete su apellido",
+        "COMPLETE_PHONE_PROFILE": "Complete su numero",
+        "COMPLETE_ADDRESS_PROFILE": "Complete su dirección"
 
     },
     "VIEWS": {

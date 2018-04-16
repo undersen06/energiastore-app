@@ -1,11 +1,10 @@
 {
-  
+
   "FMP_PRE_TEXT": "Solicitar evaluación de",
   "FMP_PRE_TEXT_STRONG": "Factor de mala potencia",
   "FMP_BUTTON": "Ingresar multa",
   "ERROR_CAMERA": "Problemas con la cámara",
   "ERROR_GALLERY": "Problemas con la galería",
-  
   "FMP_MODAL_QUOTATION_HEADER": "Proyecto Factor de potencia",
   "FMP_MODAL_QUOTATION_OPTION_MANUAL": "Ingresa multa manual",
   "FMP_MODAL_QUOTATION_AMOUNT": "Monto de multa mes ",
@@ -17,13 +16,8 @@
   "SETTINGS_PLACEHOLDER_ADDRESS": "Dirección",
   "MODAL_WELCOME_BUTTON": "Vamos allá",
   "MODAL_WELCOME_TEXT": "Bienvenido a EnergiaStore, comencemos completando tu perfil con tu información básica.",
-  "MODAL_CREATE_FACTOR_BUTTON": "Entendido",
-  "MODAL_CREATE_FACTOR_TEXT": "Cotización realizada de manera exitosa, EnergiaStore se pondrá en contacto con usted para enviar su cotización.",
-  "MODAL_FAIL_CREATE_FACTOR_BUTTON": "Entendido",
-  "MODAL_FAIL_CREATE_FACTOR_TEXT": "Ups no hemos podido realizar tu cotización, por favor intentalo mas tarde.",
   "MODAL_LOGOUT_TITLE": "Cerrar sesión",
   "MODAL_LOGOUT_TEXT": "¿Estas seguro que desea cerrar session?",
-  "MODAL_PROFILE_FAIL_BODY": "Problemas al completar tu perfil, intentalo más tarde",
   "MODAL_PROFILE_UPDATE_TITLE": "Cerrar sesión",
   "MODAL_PROFILE_UPDATE_BODY": "¿Estas seguro que desea cerrar session?",
   "MODAL_HELPER_MOTOR_TITLE": "Nombre de equipo / motor",
@@ -54,8 +48,6 @@
   "MOTOR_ADD_FAIL": "Problemas al agregar motor",
   "MENU_SWITCH_LANGUAGE": "Cambiar lenguaje",
   "MENU_LOG_OUT": "Cerrar sesión",
-  
-  
   "LOADING": "Cargando",
   "ACTION_SHEET_PHOTO_TITLE": "Agregar foto",
   "ACTION_SHEET_PHOTO_CAMERA": "Cámara",
@@ -68,11 +60,6 @@
   "CHOOSE_LANGUAGE_SPANISH": "Español",
   "CHOOSE_LANGUAGE_ENGLISH": "Ingles",
   "CHOOSE_LANGUAGE_CANCEL": "Cancelar",
-  "REGISTER_POPUP_CONTINUE_BUTTON": "Continuar",
-  "REGISTER_POPUP_LEAVE_BUTTON": "Salir",
-  "REGISTER_POPUP_LEAVE_TEXT": "¿ Esta seguro que desea salir del registro ?",
-  "TOKEN_PROBLEM_BUTTON": "Entendido",
-  "TOKEN_PROBLEM_TEXT": "Esta cuenta esta en uso desde otro dispositivo, vuelve a iniciar sesión.",
   "BUTTON_ADD_MOTOR": "Agregar motor",
   "QUOTATION_AMOUNT_EMPTY": "Debe ingresar como mínimo el valor de la multa",
   "QUOTATION_AMOUNT_MINIMUM": "El valor mínimo de la multa es de 100 usd",
@@ -93,16 +80,13 @@
   "FOOTER_PROJECT": "Proyectos",
   "FOOTER_PROFILE": "Perfil",
   "FOOTER_QUOTE": "Cotizaciones",
-  
   "UPLOAD_PHOTO_TEXT": "Puedes agregar una foto a tu cotización haciendo clic en la imagen de arriba . . .",
-  
   "CHOOSE_YOUR_COUNTRY": "Selecciona tu país",
   "TAB_PROJECTS": "Proyectos",
   "TAB_PFP": "Factor de potencia",
-  "PROFILE_COMPLETED": "Perfil actualizado satisfactoriamente.",
   "NEXT": "Siguiente",
   "BACK": "Atrás",
   "SKIP": "Saltar",
   "OK_BUTTON_QUOTE": "Entendido"
-  
+
 }

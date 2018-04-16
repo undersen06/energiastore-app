@@ -67,12 +67,8 @@ CONTROLLER DEFINITION
 							$User.updateCountry(StorageUserModel.getCurrentUser(), _country.name).then(function () {
 
 							}, function (_error) {
-
-								popUpService.errorPopUp(_error || 'UNKNOWN_ERROR').then(function () {
-
-								});
-
-
+								$log.error(_error);
+								popUpService.workingOnPopUp();
 							});
 						}
 					}

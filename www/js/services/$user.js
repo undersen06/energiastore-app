@@ -72,26 +72,17 @@
 					return defer.promise;
 				},
 
-				updateUser: function(_user,_info) {
-
+				updateUser: function(_info) {
 					var defer = $q.defer();
 					$http({
-						url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
+						url: ENV.LOCAL + ENV.UPDATE_USER_API + user.id,
 						method: 'PATCH',
 						headers:{
 							username: user.username,
 							token: user.authentication_token
 						},
 						data:{
-							user:{
-								email:_user.username,
-								phone:_info.phone,
-								address:_info.address,
-								name:_info.name,
-								last_name:_info.last_name,
-								city:_info.city,
-								country:StorageCountryModel.getSelectedCountry().name
-							}
+							user: _info
 						}
 					}).then(function(_response) {
 						defer.resolve(_response);

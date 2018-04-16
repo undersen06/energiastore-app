@@ -175,9 +175,8 @@ CONTROLLER DEFINITION
 						StorageCountryModel.selectCountry(country);
 						StorageCountryModel.selectCurrency(this._.find($scope.currencies, { 'id': country.currency_id }));
 					}, function (_error) {
-						popUpService.errorPopUp(_error || 'UNKNOWN_ERROR').then(function () {
-
-						});
+						$log.error(_error);
+						popUpService.workingOnPopUp();
 					});
 					$scope.closeModalChooseCountry();
 				};

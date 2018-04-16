@@ -1,7 +1,9 @@
 <ion-view id="welcome-view">
   <ion-content id="welcome-content" has-bouncing="false" ng-class="isIphoneX() ? 'iphone-x' : ''">
-    <img id="image-logo" src="assets/img/introduction/map.svg"  class="background-welcome" />
+    <img id="image-logo" src="assets/img/introduction/map.svg" class="background-welcome" />
 
+
+    </div>
     <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
       <ion-slide class="slider-box-1">
 
@@ -11,17 +13,16 @@
 
         <div class="language-container">
 
-          <div class="country-opt" >
-            <img src="assets/img/flag/españa.png" ng-click="chooseLanguage('es')"/>
+          <div class="country-opt">
+            <img src="assets/img/flag/españa.png" ng-click="chooseLanguage('es')" />
             <p>Español</p>
           </div>
 
-          <div class="country-opt" >
-            <img src="assets/img/flag/reino unido.png" ng-click="chooseLanguage('en')"/>
+          <div class="country-opt">
+            <img src="assets/img/flag/reino unido.png" ng-click="chooseLanguage('en')" />
             <p>English</p>
-          </div>
 
-        </div>
+          </div>
 
 
       </ion-slide>
@@ -33,22 +34,22 @@
         <h5>{{translations.CHOOSE_YOUR_COUNTRY}}</h5>
 
 
-        <div class="country-container" >
+        <div class="country-container">
 
-          <div class="row " >
+          <div class="row ">
             <div class="col col-100">
 
 
-      <div class="col col-33" ng-repeat="country in countries" style="padding:0px;">
-        <div class="country-opt" ng-click="chooseCountry({{country}})">
-          <!-- {{country}} -->
-          <img ng-src="http://energiastoreapp.com/{{country.image.thumb.url}}" alt="" />
-          <p>{{country.name | capitalize }}</p>
-        </div>
-      </div>
+              <div class="col col-33" ng-repeat="country in countries" style="padding:0px;">
+                <div class="country-opt" ng-click="chooseCountry({{country}})">
+                  <!-- {{country}} -->
+                  <img ng-src="http://energiastoreapp.com/{{country.image.thumb.url}}" alt="" />
+                  <p>{{country.name | capitalize }}</p>
+                </div>
+              </div>
 
-</div>
-    </div>
+            </div>
+          </div>
 
 
 

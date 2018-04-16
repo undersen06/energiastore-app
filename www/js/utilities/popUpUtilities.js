@@ -15,6 +15,8 @@
 						}
 					}];
 
+					
+
 					$ionicPopup.show({
 						title: '<img src="assets/img/error.png" class="img-about-us">',
 						template: `<p class="popup-subtitle">${_translation.MODAL_FAIL_CREATE_FACTOR_TEXT}</p>`,
@@ -29,17 +31,17 @@
 
 
 
-				showPopUpProfileFail: function (_translation) {
+				showPopUpProfileFail: function () {
 					var deferred = $q.defer();
 					var button_exit_lesson = [{
-						text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON, type: 'button-special', onTap: function () {
+						text: $rootScope.popup.UPDATE_PROFILE_ERROR.BUTTON.POSITIVE, type: 'button-special', onTap: function () {
 							return true;
 						}
 					}];
 
 					$ionicPopup.show({
 						title: '<img src="assets/img/error.png" class="img-about-us">',
-						template: `<p class="popup-subtitle">${_translation.MODAL_PROFILE_FAIL_BODY}</p>`,
+						template: `<p class="popup-subtitle">${$rootScope.popup.UPDATE_PROFILE_ERROR.BODY}</p>`,
 						cssClass: 'successClass',
 						buttons: button_exit_lesson,
 					}, null).then(function (_res) {
@@ -49,17 +51,19 @@
 					return deferred.promise;
 				},
 
-				showPopUpProfileCreate: function (_translation) {
+				showPopUpProfileCreate: function () {
+
+					
 					var deferred = $q.defer();
 					var button_exit_lesson = [{
-						text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON, type: 'button-special', onTap: function () {
+						text: $rootScope.popup.UPDATE_PROFILE_SUCCESS.BUTTON.POSITIVE, type: 'button-special', onTap: function () {
 							return true;
 						}
 					}];
 
 					$ionicPopup.show({
 						title: '<img src="assets/img/common/stars.png" class="img-about-us">',
-						template: `<p class="popup-subtitle">${_translation.PROFILE_COMPLETED}</p>`,
+						template: `<p class="popup-subtitle">${$rootScope.popup.UPDATE_PROFILE_SUCCESS.BODY}</p>`,
 						cssClass: '',
 						buttons: button_exit_lesson,
 					}, null).then(function (_res) {
@@ -68,44 +72,45 @@
 					});
 					return deferred.promise;
 				},
-				showPopupLeaveRegister: function (_translation) {
+
+				showPopupLeaveRegister: function () {
 					var deferred = $q.defer();
 					var buttons = [
 						{
-							text: `${_translation.REGISTER_POPUP_LEAVE_BUTTON}`, type: 'button-special', onTap: function () {
+							text: $rootScope.popup.LEAVE_SIGN_UP.BUTTON.NEGATIVE, type: 'button-special', onTap: function () {
 								return 2;
 							}
 						}, {
-							text: `${_translation.REGISTER_POPUP_CONTINUE_BUTTON}`, type: 'button-affirmative', onTap: function () {
+							text: $rootScope.popup.LEAVE_SIGN_UP.BUTTON.POSITIVE, type: 'button-affirmative', onTap: function () {
 								return 1;
 							}
 						}];
 
+					
 					$ionicPopup.show({
 						title: '<img src="assets/img/logout.png" class="img-about-us">',
-						template: `<p class="popup-subtitle">${_translation.REGISTER_POPUP_LEAVE_TEXT}</p>`,
+						template: `<p class="popup-subtitle">${$rootScope.popup.LEAVE_SIGN_UP.BODY}</p>`,
 						cssClass: '',
 						buttons: buttons,
 					}, null).then(function (_res) {
 						deferred.resolve(_res);
-
 					});
 					return deferred.promise;
 				},
 
 
-				showPopupTokenProblem: function (_translation) {
+				showPopupTokenProblem: function () {
 					var deferred = $q.defer();
 					var buttons = [
 						{
-							text: `${_translation.TOKEN_PROBLEM_BUTTON}`, type: 'button-affirmative', onTap: function () {
+							text: $rootScope.popup.TOKEN_PROBLEM.BUTTON.POSITIVE, type: 'button-affirmative', onTap: function () {
 								return true;
 							}
 						}];
-
+					
 					$ionicPopup.show({
 						title: '<img src="assets/img/error.png" class="img-about-us">',
-						template: `<p class="popup-subtitle">${_translation.TOKEN_PROBLEM_TEXT}</p>`,
+						template: `<p class="popup-subtitle">${$rootScope.popup.TOKEN_PROBLEM.BODY}</p>`,
 						buttons: buttons,
 						animation: 'fade-in',
 					}, null).then(function (_res) {
@@ -114,58 +119,6 @@
 					});
 					return deferred.promise;
 				},
-
-				showPopupQuotationOnlyUser: function (_translation) {
-					var deferred = $q.defer();
-					var buttons = [
-						{
-							text: `${_translation.OK_BUTTON_QUOTE}`, type: 'button-affirmative', onTap: function () {
-								return true;
-							}
-						}];
-
-					$ionicPopup.show({
-						title: '<img src="assets/img/error.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${_translation.WORKING_ON_TITLE}</span>`,
-						template: `<p class="popup-subtitle">${_translation.EXPLORER_ONLY_QUOTATIONS}</p>`,
-						buttons: buttons,
-						animation: 'fade-in',
-					}, null).then(function (_res) {
-						deferred.resolve(_res);
-
-					});
-					return deferred.promise;
-				},
-
-
-				showPopUpRegister: function (_translation) {
-
-					var deferred = $q.defer();
-					var buttons = [
-						{
-							text: `${_translation.REGISTER_EXPLORER_BUTTON_NO}`, type: 'button-special', onTap: function () {
-								return true;
-							}
-						}, {
-							text: `${_translation.REGISTER_EXPLORER_BUTTON_YES}`, type: 'button-affirmative', onTap: function () {
-								return false;
-							}
-						}];
-
-					$ionicPopup.show({
-						title: '<img src=assets/img/common/stars.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${_translation.REGISTER_EXPLORER_TITLE}</span>`,
-						template: `<p class="popup-subtitle">${_translation.REGISTER_EXPLORER_TEXT}`,
-						buttons: buttons,
-						animation: 'fade-in'
-					}, null).then(function (_res) {
-						deferred.resolve(_res);
-
-					});
-					return deferred.promise;
-				},
-
-
 
 				showPopupCountries: function () {
 					var deferred = $q.defer();
@@ -188,18 +141,18 @@
 					return deferred.promise;
 				},
 
-				showPopupFacebookEmailError: function (_translation) {
+				showPopupFacebookEmailError: function () {
 					var deferred = $q.defer();
 					var button_exit_lesson = [{
-						text: 'Re-intentar / Try again', type: 'button-affirmative', onTap: function () {
+						text: $rootScope.popup.FACEBOOK_EMAIL_ERROR.BUTTON.POSITIVE, type: 'button-affirmative', onTap: function () {
 							return true;
 						}
 					}];
 
 					$ionicPopup.show({
 						title: '<img src="assets/img/error.png" class="img-about-us">',
-						subTitle: '<span class="popup-title">Error</span>',
-						template: '<p class="popup-subtitle">Nos es imposible obtener el email desde facebook, registrate de manera manual para poder continuar .</p>',
+						subTitle: `<span class="popup-title">${$rootScope.popup.FACEBOOK_EMAIL_ERROR.TITLE}</span>`,
+						template: `<p class="popup-subtitle">${$rootScope.popup.FACEBOOK_EMAIL_ERROR.BODY}</p>`,
 						cssClass: '',
 						buttons: button_exit_lesson,
 					}, null).then(function (_res) {
@@ -210,7 +163,7 @@
 
 				},
 
-				workingOnPopUp: function () {
+				workingOnPopUp: function (){
 					var deferred = $q.defer();
 					var button_exit_lesson = [{
 						text: $rootScope.popup.WORKING_ON.BUTTON.POSITIVE, type: 'button-affirmative', onTap: function () {
@@ -230,28 +183,6 @@
 					});
 					return deferred.promise;
 				},
-
-				errorPopUp: function (_translation) {
-					var deferred = $q.defer();
-					var button_exit_lesson = [{
-						text: 'Entendido', type: 'button-affirmative', onTap: function () {
-							return true;
-						}
-					}];
-
-					$ionicPopup.show({
-						animation: 'fade-in',
-						title: '<img src="assets/img/working-on.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${_translation.WORKING_ON_TITLE}</span>`,
-						template: `<p class="popup-subtitle">${_translation.WORKING_ON_TEXT}</p>`,
-						buttons: button_exit_lesson,
-					}, null).then(function (_res) {
-						deferred.resolve(_res);
-
-					});
-					return deferred.promise;
-				},
-
 
 				isWebViewFacebookError: function (_translation) {
 					var deferred = $q.defer();
