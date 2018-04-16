@@ -1,8 +1,0 @@
-#country-modal-view #content-id #image-logo.background-world{width:100%;position:absolute;transform:translate(0,50%);z-index:1;top:0}
-#country-modal-view #content-id .close-button{position:absolute;top:50%;transform:translate(0,-50%);font-size:17px}
-#country-modal-view #content-id .close-button.left{left:35px}#country-modal-view #content-id .close-button.top{top:30px;z-index:999}
-#country-modal-view #content-id .close-button.iphone-x{top:60px !important}#country-modal-view #content-id h5{top:4vh;position:relative;text-align:center;color:black}
-#country-modal-view #content-id .country-container{position:relative;z-index:999}
-#country-modal-view #content-id .country-container div{z-index:999}#country-modal-view #content-id .country-container div.country-opt{z-index:999;margin:40px auto 20px auto}
-#country-modal-view #content-id .country-container div.country-opt img{margin:0 auto;display:block;z-index:999}
-#country-modal-view #content-id .country-container div.country-opt p{text-align:center}

@@ -2,3 +2,7 @@
 platforms/
 node_modules/
 bower_components/
+plugins/
+package-lock.json
+dist/
+
