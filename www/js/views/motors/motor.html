@@ -15,7 +15,7 @@
 
 
         <h6 ng-hide="motors.length != 0" style="text-align: center;margin: 30px 50px 0 50px;font-size: 15px;">
-          {{motor.MOTOR_CARD_TITLE_EMPTY}}
+          {{motors_t.MOTOR_CARD_TITLE_EMPTY}}
         </h6>
 
 
@@ -33,13 +33,13 @@
 
 <div class="">
 
-      <h2>{{motor.MOTOR_NAME_LIST}} :{{motor.name}}</h2>
-      <p>{{motor.AMP_NAME_LIST}}: {{motor.amp}}</p>
-      <p>{{motor.HOURS_NAME_LIST}}: {{motor.average_time}}</p>
-      <p>{{motor.VOLTS_NAME_LIST}}: {{motor.volts}}</p>
-      <p>{{motor.KW_NAME_LIST}}: {{motor.rated_power}}</p>
-      <p>{{motor.POWER_FACTOR_NAME_LIST}}: {{motor.efficiency}}</p>
-      <p ng-if="user.type_user === undefined">{{motor.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{motor.created_at | date: 'dd-MM-yyyy'}}</p>
+      <h2>{{motors_t.MOTOR_NAME_LIST}} :{{motor.name}}</h2>
+      <p>{{motors_t.AMP_NAME_LIST}}: {{motor.amp}}</p>
+      <p>{{motors_t.HOURS_NAME_LIST}}: {{motor.average_time}}</p>
+      <p>{{motors_t.VOLTS_NAME_LIST}}: {{motor.volts}}</p>
+      <p>{{motors_t.KW_NAME_LIST}}: {{motor.rated_power}}</p>
+      <p>{{motors_t.POWER_FACTOR_NAME_LIST}}: {{motor.efficiency}}</p>
+      <p ng-if="user.type_user === undefined">{{motors_t.MOTOR_CARD_ELEMENT_CREATED_AT}}: {{motor.created_at | date: 'dd-MM-yyyy'}}</p>
 </div>
     </ion-item>
   </ion-list>
@@ -52,7 +52,7 @@
 
 
     <div ng-class="design.buttonSolid" class="button-traslucid" style="left:50%;transform:translate(-50%);position: absolute;bottom:50px;" ng-click="goToQuotation();">
-  {{translations.SEND_QUOTATION_BUTTON_BOTTOM}}
+  {{motors_t.SEND_QUOTATION_BUTTON_BOTTOM}}
     </div>
 
 </ion-view>

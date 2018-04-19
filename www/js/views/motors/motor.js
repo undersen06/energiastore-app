@@ -33,7 +33,7 @@ CONTROLLER DEFINITION
 				};
 
 				$scope.init = function () {
-					$scope.project_name = $state.params.project_name || '';
+					
 					$scope.getMotors();
 				};
 
@@ -83,35 +83,35 @@ CONTROLLER DEFINITION
 				$scope.createMotor = function () {
 
 					if ($scope.motor.name === undefined || $scope.motor.name === '') {
-						Utils.validateToast($scope.translations.MOTOR_COMPLETE_NAME);
+						Utils.validateToast('MOTOR_COMPLETE_NAME');
 						return;
 					}
 
 					if ($scope.motor.voltaje === undefined || $scope.motor.voltaje === 0) {
-						Utils.validateToast($scope.translations.MOTOR_COMPLETE_VOLT);
+						Utils.validateToast('MOTOR_COMPLETE_VOLT');
 						return;
 					}
 
 					if ($scope.motor.voltaje <= 0) {
-						Utils.validateToast($scope.translations.MOTOR_COMPLETE_VOLTAJE_MINIMUM);
+						Utils.validateToast('MOTOR_COMPLETE_VOLTAJE_MINIMUM');
 						// El voltaje debe ser mayor a 0
 						return;
 					}
 
 					if ($scope.motor.amp === undefined || $scope.motor.amp === 0) {
-						Utils.validateToast($scope.translations.MOTOR_COMPLETE_AMP);
+						Utils.validateToast('MOTOR_COMPLETE_AMP');
 						return;
 					}
 
 					if ($scope.motor.amp <= 0) {
-						Utils.validateToast($scope.translations.MOTOR_COMPLETE_AMP_MINIMUM);
+						Utils.validateToast('MOTOR_COMPLETE_AMP_MINIMUM');
 						// El amperaje debe ser mayor a 0
 						return;
 					}
 
 
 					if ($scope.motor.power_factor === undefined || $scope.motor.power_factor === 0) {
-						Utils.validateToast($scope.translations.MOTOR_COMPLETE_FTP);
+						Utils.validateToast('MOTOR_COMPLETE_FTP');
 						return;
 					}
 
@@ -133,31 +133,31 @@ CONTROLLER DEFINITION
 					}
 
 					if ($scope.motor.rated_power === undefined || $scope.motor.rated_power === 0) {
-						Utils.validateToast($scope.translations.MOTOR_COMPLETE_KW_EMPTY);
+						Utils.validateToast('MOTOR_COMPLETE_KW_EMPTY');
 						// Los KW deben ser mayor a 0
 						return;
 					}
 
 					if ($scope.motor.rated_power <= 0) {
-						Utils.validateToast($scope.translations.MOTOR_COMPLETE_KW_MINIMUM);
+						Utils.validateToast('MOTOR_COMPLETE_KW_MINIMUM');
 						// El amperaje debe ser mayor a 0
 						return;
 					}
 
 
 					if ($scope.motor.hours === undefined || $scope.motor.hours === 0) {
-						Utils.validateToast($scope.translations.MOTOR_COMPLETE_HOURS_DAY);
+						Utils.validateToast('MOTOR_COMPLETE_HOURS_DAY');
 						return;
 					}
 
 					if ($scope.motor.days === undefined || $scope.motor.days === 0) {
-						Utils.validateToast($scope.translations.MOTOR_COMPLETE_DAYS_MONTH);
+						Utils.validateToast('MOTOR_COMPLETE_DAYS_MONTH');
 						return;
 					}
 
 					$Motors.create($scope.user, $scope.motor, $state.params.id_quotation).then(function (_response) {
 						$scope.modalMotor.hide();
-						Utils.validateToast($scope.translations.MOTOR_ADD_SUCCESS);
+						Utils.validateToast('MOTOR_ADD_SUCCESS');
 						$log.info(_response);
 						$scope.getMotors();
 						$scope.motor = {};
@@ -165,7 +165,7 @@ CONTROLLER DEFINITION
 						// Materialize.toast("Problemas al agregar motor",4000);
 						// $scope.modalMotor.hide();
 						$scope.motor = {};
-						Utils.validateToast($scope.translations.MOTOR_ADD_FAIL);
+						Utils.validateToast('MOTOR_ADD_FAIL');
 						$log.error(_error);
 					});
 
@@ -177,10 +177,10 @@ CONTROLLER DEFINITION
 						$scope.motors = _response.data;
 						$scope.$broadcast('scroll.refreshComplete');
 
-						if ($scope.motors == undefined) {
-							$scope.motorButtonText = $rootScope.motor.BUTTON_ADD_MOTOR;
+						if ($scope.motors == undefined || $scope.motors.length == 0 ) {
+							$scope.motorButtonText = $rootScope.motors_t.BUTTON_ADD_MOTOR;
 						} else {
-							$scope.motorButtonText = $rootScope.motor.BUTTON_ADD_MORE_MOTORS;
+							$scope.motorButtonText = $rootScope.motors_t.BUTTON_ADD_MORE_MOTORS;
 						}
 
 					}, function (_error) {
@@ -197,7 +197,16 @@ CONTROLLER DEFINITION
 				$scope.goToQuotation = function () {
 					if ($scope.motors.length !== 0) {
 						$state.go('finalizeQuotation', { id_quotation: $state.params.id_quotation });
+					}else{
+						Utils.validateToast('EMPTY_MOTORS_FINALIZE_QUOTATION');
 					}
+					// "MOTOR_COMPLETE_VOLTAJE_MINIMUM": "El voltaje debe ser mayor a 0",
+					// 	"MOTOR_COMPLETE_AMP_MINIMUM": "El amperage debe ser mayor a 0",
+					// 		"MOTOR_COMPLETE_KW_MINIMUM": "Los KW deben ser mayor a 0",
+					// 			"MOTOR_COMPLETE_KW_EMPTY": "Complete KW del motor",
+					// 				"": "Debes agregar al menos 1 motor.",
+					// 					"MOTOR_SELECT_HOURS": "Seleccione las horas",
+					// 						"MOTOR_SELECT_DAYS": "Seleccione los dias"
 				};
 
 				$scope.goToProjects = function () {
@@ -215,7 +224,9 @@ CONTROLLER DEFINITION
 					$state.go('dashboard');
 				};
 
-
+				$scope.motorButtonText = $rootScope.motors_t.BUTTON_ADD_MOTOR;
+				$scope.project_name = $state.params.project_name || '';
+				$scope.getMotors();
 
 			});
 		}]);

@@ -6,26 +6,21 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('FinalizedQuotationController', ['$scope', '$state', '$ionicPlatform', 'StorageUserModel', 'translationService', '$resource', '$cordovaStatusbar', '$ionicLoading', 'Utils', 'Quotation', '$cordovaActionSheet', '$cordovaCamera', 'PDF', '$cordovaFileTransfer', '$cordovaFileOpener2', '$timeout', '$ionicModal', 'popUpService', '$ionicSlideBoxDelegate', 'Calculation', 'User', 'Motors', 'StorageProject', 'StorageMotor', '$log',
-		function ($scope, $state, $ionicPlatform, StorageUserModel, translationService, $resource, $cordovaStatusbar, $ionicLoading, Utils, Quotation, $cordovaActionSheet, $cordovaCamera, PDF, $cordovaFileTransfer, $cordovaFileOpener2, $timeout, $ionicModal, popUpService, $ionicSlideBoxDelegate, Calculation, User, Motors, StorageProject, StorageMotor, $log) {
+	this.app.controller('FinalizedQuotationController', ['$scope', '$state', '$ionicPlatform', 'StorageUserModel', '$cordovaStatusbar', '$ionicLoading', 'Utils', '$Quotation', '$cordovaActionSheet', '$cordovaCamera', '$PDF', '$cordovaFileTransfer', '$cordovaFileOpener2', '$timeout', '$ionicModal', 'popUpService', '$ionicSlideBoxDelegate', '$Calculation', '$User', '$Motors', 'StorageProject', 'StorageMotor', '$log', '$rootScope',
+		function ($scope, $state, $ionicPlatform, StorageUserModel, $cordovaStatusbar, $ionicLoading, Utils, $Quotation, $cordovaActionSheet, $cordovaCamera, $PDF, $cordovaFileTransfer, $cordovaFileOpener2, $timeout, $ionicModal, popUpService, $ionicSlideBoxDelegate, $Calculation, $User, $Motors, StorageProject, StorageMotor, $log, $rootScope) {
 
 
 			$ionicPlatform.ready(function () {
-
-				const languageFilePath = translationService.getTranslation();
-				$resource(languageFilePath).get(function (data) {
-					$scope.translations = data;
-					$scope.options = {
-						title: $scope.translations.ACTION_SHEET_PHOTO_TITLE,
-						buttonLabels: [$scope.translations.ACTION_SHEET_PHOTO_CAMERA, $scope.translations.ACTION_SHEET_PHOTO_GALERY],
-						addCancelButtonWithLabel: $scope.translations.CHOOSE_LANGUAGE_CANCEL,
-						androidEnableCancelButton: true,
-						winphoneEnableCancelButton: true
-					};
-				});
+				// TODO: arreglar aqui e implementar correctamente Location
 
 
-
+				$scope.options = {
+					title: $rootScope.quotation.ACTION_SHEET_PHOTO_TITLE,
+					buttonLabels: [$rootScope.quotation.ACTION_SHEET_PHOTO_CAMERA, $rootScope.quotation.ACTION_SHEET_PHOTO_GALERY],
+					addCancelButtonWithLabel: $rootScope.quotation.CHOOSE_LANGUAGE_CANCEL,
+					androidEnableCancelButton: true,
+					winphoneEnableCancelButton: true
+				};
 
 				$scope.image = 'assets/img/photo.png';
 				var user = StorageUserModel.getCurrentUser();
@@ -38,37 +33,27 @@ CONTROLLER DEFINITION
 
 				$scope.FinishQuotation = function () {
 
-					if (user.type_user === 'explorer') {
 
-						popUpService.showPopUpRegister($scope.translations).then(function (_response) {
-							if (!_response) {
-								$scope.showModalRegister();
+					var quote = {
+						calculation_id: $state.params.id_quotation,
+						user_id: user.id,
+						comment: $scope.quote.comments,
+						reference: $scope.quote.photo
+					};
 
-							}
+					$ionicLoading.show({
+						templateUrl: 'loading.html'
+					}).then(function () {
 
+
+						$Quotation.Create(user, quote).then(function (_response) {
+							
+							$scope.getPDF($state.params.id_quotation, _response.data.id);
+						}, function (_error) {
+							$log.error(_error);
 						});
-
-					} else {
-
-						var quote = {
-							calculation_id: $state.params.id_quotation,
-							user_id: user.id,
-							comment: $scope.quote.comments,
-							reference: $scope.quote.photo
-						};
-
-						$ionicLoading.show({
-							templateUrl: 'loading.html'
-						}).then(function () {
-
-
-							Quotation.Create(user, quote).then(function (_response) {
-								$scope.getPDF($state.params.id_quotation, _response.data.id);
-							}, function (_error) {
-								$log.error(_error);
-							});
-						});
-					}
+					});
+					
 				};
 
 
@@ -85,7 +70,7 @@ CONTROLLER DEFINITION
 						name: StorageProject.getProjects().name,
 					};
 
-					Calculation.create(project, StorageUserModel.getCurrentUser()).then(
+					$Calculation.create(project, StorageUserModel.getCurrentUser()).then(
 						function (_response) {
 							Utils.validateToast('QUOTATION_CREATED_MESSAGE');
 							$log.info(_response);
@@ -113,7 +98,8 @@ CONTROLLER DEFINITION
 						motors[i].power_factor = motors[i].efficiency;
 						motors[i].voltaje = motors[i].volts;
 
-						Motors.create(StorageUserModel.getCurrentUser(), motors[i], $scope.project.id).then(function (_response) {
+						$Motors.create(StorageUserModel.getCurrentUser(), motors[i], $scope.project.id).then(function (_response) {
+							$log.info(_response);
 							added_motors++;
 							if (added_motors === motors.length) {
 
@@ -147,10 +133,11 @@ CONTROLLER DEFINITION
 					}).then(function () {
 
 
-						Quotation.Create(StorageUserModel.getCurrentUser(), quote).then(function (_response) {
+						$Quotation.Create(StorageUserModel.getCurrentUser(), quote).then(function (_response) {
+							$log.info(_response);
 							$scope.getPDF($scope.project.id, _response.data.id);
 						}, function (_error) {
-
+							$log.error(_error);
 						});
 					});
 				};
@@ -220,7 +207,7 @@ CONTROLLER DEFINITION
 				};
 
 
-				$scope.downloadFile = function (_url, _file_name) {
+				$scope.downloadFile = function (_url) {
 
 					var targetPath = cordova.file.dataDirectory;
 					var trustHosts = true;
@@ -261,7 +248,7 @@ CONTROLLER DEFINITION
 							},
 							function (err) {
 								$log.error(err);
-								//TODO: show message to thew user;
+								popUpService.fail_open_pdf();
 								// An error occurred. Show a message to the user
 							}
 						);
@@ -375,7 +362,7 @@ CONTROLLER DEFINITION
 					$ionicLoading.show({
 						templateUrl: 'loading.html'
 					});
-					User.registerUser($scope.register).then(function (_response) {
+					$User.registerUser($scope.register).then(function (_response) {
 
 						StorageUserModel.setCurrentUser(_response.data);
 

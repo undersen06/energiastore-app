@@ -6,7 +6,7 @@
 </ion-header-bar>
 
 
-<ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-color-light" ng-class="">
+<ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-color-light" ng-class="design.header">
   <ion-tab title="{{quotation.PROJECT_TAB_TITLE}}" ng-click="left();">
   </ion-tab>
 
@@ -85,7 +85,7 @@
 
 .total-left{
   transition: all 4s cubic-bezier(0, 1.15, 0.32, 1.01);;
-  left: 50vw !important; */
+  left: 50vw !important; 
 }
 
 .tabs-striped.tabs-color-light .tab-item {
@@ -119,5 +119,10 @@
 
 .extra-margin-bottom{
   margin-bottom:45px;
+}
+
+.tabs-striped.tabs-background-positive .tabs {
+    background-color: #62D485;
+    background-image: none;
 }
 </style>

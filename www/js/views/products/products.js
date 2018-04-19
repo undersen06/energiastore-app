@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('ProductsController', ['$scope', '$state','$ionicPlatform','$resource','translationService','$timeout','StorageUserModel','$Woocommerce',
-		function($scope, $state,$ionicPlatform,$resource,translationService,$timeout,StorageUserModel,$Woocommerce) {
+	this.app.controller('ProductsController', ['$scope', '$state','$ionicPlatform','$timeout','StorageUserModel','$Woocommerce',
+		function($scope, $state,$ionicPlatform,$timeout,StorageUserModel,$Woocommerce) {
 
 			$scope.design = {};
 			switch (StorageUserModel.getCurrentUser().type_user) {

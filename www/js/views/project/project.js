@@ -175,6 +175,7 @@ CONTROLLER DEFINITION
 					}).then(function () {
 
 						calculation.name = calculation.name + '_duplicated';
+						
 
 						$Calculation.create(calculation, StorageUserModel.getCurrentUser()).then(
 							function (_response) {

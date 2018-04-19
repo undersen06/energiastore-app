@@ -3,7 +3,7 @@
 (function() {
 	this.app.component('footBar', {
 		templateUrl: 'js/components/footbar/footbar.html',
-		controller: function ($scope,$state,translationService,$resource,$ionicPlatform,$rootScope) {
+		controller: function ($scope,$state,$ionicPlatform,$rootScope) {
 
 			
 			$scope.footbar = $rootScope.footbar;

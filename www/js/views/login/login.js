@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('LoginController', ['$scope', '$state', '$ionicPlatform', 'StorageUserModel', '$Session', 'translationService', '$resource', '$cordovaStatusbar', '$ionicLoading', 'Utils', 'popUpService', 'StorageCountryModel', '$User', '$cordovaAppAvailability','$log',
-		function ($scope, $state, $ionicPlatform, StorageUserModel, $Session, translationService, $resource, $cordovaStatusbar, $ionicLoading, Utils, popUpService, StorageCountryModel, $User, $cordovaAppAvailability,$log) {
+	this.app.controller('LoginController', ['$scope', '$state', '$ionicPlatform', 'StorageUserModel', '$Session','$cordovaStatusbar', '$ionicLoading', 'Utils', 'popUpService', 'StorageCountryModel', '$User', '$cordovaAppAvailability','$log',
+		function ($scope, $state, $ionicPlatform, StorageUserModel, $Session, $cordovaStatusbar, $ionicLoading, Utils, popUpService, StorageCountryModel, $User, $cordovaAppAvailability,$log) {
 
 			
 			// const CURRENT_VIEW = 'LOGIN';
@@ -127,11 +127,7 @@ CONTROLLER DEFINITION
 					}
 				};
 
-				const languageFilePath = translationService.getTranslation();
-				$resource(languageFilePath).get(function (data) {
-					$scope.translations = data;
-				});
-
+		
 				$scope.user = {};
 
 				$scope.goToRegister = function () {
@@ -141,9 +137,7 @@ CONTROLLER DEFINITION
 
 				$scope.useFacebook = function () {
 					if (!ionic.Platform.isWebView()) {
-						popUpService.isWebViewFacebookError($scope.translations).then(function(){
-
-						});
+						popUpService.isWebViewFacebookError();
 					} else {
 
 						get_status_login();
@@ -225,6 +219,7 @@ CONTROLLER DEFINITION
 						// get_facebook_user_info();
 
 					}, function failure() {
+						//TODO:
 						popUpService.isWebViewFacebookError('*****').then(function(){
 
 						});

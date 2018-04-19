@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('CategoriesController', ['$scope', '$state','$ionicPlatform','$resource','translationService','$cordovaStatusbar','$ionicSlideBoxDelegate','$timeout','StorageUserModel','StorageLanguageModel','$ionicPopup','$cordovaActionSheet','StorageStatus','StorageProject','StorageMotor','StorageQuotation','$ionicModal','User','$ionicLoading','popUpService','Woocommerce',
-		function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup,$cordovaActionSheet,StorageStatus,StorageProject,StorageMotor,StorageQuotation,$ionicModal,User,$ionicLoading,popUpService,Woocommerce) {
+	this.app.controller('CategoriesController', ['$scope', '$state','$ionicPlatform','$cordovaStatusbar','$ionicSlideBoxDelegate','$timeout','StorageUserModel','StorageLanguageModel','$ionicPopup','$cordovaActionSheet','StorageStatus','StorageProject','StorageMotor','StorageQuotation','$ionicModal','User','$ionicLoading','popUpService','Woocommerce',
+		function($scope, $state,$ionicPlatform,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup,$cordovaActionSheet,StorageStatus,StorageProject,StorageMotor,StorageQuotation,$ionicModal,User,$ionicLoading,popUpService,Woocommerce) {
 
 			$scope.design = {};
 			switch (StorageUserModel.getCurrentUser().type_user) {

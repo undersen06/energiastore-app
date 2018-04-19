@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('RegisterController', ['$scope', '$state','$ionicPlatform','$ionicSlideBoxDelegate','$User','$ionicLoading','StorageUserModel','$resource','translationService','Utils','popUpService','StorageCountryModel','$log',
-		function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$User,$ionicLoading,StorageUserModel,$resource,translationService,Utils,popUpService,StorageCountryModel,$log) {
+	this.app.controller('RegisterController', ['$scope', '$state','$ionicPlatform','$ionicSlideBoxDelegate','$User','$ionicLoading','StorageUserModel','Utils','popUpService','StorageCountryModel','$log',
+		function($scope, $state,$ionicPlatform,$ionicSlideBoxDelegate,$User,$ionicLoading,StorageUserModel,Utils,popUpService,StorageCountryModel,$log) {
 			$ionicPlatform.ready(function() {
 
 				$scope.user={};
@@ -110,8 +110,7 @@ CONTROLLER DEFINITION
 					},function(_error){
 						$ionicLoading.hide();
 						$log.error(_error);
-						// TODO: 
-						//agregar mensaje en caso de que el usuario no pueda ser creado
+						popUpService.fail_create_user();
 
 					});
 				};

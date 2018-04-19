@@ -35,10 +35,10 @@
               <a class="waves-effect waves-light btn" ng-click="goToRegister()" ng-class="design.header">{{login.SIGNUP_BUTTON}}</a>
               </br>
               </br>
-              <a class="waves-effect waves-light btn" id="facebook-button" ng-click="useFacebook()">{{login.INIT_FACEBOOK}}</a>
+              <a class="waves-effect waves-light btn social-media-buttons" id="facebook-button" ng-click="useFacebook()">{{login.INIT_FACEBOOK}}</a>
               </br>
               </br>
-              <a class="waves-effect waves-light btn" id="linkedin-button" ng-click="useLinkedIn()">{{login.INIT_LINKEDIN}}</a>
+              <a class="waves-effect waves-light btn social-media-buttons" id="linkedin-button" ng-click="useLinkedIn()">{{login.INIT_LINKEDIN}}</a>
 
             </div>
           </div>
@@ -47,3 +47,9 @@
     </div>
   </ion-content>
 </ion-view>
+
+  <style>
+    .social-media-buttons{
+      font-size:10px !important;
+    }
+  </style>

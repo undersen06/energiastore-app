@@ -105,6 +105,7 @@ CONTROLLER DEFINITION
 							},
 							function (_error) {
 								$log.error(_error);
+								popUpService.fail_open_pdf();
 								// An error occurred. Show a message to the user
 							}
 						);

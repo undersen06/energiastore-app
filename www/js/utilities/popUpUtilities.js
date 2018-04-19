@@ -7,10 +7,10 @@
 
 			return {
 
-				showPopUpFailCreateFactor: function (_translation) {
+				showPopUpFailCreateFactor: function () {
 					var deferred = $q.defer();
 					var button_exit_lesson = [{
-						text: _translation.MODAL_FAIL_CREATE_FACTOR_BUTTON, type: 'button-affirmative', onTap: function () {
+						text: $rootScope.popup.FAIL_CREATE_FACTOR.BUTTON.POSITIVE, type: 'button-affirmative', onTap: function () {
 							return true;
 						}
 					}];
@@ -19,7 +19,7 @@
 
 					$ionicPopup.show({
 						title: '<img src="assets/img/error.png" class="img-about-us">',
-						template: `<p class="popup-subtitle">${_translation.MODAL_FAIL_CREATE_FACTOR_TEXT}</p>`,
+						template: `<p class="popup-subtitle">${$rootScope.popup.FAIL_CREATE_FACTOR.BODY}</p>`,
 						cssClass: '',
 						buttons: button_exit_lesson,
 					}, null).then(function (_res) {
@@ -184,10 +184,51 @@
 					return deferred.promise;
 				},
 
-				isWebViewFacebookError: function (_translation) {
+				fail_create_user: function () {
 					var deferred = $q.defer();
 					var button_exit_lesson = [{
-						text: 'Entendido', type: 'button-affirmative', onTap: function () {
+						text: $rootScope.popup.FAIL_CREATE_USER.BUTTON.POSITIVE, type: 'button-affirmative', onTap: function () {
+							return true;
+						}
+					}];
+
+					$ionicPopup.show({
+						animation: 'fade-in',
+						title: '<img src="assets/img/logout.png" class="img-about-us">',
+						subTitle: `<span class="popup-title">${$rootScope.popup.FAIL_CREATE_USER.TITLE}</span>`,
+						template: `<p class="popup-subtitle">${$rootScope.popup.FAIL_CREATE_USER.BODY}</p>`,
+						buttons: button_exit_lesson,
+					}, null).then(function (_res) {
+						deferred.resolve(_res);
+
+					});
+					return deferred.promise;
+				},
+				fail_open_pdf: function () {
+					var deferred = $q.defer();
+					var button_exit_lesson = [{
+						text: $rootScope.popup.FAIL_OPEN_PDF.BUTTON.POSITIVE, type: 'button-affirmative', onTap: function () {
+							return true;
+						}
+					}];
+
+					$ionicPopup.show({
+						animation: 'fade-in',
+						title: '<img src="assets/img/logout.png" class="img-about-us">',
+						subTitle: `<span class="popup-title">${$rootScope.popup.FAIL_OPEN_PDF.TITLE}</span>`,
+						template: `<p class="popup-subtitle">${$rootScope.popup.FAIL_OPEN_PDF.BODY}</p>`,
+						buttons: button_exit_lesson,
+					}, null).then(function (_res) {
+						deferred.resolve(_res);
+
+					});
+					return deferred.promise;
+				},
+
+				isWebViewFacebookError: function () {
+					var deferred = $q.defer();
+					var button_exit_lesson = [{
+						text: $rootScope.popup.ERROR_FACEBOOK_IS_WEBVIEW.BUTTONS.POSITIVE, type: 'button-affirmative', onTap: function () {
 							return true;
 						}
 					}];
@@ -195,8 +236,7 @@
 					$ionicPopup.show({
 						animation: 'fade-in',
 						title: '<img src="assets/img/facebook.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${_translation.WORKING_ON_TITLE}</span>`,
-						template: `<p class="popup-subtitle">${_translation.WORKING_ON_TEXT}</p>`,
+						template: `<p class="popup-subtitle">${$rootScope.popup.ERROR_FACEBOOK_IS_WEBVIEW.BODY}</p>`,
 						buttons: button_exit_lesson,
 					}, null).then(function (_res) {
 						deferred.resolve(_res);
@@ -206,16 +246,11 @@
 
 				},
 
-				isWebViewLinkedInError: function (_error) {
-					var message = $rootScope.popup.ERROR_LINKEDIN_LOGIN;
-					if(_error !== undefined){
-						message = $rootScope.popup[_error];
-					}
-					
-
+				isWebViewLinkedInError: function () {
+				
 					var deferred = $q.defer();
 					var button_exit_lesson = [{
-						text: message.BUTTON.POSITIVE,
+						text: $rootScope.popup.ERROR_LINKEDIN_LOGIN.BUTTON.POSITIVE,
 						type: 'button-affirmative',
 						onTap: function () {
 							return true;
@@ -225,8 +260,8 @@
 					$ionicPopup.show({
 						animation: 'fade-in',
 						title: '<img src="assets/img/linkedin.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${message.TITLE || ''}</span>`,
-						template: `<p class="popup-subtitle">${message.BODY || ''}</p>`,
+						subTitle: `<span class="popup-title">${$rootScope.popup.ERROR_LINKEDIN_LOGIN.TITLE }</span>`,
+						template: `<p class="popup-subtitle">${$rootScope.popup.ERROR_LINKEDIN_LOGIN.BODY}</p>`,
 						buttons: button_exit_lesson,
 					}, null).then(function (_res) {
 						deferred.resolve(_res);

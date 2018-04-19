@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('ProfileController', ['$scope', '$state', '$ionicPlatform', '$rootScope', '$Session', 'StorageUserModel', '$User', '$resource', 'translationService', 'popUpService', '$log', 'Utils', '$timeout', '$ionicSlideBoxDelegate','StorageCountryModel',
-		function ($scope, $state, $ionicPlatform, $rootScope, $Session, StorageUserModel, $User, $resource, translationService, popUpService, $log, Utils, $timeout, $ionicSlideBoxDelegate, StorageCountryModel) {
+	this.app.controller('ProfileController', ['$scope', '$state', '$ionicPlatform', '$rootScope', '$Session', 'StorageUserModel', '$User', 'popUpService', '$log', 'Utils', '$timeout', '$ionicSlideBoxDelegate','StorageCountryModel',
+		function ($scope, $state, $ionicPlatform, $rootScope, $Session, StorageUserModel, $User, popUpService, $log, Utils, $timeout, $ionicSlideBoxDelegate, StorageCountryModel) {
 
 			$ionicPlatform.ready(function () {
 

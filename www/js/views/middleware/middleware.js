@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('MiddlewareController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$timeout', 'StorageUserModel', 'popUpService',
-		function ($scope, $state, $ionicPlatform, $resource, translationService, $timeout, StorageUserModel, popUpService) {
+	this.app.controller('MiddlewareController', ['$scope', '$state', '$ionicPlatform', '$timeout', 'StorageUserModel', 'popUpService',
+		function ($scope, $state, $ionicPlatform, $timeout, StorageUserModel, popUpService) {
 			$ionicPlatform.ready(function () {
 
 				$scope.isIphoneX = function () {
@@ -28,12 +28,6 @@ CONTROLLER DEFINITION
 					$state.go('dashboard');
 				}
 			}
-
-			const languageFilePath = translationService.getTranslation();
-			$resource(languageFilePath).get(function (data) {
-				$scope.translations = data;
-
-			});
 
 			$ionicPlatform.ready(function () {
 

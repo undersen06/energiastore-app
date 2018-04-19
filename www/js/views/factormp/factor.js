@@ -6,10 +6,11 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', 'translationService', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer','$log',
-		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, translationService, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer, $log) {
+	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer','$log','$rootScope',
+		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer, $log, $rootScope) {
 
 			$ionicPlatform.ready(function () {
+
 
 				$scope.isIphoneX = function () {
 					if (ionic.Platform.device().model != undefined) {
@@ -25,8 +26,6 @@ CONTROLLER DEFINITION
 				$scope.register = {};
 				$scope.user = StorageUserModel.getCurrentUser();
 				$scope.factorType = {};
-
-
 
 				$scope.back = function () {
 					$state.go('dashboard', { options: 'reload' }, { reload: true });
@@ -227,7 +226,7 @@ CONTROLLER DEFINITION
 							},
 							function (_error) {
 								$log.error(_error);
-
+								popUpService.fail_open_pdf();
 								// An error occurred. Show a message to the user
 							}
 						);

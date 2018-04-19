@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('WelcomeController', ['$scope', '$state', '$ionicPlatform', '$resource', 'translationService', '$cordovaStatusbar', '$ionicSlideBoxDelegate', 'StorageLanguageModel', '$Country', 'StorageCountryModel', '$q', 'popUpService', 'StorageUserModel', '$User','$log',
-		function ($scope, $state, $ionicPlatform, $resource, translationService, $cordovaStatusbar, $ionicSlideBoxDelegate, StorageLanguageModel, $Country, StorageCountryModel, $q, popUpService, StorageUserModel, $User,$log) {
+	this.app.controller('WelcomeController', ['$scope', '$state', '$ionicPlatform', '$cordovaStatusbar', '$ionicSlideBoxDelegate', 'StorageLanguageModel', '$Country', 'StorageCountryModel', '$q', 'popUpService', 'StorageUserModel', '$User', '$log','$Localization',
+		function ($scope, $state, $ionicPlatform, $cordovaStatusbar, $ionicSlideBoxDelegate, StorageLanguageModel, $Country, StorageCountryModel, $q, popUpService, StorageUserModel, $User, $log, $Localization) {
 			'use strict';
 			$ionicPlatform.ready(function () {
 
@@ -43,11 +43,7 @@ CONTROLLER DEFINITION
 
 				$scope.chooseLanguage = function (_language) {
 					StorageLanguageModel.setCurrentLanguage(_language);
-					$resource(translationService.getTranslation()).get(function (data) {
-						$scope.translations = data;
-						$ionicSlideBoxDelegate.slide(1);
-					});
-
+					$Localization.getTranslation();
 					$ionicSlideBoxDelegate.enableSlide(false);
 
 				};

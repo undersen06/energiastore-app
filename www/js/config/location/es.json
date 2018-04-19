@@ -74,7 +74,32 @@
             },
             "TITLE": "Esta cuenta esta en uso desde otro dispositivo, vuelve a iniciar sesión.",
             "BODY": "No hemos podido obtener tu email desde facebook, intentalo de manera manual."
-        }
+        },
+        "FAIL_CREATE_USER": {
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            },
+            "TITLE": "Ups.",
+            "BODY": "No hemos podido crear tu cuenta, por favor intentalo más tarde."
+        },
+            "FAIL_OPEN_PDF": {
+                "BUTTON": {
+                    "POSITIVE": "Entendido"
+                },
+                "TITLE": "Ups.",
+                "BODY": "No hemos podido descargar el pdf, intentalo más tarde."
+            },
+            "FAIL_CREATE_FACTOR": {
+                "BUTTON": {
+                    "POSITIVE": "Entendido"
+                },
+                "TITLE": "Ups.",
+                "BODY": "Ups, no hemos podido completar tu cotización, por favor intentalo más tarde."
+            }
+
+            
+
+
 
     },
     "TOAST": {
@@ -89,10 +114,6 @@
         "COMPLETE_PASSWORD": "Complete contraseña",
         "LOGIN_ERROR": "Usuario incorrecto",
 
-        "ADD_PHOTO_BUTTON_TEXT": "AGREGAR FOTO",
-        "FINALIZE_QUOTATION_HEADER": "Finalizar Proyecto",
-        "INPUT_COMMENTS_TEXT_BOX": "Comentarios (opcional)",
-        "UPDATE_BUTTON": "Actualizar",
 
         "ERROR_CAMERA": "",
         "ERROR_GALLERY": "",
@@ -110,8 +131,24 @@
         "COMPLETE_NAME_PROFILE": "Complete su nombre",
         "COMPLETE_LAST_NAME_PROFILE": "Complete su apellido",
         "COMPLETE_PHONE_PROFILE": "Complete su numero",
-        "COMPLETE_ADDRESS_PROFILE": "Complete su dirección"
+        "COMPLETE_ADDRESS_PROFILE": "Complete su dirección",
 
+
+        "MOTOR_COMPLETE_VOLTAJE_MINIMUM": "El voltaje debe ser mayor a 0",
+        "MOTOR_COMPLETE_AMP_MINIMUM": "El amperaje debe ser mayor a 0",
+        "MOTOR_COMPLETE_KW_MINIMUM": "Los KW deben ser mayor a 0",
+        "MOTOR_COMPLETE_KW_EMPTY": "Complete KW del motor",
+        "EMPTY_MOTORS_FINALIZE_QUOTATION": "Debes agregar al menos 1 motor.",
+        "MOTOR_SELECT_HOURS": "Seleccione las horas",
+        "MOTOR_SELECT_DAYS": "Seleccione los dias",
+        "MOTOR_COMPLETE_DAYS_MONTH": "Complete dias del mes del motor",
+        "MOTOR_ADD_SUCCESS": "Motor agregado",
+        "MOTOR_COMPLETE_HOURS_DAY": "Complete horas al dia del motor",
+        "MOTOR_COMPLETE_FTP": "Complete factor de potencia",
+        "MOTOR_COMPLETE_AMP": "Complete amperaje del motor",
+        "MOTOR_COMPLETE_VOLT": "Complete voltaje del motor",
+        "MOTOR_COMPLETE_NAME": "Complete nombre del motor",
+        "MOTOR_ADD_FAIL": "Problemas al agregar motor"
     },
     "VIEWS": {
         "DASHBOARD": {
@@ -121,6 +158,7 @@
         },
         "FACTOR_MP": {
             "FMP_HEADER": "Mal factor de potencia",
+            "INPUT_COMMENTS_TEXTBOX": "Comentarios (opcionales)",
             "FMP_PRE_TEXT": "Solicitar evaluación de",
             "FMP_PRE_TEXT_STRONG": "Factor de mala potencia",
             "FMP_BUTTON": "Ingresar multa",
@@ -163,11 +201,32 @@
         "MOTORS": {
             "MOTORS_HEADER": "Motores",
             "MOTOR_NAME_LIST": "Nombre motor",
-            "AMP_NAME_LIST": "Amperage",
+            "AMP_NAME_LIST": "Amperaje",
             "HOURS_NAME_LIST": "Tiempo promedio",
+            "KW_NAME_LIST": "KW",
             "VOLTS_NAME_LIST": "Voltios",
             "POWER_FACTOR_NAME_LIST": "Power Factor",
+            "MOTOR_CARD_ELEMENT_CREATED_AT": "Fecha de creación",
+            "BUTTON_ADD_MOTOR": "Agregar motor",
+            "SEND_QUOTATION_BUTTON_BOTTOM": "Enviar cotización",
+            "BUTTON_ADD_MORE_MOTORS": "agregar mas motores ",
+            "MODAL_CREATE_MOTOR_BUTTON": "Crear Motor",
+            "MODAL_HELPER_MOTOR_TITLE": "Nombre de equipo / motor",
+            "MODAL_HELPER_MOTOR_BODY": "",
+            "MODAL_HELPER_VOLTAJE_TITLE": "Voltaje",
+            "MODAL_HELPER_VOLTAJE_BODY": "",
+            "MODAL_HELPER_AMP_TITLE": "Amperage",
+            "MODAL_HELPER_AMP_BODY": "",
+            "MODAL_HELPER_POWER_FACTOR_TITLE": "Factor de potencia",
+            "MODAL_HELPER_POWER_FACTOR_BODY": "",
+            "MODAL_HELPER_RATED_POWER_TITLE": "KW",
+            "MODAL_HELPER_RATED_POWER_BODY": "",
+            "MODAL_HELPER_HOURS_DAY_TITLE": "Horas al día",
+            "MODAL_HELPER_HOURS_DAY_BODY": "",
+            "MODAL_HELPER_DAYS_MONTH_TITLE": "Días al mes",
+            "MODAL_HELPER_DAYS_MONTH_BODY": "",
             "MOTOR_CARD_ELEMENT_CREATED_AT": "Fecha de creación"
+            
         },
         "PRODUCTS": {
             "PRODUCT": {},
@@ -195,10 +254,19 @@
             "CREATE_PROJECT_SELECT_PROVIDER": "Seleccione proveedor de servicio."
         },
         "QUOTATION": {
-            "FINALIZE": {},
+      
+            "ADD_PHOTO_BUTTON_TEXT": "AGREGAR FOTO",
+            "FINALIZE_QUOTATION_HEADER": "Finalizar Proyecto",
+            "INPUT_COMMENTS_TEXT_BOX": "Comentarios (opcional)",
             "QUOTATION_HEADER": "Cotizaciones",
             "PROJECT_TAB_TITLE": "Proyectos",
-            "MFP_TAB_TITLE": "Mal factor de potencia"
+            "MFP_TAB_TITLE": "Mal factor de potencia",
+            "CREATE_PDF_BUTTON": "Solicitar PDF",
+            "UPLOAD_PHOTO_TEXT": "Puede agregar una foto a su presupuesto haciendo clic en la imagen de arriba. . .",
+            "INPUT_COMMENTS_TEXTBOX": "Comentarios (opcionales)",
+            "ACTION_SHEET_PHOTO_TITLE": "Agregar foto",
+            "ACTION_SHEET_PHOTO_CAMERA": "Cámara",
+            "ACTION_SHEET_PHOTO_GALLERY": "Galería"
         },
         "REGISTER": {
             "REGISTER_SLIDER_1_HEADER": "Registremos tu cuenta...",
@@ -216,11 +284,19 @@
         },
         "SETTINGS": {
             "OPTIONS": {
-                "COUNTRY": {},
-                "PROFILE": {},
+                "COUNTRY": {
+                    "CHOOSE_LANGUAGE_TEXT": "Seleccione el idioma.",
+                    "CHOOSE_LANGUAGE_SPANISH": "Español",
+                    "CHOOSE_LANGUAGE_ENGLISH": "Ingles",
+                    "CHOOSE_LANGUAGE_CANCEL": "Cancelar"
+                },
+                "PROFILE": {
+                    "UPDATE_BUTTON": "Actualizar",
+                    "MENU_PROFILE": "Mi perfil"
+                },
                 "TUTORIAL": {
                     "TUTORIAL_TYPE_USER_TITLE": "Fin Tutorial",
-                    "TUTORIAL_TYPE_USER_TEXT": "si aun tienes dudas puedes contactarnos en la sección de configuración.",
+                    "TUTORIAL_TYPE_USER_TEXT": "si aún tienes dudas puedes contactarnos en la sección de configuración.",
                     "TUTORIAL_WELCOME_TITLE": "Bienvenido",
                     "TUTORIAL_WELCOME_TEXT": "A continuación te explicaremos los distintos perfiles que existen en energiaStore",
                     "TUTORIALS_TITLE": "Tutoriales",
@@ -264,7 +340,9 @@
             "LOG_OUT_CANCEL_BUTTON": "Cancelar",
             "LOG_OUT_LEAVE_BUTTON": "Salir"
         },
-        "WELCOME": {},
+        "WELCOME":{
+            "CHOOSE_YOUR_COUNTRY": "Selecciona tu país"
+        },
         "FOOTBAR": {
             "PROJECTS": "Proyectos",
             "QUOTATIONS": "Cotizaciones"

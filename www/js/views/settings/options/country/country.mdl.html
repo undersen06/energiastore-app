@@ -2,7 +2,7 @@
   <ion-content id="content-id">
 
 
-    <h5>{{translations.CHOOSE_YOUR_COUNTRY}}</h5>
+    <h5>{{welcome.CHOOSE_YOUR_COUNTRY}}</h5>
 
 
     <div class="country-container" >
@@ -14,13 +14,13 @@
   <div class="col col-33" ng-repeat="country in countries" style="padding:0px;">
     <div class="country-opt" ng-click="chooseCountry({{country}})">
       <!-- {{country}} -->
-      <img ng-src="http://kvar.herokuapp.com/{{country.image.thumb.url}}" alt="" />
+      <img ng-src="http://energiastoreapp.com/{{country.image.thumb.url}}" alt="" />
       <p>{{country.name | capitalize }}</p>
     </div>
   </div>
 
     <img id="image-logo" src="assets/img/introduction/map.svg"  class="background-world" />
-    <span class="close-button left top" ng-click="modalChooseCountry.hide()()" ng-class="isIphoneX() ? 'iphone-x' : ''">{{SkipButtonText}}
+    <span class="close-button left top" ng-click="modalChooseCountry.hide()" ng-class="isIphoneX() ? 'iphone-x' : ''">{{SkipButtonText}}
       <i class="ion-chevron-left"></i>
     </span>
 

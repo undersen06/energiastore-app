@@ -23,44 +23,12 @@ CONTROLLER DEFINITION
 				});
 
 
-
-
-				//   $scope.init = function(){
-				//     var myPopup = $ionicPopup.show({
-				//       animation: 'fade-in',
-				//       title: '<img src="assets/img/common/stars.png">',
-				//       subTitle: '<span class="popup-title">Bienvenido</span>',
-				//       template: '<p class="popup-subtitle">A continuación te explicaremos los distintos perfiles que existen en energiaStore</p>',
-				//       scope: $scope,
-				//       buttons: [
-				//         { text: 'Cancelar',
-				//         type: 'button-cancel',
-				//         onTap: function(e) {
-				//           
-				//           if($state.params.param === 'config'){
-				//             $state.go('tutorials')
-				//           }else{
-				//             $state.go('middleware')
-				//           }
-				//           
-				//         }
-				//       },
-				//       {
-				//         text: 'Comenzar',
-				//         type: 'button-affirmative',
-				//         onTap: function(e) {
-				//         }
-				//       }
-				//     ]
-				//   });
-				// }
-
-				//
+				
 				$scope.finish = function(){
 
 					$state.go('tutorials');
 				};
-				//
+				
 
 
 
