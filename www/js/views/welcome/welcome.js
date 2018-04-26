@@ -11,6 +11,8 @@ CONTROLLER DEFINITION
 			'use strict';
 			$ionicPlatform.ready(function () {
 
+				$ionicSlideBoxDelegate.enableSlide(false);
+
 				$scope.isIphoneX = function () {
 					if (ionic.Platform.device().model != undefined) {
 						if (ionic.Platform.device().model.startsWith('iPhone10')) {
@@ -44,7 +46,8 @@ CONTROLLER DEFINITION
 				$scope.chooseLanguage = function (_language) {
 					StorageLanguageModel.setCurrentLanguage(_language);
 					$Localization.getTranslation();
-					$ionicSlideBoxDelegate.enableSlide(false);
+					$ionicSlideBoxDelegate.slide(1);
+					
 
 				};
 				$scope.chooseCountry = function (country) {

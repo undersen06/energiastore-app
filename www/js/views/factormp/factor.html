@@ -7,7 +7,7 @@
   </ion-header-bar>
 
 
-  <ion-content scroll="true" >
+  <ion-content scroll="true" class="content">
     <div class="container" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
 
       <h6 style="text-align: center">{{factor.FMP_QUOTATION_TITLE}}</h6>
@@ -46,10 +46,14 @@
 
 
   </div>
-
-
-
 </ion-content>
 
 <footbar></footbar>
 </ion-view>
+
+
+<style>
+  .content{
+    height: 100vh !important;
+  }
+</style>

@@ -176,7 +176,10 @@
             "SLIDER_1": "Los recursos naturales se están terminando ¡la eficiencia energética es el camino para un mundo mejor!",
             "SLIDER_2": "El cambio está en ti ¡comienza a hacer la diferencia y ahorra energía eléctrica!",
             "SLIDER_3": "! Comienza hoy & contagia la eficiencia energética ¡nuestro planeta lo agradecerá",
-            "SLIDER_BUTTON": "Comenzar con el cambio"
+            "SLIDER_BUTTON": "Comenzar con el cambio",
+            "NEXT":"Siguiente",
+            "BACK":"Atras",
+            "SKIP":"Saltar"
         },
         "LOGIN": {
             "HEADER": "Iniciar en EnergiaStore",
@@ -295,6 +298,9 @@
                     "MENU_PROFILE": "Mi perfil"
                 },
                 "TUTORIAL": {
+                    "TUTORIALS_TYPEUSER_USER": "Corresponde a aquel usuario que ya posee una cuenta o desea registrarse directamente en energiaStore para su uso personal",
+                    "TUTORIALS_TYPEUSER_PARTNER": "Corresponde a aquel usuario que ya posee una cuenta en energiaStore para su uso empresarial.",
+                    "TUTORIALS_TYPEUSER_EXPLORER": "Corresponde al usuario que desea utilizar la app sin registro, su cuenta es limitada",
                     "TUTORIAL_TYPE_USER_TITLE": "Fin Tutorial",
                     "TUTORIAL_TYPE_USER_TEXT": "si aún tienes dudas puedes contactarnos en la sección de configuración.",
                     "TUTORIAL_WELCOME_TITLE": "Bienvenido",

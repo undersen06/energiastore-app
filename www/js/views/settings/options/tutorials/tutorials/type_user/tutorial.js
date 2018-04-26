@@ -6,19 +6,10 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('TutorialTypeUserController', ['$scope', '$state','$ionicPlatform','$resource','translationService','$cordovaStatusbar','$ionicSlideBoxDelegate','$timeout','$ionicPopup',
-		function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,$ionicPopup) {
+	this.app.controller('TutorialTypeUserController', ['$scope', '$state', '$ionicPlatform', '$resource', '$cordovaStatusbar', '$ionicSlideBoxDelegate', '$timeout', '$ionicPopup','$rootScope',
+		function ($scope, $state, $ionicPlatform, $resource, $cordovaStatusbar, $ionicSlideBoxDelegate, $timeout, $ionicPopup, $rootScope) {
 
-			const languageFilePath = translationService.getTranslation();
-			$resource(languageFilePath).get(function (data) {
-				$scope.translations = data;
-				$scope.RightButtonText = $scope.translations.NEXT;
-				$scope.LeftButtonText =  $scope.translations.BACK;
-				$scope.SkipButtonText = $scope.translations.SKIP;
-
-
-
-			});
+	
 
 
 			$ionicPlatform.ready(function() {
@@ -32,6 +23,9 @@ CONTROLLER DEFINITION
 				};
 
 
+				$scope.RightButtonText = $rootScope.introduction.NEXT;
+				$scope.LeftButtonText = $rootScope.introduction.BACK;
+				$scope.SkipButtonText = $rootScope.introduction.SKIP;
 
 
 				const containerId = $('#type_user-content');
@@ -50,15 +44,16 @@ CONTROLLER DEFINITION
 						$ionicPopup.show({
 							animation: 'fade-in',
 							title: '<img src="assets/img/common/stars.png">',
-							subTitle: `<span class="popup-title">${$scope.translations.TUTORIAL_WELCOME_TITLE}</span>`,
-							template: `<p class="popup-subtitle">${$scope.translations.TUTORIAL_WELCOME_TEXT}</p>`,
+							subTitle: `<span class="popup-title">${$rootScope.tutorials.TUTORIAL_WELCOME_TITLE}</span>`,
+							template: `<p class="popup-subtitle">${$rootScope.tutorials.TUTORIAL_WELCOME_TEXT}</p>`,
 							scope: $scope,
 							buttons: [
-								{ text: `${$scope.translations.QUOTATION_POPUP_CANCEL_BUTTON}`,
+								{
+									text: `${$rootScope.project.QUOTATION_POPUP_CANCEL_BUTTON}`,
 									type: 'button-cancel'
 								},
 								{
-									text: `${$scope.translations.MODAL_CREATE_FACTOR_BUTTON}`,
+									text: `${$rootScope.settings.ABOUT_US_BUTTON_TEXT}`,
 									type: 'button-affirmative',
 									onTap: function(e) {
 
@@ -74,21 +69,20 @@ CONTROLLER DEFINITION
 
 
 					if($state.params.flag == 'config'){
-						$state.go('tutorials');
+						$state.go('tutorial');
 					}else{
 
 						$ionicPopup.show({
 							animation: 'fade-in',
 							title: '<img src="assets/img/common/flying_email.png">',
-							subTitle: `<span class="popup-title">${$scope.translations.TUTORIAL_TYPE_USER_TITLE}</span>`,
-							template: `<p class="popup-subtitle">${$scope.translations.TUTORIAL_TYPE_USER_TEXT}</p>`,
+							subTitle: `<span class="popup-title">${$rootScope.tutorials.TUTORIAL_TYPE_USER_TITLE}</span>`,
+							template: `<p class="popup-subtitle">${$rootScope.tutorials.TUTORIAL_TYPE_USER_TEXT}</p>`,
 							scope: $scope,
 							buttons: [
 								{
-									text: `${$scope.translations.MODAL_CREATE_FACTOR_BUTTON}`,
+									text: `${$rootScope.tutorials.ABOUT_US_BUTTON_TEXT}`,
 									type: 'button-affirmative',
 									onTap: function(e) {
-
 
 										if($state.params.flag == 'config'){
 											$state.go('tutorials');
@@ -117,12 +111,12 @@ CONTROLLER DEFINITION
 						containerId.addClass('slider-two');
 						containerId.removeClass('slider-three');
 						$scope.shouldShowBackButton=true;
-						$scope.RightButtonText = $scope.translations.NEXT;
+						// $scope.RightButtonText = $scope.translations.NEXT;
 						break;
 					case 2:
 						containerId.addClass('slider-three');
 						containerId.removeClass('slider-two');
-						$scope.RightButtonText = $scope.translations.SKIP;
+						// $scope.RightButtonText = $scope.translations.SKIP;
 
 
 

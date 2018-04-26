@@ -6,10 +6,18 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('SettingsController', ['$scope', '$state', '$ionicPlatform', '$cordovaStatusbar', '$ionicSlideBoxDelegate', '$timeout', 'StorageUserModel', 'StorageLanguageModel', '$ionicPopup', '$cordovaActionSheet', 'StorageStatus', 'StorageProject', 'StorageMotor', 'StorageQuotation', '$ionicModal', '$User', '$ionicLoading', 'popUpService', '$Country', '$q', 'StorageCountryModel', '$rootScope','$cordovaAppVersion','$log',
-		function ($scope, $state, $ionicPlatform, $cordovaStatusbar, $ionicSlideBoxDelegate, $timeout, StorageUserModel, StorageLanguageModel, $ionicPopup, $cordovaActionSheet, StorageStatus, StorageProject, StorageMotor, StorageQuotation, $ionicModal, $User, $ionicLoading, popUpService, $Country, $q, StorageCountryModel, $rootScope,$cordovaAppVersion,$log) {
+	this.app.controller('SettingsController', ['$scope', '$state', '$ionicPlatform', '$cordovaStatusbar', '$ionicSlideBoxDelegate', '$timeout', 'StorageUserModel', 'StorageLanguageModel', '$ionicPopup', '$cordovaActionSheet', 'StorageStatus', 'StorageProject', 'StorageMotor', 'StorageQuotation', '$ionicModal', '$User', '$ionicLoading', 'popUpService', '$Country', '$q', 'StorageCountryModel', '$rootScope', '$cordovaAppVersion', '$log', '$Localization',
+		function ($scope, $state, $ionicPlatform, $cordovaStatusbar, $ionicSlideBoxDelegate, $timeout, StorageUserModel, StorageLanguageModel, $ionicPopup, $cordovaActionSheet, StorageStatus, StorageProject, StorageMotor, StorageQuotation, $ionicModal, $User, $ionicLoading, popUpService, $Country, $q, StorageCountryModel, $rootScope, $cordovaAppVersion, $log, $Localization) {
 
 			$scope.user = StorageUserModel.getCurrentUser();
+
+			$scope.options = {
+				title: $rootScope.settings.OPTIONS.COUNTRY.CHOOSE_LANGUAGE_TEXT,
+				buttonLabels: [$rootScope.settings.OPTIONS.COUNTRY.CHOOSE_LANGUAGE_ENGLISH, $rootScope.settings.OPTIONS.COUNTRY.CHOOSE_LANGUAGE_SPANISH],
+				addCancelButtonWithLabel: $rootScope.settings.OPTIONS.COUNTRY.CHOOSE_LANGUAGE_CANCEL,
+				androidEnableCancelButton: true,
+				winphoneEnableCancelButton: true
+			};
 
 			$ionicPlatform.ready(function () {
 
@@ -72,46 +80,41 @@ CONTROLLER DEFINITION
 							template: `<p class="popup-subtitle">${$rootScope.settings.ABOUT_US_TEXT}</p> 
 							<p class="popup-subtitle">${version}</p> `,
 							scope: $scope,
-							buttons: [
-								{
-									text: `${$rootScope.settings.ABOUT_US_BUTTON_TEXT}`,
-									type: 'button-affirmative',
-									onTap: function () {
-										// $state.go('middleware')
-									}
+							buttons: [{
+								text: `${$rootScope.settings.ABOUT_US_BUTTON_TEXT}`,
+								type: 'button-affirmative',
+								onTap: function () {
+									// $state.go('middleware')
 								}
-							]
+							}]
 						});
 
-					},false);
+					}, false);
 				};
 
 
-				if (window.cordova) {
-					$scope.showLanguageOptions = function () {
-						$cordovaActionSheet
-							.show($scope.options)
-							.then(function (btnIndex) {
-								switch (btnIndex) {
-								case 1:
-									StorageLanguageModel.setCurrentLanguage('en');
-									break;
 
-								case 2:
-									StorageLanguageModel.setCurrentLanguage('es');
-									break;
-								}
+				$scope.showLanguageOptions = function () {
 
-								StorageLanguageModel.getCurrentLanguage();
+					$cordovaActionSheet.show($scope.options).then(function (btnIndex) {
 
-								
+						switch (btnIndex) {
+						case 1:
+							StorageLanguageModel.setCurrentLanguage('en');
+							$Localization.getTranslation();
+							break;
 
-								//TODO: actualizar el rootScope
-									$scope.options = { title: $rootScope.settings.COUNTRY.CHOOSE_LANGUAGE_TEXT, buttonLabels: [$rootScope.settings.COUNTRY.CHOOSE_LANGUAGE_ENGLISH, $rootScope.settings.COUNTRY.CHOOSE_LANGUAGE_SPANISH], addCancelButtonWithLabel: $rootScope.settings.COUNTRY.CHOOSE_LANGUAGE_CANCEL, androidEnableCancelButton: true, winphoneEnableCancelButton: true };
-								
-							});
-					};
-				}
+						case 2:
+							StorageLanguageModel.setCurrentLanguage('es');
+							$Localization.getTranslation();
+							break;
+						}
+
+					}, function (_error) {
+						$log.error(_error);
+					});
+				};
+
 
 
 				$scope.deleteData = function () {
@@ -161,7 +164,9 @@ CONTROLLER DEFINITION
 					$User.updateCountry($scope.user, country.name).then(function (_success) {
 						$log.info(_success);
 						StorageCountryModel.selectCountry(country);
-						StorageCountryModel.selectCurrency(this._.find($scope.currencies, { 'id': country.currency_id }));
+						StorageCountryModel.selectCurrency(this._.find($scope.currencies, {
+							'id': country.currency_id
+						}));
 					}, function (_error) {
 						$log.error(_error);
 						popUpService.workingOnPopUp();
@@ -185,5 +190,6 @@ CONTROLLER DEFINITION
 				loadCountries();
 
 			});
-		}]);
+		}
+	]);
 }).call(this);

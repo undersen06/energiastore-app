@@ -228,7 +228,7 @@
 				isWebViewFacebookError: function () {
 					var deferred = $q.defer();
 					var button_exit_lesson = [{
-						text: $rootScope.popup.ERROR_FACEBOOK_IS_WEBVIEW.BUTTONS.POSITIVE, type: 'button-affirmative', onTap: function () {
+						text: $rootScope.popup.ERROR_FACEBOOK_IS_WEBVIEW.BUTTON.POSITIVE, type: 'button-affirmative', onTap: function () {
 							return true;
 						}
 					}];

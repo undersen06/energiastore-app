@@ -35,6 +35,7 @@ CONTROLLER DEFINITION
 				$scope.getFactors = function () {
 					$Factor.getAllFactors(StorageUserModel.getCurrentUser()).then(function (_response) {
 						$scope.factors = _response.data;
+						debugger;
 						$scope.$broadcast('scroll.refreshComplete');
 					}, function (_error) {
 						$log.error(_error);
@@ -48,7 +49,7 @@ CONTROLLER DEFINITION
 					$ionicLoading.show({
 						templateUrl: 'loading.html'
 					}).then(function () {
-						var url = `http://kvar.herokuapp.com/api/calculations/${calculation.calculation_id}/quotations/${calculation.id}/pdf`;
+						var url = `http://energiastoreapp.com/api/calculations/${calculation.calculation_id}/quotations/${calculation.id}/pdf`;
 						$scope.downloadFile(url);
 					});
 				};
@@ -116,7 +117,13 @@ CONTROLLER DEFINITION
 					$Calculation.getAll(StorageUserModel.getCurrentUser()).then(
 						function (_response) {
 
-							$scope.calculations = _response.data;
+							_response.data.forEach(element => {
+								if(element.name != null){
+									$scope.calculations.push(element);
+								}
+							});
+							// $scope.calculations = _response.data;
+
 							// $scope.getQuotations();
 							//
 							// $scope.calculations = _response.data;
@@ -146,7 +153,7 @@ CONTROLLER DEFINITION
 				};
 
 				$scope.viewPdfProject_ = function (url) {
-					$scope.downloadFile(`http://kvar.herokuapp.com${url.pdf_url}`);
+					$scope.downloadFile(`http://energiastoreapp.com${url.pdf_url}`);
 				};
 
 				$scope.goBack = function () {

@@ -197,7 +197,7 @@ CONTROLLER DEFINITION
 					//
 					// })
 
-					var url = `http://kvar.herokuapp.com/api/calculations/${param1}/quotations/${_quotation_id}/pdf`;
+					var url = `http://energiastoreapp.com/api/calculations/${param1}/quotations/${_quotation_id}/pdf`;
 
 					$scope.downloadFile(url);
 

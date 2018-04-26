@@ -45,25 +45,24 @@ CONTROLLER DEFINITION
 				}, 1000);
 			};
 
-			//TODO: arreglar translate de este trozo de codigo
-
-			$scope.RightButtonText = $rootScope.INTRODUCTION.NEXT;
-			$scope.LeftButtonText = $rootScope.INTRODUCTION.BACK;
-			$scope.SkipButtonText = $rootScope.INTRODUCTION.SKIP;
+		
+			$scope.RightButtonText = $rootScope.introduction.NEXT;
+			$scope.LeftButtonText = $rootScope.introduction.BACK;
+			$scope.SkipButtonText = $rootScope.introduction.SKIP;
 
 
 			$ionicPlatform.registerBackButtonAction(function () {
 
 				switch ($ionicSlideBoxDelegate.currentIndex()) {
-					case 0:
-						ionic.Platform.exitApp();
-						break;
-					case 1:
-						$ionicSlideBoxDelegate.previous();
-						break;
-					case 2:
-						$ionicSlideBoxDelegate.previous();
-						break;
+				case 0:
+					ionic.Platform.exitApp();
+					break;
+				case 1:
+					$ionicSlideBoxDelegate.previous();
+					break;
+				case 2:
+					$ionicSlideBoxDelegate.previous();
+					break;
 				}
 
 			}, 100);
@@ -72,70 +71,70 @@ CONTROLLER DEFINITION
 			$scope.slideHasChanged = function (_index) {
 
 				switch (_index) {
-					case 0:
-						containerId.addClass('slider-one');
-						containerId.removeClass('slider-two');
-						$scope.shouldShowBackButton = false;
-						break;
-					case 1:
-						containerId.addClass('slider-two');
-						containerId.removeClass('slider-three');
-						$scope.shouldShowBackButton = true;
-						$scope.RightButtonText = $scope.translations.NEXT;
+				case 0:
+					containerId.addClass('slider-one');
+					containerId.removeClass('slider-two');
+					$scope.shouldShowBackButton = false;
+					break;
+				case 1:
+					containerId.addClass('slider-two');
+					containerId.removeClass('slider-three');
+					$scope.shouldShowBackButton = true;
+					$scope.RightButtonText = $rootScope.introduction.NEXT;
 
-						$timeout(function () {
-							notification_1.addClass('left-active');
-						}, 100);
+					$timeout(function () {
+						notification_1.addClass('left-active');
+					}, 100);
 
-						$timeout(function () {
-							notification_2.addClass('right-active');
-						}, 300);
+					$timeout(function () {
+						notification_2.addClass('right-active');
+					}, 300);
 
-						break;
-					case 2:
-						containerId.addClass('slider-three');
-						containerId.removeClass('slider-two');
-						$scope.shouldShowBackButton = true;
-						$scope.RightButtonText = $scope.translations.SKIP;
+					break;
+				case 2:
+					containerId.addClass('slider-three');
+					containerId.removeClass('slider-two');
+					$scope.shouldShowBackButton = true;
+					$scope.RightButtonText = $rootScope.introduction.SKIP;
 
-						if (!hasChangeSlide3) {
-							var tl = new TimelineMax({});
+					if (!hasChangeSlide3) {
+						var tl = new TimelineMax({});
 
-							tl.set('.calendar-ctr', {
-								scale: 0
-							});
+						tl.set('.calendar-ctr', {
+							scale: 0
+						});
 
-							tl.timeScale(1.2);
+						tl.timeScale(1.2);
 
-							tl.staggerTo('.bottom', .3, {
-									rotationX: '0deg',
-								}, .3)
+						tl.staggerTo('.bottom', .3, {
+							rotationX: '0deg',
+						}, .3)
 
-								.staggerTo('.top', .3, {
-									rotationX: '-90deg'
-								}, .3, 0)
+							.staggerTo('.top', .3, {
+								rotationX: '-90deg'
+							}, .3, 0)
 
-								.to('.calendar-ctr', 2.5, {
-									scale: 0.75
-								}, 0);
+							.to('.calendar-ctr', 2.5, {
+								scale: 0.75
+							}, 0);
 
-							// // restart animation
-							// var refresh = document.querySelector(".refresh");
-							// refresh.addEventListener("click", function(){
-							//   tl.restart();
-							// })
+						// // restart animation
+						// var refresh = document.querySelector(".refresh");
+						// refresh.addEventListener("click", function(){
+						//   tl.restart();
+						// })
 
-							// copy
-							balapaCop('Google Calendar - Animated Icon', '#999');
+						// copy
+						balapaCop('Google Calendar - Animated Icon', '#999');
 
-							hasChangeSlide3 = true;
-						}
-
-
+						hasChangeSlide3 = true;
+					}
 
 
-						break;
-					default:
+
+
+					break;
+				default:
 
 				}
 			};
@@ -183,14 +182,14 @@ CONTROLLER DEFINITION
 			$scope.goAhead = function () {
 				var current_index = $ionicSlideBoxDelegate.currentIndex();
 				switch (current_index) {
-					case 0:
-					case 1:
-						$ionicSlideBoxDelegate.next();
-						break;
-					case 2:
-						$state.go('middleware');
-						break;
-					default:
+				case 0:
+				case 1:
+					$ionicSlideBoxDelegate.next();
+					break;
+				case 2:
+					$state.go('middleware');
+					break;
+				default:
 
 				}
 

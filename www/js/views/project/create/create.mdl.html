@@ -5,12 +5,13 @@
         <!-- <h1 class="title">{{translations.APP_NAME}}</h1> -->
         <h1 class="title">{{project.CREATE_PROJECT_TITLE}}</h1>
 
-         <!-- " CREATE_PROJECT_BUTTON_POSITIVE"
-                CREATE_PROJECT_BUTTON_NEGATIVE"
-                :" -->
-        <div class="buttons" ng-click="closeModalMotor();">
+        
+        <h5 class="" ng-click="closeModalProject();" style="top: 2px;
+    position: absolute;
+    left: 15px;
+">
             <i class="ion-android-close"></i>
-        </div>
+        </h5>
     </ion-header-bar>
 
     <ion-content id="content">
@@ -20,11 +21,11 @@
         <!-- <span class="popup-title">{{popup.CREATE_PROJECT.TITLE}</span> -->
 
         <div class="input-field col s12">
-<input id="quotation_name" type="text" class="validate" ng-model="project_create.name">
+            <input id="quotation_name" type="text" class="validate" ng-model="project_create.name">
             <label for="quotation_name">{{project.ADD_QUOTATION_POPUP_FIRST_INPUT}}</label>
-          </div>
+        </div>
 
-    <p style="text-align: center">{{project.CREATE_PROJECT_SELECT_PROVIDER}}</p>
+        <p style="text-align: center">{{project.CREATE_PROJECT_SELECT_PROVIDER}}</p>
 
         <ul class="list">
 
@@ -34,7 +35,7 @@
 
 
 
-        <button ng-click="createCalculation(project.name)"></button>
+        <!-- <button ng-click="createCalculation(project.name)"></button> -->
 
     </ion-content>
 
@@ -43,6 +44,6 @@
            
         </button> -->
         <p style="color:white;font-size:16px;margin:auto;">Create</p>
-         
+
     </ion-footer-bar>
 </ion-modal-view>

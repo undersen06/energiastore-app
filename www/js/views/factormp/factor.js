@@ -109,6 +109,8 @@ CONTROLLER DEFINITION
 					var total = $scope.factorType.power_factor_1 + $scope.factorType.power_factor_2 + $scope.factorType.power_factor_3;
 					total = (total / 3);
 
+					debugger;
+
 					if ($scope.factorType.power_factor < 100) {
 						Utils.validateToast('QUOTATION_AMOUNT_MINIMUM');
 						return;
@@ -177,7 +179,7 @@ CONTROLLER DEFINITION
 
 
 				$scope.getPDF = function (param1, _quotation_id) {
-					$scope.downloadFile(`http://kvar.herokuapp.com/api/calculations/${param1}/quotations/${_quotation_id}/pdf`);
+					$scope.downloadFile(`http://energiastoreapp.com/api/calculations/${param1}/quotations/${_quotation_id}/pdf`);
 				};
 
 

@@ -27,6 +27,7 @@ module.exports = {
         "_": true,
         "ionic":true,
         "$": true,
-        "Materialize":true
+        "Materialize":true,
+        "cordova": true
     }
 };

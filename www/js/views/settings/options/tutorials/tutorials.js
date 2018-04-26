@@ -13,7 +13,8 @@ CONTROLLER DEFINITION
 
 					switch (_index) {
 					case 1:
-						$state.go('tutorialTypeUser',{flag:'config'});
+						// $state.go('tutorialTypeUser',{flag:'config'});
+						popUpService.workingOnPopUp();
 						break;
 					case 2 :
 						$state.go('tutorialFactor',{flag:'config'});

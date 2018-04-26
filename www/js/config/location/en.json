@@ -1,0 +1,357 @@
+{
+    "APP": {
+        "NAME": "energiaStore",
+        "SPINNER_loading": "Registering account..."
+    },
+    "POPUP": {
+        "ERROR_LINKEDIN_LOGIN": {
+            "BODY": "LinkedIn denied access, try again.",
+            "BUTTON": {
+                "POSITIVE": "It is understood"
+            }
+        },
+        "ERROR_LINKEDIN_APP_NOT_FOUND": {
+            "BODY": "Apparently you do not have LinkedIn installed on your device.",
+            "BUTTON": {
+                "POSITIVE": "It is understood"
+            }
+        },
+        "ERROR_LINKEDIN_IS_WEBVIEW": {
+            "BODY": "LinkedIn can only be used from the App.",
+            "BUTTON": {
+                "POSITIVE": "It is understood"
+            }
+        },
+        "ERROR_FACEBOOK_LOGIN": {
+            "BODY": "Facebook denied access, try again.",
+            "BUTTON": {
+                "POSITIVE": "It is understood"
+            }
+        },
+        "ERROR_FACEBOOK_IS_WEBVIEW": {
+            "BODY": "Facebook can only be used from the App.",
+            "BUTTON": {
+                "POSITIVE": "It is understood"
+            }
+        },
+        "WORKING_ON": {
+            "TITLE": "Ups!",
+            "BODY": "This section is still in development, come back soon",
+            "BUTTON": {
+                "POSITIVE": "It is understood"
+            }
+        },
+        "UPDATE_PROFILE_ERROR": {
+            "TITLE": "Ups!",
+            "BODY": "Problems updating your profile, try later",
+            "BUTTON": {
+                "POSITIVE": "It is understood"
+            }
+        },
+
+        "UPDATE_PROFILE_SUCCESS": {
+            "BODY": "Profile successfully updated.",
+            "BUTTON": {
+                "POSITIVE": "It is understood"
+            }
+        },
+        "LEAVE_SIGN_UP": {
+            "BODY": "¿ Are you sure you want to exit the registry ?",
+            "BUTTON": {
+                "POSITIVE": "Continue",
+                "NEGATIVE": "Exit"
+            }
+        },
+        "TOKEN_PROBLEM": {
+            "BODY": "This account is in use from another device, re-login.",
+            "BUTTON": {
+                "POSITIVE": "It is understood"
+            }
+        },
+        "FACEBOOK_EMAIL_ERROR": {
+            "BUTTON": {
+                "POSITIVE": "Re-intentar / Try again"
+            },
+            "TITLE": "This account is in use from another device, re-login.",
+            "BODY": "We could not get your email from facebook, try it manually."
+        },
+        "FAIL_CREATE_USER": {
+            "BUTTON": {
+                "POSITIVE": "It is understood"
+            },
+            "TITLE": "Ups.",
+            "BODY": "We were unable to create your account, please try again later."
+        },
+            "FAIL_OPEN_PDF": {
+                "BUTTON": {
+                    "POSITIVE": "It is understood"
+                },
+                "TITLE": "Ups.",
+                "BODY": "We could not download the pdf, try it later."
+            },
+            "FAIL_CREATE_FACTOR": {
+                "BUTTON": {
+                    "POSITIVE": "It is understood"
+                },
+                "TITLE": "Ups.",
+                "BODY": "Oops, we could not complete your quote, please try again later."
+            }
+
+            
+
+
+
+    },
+    "TOAST": {
+        "UNKNOWN_ERROR": "Error, Try again later",
+
+        "COMPLETE_NAME": "",
+        "COMPLETE_LASTNAME": "",
+        "COMPLETE_PHONE": "",
+        "COMPLETE_ADDRESS": "",
+
+        "COMPLETE_EMAIL": "Complete Email",
+        "COMPLETE_PASSWORD": "Complete Password",
+        "LOGIN_ERROR": "Wrong User",
+
+
+        "ERROR_CAMERA": "",
+        "ERROR_GALLERY": "",
+        "QUOTATION_AMOUNT_EMPTY": "",
+        "QUOTATION_AMOUNT_MINIMUM": "",
+
+        "COMPLETE_PROJECT_NAME": "Enter project name",
+        "SELECT_PROVIDER": "Select a provider",
+
+        "QUOTATION_ERROR_DOWNLOAD_INFO": "Error downloading projects",
+        "QUOTATION_CREATED_MESSAGE": "Project created",
+        "QUOTATION_FAIL_MESSAGE": "Error creating the project",
+
+
+        "COMPLETE_NAME_PROFILE": "Fill in your name",
+        "COMPLETE_LAST_NAME_PROFILE": "Fill in your last name",
+        "COMPLETE_PHONE_PROFILE": "Fill in your telephone number",
+        "COMPLETE_ADDRESS_PROFILE": "Complete your address",
+
+
+        "MOTOR_COMPLETE_VOLTAJE_MINIMUM": "The voltage must be greater than 0",
+        "MOTOR_COMPLETE_AMP_MINIMUM": "The amperage must be greater than 0",
+        "MOTOR_COMPLETE_KW_MINIMUM": "The KW must be greater than 0",
+        "MOTOR_COMPLETE_KW_EMPTY": "Complete KW of the motor",
+        "EMPTY_MOTORS_FINALIZE_QUOTATION": "You must add at least 1 motor.",
+        "MOTOR_SELECT_HOURS": "Select working hours",
+        "MOTOR_SELECT_DAYS": "Select working days",
+        "MOTOR_COMPLETE_DAYS_MONTH": "Complete working days of the motor monthly base",
+        "MOTOR_ADD_SUCCESS": "Motor added",
+        "MOTOR_COMPLETE_HOURS_DAY": "Complete working hours of the motor daily base",
+        "MOTOR_COMPLETE_FTP": "Complete power factor",
+        "MOTOR_COMPLETE_AMP": "Complete motor amperage",
+        "MOTOR_COMPLETE_VOLT": "Complete motor voltage",
+        "MOTOR_COMPLETE_NAME": "Complete name of the motor",
+        "MOTOR_ADD_FAIL": "Problems when adding motor"
+    },
+    "VIEWS": {
+        "DASHBOARD": {
+            "MOTOR_DASHBOARD_TEXT": "Energy efficiency in Electrical Motors",
+            "PENALTY_DASHBOARD_TEXT": " Power Factor",
+            "PENALTY_PRODUCTS_TEXT": "Products"
+        },
+        "FACTOR_MP": {
+            "FMP_HEADER": "Power Factor",
+            "INPUT_COMMENTS_TEXTBOX": "Comments (optional)",
+            "FMP_PRE_TEXT": "Request evaluation of",
+            "FMP_PRE_TEXT_STRONG": "Power Factor",
+            "FMP_BUTTON": "Enter Power Factor Penalty",
+            "FMP_MODAL_QUOTATION_HEADER": "Project Power Factor",
+            "FMP_MODAL_QUOTATION_OPTION_MANUAL": "Enter Power Factor Penalty",
+            "FMP_MODAL_QUOTATION_AMOUNT": "Amount of Power Factor Penalty",
+            "FMP_MODAL_QUOTATION_USE_PHOTO": "Use picture of your electrical bill",
+            "FMP_MODAL_QUOTATION_COMMENT": "If you want here you can add a comment",
+            "FMP_QUOTATION_TITLE": "Enter the last 3 amounts of the power factor penalty",
+            "FMP_MODAL_QUOTATION_OPTION_CAMERA": "Cámara",
+            "FMP_MODAL_QUOTATION_OPTION_GALLERY": "Gallery",
+            "FMP_MODAL_QUOTATION_SEND_BUTTON": "Calculate"
+        },
+        "INTRODUCTION": {
+            "SLIDER_1": "Natural resources are ending, energy efficiency is the way to a better world!",
+            "SLIDER_2": "The change is in you, start to make a difference and save electrical energy!",
+            "SLIDER_3": "! Start today & diffuse energy efficiency, our planet will thank you",
+            "SLIDER_BUTTON": "Start with the change",
+            "NEXT": "Next",
+            "BACK": "Back",
+            "SKIP": "Skip"
+        },
+        "LOGIN": {
+            "HEADER": "Start in EnergiaStore",
+            "EMAIL": "Email",
+            "PASSWORD": "Password",
+            "LOGIN_BUTTON": "Log in",
+            "SIGNUP_TEXT": "Do not you have an account yet?",
+            "SIGNUP_BUTTON": "Sign up",
+            "EMAIL_EMPTY_ERROR": "Complete Email",
+            "PASSWORD_EMPTY_ERROR": "Complete password",
+            "ERROR_USER": "Wrong User",
+            "INIT_FACEBOOK": "Start with Facebook",
+            "INIT_LINKEDIN": "Start with LinkedIn"
+        },
+        "MIDDLEWARE": {
+            "MIDDLEWARE_TITLE": "How would you like to use EnergiaStore?",
+            "MIDDLEWARE_USER_BODY": "Register and use all the functionalities",
+            "MIDDLEWARE_PARTNER_BODY": "Login with an account authorized by EnergiaStore",
+            "MIDDLEWARE_EXPLORER_BODY": "Enter without registration and browse the application",
+            "MIDDLEWARE_HELP": "Help"
+        },
+        "MOTORS": {
+            "MOTORS_HEADER": "Motors",
+            "MOTOR_NAME_LIST": "Name of the motor",
+            "AMP_NAME_LIST": "Amperage",
+            "HOURS_NAME_LIST": "Average time",
+            "KW_NAME_LIST": "KW",
+            "VOLTS_NAME_LIST": "Volts",
+            "POWER_FACTOR_NAME_LIST": "Power Factor",
+            "MOTOR_CARD_ELEMENT_CREATED_AT": "Areation Date",
+            "BUTTON_ADD_MOTOR": "Add motor",
+            "SEND_QUOTATION_BUTTON_BOTTOM": "Send quote",
+            "BUTTON_ADD_MORE_MOTORS": "Add more motors ",
+            "MODAL_CREATE_MOTOR_BUTTON": "Create Motor",
+            "MODAL_HELPER_MOTOR_TITLE": "Name of equipment / motor",
+            "MODAL_HELPER_MOTOR_BODY": "",
+            "MODAL_HELPER_VOLTAJE_TITLE": "Voltage",
+            "MODAL_HELPER_VOLTAJE_BODY": "",
+            "MODAL_HELPER_AMP_TITLE": "Amperage",
+            "MODAL_HELPER_AMP_BODY": "",
+            "MODAL_HELPER_POWER_FACTOR_TITLE": "Power Factor",
+            "MODAL_HELPER_POWER_FACTOR_BODY": "",
+            "MODAL_HELPER_RATED_POWER_TITLE": "KW",
+            "MODAL_HELPER_RATED_POWER_BODY": "",
+            "MODAL_HELPER_HOURS_DAY_TITLE": "Hours a day",
+            "MODAL_HELPER_HOURS_DAY_BODY": "",
+            "MODAL_HELPER_DAYS_MONTH_TITLE": "Days a month",
+            "MODAL_HELPER_DAYS_MONTH_BODY": "",
+            "MOTOR_CARD_ELEMENT_CREATED_AT": "Creation date"
+            
+        },
+        "PRODUCTS": {
+            "PRODUCT": {},
+            "CATEGORIES": {}
+        },
+        "PROJECT": {
+            "QUOTATION_POPUP_CANCEL_BUTTON": "Cancel",
+            "QUOTATION_POPUP_ACCEPT_BUTTON": "Create",
+            "ADD_QUOTATION_POPUP_TITLE": "Create Project",
+            "ADD_QUOTATION_POPUP_FIRST_INPUT": "Name of the Project",
+            "ADD_QUOTATION_POPUP_SECOND_INPUT": "KW Cost (USD)",
+            "QUOTATION_CARD_TITLE": "You do not have any",
+            "QUOTATION_CARD_TITLE_STRONG": "project",
+            "QUOTATION_CARD_BODY_PRE": "Click on  ",
+            "QUOTATION_CARD_BODY_POST": "to add your first quote",
+            "QUOTATION_CARD_ELEMENT_COST_KW": "to add your first quote",
+            "QUOTATION_CARD_ELEMENT_ID": "Id",
+            "QUOTATION_CARD_ELEMENT_CREATED_AT": "Creation date",
+            "QUOTATION_HEADER": "Quote",
+            "BUTTON_ADD_PROJECT": "Add Project",
+            "DUPLICATE_OPTION": "Duplicate",
+            "CREATE_PROJECT_TITLE": "Project creation",
+            "CREATE_PROJECT_BUTTON_POSITIVE": "Create",
+            "CREATE_PROJECT_BUTTON_NEGATIVE": "Cancel",
+            "CREATE_PROJECT_SELECT_PROVIDER": "Select service provider."
+        },
+        "QUOTATION": {
+      
+            "ADD_PHOTO_BUTTON_TEXT": "ADD PHOTO",
+            "FINALIZE_QUOTATION_HEADER": "Finish Project",
+            "INPUT_COMMENTS_TEXT_BOX": "Comments (optional)",
+            "QUOTATION_HEADER": "Quotes",
+            "PROJECT_TAB_TITLE": "Projects",
+            "MFP_TAB_TITLE": "Power factor",
+            "CREATE_PDF_BUTTON": "Request PDF",
+            "UPLOAD_PHOTO_TEXT": "You can add a photo to your quote by clicking on the image above. . .",
+            "INPUT_COMMENTS_TEXTBOX": "Comments (optional)",
+            "ACTION_SHEET_PHOTO_TITLE": "Add Photo",
+            "ACTION_SHEET_PHOTO_CAMERA": "Cámara",
+            "ACTION_SHEET_PHOTO_GALLERY": "Gallery"
+        },
+        "REGISTER": {
+            "REGISTER_SLIDER_1_HEADER": "Register your account..",
+            "REGISTER_SLIDER_1_PLACEHOLDER_EMAIL": "Email",
+            "REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD": "Password",
+            "REGISTER_SLIDER_1_CONFIRMATION_PASSWORD": "Password confirmation",
+            "REGISTER_EMAIL_EMPTY_ERROR": "Complete Email",
+            "REGISTER_PASSWORD_EMPTY_ERROR": "Complete password",
+            "REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR": "Complete confirmation password",
+            "REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR": "Password does not match",
+            "REGISTER_SLIDER_1_SPINNER": "Registering account",
+            "REGISTER_SLIDER_1_ERROR": "Try with another account",
+            "REGISTER_SLIDER_2_HEADER": "! Congratulations ¡",
+            "REGISTER_SLIDER_2_SUBTITLE": "! You are already part of EnergiaStore¡"
+        },
+        "SETTINGS": {
+            "OPTIONS": {
+                "COUNTRY": {
+                    "CHOOSE_LANGUAGE_TEXT": "Select the language.",
+                    "CHOOSE_LANGUAGE_SPANISH": "Spanish",
+                    "CHOOSE_LANGUAGE_ENGLISH": "english",
+                    "CHOOSE_LANGUAGE_CANCEL": "Cancel"
+                },
+                "PROFILE": {
+                    "UPDATE_BUTTON": "update",
+                    "MENU_PROFILE": "My profile"
+                },
+                "TUTORIAL": {
+                    "TUTORIALS_TYPEUSER_USER": "Corresponds to that user who already owns an account or wishes to register directly at energiaStore for their personal use",
+                    "TUTORIALS_TYPEUSER_PARTNER": "Corresponds to that user who already has an energy accountStore for business use.",
+                    "TUTORIALS_TYPEUSER_EXPLORER": "It corresponds to the user who wants to use the app without registration, his account is limited",
+                    "TUTORIAL_TYPE_USER_TITLE": "End of Tutorial",
+                    "TUTORIAL_TYPE_USER_TEXT": "If you still have doubts you can contact us in the configuration section.",
+                    "TUTORIAL_WELCOME_TITLE": "Welcome",
+                    "TUTORIAL_WELCOME_TEXT": "Below we will explain the different profiles that exist in EnergiaStore",
+                    "TUTORIALS_TITLE": "Tutorials",
+                    "TUTORIALS_PROFILE": "Tutorial profiles",
+                    "TUTORIALS_QUOTATIONS": "Tutorial Quotes",
+                    "TUTORIALS_FACTOR": "Power Factor Tutorial",
+                    "TUTORIALS_TYPE_USER_USER": "Corresponds to that user who already owns an account or wishes to register directly with EnergiaStore for their personal use",
+                    "TUTORIALS_TYPE_USER_PARTNER": "Corresponds to that user who already has an account in EnergiaStore for business use.",
+                    "TUTORIALS_TYPE_USER_EXPLORER": "It corresponds to the user who wants to use the app without registration, his account is limited",
+                    "FMP_MODAL_HEADER": "Power factor?",
+                    "FMP_MODAL_FIRST_TEXT_HEADER": "Why do electricity companies charge me with this power factor penalty?",
+                    "FMP_MODAL_FIRST_TEXT_FIRST_LINE": "Chilean legislation allows electric power distribution companies to charge each customer a 1% surcharge on energy billing for each hundredth (0.01) in which the power factor (FP) of a facility is less than 0.93.",
+                    "FMP_MODAL_FIRST_TEXT_SECOND_LINE": "That means that if the power factor of a splice is 0.86, the distributor will charge a surcharge of 8% (0.93-0.85 = 0.08 = 8/100).",
+                    "FMP_MODAL_FIRST_TEXT_THIRD_LINE": "Why do I generate this power factor penalty?",
+                    "FMP_MODAL_FIRST_TEXT_FORTH_LINE": "Electric consumption of rotating machines (motors),",
+                    "FMP_MODAL_FIRST_TEXT_FIFTH_LINE": "Unbalanced discharge lamps",
+                    "FMP_MODAL_FIRST_TEXT_SIXTH_LINE": "Fluorescent lighting not compensated",
+                    "FMP_MODAL_FIRST_TEXT_SEVENTH_LINE": "Multiple other factors",
+                    "FMP_MODAL_SECOND_TEXT_HEADER": "¿Como leer mi multa por mal factor de potencia?",
+                    "FMP_MODAL_SECOND_TEXT_FIRST_LINE": "For example, in the receipt of electricity from a school establishment, where the active and reactive energies are recorded by means of two energy meters, the following charges appear:",
+                    "FMP_MODAL_SECOND_TEXT_SECOND_LINE": "The active energy consumption is 4238 kWh and the reactive energy consumption is 3102 kVArh. Therefore, the monthly power factor is:",
+                    "FMP_MODAL_SECOND_TEXT_THIRD_LINE": "Then, the surcharge for power factor that appears on the receipt is obtained from: 0.93-0.8069 = 0.1231 x 358466 = $ 44.127.-",
+                    "FMP_MODAL_THIRD_TEXT_HEADER": "¿How can you help me not pay more this power factor penalty?",
+                    "FMP_MODAL_THIRD_TEXT_SECOND_LINE": "At EnergiaStore, we conducted a POWER FACTOR STUDY AND IMPROVED POWER FACTOR, OPTIMIZING ITS ELECTRICAL INSTALLATION . We invite you to quote your project HERE or with us to the email info@energiastore.com or phone: + 569-9078 6921 "
+                }
+            },
+            "SETTINGS_MENU_TITLE": "Configurations",
+            "SETTINGS_MENU_PROFILE": "My profile",
+            "SETTINGS_MENU_SIGN_UP": "Register my account",
+            "SETTINGS_MENU_CHANGE_LANGUAGE": "Change language",
+            "SETTINGS_MENU_CHOOSE_COUNTRY": "Select Country",
+            "SETTINGS_MENU_TUTORIAL": "Tutorials",
+            "SETTINGS_MENU_FAQ": "FAQ",
+            "SETTINGS_MENU_ABOUT_US": "About us",
+            "SETTINGS_MENU_LOG_OUT": "Sign off",
+            "ABOUT_US_TITLE": "EnergiaStore",
+            "ABOUT_US_TEXT": "All rights reserved 2018",
+            "ABOUT_US_BUTTON_TEXT": "It is understood",
+            "LOG_OUT_TITLE": "Exit EnergiaStore",
+            "LOG_OUT_TEXT": "¿Are you sure you want to log out?",
+            "LOG_OUT_CANCEL_BUTTON": "Cancel",
+            "LOG_OUT_LEAVE_BUTTON": "Exit"
+        },
+        "WELCOME":{
+            "CHOOSE_YOUR_COUNTRY": "Select your country"
+        },
+        "FOOTBAR": {
+            "PROJECTS": "Projects",
+            "QUOTATIONS": "Quotes"
+        }
+    }
+}
