@@ -1,60 +1,29 @@
-'use strict';
-
 /*
 =============================================================================
 CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('TutorialsController', ['$scope', '$state','$ionicPlatform','$resource','translationService','$cordovaStatusbar','$ionicSlideBoxDelegate','$timeout','StorageUserModel','StorageLanguageModel','$ionicPopup',
-		function($scope, $state,$ionicPlatform,$resource,translationService,$cordovaStatusbar,$ionicSlideBoxDelegate,$timeout,StorageUserModel,StorageLanguageModel,$ionicPopup) {
+	'use strict';
+	this.app.controller('TutorialsController', ['$scope', '$state','$ionicPlatform','popUpService',
+		function($scope, $state,$ionicPlatform,popUpService) {
 			$ionicPlatform.ready(function() {
-
-				const languageFilePath = translationService.getTranslation();
-				$resource(languageFilePath).get(function (data) {
-					$scope.translations = data;
-
-				});
-
-
-
-
+		
 				$scope.chooseTutorial = function (_index){
 
 					switch (_index) {
 					case 1:
-						$state.go('tutorialTypeUser',{flag:'config'});
+						// $state.go('tutorialTypeUser',{flag:'config'});
+						popUpService.workingOnPopUp();
 						break;
 					case 2 :
 						$state.go('tutorialFactor',{flag:'config'});
 						break;
 					default:
-						$scope.popUpNotTutorial();
+						popUpService.workingOnPopUp();
 						break;
 
 					}
-				};
-
-
-
-				$scope.popUpNotTutorial = function(){
-
-					$ionicPopup.show({
-						animation: 'fade-in',
-						title: '<img src="assets/img/working-on.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${$scope.translations.WORKING_ON_TUTORIAL_TITLE}</span>`,
-						template: `<p class="popup-subtitle">${$scope.translations.WORKING_ON_TUTORIAL_TEXT}</p>`,
-						scope: $scope,
-						buttons: [
-							{
-								text: `${$scope.translations.WORKING_ON_TUTORIAL_BUTTON_TEXT}`,
-								type: 'button-afirmative',
-								onTap: function() {
-									// $state.go('middleware')
-								}
-							}
-						]
-					});
 				};
 
 

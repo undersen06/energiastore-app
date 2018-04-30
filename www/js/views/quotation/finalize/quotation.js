@@ -5,145 +5,87 @@
 CONTROLLER DEFINITION
 =============================================================================
 */
-(function() {
-	this.app.controller('FinalizedQuotationController', ['$scope', '$state','$ionicPlatform','StorageUserModel','translationService','$resource','$cordovaStatusbar','$ionicLoading','Utils','Quotation','$cordovaActionSheet','$cordovaCamera','PDF','$cordovaFileTransfer','$cordovaFileOpener2','$timeout','$ionicModal','popUpService','$ionicSlideBoxDelegate','Calculation','User','Motors','StorageProject','StorageMotor',
-		function($scope, $state,$ionicPlatform,StorageUserModel,translationService,$resource,$cordovaStatusbar,$ionicLoading,Utils,Quotation,$cordovaActionSheet,$cordovaCamera,PDF,$cordovaFileTransfer,$cordovaFileOpener2,$timeout,$ionicModal,popUpService,$ionicSlideBoxDelegate,Calculation,User,Motors,StorageProject,StorageMotor) {
-
-			$scope.design = {};
-			switch (StorageUserModel.getCurrentUser().type_user) {
-			case 'user':
-
-				$scope.design.header = 'user-color';
-				$scope.design.footer = 'user-color';
-				$scope.design.buttonSolid = 'user-color-button-solid';
-				break;
-
-			case 'partner':
-				$scope.design.header = 'partner-color';
-				$scope.design.footer = 'partner-color';
-				$scope.design.buttonSolid = 'partner-color-button-solid';
-				break;
-
-			case 'explorer':
-				$scope.design.header = 'explorer-color';
-				$scope.design.footer = 'explorer-color';
-				$scope.design.buttonSolid = 'explorer-color-button-solid';
-				break;
-			default:
-				$scope.design.header = 'user-color';
-				$scope.design.footer = 'user-color';
-				$scope.design.buttonSolid = 'user-color-button-solid';
-				break;
-			}
+(function () {
+	this.app.controller('FinalizedQuotationController', ['$scope', '$state', '$ionicPlatform', 'StorageUserModel', '$cordovaStatusbar', '$ionicLoading', 'Utils', '$Quotation', '$cordovaActionSheet', '$cordovaCamera', '$PDF', '$cordovaFileTransfer', '$cordovaFileOpener2', '$timeout', '$ionicModal', 'popUpService', '$ionicSlideBoxDelegate', '$Calculation', '$User', '$Motors', 'StorageProject', 'StorageMotor', '$log', '$rootScope',
+		function ($scope, $state, $ionicPlatform, StorageUserModel, $cordovaStatusbar, $ionicLoading, Utils, $Quotation, $cordovaActionSheet, $cordovaCamera, $PDF, $cordovaFileTransfer, $cordovaFileOpener2, $timeout, $ionicModal, popUpService, $ionicSlideBoxDelegate, $Calculation, $User, $Motors, StorageProject, StorageMotor, $log, $rootScope) {
 
 
+			$ionicPlatform.ready(function () {
+				// TODO: arreglar aqui e implementar correctamente Location
 
-			$ionicPlatform.ready(function() {
-				const languageFilePath = translationService.getTranslation();
-				$resource(languageFilePath).get(function (data) {
-					$scope.translations = data;
-					$scope.options = { title: $scope.translations.ACTION_SHEET_PHOTO_TITLE, buttonLabels: [$scope.translations.ACTION_SHEET_PHOTO_CAMERA, $scope.translations.ACTION_SHEET_PHOTO_GALERY], addCancelButtonWithLabel: $scope.translations.CHOOSE_LANGUAGE_CANCEL, androidEnableCancelButton: true, winphoneEnableCancelButton: true };
-				});
 
-				// if (window.StatusBar) {
-				//   $cordovaStatusbar.overlaysWebView(false);
-				//   $cordovaStatusbar.style(1);
-				//   switch (StorageUserModel.getCurrentUser().type_user) {
-				//     case 'explorer':
-				//     $cordovaStatusbar.styleHex("#62BED4");
-				//     break;
-				//     case 'user':
-				//     $cordovaStatusbar.styleHex("#62D485");
-				//     break;
-				//
-				//     case 'partner':
-				//     $cordovaStatusbar.styleHex("#F5A623");
-				//     break;
-				//     default:
-				//
-				//   }
-				//   $cordovaStatusbar.show();
-				// }
-
+				$scope.options = {
+					title: $rootScope.quotation.ACTION_SHEET_PHOTO_TITLE,
+					buttonLabels: [$rootScope.quotation.ACTION_SHEET_PHOTO_CAMERA, $rootScope.quotation.ACTION_SHEET_PHOTO_GALERY],
+					addCancelButtonWithLabel: $rootScope.quotation.CHOOSE_LANGUAGE_CANCEL,
+					androidEnableCancelButton: true,
+					winphoneEnableCancelButton: true
+				};
 
 				$scope.image = 'assets/img/photo.png';
 				var user = StorageUserModel.getCurrentUser();
 				$scope.user = StorageUserModel.getCurrentUser();
 				$scope.register = {};
-				$scope.quote={};
-				$scope.project ={};
-				var added_motors=0;
+				$scope.quote = {};
+				$scope.project = {};
+				var added_motors = 0;
 
 
-				$scope.FinishQuotation = function(){
+				$scope.FinishQuotation = function () {
 
-					if(user.type_user === 'explorer'){
 
-						popUpService.showPopUpRegister($scope.translations).then(function(_response){
-							if(!_response){
-								$scope.showModalRegister();
+					var quote = {
+						calculation_id: $state.params.id_quotation,
+						user_id: user.id,
+						comment: $scope.quote.comments,
+						reference: $scope.quote.photo
+					};
 
-							}
+					$ionicLoading.show({
+						templateUrl: 'loading.html'
+					}).then(function () {
 
+
+						$Quotation.Create(user, quote).then(function (_response) {
+							
+							$scope.getPDF($state.params.id_quotation, _response.data.id);
+						}, function (_error) {
+							$log.error(_error);
 						});
-
-					}else{
-
-						var quote={
-							calculation_id:$state.params.id_quotation,
-							user_id:user.id,
-							comment:$scope.quote.comments,
-							reference:$scope.quote.photo
-						};
-
-						$ionicLoading.show({
-							templateUrl:'loading.html'
-						}).then(function () {
-
-
-							Quotation.Create(user, quote).then(function(_response) {
-								$scope.getPDF($state.params.id_quotation,_response.data.id);
-							}, function(_error) {
-
-							});
-						});
-					}
+					});
+					
 				};
 
 
 
-				$scope.showModalRegister = function(){
+				$scope.showModalRegister = function () {
 					$scope.openModalMotor();
 				};
 
 
-				$scope.persistProject= function(){
+				$scope.persistProject = function () {
 
-					var project={
-						price:StorageProject.getProjects().energy_cost,
-						name:StorageProject.getProjects().name,
+					var project = {
+						price: StorageProject.getProjects().energy_cost,
+						name: StorageProject.getProjects().name,
 					};
 
-					Calculation.create(project, StorageUserModel.getCurrentUser()).then(
-						function(_response) {
-							Utils.validateToast($scope.translations.QUOTATION_CREATED_MESSAGE);
-							// $scope.calculations = {};
-							// $scope.getCalculation();
-							// console.log(_response);
-
+					$Calculation.create(project, StorageUserModel.getCurrentUser()).then(
+						function (_response) {
+							Utils.validateToast('QUOTATION_CREATED_MESSAGE');
+							$log.info(_response);
 							$scope.project = _response.data;
-
 							$scope.persistMotor();
 						},
-						function(_error) {
-							Utils.validateToast($scope.translations.QUOTATION_FAIL_MESSAGE);
-							console.log(_error);
+						function (_error) {
+							Utils.validateToast('QUOTATION_FAIL_MESSAGE');
+							$log.error(_error);
 						}
 					);
 
 				};
 
-				$scope.persistMotor=function(){
+				$scope.persistMotor = function () {
 
 					var motors = StorageMotor.getMotor();
 
@@ -156,17 +98,18 @@ CONTROLLER DEFINITION
 						motors[i].power_factor = motors[i].efficiency;
 						motors[i].voltaje = motors[i].volts;
 
-						Motors.create(StorageUserModel.getCurrentUser(),motors[i],$scope.project.id).then(function(_response){
+						$Motors.create(StorageUserModel.getCurrentUser(), motors[i], $scope.project.id).then(function (_response) {
+							$log.info(_response);
 							added_motors++;
-							if(added_motors === motors.length){
+							if (added_motors === motors.length) {
 
 								$scope.persisteQuoate();
 							}
-						},function(_error){
+						}, function (_error) {
 							// Materialize.toast("Problemas al agregar motor",4000);
 							// $scope.modalMotor.hide();
-							Utils.validateToast($scope.translations.MOTOR_ADD_FAIL);
-							console.error(_error);
+							Utils.validateToast('MOTOR_ADD_FAIL');
+							$log.error(_error);
 						});
 
 					}
@@ -176,24 +119,25 @@ CONTROLLER DEFINITION
 
 				};
 
-				$scope.persisteQuoate = function(){
+				$scope.persisteQuoate = function () {
 
-					var quote={
-						calculation_id:$scope.project.id,
-						user_id:StorageUserModel.getCurrentUser().id,
-						comment:$scope.quote.comments,
-						reference:$scope.quote.photo
+					var quote = {
+						calculation_id: $scope.project.id,
+						user_id: StorageUserModel.getCurrentUser().id,
+						comment: $scope.quote.comments,
+						reference: $scope.quote.photo
 					};
 
 					$ionicLoading.show({
-						templateUrl:'loading.html'
+						templateUrl: 'loading.html'
 					}).then(function () {
 
 
-						Quotation.Create(StorageUserModel.getCurrentUser(), quote).then(function(_response) {
-							$scope.getPDF($scope.project.id,_response.data.id);
-						}, function(_error) {
-
+						$Quotation.Create(StorageUserModel.getCurrentUser(), quote).then(function (_response) {
+							$log.info(_response);
+							$scope.getPDF($scope.project.id, _response.data.id);
+						}, function (_error) {
+							$log.error(_error);
 						});
 					});
 				};
@@ -203,34 +147,36 @@ CONTROLLER DEFINITION
 					scope: $scope,
 					animation: 'slide-in-up'
 
-				}).then(function(modal) {
+				}).then(function (modal) {
 					$scope.modalMotor = modal;
 					$scope.modalMotor.hardwareBackButtonClose = false;
 				});
 
 
-				$scope.openModalMotor = function() {
-					
+				$scope.openModalMotor = function () {
+
 					$scope.modalMotor.show();
 				};
-				$scope.closeModalMotor = function() {
+				$scope.closeModalMotor = function () {
 					$scope.modalMotor.hide();
 				};
 				// Cleanup the modal when we're done with it!
-				$scope.$on('$destroy', function() {
+				$scope.$on('$destroy', function () {
 					$scope.modalMotor.remove();
 				});
 				// Execute action on hide modal
-				$scope.$on('modalMotor.hidden', function() {
+				$scope.$on('modalMotor.hidden', function () {
 					// Execute action
 				});
 				// Execute action on remove modal
-				$scope.$on('modalMotor.removed', function() {
+				$scope.$on('modalMotor.removed', function () {
 					// Execute action
 				});
 
-				$scope.back = function(){
-					$state.go('motors',{id_quotation: $state.params.id_quotation});
+				$scope.back = function () {
+					$state.go('motors', {
+						id_quotation: $state.params.id_quotation
+					});
 				};
 
 
@@ -239,11 +185,11 @@ CONTROLLER DEFINITION
 				}, 100);
 
 
-				$scope.validateQuotation =  function (){
+				$scope.validateQuotation = function () {
 					$scope.FinishQuotation();
 				};
 
-				$scope.getPDF = function(param1,_quotation_id){
+				$scope.getPDF = function (param1, _quotation_id) {
 					// PDF.getPDF(user,$state.params.id_quotation,_quotation_id).then(function(_response){
 					//
 					//
@@ -251,7 +197,7 @@ CONTROLLER DEFINITION
 					//
 					// })
 
-					var url = `http://kvar.herokuapp.com/api/calculations/${param1}/quotations/${_quotation_id}/pdf`;
+					var url = `http://energiastoreapp.com/api/calculations/${param1}/quotations/${_quotation_id}/pdf`;
 
 					$scope.downloadFile(url);
 
@@ -261,56 +207,38 @@ CONTROLLER DEFINITION
 				};
 
 
-				$scope.downloadFile = function(_url, _file_name) {
+				$scope.downloadFile = function (_url) {
 
-					var targetPath = this.cordova.file.dataDirectory;
+					var targetPath = cordova.file.dataDirectory;
 					var trustHosts = true;
-					var params= {};
-					params.headers={
+					var params = {};
+					params.headers = {
 						token: StorageUserModel.getCurrentUser().authentication_token,
 						username: StorageUserModel.getCurrentUser().username
 					};
 
 
-					
 
-					$cordovaFileTransfer.download(_url, targetPath+'pdf.pdf', params, trustHosts).then(
-						function(result) {
+
+					$cordovaFileTransfer.download(_url, targetPath + 'pdf.pdf', params, trustHosts).then(
+						function (result) {
 							$ionicLoading.hide();
-							console.log(result);
-							$scope.openFile(targetPath+'pdf.pdf');
-
-
+							$scope.openFile(targetPath + 'pdf.pdf');
+							$log.info(result);
 						},
-						function(err) {
-
-							// $scope.openFile(_file_name);
-							console.log(err);
-							// Error
+						function (_error) {
+							$log.info(_error);
 						},
-						function(progress) {
-							// Materialize.toast("Descargando PDF",4000);
-							$timeout(function() {
-								$scope.downloadProgress =
-              progress.loaded / progress.total * 100;
-								if ($scope.downloadProgress === 100) {
-									$('#btn-play-pdf').removeClass('disabled');
-								}
-							});
-						}
+						function () {}
 					);
 				};
 
 
-				$scope.openFile = function(_path_file) {
-					// // let path = targetPath +'/'+ _file_name;
-					// var path = targetPath + _file_name;
-					// console.log(path);
-
+				$scope.openFile = function (_path_file) {
 					$cordovaFileOpener2
 						.open(_path_file, 'application/pdf').then(
-							function(_response) {
-								console.log(_response);
+							function (_response) {
+								$log.info(_response);
 
 								setTimeout(function () {
 
@@ -318,18 +246,18 @@ CONTROLLER DEFINITION
 								}, 1000);
 
 							},
-							function(err) {
-								console.error(err);
-
+							function (err) {
+								$log.error(err);
+								popUpService.fail_open_pdf();
 								// An error occurred. Show a message to the user
 							}
 						);
 				};
 
 
-				$scope.openCamera = function (){
+				$scope.openCamera = function () {
 
-					let options = {
+					var options = {
 						quality: 50,
 						destinationType: Camera.DestinationType.DATA_URL,
 						sourceType: Camera.PictureSourceType.CAMERA,
@@ -339,22 +267,22 @@ CONTROLLER DEFINITION
 						targetHeight: 200,
 						popoverOptions: CameraPopoverOptions,
 						saveToPhotoAlbum: true,
-						correctOrientation:true
+						correctOrientation: true
 					};
 
-					$cordovaCamera.getPicture(options).then(function(_imageData) {
+					$cordovaCamera.getPicture(options).then(function (_imageData) {
 						$scope.quote.photo = 'data:image/jpeg;base64,' + _imageData;
 						$scope.image = $scope.quote.photo;
-					}, function(_err) {
-						Utils.validateToast($scope.ERROR_CAMERA);
-						console.log(_err);
+					}, function (_error) {
+						Utils.validateToast('ERROR_CAMERA');
+						$log.error(_error);
 					});
 
 				};
 
-				$scope.openGallery = function (){
+				$scope.openGallery = function () {
 
-					let options = {
+					var options = {
 						quality: 50,
 						destinationType: Camera.DestinationType.DATA_URL,
 						sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
@@ -365,24 +293,24 @@ CONTROLLER DEFINITION
 						popoverOptions: CameraPopoverOptions,
 					};
 
-					$cordovaCamera.getPicture(options).then(function(_imageData) {
+					$cordovaCamera.getPicture(options).then(function (_imageData) {
 						$scope.quote.photo = 'data:image/jpeg;base64,' + _imageData;
 						$scope.image = $scope.quote.photo;
 						// isPictureChanged=true;
-					}, function(_err) {
+					}, function (_error) {
 
-						Utils.validateToast($scope.ERROR_GALLERY);
-						console.error(_err);
+						Utils.validateToast('ERROR_GALLERY');
+						$log.error(_error);
 
 					});
 				};
 
 
-				if (window.cordova){
-					$scope.showPopUpImage = function(){
+				if (window.cordova) {
+					$scope.showPopUpImage = function () {
 						$cordovaActionSheet
 							.show($scope.options)
-							.then(function(btnIndex) {
+							.then(function (btnIndex) {
 
 								switch (btnIndex) {
 								case 1:
@@ -402,25 +330,25 @@ CONTROLLER DEFINITION
 
 
 
-				$scope.validateSlider1 =function(){
+				$scope.validateSlider1 = function () {
 
-					if ($scope.register.email === undefined || $scope.register.email === ''){
-						Utils.validateToast($scope.translations.REGISTER_EMAIL_EMPTY_ERROR);
+					if ($scope.register.email === undefined || $scope.register.email === '') {
+						Utils.validateToast('REGISTER_EMAIL_EMPTY_ERROR');
 						return;
 					}
 
-					if ($scope.register.password === undefined || $scope.register.password === ''){
-						Utils.validateToast($scope.translations.REGISTER_PASSWORD_EMPTY_ERROR);
+					if ($scope.register.password === undefined || $scope.register.password === '') {
+						Utils.validateToast('REGISTER_PASSWORD_EMPTY_ERROR');
 						return;
 					}
 
-					if ($scope.register.password_confirmation === undefined || $scope.register.password_confirmation === ''){
-						Utils.validateToast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR);
+					if ($scope.register.password_confirmation === undefined || $scope.register.password_confirmation === '') {
+						Utils.validateToast('REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR');
 						return;
 					}
 
-					if ($scope.register.password_confirmation !== $scope.register.password){
-						Utils.validateToast($scope.translations.REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR);
+					if ($scope.register.password_confirmation !== $scope.register.password) {
+						Utils.validateToast('REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR');
 						return;
 					}
 
@@ -429,12 +357,12 @@ CONTROLLER DEFINITION
 				};
 
 
-				$scope.registerUser = function (){
+				$scope.registerUser = function () {
 
 					$ionicLoading.show({
-						templateUrl:'loading.html'
+						templateUrl: 'loading.html'
 					});
-					User.registerUser($scope.register).then(function(_response){
+					$User.registerUser($scope.register).then(function (_response) {
 
 						StorageUserModel.setCurrentUser(_response.data);
 
@@ -444,15 +372,15 @@ CONTROLLER DEFINITION
 							$ionicSlideBoxDelegate.slide(1);
 						}, 2000);
 
-					},function(_error){
+					}, function (_error) {
 
 						$ionicLoading.hide();
 						// Materialize.toast($scope.translations.REGISTER_SLIDER_1_ERROR,4000)
-						console.error(_error);
+						$log.error(_error);
 
 					});
 				};
-				$scope.finish= function(){
+				$scope.finish = function () {
 					$scope.closeModalMotor();
 					$ionicLoading.show({
 						template: `${$scope.translations.LOADING}...`
@@ -460,27 +388,28 @@ CONTROLLER DEFINITION
 					$scope.persistProject();
 
 				};
-				$scope.disableSwipe = function() {
+				$scope.disableSwipe = function () {
 					$ionicSlideBoxDelegate.enableSlide(false);
 				};
 
 
-				$scope.goToProjects= function(){
+				$scope.goToProjects = function () {
 					$state.go('project');
 				};
-				$scope.goToProfile= function(){
+				$scope.goToProfile = function () {
 					$state.go('settings');
 				};
-				$scope.goToQuotes= function(){
+				$scope.goToQuotes = function () {
 					$state.go('quotation');
 				};
 
-				$scope.Close = function(){
+				$scope.Close = function () {
 					$scope.closeModalMotor();
 				};
 
 
 
 			});
-		}]);
+		}
+	]);
 }).call(this);

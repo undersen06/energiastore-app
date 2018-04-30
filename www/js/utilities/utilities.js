@@ -1,19 +1,20 @@
 'use strict';
 
 (function () {
-	this.app.factory('Utils', [function () {
-
+	app.factory('Utils', function (StorageUserModel, $rootScope) {
 		var showingToast = false;
 
 		return {
-			validateToast: function validateToast(message) {
-				if (showingToast === false) {
+			validateToast: function (_error) {
+				var message = $rootScope.toast[_error] ||  $rootScope.toast.UNKNOWN_ERROR ;
+
+				if (!showingToast) {
 					showingToast = true;
-					this.Materialize.toast(message, 4000, '', function () {
+					Materialize.toast(message, 4000, '', function () {
 						showingToast = false;
 					});
 				}
 			}
 		};
-	}]);
+	});
 }).call();

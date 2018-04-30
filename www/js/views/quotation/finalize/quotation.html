@@ -4,7 +4,7 @@
     <h5 ng-click="back()">
       <i class="ion-chevron-left"></i>
     </h5>
-    <h1 class="title">{{translations.FINALIZE_QUOTATION_HEADER}}</h1>
+    <h1 class="title">{{quotation.FINALIZE_QUOTATION_HEADER}}</h1>
   </ion-header-bar>
 
 
@@ -12,45 +12,21 @@
 
     <div ng-class="os === 'android' ? 'android-content' : 'ios-content'">
 
-
-
       <div class="input-field col s12">
-        <input id="input-penalty-text" type="text" class="validate" ng-model="quote.comments" >
-        <label for="input-penalty-text">{{translations.INPUT_COMMENTS_TEXTBOX}}</label>
+        <input id="input-penalty-text" type="text" class="validate" ng-model="quote.comments">
+        <label for="input-penalty-text">{{quotation.INPUT_COMMENTS_TEXT_BOX}}</label>
+      </div>
+      <img ng-src="{{image}}" alt="" ng-click="showPopUpImage();">
+      <p>{{quotation.UPLOAD_PHOTO_TEXT}}</p>
+
+      <div ng-class="design.buttonSolid" class="button-traslucid btn" ng-click="validateQuotation();">
+        {{quotation.CREATE_PDF_BUTTON}}
       </div>
 
-      <!-- <div class="row">
-      <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
-    </div> -->
+    </div>
 
-    <!-- <img ng-src="{{image}}" style="width: 50%;margin: auto;display: block;" alt="" ng-click="showPopUpImage();"> -->
-    <img ng-src="{{image}}" alt="" ng-click="showPopUpImage();">
-    <!-- <p style="text-align: center;color: grey;">{{translations.FMP_MODAL_QUOTATION_SEND_BUTTON}}</p> -->
-    <p>{{translations.UPLOAD_PHOTO_TEXT}}</p>
-
-    <!-- <div class="row">
-    <a class="waves-effect waves-light btn" id="button-gallery"  ng-click="showPopUpImage();" style="margin:auto;">{{translations.ADD_PHOTO_BUTTON_TEXT}}</a>
-  </div> -->
-
-
-  <!-- <a class="waves-effect waves-light btn factor-send-button" style="BOTTOM: 20PX;POSITION: absolute;TRANSFORM: TRANSLATE(-50%,0);LEFT: 50%;" ng-click="();" style="">{{translations.}}</a> -->
-
-
-
-
-  <div ng-class="design.buttonSolid" class="button-traslucid btn" ng-click="validateQuotation();">
-    {{translations.CREATE_PDF_BUTTON}}
-  </div>
-
-
-
-
-</div>
-
-
-
-</ion-content>
-<footbar></footbar>
+  </ion-content>
+  <footbar></footbar>
 </ion-view>
 
 
@@ -58,16 +34,13 @@
 
 
 <style media="screen">
-.android-content{
-  height:calc(100vh - 77px)
-}
+  .android-content {
+    height: calc(100vh - 77px)
+  }
 
-.ios-content{
-  height:calc(100vh - 97px)
-}
+  .ios-content {
+    height: calc(100vh - 97px)
+  }
 
-/* .bar-footer {
-  height: 50px !important;
-  background-color: #8bcb71;
-} */
+
 </style>

@@ -1,27 +1,24 @@
 
 'use strict';
 
+
+//    "MODAL_CREATE_FACTOR_BUTTON": "Entendido",
+// "MODAL_CREATE_FACTOR_TEXT": "Cotización realizada de manera exitosa, EnergiaStore se pondrá en contacto con usted para enviar su cotización.",
+
+// "MODAL_FAIL_CREATE_FACTOR_TEXT": "Ups no hemos podido realizar tu cotización, por favor intentalo mas tarde.",
+
 (function() {
 	this.app.constant('ENV', {
 
-
-		//////////////////////////////////////////
 		//****************+SERVERS**************//
-		//////////////////////////////////////////
 
-<<<<<<< HEAD
-    LOCAL: "http://energiastoreapp.com/",
-    //  LOCAL : "http://localhost:3000/",
-=======
-		LOCAL : 'http://kvar.herokuapp.com/',
 		
->>>>>>> 82f1d7d799c54f28680a349e15bb2efa645f6abc
+		LOCAL : 'http://energiastoreapp.com/',
 
+	
+		
 
-		//////////////////////////////////////////
-		//**************+EndPoinst**************//
-		//////////////////////////////////////////
-
+		//**************+End-Points**************//
 		// SESSION_MODEL
 		SIGN_UP : 'api/signup',
 		SIGN_IN : 'api/login',
@@ -38,14 +35,12 @@
 		// INDEX_MOTORS_BY_CALCULATION: "api/calculations/",
 		DESTROY_CALCULATION: 'api/calculations',
 
-		CREATE_PF_QUOATATION : 'api/pf_quotation',
+		CREATE_PF_QUOTATION : 'api/pf_quotation',
 
 		GET_COUNTRIES : 'api/countries',
-		GET_CURRENCIES : 'api/currencies'
-
-
-
-
+		GET_CURRENCIES : 'api/currencies',
+		GET_AVATARS : 'api/avatars',
+		GET_PROVIDER: 'api/providers'
 
 
 	});

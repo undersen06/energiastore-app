@@ -18,8 +18,9 @@
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
-    <preference name="FadeSplashScreenDuration" value="300" />
-    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="FadeSplashScreenDuration" value="false" />
+    <preference name="SplashShowOnlyFirstTime" value="true" />
+    <preference name="AutoHideSplashScreen" value="true" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
@@ -84,7 +85,6 @@
     </platform>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
     <plugin name="cordova-plugin-whitelist" spec="git+https://github.com/apache/cordova-plugin-whitelist.git" />
-    <plugin name="cordova-plugin-app-version" spec="git+https://github.com/whiteoctober/cordova-plugin-app-version.git" />
     <plugin name="cordova-plugin-team" spec="https://github.com/apache/cordova-plugin-whitelist.git" />
     <plugin name="cordova-plugin-media-capture" spec="^1.4.3">
         <variable name="CAMERA_USAGE_DESCRIPTION" value="EnergiaStore desea acceder a tu camara." />
@@ -118,6 +118,7 @@
         <variable name="APP_ID" value="4775284" />
     </plugin>
     <plugin name="cordova-plugin-appavailability" spec="https://github.com/ohh2ahh/AppAvailability.git" />
+    <plugin name="cordova-plugin-app-version" spec="https://github.com/whiteoctober/cordova-plugin-app-version.git" />
     <engine name="android" spec="6.4.0" />
     <engine name="ios" spec="4.5.4" />
 </widget>

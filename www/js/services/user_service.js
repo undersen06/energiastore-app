@@ -1,13 +1,14 @@
 'use strict';
 
 (function() {
-	this.app.factory('User', ['$http', '$q', 'ENV','StorageUserModel','StorageCountryModel',
-		function($http, $q, ENV, StorageUserService,StorageCountryModel){
+	this.app.factory('$User', ['$http', '$q', 'ENV','StorageUserModel','StorageCountryModel',
+		function($http, $q, ENV, StorageUserModel,StorageCountryModel){
 
+			var user = StorageUserModel.getCurrentUser();
 
 			return {
 				registerUser: function(_user) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.SIGN_UP,
 						method: 'POST',
@@ -28,7 +29,7 @@
 				},
 
 				registerUserFacebook: function(_facebook_data) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.SIGN_UP,
 						method: 'POST',
@@ -50,7 +51,7 @@
 				},
 
 				registerUserLinkedin: function(_linkedin_data) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.SIGN_UP,
 						method: 'POST',
@@ -73,13 +74,13 @@
 
 				updateUser: function(_user,_info) {
 
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
 						method: 'PATCH',
 						headers:{
-							username:_user.username,
-							token:_user.authentication_token
+							username: user.username,
+							token: user.authentication_token
 						},
 						data:{
 							user:{
@@ -103,7 +104,7 @@
 
 
 				updateCountry: function(_user,_country) {
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
 						method: 'PATCH',
@@ -120,14 +121,18 @@
 						defer.resolve(_response);
 
 					}, function(_error) {
-						defer.reject(_error);
+						var error ={
+							INTERNAL_CODE:_error,
+							USER_ERROR_CODE: 'UPDATE_COUNTRY'
+						};
+						defer.reject(error);
 					});
 					return defer.promise;
 				},
 
 				registerUserFacebookInfo: function(_user,_info) {
 
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
 						method: 'PATCH',
@@ -155,7 +160,7 @@
 
 				registerUserLinkedInInfo: function(_user,_info) {
 					
-					let defer = $q.defer();
+					var defer = $q.defer();
 					$http({
 						url: ENV.LOCAL + ENV.UPDATE_USER_API+_user.id,
 						method: 'PATCH',
@@ -179,6 +184,27 @@
 					});
 					return defer.promise;
 				},
+
+				getAvatars : function(){
+
+					var defer = $q.defer();
+					$http({
+						url: 'http://energiastoreapp.com/' + ENV.GET_AVATARS,
+						method: 'GET',
+						headers:{
+							username:user.username,
+							token:user.authentication_token
+						}
+					}).then(function(_response) {
+						defer.resolve(_response);
+
+					}, function(_error) {
+						defer.reject(_error);
+					});
+					return defer.promise;
+
+				}
+
 
 
 			};

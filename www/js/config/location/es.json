@@ -1,0 +1,357 @@
+{
+    "APP": {
+        "NAME": "energiaStore",
+        "SPINNER_loading": "Registrando cuenta..."
+    },
+    "POPUP": {
+        "ERROR_LINKEDIN_LOGIN": {
+            "BODY": "LinkedIn a denegado el acceso, intentalo de nuevo.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "ERROR_LINKEDIN_APP_NOT_FOUND": {
+            "BODY": "Al parecer no tienes LinkedIn instalado en tu dispositivo.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "ERROR_LINKEDIN_IS_WEBVIEW": {
+            "BODY": "LinkedIn solo se puede utilizar desde la App.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "ERROR_FACEBOOK_LOGIN": {
+            "BODY": "Facebook a denegado el acceso, intentalo de nuevo.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "ERROR_FACEBOOK_IS_WEBVIEW": {
+            "BODY": "Facebook solo se puede utilizar desde la App.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "WORKING_ON": {
+            "TITLE": "Ups!",
+            "BODY": "Esta sección aun esta en desarrollo, vuelve pronto",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "UPDATE_PROFILE_ERROR": {
+            "TITLE": "Ups!",
+            "BODY": "Problemas al actualizar tu perfil, intentalo más tarde",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+
+        "UPDATE_PROFILE_SUCCESS": {
+            "BODY": "Perfil actualizado satisfactoriamente.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "LEAVE_SIGN_UP": {
+            "BODY": "¿ Esta seguro que desea salir del registro ?",
+            "BUTTON": {
+                "POSITIVE": "Continuar",
+                "NEGATIVE": "Salir"
+            }
+        },
+        "TOKEN_PROBLEM": {
+            "BODY": "Esta cuenta esta en uso desde otro dispositivo, vuelve a iniciar sesión.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "FACEBOOK_EMAIL_ERROR": {
+            "BUTTON": {
+                "POSITIVE": "Re-intentar / Try again"
+            },
+            "TITLE": "Esta cuenta esta en uso desde otro dispositivo, vuelve a iniciar sesión.",
+            "BODY": "No hemos podido obtener tu email desde facebook, intentalo de manera manual."
+        },
+        "FAIL_CREATE_USER": {
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            },
+            "TITLE": "Ups.",
+            "BODY": "No hemos podido crear tu cuenta, por favor intentalo más tarde."
+        },
+            "FAIL_OPEN_PDF": {
+                "BUTTON": {
+                    "POSITIVE": "Entendido"
+                },
+                "TITLE": "Ups.",
+                "BODY": "No hemos podido descargar el pdf, intentalo más tarde."
+            },
+            "FAIL_CREATE_FACTOR": {
+                "BUTTON": {
+                    "POSITIVE": "Entendido"
+                },
+                "TITLE": "Ups.",
+                "BODY": "Ups, no hemos podido completar tu cotización, por favor intentalo más tarde."
+            }
+
+            
+
+
+
+    },
+    "TOAST": {
+        "UNKNOWN_ERROR": "Error, intentalo más tarde",
+
+        "COMPLETE_NAME": "",
+        "COMPLETE_LASTNAME": "",
+        "COMPLETE_PHONE": "",
+        "COMPLETE_ADDRESS": "",
+
+        "COMPLETE_EMAIL": "Complete correo",
+        "COMPLETE_PASSWORD": "Complete contraseña",
+        "LOGIN_ERROR": "Usuario incorrecto",
+
+
+        "ERROR_CAMERA": "",
+        "ERROR_GALLERY": "",
+        "QUOTATION_AMOUNT_EMPTY": "",
+        "QUOTATION_AMOUNT_MINIMUM": "",
+
+        "COMPLETE_PROJECT_NAME": "Ingrese nombre proyecto",
+        "SELECT_PROVIDER": "Seleccione un proveedor",
+
+        "QUOTATION_ERROR_DOWNLOAD_INFO": "Error al descargar los proyectos",
+        "QUOTATION_CREATED_MESSAGE": "Proyecto creado",
+        "QUOTATION_FAIL_MESSAGE": "Error al crear el proyecto",
+
+
+        "COMPLETE_NAME_PROFILE": "Complete su nombre",
+        "COMPLETE_LAST_NAME_PROFILE": "Complete su apellido",
+        "COMPLETE_PHONE_PROFILE": "Complete su numero",
+        "COMPLETE_ADDRESS_PROFILE": "Complete su dirección",
+
+
+        "MOTOR_COMPLETE_VOLTAJE_MINIMUM": "El voltaje debe ser mayor a 0",
+        "MOTOR_COMPLETE_AMP_MINIMUM": "El amperaje debe ser mayor a 0",
+        "MOTOR_COMPLETE_KW_MINIMUM": "Los KW deben ser mayor a 0",
+        "MOTOR_COMPLETE_KW_EMPTY": "Complete KW del motor",
+        "EMPTY_MOTORS_FINALIZE_QUOTATION": "Debes agregar al menos 1 motor.",
+        "MOTOR_SELECT_HOURS": "Seleccione las horas",
+        "MOTOR_SELECT_DAYS": "Seleccione los dias",
+        "MOTOR_COMPLETE_DAYS_MONTH": "Complete dias del mes del motor",
+        "MOTOR_ADD_SUCCESS": "Motor agregado",
+        "MOTOR_COMPLETE_HOURS_DAY": "Complete horas al dia del motor",
+        "MOTOR_COMPLETE_FTP": "Complete factor de potencia",
+        "MOTOR_COMPLETE_AMP": "Complete amperaje del motor",
+        "MOTOR_COMPLETE_VOLT": "Complete voltaje del motor",
+        "MOTOR_COMPLETE_NAME": "Complete nombre del motor",
+        "MOTOR_ADD_FAIL": "Problemas al agregar motor"
+    },
+    "VIEWS": {
+        "DASHBOARD": {
+            "MOTOR_DASHBOARD_TEXT": "Eficiencia de motores",
+            "PENALTY_DASHBOARD_TEXT": "Mal factor de potencia",
+            "PENALTY_PRODUCTS_TEXT": "Productos"
+        },
+        "FACTOR_MP": {
+            "FMP_HEADER": "Mal factor de potencia",
+            "INPUT_COMMENTS_TEXTBOX": "Comentarios (opcionales)",
+            "FMP_PRE_TEXT": "Solicitar evaluación de",
+            "FMP_PRE_TEXT_STRONG": "Factor de mala potencia",
+            "FMP_BUTTON": "Ingresar multa",
+            "FMP_MODAL_QUOTATION_HEADER": "Proyecto Factor de potencia",
+            "FMP_MODAL_QUOTATION_OPTION_MANUAL": "Ingresa multa manual",
+            "FMP_MODAL_QUOTATION_AMOUNT": "Monto de multa",
+            "FMP_MODAL_QUOTATION_USE_PHOTO": "Utilizar fotografía de la multa",
+            "FMP_MODAL_QUOTATION_COMMENT": "Si deseas aquí puedes agregar un comentario",
+            "FMP_QUOTATION_TITLE": "Ingrese los 3 últimos valores de las multas",
+            "FMP_MODAL_QUOTATION_OPTION_CAMERA": "Cámara",
+            "FMP_MODAL_QUOTATION_OPTION_GALLERY": "Galería",
+            "FMP_MODAL_QUOTATION_SEND_BUTTON": "Calcular"
+        },
+        "INTRODUCTION": {
+            "SLIDER_1": "Los recursos naturales se están terminando ¡la eficiencia energética es el camino para un mundo mejor!",
+            "SLIDER_2": "El cambio está en ti ¡comienza a hacer la diferencia y ahorra energía eléctrica!",
+            "SLIDER_3": "! Comienza hoy & contagia la eficiencia energética ¡nuestro planeta lo agradecerá",
+            "SLIDER_BUTTON": "Comenzar con el cambio",
+            "NEXT":"Siguiente",
+            "BACK":"Atras",
+            "SKIP":"Saltar"
+        },
+        "LOGIN": {
+            "HEADER": "Iniciar en EnergiaStore",
+            "EMAIL": "Correo",
+            "PASSWORD": "Contraseña",
+            "LOGIN_BUTTON": "Inicia sesión",
+            "SIGNUP_TEXT": "Aún no tienes una cuenta?",
+            "SIGNUP_BUTTON": "Registrate",
+            "EMAIL_EMPTY_ERROR": "Complete Correo",
+            "PASSWORD_EMPTY_ERROR": "Complete contraseña",
+            "ERROR_USER": "Usuario incorrecto.",
+            "INIT_FACEBOOK": "Iniciar con Facebook",
+            "INIT_LINKEDIN": "Iniciar con LinkedIn"
+        },
+        "MIDDLEWARE": {
+            "MIDDLEWARE_TITLE": "Como te gustaría utilizar energiaStore ?",
+            "MIDDLEWARE_USER_BODY": "Registrate y utiliza todas las funcionalidades",
+            "MIDDLEWARE_PARTNER_BODY": "Ingresa con una cuenta autorizada por energiaStore",
+            "MIDDLEWARE_EXPLORER_BODY": "Ingresa sin registros y conoce la aplicación",
+            "MIDDLEWARE_HELP": "Ayuda"
+        },
+        "MOTORS": {
+            "MOTORS_HEADER": "Motores",
+            "MOTOR_NAME_LIST": "Nombre motor",
+            "AMP_NAME_LIST": "Amperaje",
+            "HOURS_NAME_LIST": "Tiempo promedio",
+            "KW_NAME_LIST": "KW",
+            "VOLTS_NAME_LIST": "Voltios",
+            "POWER_FACTOR_NAME_LIST": "Power Factor",
+            "MOTOR_CARD_ELEMENT_CREATED_AT": "Fecha de creación",
+            "BUTTON_ADD_MOTOR": "Agregar motor",
+            "SEND_QUOTATION_BUTTON_BOTTOM": "Enviar cotización",
+            "BUTTON_ADD_MORE_MOTORS": "agregar mas motores ",
+            "MODAL_CREATE_MOTOR_BUTTON": "Crear Motor",
+            "MODAL_HELPER_MOTOR_TITLE": "Nombre de equipo / motor",
+            "MODAL_HELPER_MOTOR_BODY": "",
+            "MODAL_HELPER_VOLTAJE_TITLE": "Voltaje",
+            "MODAL_HELPER_VOLTAJE_BODY": "",
+            "MODAL_HELPER_AMP_TITLE": "Amperage",
+            "MODAL_HELPER_AMP_BODY": "",
+            "MODAL_HELPER_POWER_FACTOR_TITLE": "Factor de potencia",
+            "MODAL_HELPER_POWER_FACTOR_BODY": "",
+            "MODAL_HELPER_RATED_POWER_TITLE": "KW",
+            "MODAL_HELPER_RATED_POWER_BODY": "",
+            "MODAL_HELPER_HOURS_DAY_TITLE": "Horas al día",
+            "MODAL_HELPER_HOURS_DAY_BODY": "",
+            "MODAL_HELPER_DAYS_MONTH_TITLE": "Días al mes",
+            "MODAL_HELPER_DAYS_MONTH_BODY": "",
+            "MOTOR_CARD_ELEMENT_CREATED_AT": "Fecha de creación"
+            
+        },
+        "PRODUCTS": {
+            "PRODUCT": {},
+            "CATEGORIES": {}
+        },
+        "PROJECT": {
+            "QUOTATION_POPUP_CANCEL_BUTTON": "Cancelar",
+            "QUOTATION_POPUP_ACCEPT_BUTTON": "Crear",
+            "ADD_QUOTATION_POPUP_TITLE": "Crear Proyecto",
+            "ADD_QUOTATION_POPUP_FIRST_INPUT": "Nombre Proyecto",
+            "ADD_QUOTATION_POPUP_SECOND_INPUT": "Precio KW (USD)",
+            "QUOTATION_CARD_TITLE": "Aún no tienes ningún",
+            "QUOTATION_CARD_TITLE_STRONG": "proyecto",
+            "QUOTATION_CARD_BODY_PRE": "Haz click en  ",
+            "QUOTATION_CARD_BODY_POST": "para agregar tu primera cotización",
+            "QUOTATION_CARD_ELEMENT_COST_KW": "para agregar tu primera cotización",
+            "QUOTATION_CARD_ELEMENT_ID": "Id",
+            "QUOTATION_CARD_ELEMENT_CREATED_AT": "Fecha de creación",
+            "QUOTATION_HEADER": "Cotizaciones",
+            "BUTTON_ADD_PROJECT": "Agregar proyecto",
+            "DUPLICATE_OPTION": "Duplicar",
+            "CREATE_PROJECT_TITLE": "Creación de proyecto",
+            "CREATE_PROJECT_BUTTON_POSITIVE": "Crear",
+            "CREATE_PROJECT_BUTTON_NEGATIVE": "Cancelar",
+            "CREATE_PROJECT_SELECT_PROVIDER": "Seleccione proveedor de servicio."
+        },
+        "QUOTATION": {
+      
+            "ADD_PHOTO_BUTTON_TEXT": "AGREGAR FOTO",
+            "FINALIZE_QUOTATION_HEADER": "Finalizar Proyecto",
+            "INPUT_COMMENTS_TEXT_BOX": "Comentarios (opcional)",
+            "QUOTATION_HEADER": "Cotizaciones",
+            "PROJECT_TAB_TITLE": "Proyectos",
+            "MFP_TAB_TITLE": "Mal factor de potencia",
+            "CREATE_PDF_BUTTON": "Solicitar PDF",
+            "UPLOAD_PHOTO_TEXT": "Puede agregar una foto a su presupuesto haciendo clic en la imagen de arriba. . .",
+            "INPUT_COMMENTS_TEXTBOX": "Comentarios (opcionales)",
+            "ACTION_SHEET_PHOTO_TITLE": "Agregar foto",
+            "ACTION_SHEET_PHOTO_CAMERA": "Cámara",
+            "ACTION_SHEET_PHOTO_GALLERY": "Galería"
+        },
+        "REGISTER": {
+            "REGISTER_SLIDER_1_HEADER": "Registremos tu cuenta...",
+            "REGISTER_SLIDER_1_PLACEHOLDER_EMAIL": "Correo",
+            "REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD": "Contraseña",
+            "REGISTER_SLIDER_1_CONFIRMATION_PASSWORD": "Confirmación contraseña",
+            "REGISTER_EMAIL_EMPTY_ERROR": "Complete Correo",
+            "REGISTER_PASSWORD_EMPTY_ERROR": "Complete contraseña",
+            "REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR": "Complete confirmación contraseña",
+            "REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR": "Password no coinciden",
+            "REGISTER_SLIDER_1_SPINNER": "Registrando cuenta",
+            "REGISTER_SLIDER_1_ERROR": "Intente con otra cuenta",
+            "REGISTER_SLIDER_2_HEADER": "! Felicitaciones ¡",
+            "REGISTER_SLIDER_2_SUBTITLE": "! Ya eres parte de EnergiaStore¡"
+        },
+        "SETTINGS": {
+            "OPTIONS": {
+                "COUNTRY": {
+                    "CHOOSE_LANGUAGE_TEXT": "Seleccione el idioma.",
+                    "CHOOSE_LANGUAGE_SPANISH": "Español",
+                    "CHOOSE_LANGUAGE_ENGLISH": "Ingles",
+                    "CHOOSE_LANGUAGE_CANCEL": "Cancelar"
+                },
+                "PROFILE": {
+                    "UPDATE_BUTTON": "Actualizar",
+                    "MENU_PROFILE": "Mi perfil"
+                },
+                "TUTORIAL": {
+                    "TUTORIALS_TYPEUSER_USER": "Corresponde a aquel usuario que ya posee una cuenta o desea registrarse directamente en energiaStore para su uso personal",
+                    "TUTORIALS_TYPEUSER_PARTNER": "Corresponde a aquel usuario que ya posee una cuenta en energiaStore para su uso empresarial.",
+                    "TUTORIALS_TYPEUSER_EXPLORER": "Corresponde al usuario que desea utilizar la app sin registro, su cuenta es limitada",
+                    "TUTORIAL_TYPE_USER_TITLE": "Fin Tutorial",
+                    "TUTORIAL_TYPE_USER_TEXT": "si aún tienes dudas puedes contactarnos en la sección de configuración.",
+                    "TUTORIAL_WELCOME_TITLE": "Bienvenido",
+                    "TUTORIAL_WELCOME_TEXT": "A continuación te explicaremos los distintos perfiles que existen en energiaStore",
+                    "TUTORIALS_TITLE": "Tutoriales",
+                    "TUTORIALS_PROFILE": "Tutorial perfiles",
+                    "TUTORIALS_QUOTATIONS": "Tutorial Cotizaciones",
+                    "TUTORIALS_FACTOR": "Tutorial Mal Factor de potencia",
+                    "TUTORIALS_TYPE_USER_USER": "Corresponde a aquel usuario que ya posee una cuenta o desea registrarse directamente en energiaStore para su uso personal",
+                    "TUTORIALS_TYPE_USER_PARTNER": "Corresponde a aquel usuario que ya posee una cuenta en energiaStore para su uso empresarial.",
+                    "TUTORIALS_TYPE_USER_EXPLORER": "Corresponde al usuario que desea utilizar la app sin registro, su cuenta es limitada",
+                    "FMP_MODAL_HEADER": "¿Factor de mala potencia?",
+                    "FMP_MODAL_FIRST_TEXT_HEADER": "¿Por qué me cobran las compañías de electricidad esta multa?",
+                    "FMP_MODAL_FIRST_TEXT_FIRST_LINE": "La legislación chilena permite que las empresas distribuidoras de energía eléctrica, cobren a cada cliente un recargo de un 1% sobre la facturación de energía por cada centésima (0,01) en que el Factor de Potencia (F.P.) de una instalación sea inferior a 0,93.",
+                    "FMP_MODAL_FIRST_TEXT_SECOND_LINE": "Eso significa que sí el factor de potencia de un empalme es de 0,86, la distribuidora cobrará un recargo de 8% (0,93-0,85=0,08=8/100).",
+                    "FMP_MODAL_FIRST_TEXT_THIRD_LINE": "¿Por qué genero ésta Multa?",
+                    "FMP_MODAL_FIRST_TEXT_FORTH_LINE": "Consumo eléctrico de máquinas rotativas ( motores),",
+                    "FMP_MODAL_FIRST_TEXT_FIFTH_LINE": "Lámparas de descarga no compensadas",
+                    "FMP_MODAL_FIRST_TEXT_SIXTH_LINE": "Iluminación fluorescente no compensada",
+                    "FMP_MODAL_FIRST_TEXT_SEVENTH_LINE": "Multiples otros factores",
+                    "FMP_MODAL_SECOND_TEXT_HEADER": "¿Como leer mi multa por mal factor de potencia?",
+                    "FMP_MODAL_SECOND_TEXT_FIRST_LINE": "Por ejemplo, en el recibo de electricidad de un establecimiento escolar, donde se registran las energías activa y reactiva por medio de dos medidores de energía, aparecen los siguientes cargos:",
+                    "FMP_MODAL_SECOND_TEXT_SECOND_LINE": "El consumo de energía activa es de 4238 kWh y el de energía reactiva es de 3102 kVArh. Por lo tanto, el factor de potencia mensual es:",
+                    "FMP_MODAL_SECOND_TEXT_THIRD_LINE": "Entonces, el recargo por factor de potencia que aparece en el recibo se obtiene de: 0,93-0,8069 = 0,1231 x 358466 =  $44.127.-",
+                    "FMP_MODAL_THIRD_TEXT_HEADER": "¿Cómo me pueden ayudar a no pagar más esta multa?",
+                    "FMP_MODAL_THIRD_TEXT_SECOND_LINE": "En EnergiaStore, realizamos un ESTUDIO DE FACTOR DE POTENCIA Y MEJORAMIENTO DE FACTOR DE POTENCIA, OPTIMIZANDO SU INSTALACIÓN ELÉCTRICA”. Los invitamos a cotizar su proyecto AQUÍ o con nosotros al correo energia@energiastore.cl o al fono: +569-999999"
+                }
+            },
+            "SETTINGS_MENU_TITLE": "Configuraciones",
+            "SETTINGS_MENU_PROFILE": "Mi perfil",
+            "SETTINGS_MENU_SIGN_UP": "Registrar mi cuenta",
+            "SETTINGS_MENU_CHANGE_LANGUAGE": "Cambiar lenguaje",
+            "SETTINGS_MENU_CHOOSE_COUNTRY": "Seleccionar País",
+            "SETTINGS_MENU_TUTORIAL": "Tutoriales",
+            "SETTINGS_MENU_FAQ": "FAQ",
+            "SETTINGS_MENU_ABOUT_US": "Sobre nosotros",
+            "SETTINGS_MENU_LOG_OUT": "Cerrar sesión",
+            "ABOUT_US_TITLE": "EnergiaStore",
+            "ABOUT_US_TEXT": "Todos los derechos reservados 2018",
+            "ABOUT_US_BUTTON_TEXT": "Entendido",
+            "LOG_OUT_TITLE": "Salir de energiaStore",
+            "LOG_OUT_TEXT": "¿Estas seguro que deseas cerrar sesión?",
+            "LOG_OUT_CANCEL_BUTTON": "Cancelar",
+            "LOG_OUT_LEAVE_BUTTON": "Salir"
+        },
+        "WELCOME":{
+            "CHOOSE_YOUR_COUNTRY": "Selecciona tu país"
+        },
+        "FOOTBAR": {
+            "PROJECTS": "Proyectos",
+            "QUOTATIONS": "Cotizaciones"
+        }
+    }
+}

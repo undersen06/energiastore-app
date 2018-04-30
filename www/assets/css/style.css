@@ -2,6 +2,7 @@
 
 
 @import '../../js/components/footbar/footbar.css';
+@import '../../js/components/earth/earth.css';
 @import '../../js/views/login/login.css';
 @import '../../js/views/welcome/welcome.css';
 @import '../../js/views/introduction/introduction.css';
@@ -12,9 +13,11 @@
 @import '../../js/views/factormp/factor.css';
 @import '../../js/views/products/categories/categories.css';
 @import '../../js/views/products/products.css';
+@import '../../js/views/settings/settings.css';
 
 /* Tutorial */
 @import '../../js/views/settings/options/tutorials/tutorials/type_user/tutorial.css';
+@import '../../js/views/settings/options/tutorials/tutorials/penalty/tutorial.css';
 
 
 /* Choose country */
@@ -78,7 +81,7 @@ h1,h5{
   color:rgb(185, 185, 185);
   text-transform: uppercase;
 }
-.button-afirmative{
+.button-affirmative{
   background-color:white;
   color:#62D485;
   text-transform: uppercase;
@@ -112,7 +115,7 @@ h1,h5{
   margin: 20px auto;
   padding: 10px 20px;
   text-transform: uppercase;
-  font-size: 16px;"
+  font-size: 16px;
 }
 
 
