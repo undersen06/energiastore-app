@@ -260,8 +260,32 @@
 					$ionicPopup.show({
 						animation: 'fade-in',
 						title: '<img src="assets/img/linkedin.png" class="img-about-us">',
-						subTitle: `<span class="popup-title">${$rootScope.popup.ERROR_LINKEDIN_LOGIN.TITLE }</span>`,
+						// subTitle: `<span class="popup-title">${$rootScope.popup.ERROR_LINKEDIN_LOGIN.TITLE }</span>`,
 						template: `<p class="popup-subtitle">${$rootScope.popup.ERROR_LINKEDIN_LOGIN.BODY}</p>`,
+						buttons: button_exit_lesson,
+					}, null).then(function (_res) {
+						deferred.resolve(_res);
+
+					});
+					return deferred.promise;
+				},
+
+				emailAllReadyInUse: function () {
+
+					var deferred = $q.defer();
+					var button_exit_lesson = [{
+						text: $rootScope.popup.ERROR_EMAIL_ALL_READY_IN_USE.BUTTON.POSITIVE,
+						type: 'button-affirmative',
+						onTap: function () {
+							return true;
+						}
+					}];
+
+					$ionicPopup.show({
+						animation: 'fade-in',
+						title: '<img src="assets/img/error.png" class="img-about-us">',
+						subTitle: `<span class="popup-title">${$rootScope.popup.ERROR_EMAIL_ALL_READY_IN_USE.TITLE }</span>`,
+						template: `<p class="popup-subtitle">${$rootScope.popup.ERROR_EMAIL_ALL_READY_IN_USE.BODY}</p>`,
 						buttons: button_exit_lesson,
 					}, null).then(function (_res) {
 						deferred.resolve(_res);

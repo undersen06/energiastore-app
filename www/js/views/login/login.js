@@ -13,6 +13,8 @@ CONTROLLER DEFINITION
 			// const CURRENT_VIEW = 'LOGIN';
 
 			$scope.design = {};
+			// cordova.plugins.Keyboard.close();
+
 			
 
 			if (StorageUserModel.getCurrentUser() != undefined) {
@@ -43,6 +45,8 @@ CONTROLLER DEFINITION
 			}
 
 			$ionicPlatform.ready(function () {
+				// cordova.plugins.Keyboard.close();
+
 				
 
 				$scope.isIphoneX = function () {
@@ -70,19 +74,16 @@ CONTROLLER DEFINITION
 							$User.registerUserLinkedInInfo(_register_response.data, formatLinkedInUser(r)).then(function () {
 								StorageUserModel.setCurrentUser(_register_response.data);
 								$state.go('dashboard');
-
-							}, function () {
-
-
-								popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_LOGIN').then(function(){
-
-								});
+								
+							}, function (_error) {
+								$log.error(_error);
+								//Email in use ...
+								popUpService.emailAllReadyInUse();
 							});
 
 
 						}, function () {
-							popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_LOGIN').then(function(){
-							});
+							popUpService.isWebViewLinkedInError('ERROR_LINKEDIN_LOGIN')
 						});
 					};
 
@@ -168,27 +169,33 @@ CONTROLLER DEFINITION
 							} else {
 
 								$User.registerUserFacebook(_data.authResponse.userID).then(function (_response) {
+									debugger;
 									var country = StorageCountryModel.getSelectedCountry().name;
 									$User.updateCountry(_response.data, country).then(function (_response_country) {
+										debugger;
 										$log.info(_response_country);
 										$User.registerUserFacebookInfo(_response.data, result).then(function (_response_user) {
+											debugger;
 											$log.info(_response_user);
 											StorageUserModel.setCurrentUser(_response.data);
 											$state.go('dashboard');
 
 
 										}, function (_error) {
+											debugger;
 											$log.error(_error);
 										});
 									}, function (_error) {
+										debugger;
 										$log.error(_error);
 									});
 								}, function (_error) {
+									debugger;
 									$log.error(_error);
 								});
 							}
 						}, function onError(error) {
-
+							debugger;
 							$log.error(error);
 						}
 					);

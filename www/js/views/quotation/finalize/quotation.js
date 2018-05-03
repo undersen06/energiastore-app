@@ -15,9 +15,9 @@ CONTROLLER DEFINITION
 
 
 				$scope.options = {
-					title: $rootScope.quotation.ACTION_SHEET_PHOTO_TITLE,
-					buttonLabels: [$rootScope.quotation.ACTION_SHEET_PHOTO_CAMERA, $rootScope.quotation.ACTION_SHEET_PHOTO_GALERY],
-					addCancelButtonWithLabel: $rootScope.quotation.CHOOSE_LANGUAGE_CANCEL,
+					title: $rootScope.generic.SELECT_CAMERA_GALLERY,
+					buttonLabels: [$rootScope.generic.SELECTED_CAMERA, $rootScope.generic.SELECT_GALLERY],
+					addCancelButtonWithLabel: $rootScope.generic.CANCEL,
 					androidEnableCancelButton: true,
 					winphoneEnableCancelButton: true
 				};

@@ -22,6 +22,13 @@
                 "POSITIVE": "It is understood"
             }
         },
+        "ERROR_EMAIL_ALL_READY_IN_USE": {
+            "TITLE": "Ups! this email is already in use",
+            "BODY": "Apparently this email was already registered in our systems, try another email.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
         "ERROR_FACEBOOK_LOGIN": {
             "BODY": "Facebook denied access, try again.",
             "BUTTON": {
@@ -82,22 +89,22 @@
             "TITLE": "Ups.",
             "BODY": "We were unable to create your account, please try again later."
         },
-            "FAIL_OPEN_PDF": {
-                "BUTTON": {
-                    "POSITIVE": "It is understood"
-                },
-                "TITLE": "Ups.",
-                "BODY": "We could not download the pdf, try it later."
+        "FAIL_OPEN_PDF": {
+            "BUTTON": {
+                "POSITIVE": "It is understood"
             },
-            "FAIL_CREATE_FACTOR": {
-                "BUTTON": {
-                    "POSITIVE": "It is understood"
-                },
-                "TITLE": "Ups.",
-                "BODY": "Oops, we could not complete your quote, please try again later."
-            }
+            "TITLE": "Ups.",
+            "BODY": "We could not download the pdf, try it later."
+        },
+        "FAIL_CREATE_FACTOR": {
+            "BUTTON": {
+                "POSITIVE": "It is understood"
+            },
+            "TITLE": "Ups.",
+            "BODY": "Oops, we could not complete your quote, please try again later."
+        }
 
-            
+
 
 
 
@@ -229,7 +236,7 @@
             "MODAL_HELPER_DAYS_MONTH_TITLE": "Days a month",
             "MODAL_HELPER_DAYS_MONTH_BODY": "",
             "MOTOR_CARD_ELEMENT_CREATED_AT": "Creation date"
-            
+
         },
         "PRODUCTS": {
             "PRODUCT": {},
@@ -257,7 +264,7 @@
             "CREATE_PROJECT_SELECT_PROVIDER": "Select service provider."
         },
         "QUOTATION": {
-      
+
             "ADD_PHOTO_BUTTON_TEXT": "ADD PHOTO",
             "FINALIZE_QUOTATION_HEADER": "Finish Project",
             "INPUT_COMMENTS_TEXT_BOX": "Comments (optional)",
@@ -346,12 +353,18 @@
             "LOG_OUT_CANCEL_BUTTON": "Cancel",
             "LOG_OUT_LEAVE_BUTTON": "Exit"
         },
-        "WELCOME":{
+        "WELCOME": {
             "CHOOSE_YOUR_COUNTRY": "Select your country"
         },
         "FOOTBAR": {
             "PROJECTS": "Projects",
             "QUOTATIONS": "Quotes"
+        },
+        "GENERIC": {
+            "SELECT_CAMERA_GALLERY": "Choose",
+            "SELECTED_CAMERA": "Camera",
+            "SELECT_GALLERY": "Gallery",
+            "CANCEL": "Cancel"
         }
     }
 }

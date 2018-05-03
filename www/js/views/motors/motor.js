@@ -17,9 +17,9 @@ CONTROLLER DEFINITION
 				$scope.user = StorageUserModel.getCurrentUser();
 
 
-				if (window.cordova && window.cordova.plugins.Keyboard) {
-					cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
-				}
+				// if (window.cordova && window.cordova.plugins.Keyboard) {
+				// 	cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
+				// }
 
 				$scope.motors = [];
 				$scope.motor = {};

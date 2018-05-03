@@ -67,13 +67,13 @@ CONTROLLER DEFINITION
 							$scope.closeModalProject();
 							$scope.calculations = {};
 							$scope.getCalculation();
-							try{
-								if (cordova != undefined) {
-									cordova.plugins.Keyboard.close();
-								}
-							}catch(e){
-								$log.error(e);
-							}
+							// try{
+							// 	if (cordova != undefined) {
+							// 		cordova.plugins.Keyboard.close();
+							// 	}
+							// }catch(e){
+							// 	$log.error(e);
+							// }
 							
 						},
 						function (_error) {

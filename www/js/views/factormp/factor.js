@@ -12,6 +12,23 @@ CONTROLLER DEFINITION
 			$ionicPlatform.ready(function () {
 
 
+				$scope.options = {
+					title: $rootScope.generic.SELECT_CAMERA_GALLERY,
+					buttonLabels: [$rootScope.generic.SELECTED_CAMERA, $rootScope.generic.SELECT_GALLERY],
+					addCancelButtonWithLabel: $rootScope.generic.CANCEL,
+					androidEnableCancelButton: true,
+					winphoneEnableCancelButton: true
+				};
+
+
+				// $scope.options = {
+				// 	title: $rootScope.quotation.ACTION_SHEET_PHOTO_TITLE,
+				// 	buttonLabels: [$rootScope.quotation.ACTION_SHEET_PHOTO_CAMERA, $rootScope.quotation.ACTION_SHEET_PHOTO_GALERY],
+				// 	addCancelButtonWithLabel: $rootScope.quotation.CHOOSE_LANGUAGE_CANCEL,
+				// 	androidEnableCancelButton: true,
+				// 	winphoneEnableCancelButton: true
+				// };
+
 				$scope.isIphoneX = function () {
 					if (ionic.Platform.device().model != undefined) {
 						if (ionic.Platform.device().model.startsWith('iPhone10')) {
@@ -57,7 +74,7 @@ CONTROLLER DEFINITION
 						$scope.image = $scope.factorType.photo;
 
 					}, function (_error) {
-						Utils.validateToast('ERROR_CAMERA');
+						// Utils.validateToast('ERROR_CAMERA');
 						$log.error(_error);
 
 
@@ -83,7 +100,7 @@ CONTROLLER DEFINITION
 						$scope.image = $scope.factorType.photo;
 					}, function (_err) {
 
-						Utils.validateToast('ERROR_GALLERY');
+						// Utils.validateToast('ERROR_GALLERY');
 						$log.error(_err);
 
 					});
@@ -151,11 +168,10 @@ CONTROLLER DEFINITION
 
 
 
-				if (window.cordova) {
+				
 					$scope.showPopUpImage = function () {
-						$cordovaActionSheet
-							.show($scope.options)
-							.then(function (btnIndex) {
+						debugger;
+						$cordovaActionSheet.show($scope.options).then(function (btnIndex) {
 								switch (btnIndex) {
 								case 1:
 									$scope.openCamera();
@@ -170,7 +186,7 @@ CONTROLLER DEFINITION
 
 							});
 					};
-				}
+				
 
 				$ionicPlatform.registerBackButtonAction(function () {
 					// $state.go("dashboard");
