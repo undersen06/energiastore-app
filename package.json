@@ -21,6 +21,7 @@
     "cordova-plugin-hidden-statusbar-overlay": "^2.0.1",
     "cordova-plugin-inappbrowser": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "cordova-plugin-ionic-webview": "^1.2.1",
     "cordova-plugin-ios-camera-permissions": "^1.2.0",
     "cordova-plugin-linkedin": "^1.2.1",
     "cordova-plugin-media-capture": "^1.4.3",
@@ -117,7 +118,8 @@
       },
       "cordova-plugin-appavailability": {},
       "onesignal-cordova-plugin": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-ionic-webview": {}
     },
     "platforms": [
       "ios"

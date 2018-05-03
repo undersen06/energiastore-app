@@ -12,6 +12,8 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="http://localhost:8080/*" />
+    <preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />
     <preference name="webviewbounce" value="true" />
     <preference name="UIWebViewBounce" value="true" />
     <preference name="DisallowOverscroll" value="true" />
@@ -92,10 +94,10 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="EnergiaStore desea acceder a tus fotos." />
     </plugin>
     <plugin name="cordova-plugin-ios-camera-permissions" spec="^1.2.0">
-        <variable name="CAMERA_USAGE_DESCRIPTION" value="This app needs camera access" />
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="EnergiaStore desea acceder a tu camara." />
         <variable name="MICROPHONE_USAGE_DESCRIPTION" value="This app needs microphone access" />
-        <variable name="PHOTOLIBRARY_ADD_USAGE_DESCRIPTION" value="This app needs write-access to photo library" />
-        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="This app needs read/write-access photo library access" />
+        <variable name="PHOTOLIBRARY_ADD_USAGE_DESCRIPTION" value="EnergiaStore desea acceder a tus fotos." />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="EnergiaStore desea acceder a tus fotos." />
     </plugin>
     <plugin name="cordova-plugin-statusbar" spec="~2.2.1" />
     <plugin name="cordova-plugin-file-opener2" spec="git+https://github.com/pwlin/cordova-plugin-file-opener2.git" />
@@ -120,5 +122,6 @@
     <plugin name="cordova-plugin-app-version" spec="https://github.com/whiteoctober/cordova-plugin-app-version.git" />
     <plugin name="onesignal-cordova-plugin" spec="^2.3.3" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^1.2.1" />
     <engine name="ios" spec="4.5.4" />
 </widget>
