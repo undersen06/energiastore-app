@@ -33,6 +33,14 @@
         </div>
       </ion-item>
 
+        <ion-item>
+          <div class="dashboard-item" style="margin-bottom: 50px;">
+            <img src="assets/img/news.jpeg" class="dashboard-img" alt="" ng-click="goToNews()" ng-class="isIphoneX() == true ? 'iphone-x' : ''; ">
+            <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{dashboard.PENALTY_NEWS_TEXT}}</h4>
+          </div>
+        </ion-item>
+
+
       <!-- <ion-item>
         <div class="dashboard-item" style="margin-bottom: 50px;">
           <img src="assets/img/products.jpg" class="dashboard-img" alt="" ng-click="goToProducts()" ng-class="isIphoneX() == true ? 'iphone-x' : ''; ">

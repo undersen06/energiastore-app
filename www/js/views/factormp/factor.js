@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer','$log','$rootScope',
-		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer, $log, $rootScope) {
+	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer', '$log', '$rootScope', '$filter','StorageCountryModel',
+		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer, $log, $rootScope, $filter, StorageCountryModel) {
 
 			$ionicPlatform.ready(function () {
 
@@ -20,6 +20,10 @@ CONTROLLER DEFINITION
 					winphoneEnableCancelButton: true
 				};
 
+				$scope.values = [];
+				$scope.curr = StorageCountryModel.getSelectedCurrency().symbol;
+				
+				
 
 				// $scope.options = {
 				// 	title: $rootScope.quotation.ACTION_SHEET_PHOTO_TITLE,
@@ -126,7 +130,7 @@ CONTROLLER DEFINITION
 					var total = $scope.factorType.power_factor_1 + $scope.factorType.power_factor_2 + $scope.factorType.power_factor_3;
 					total = (total / 3);
 
-					debugger;
+					
 
 					if ($scope.factorType.power_factor < 100) {
 						Utils.validateToast('QUOTATION_AMOUNT_MINIMUM');
@@ -169,23 +173,22 @@ CONTROLLER DEFINITION
 
 
 				
-					$scope.showPopUpImage = function () {
-						debugger;
-						$cordovaActionSheet.show($scope.options).then(function (btnIndex) {
-								switch (btnIndex) {
-								case 1:
-									$scope.openCamera();
-									break;
-								case 2:
-									$scope.openGallery();
-									break;
-								default:
-									break;
+				$scope.showPopUpImage = function () {
+					$cordovaActionSheet.show($scope.options).then(function (btnIndex) {
+						switch (btnIndex) {
+						case 1:
+							$scope.openCamera();
+							break;
+						case 2:
+							$scope.openGallery();
+							break;
+						default:
+							break;
 
-								}
+						}
 
-							});
-					};
+					});
+				};
 				
 
 				$ionicPlatform.registerBackButtonAction(function () {
@@ -248,6 +251,14 @@ CONTROLLER DEFINITION
 								// An error occurred. Show a message to the user
 							}
 						);
+				};
+				
+
+				$scope.addValue = function(){
+					
+					$scope.values.push($scope.factorType.power_factor_1);
+					debugger;
+					
 				};
 
 

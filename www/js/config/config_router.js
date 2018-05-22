@@ -5,8 +5,8 @@ ROUTES CONFIGURATION
 =========================================
 */
 
-(function() {
-	this.app.config(function($stateProvider, $urlRouterProvider, $httpProvider,$ionicConfigProvider) {
+(function () {
+	this.app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider) {
 
 
 		// $ionicConfigProvider.navBar.alignTitle('center');
@@ -35,7 +35,7 @@ ROUTES CONFIGURATION
 		// $stateProvider
 
 		$stateProvider
-	
+
 
 			.state('welcome', {
 				url: '/welcome',
@@ -189,6 +189,14 @@ ROUTES CONFIGURATION
 				abstract: false,
 				templateUrl: 'js/views/products/product/product.html',
 				controller: 'ProductController'
+			})
+
+			.state('news', {
+				url: '/news/',
+				cache: false,
+				abstract: false,
+				templateUrl: 'js/views/news/news.html',
+				controller: 'NewsController'
 			});
 
 

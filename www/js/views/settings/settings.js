@@ -164,7 +164,7 @@ CONTROLLER DEFINITION
 					$User.updateCountry($scope.user, country.name).then(function (_success) {
 						$log.info(_success);
 						StorageCountryModel.selectCountry(country);
-						StorageCountryModel.selectCurrency(this._.find($scope.currencies, {
+						StorageCountryModel.selectCurrency(_.find($scope.currencies, {
 							'id': country.currency_id
 						}));
 					}, function (_error) {

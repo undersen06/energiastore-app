@@ -14,24 +14,34 @@
 
       <br>
 
-      <div class="input-field col s12">
+      <p style="text-align:left;" ng-repeat="value in values track by $index">{{value | currency : curr : 0}}
+        <br>
+      </p>
+<br>
+
+
+      <div class="input-field col s12" >
         <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor_1" pattern="[0-9]*">
         <label for="input-penalty">{{factor.FMP_MODAL_QUOTATION_AMOUNT}} 1</label>
       </div>
 
-      <div class="input-field col s12">
+      <div ng-class="design.button" ng-click="addValue();" class="button-traslucid">
+        Agregar Valor
+      </div>
+
+      <!-- <div class="input-field col s12">
         <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor_2" pattern="[0-9]*">
         <label for="input-penalty">{{factor.FMP_MODAL_QUOTATION_AMOUNT}} 2</label>
-      </div>
+      </div> -->
 
-      <div class="input-field col s12">
+      <!-- <div class="input-field col s12">
         <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor_3" pattern="[0-9]*">
         <label for="input-penalty">{{factor.FMP_MODAL_QUOTATION_AMOUNT}} 3</label>
-      </div>
+      </div> -->
 
 
       <div class="input-field col s12">
-        <input id="input-penalty-text" type="text" class="validate" ng-model="factorType.comment" >
+        <input id="input-penalty-text" type="text" class="validate" ng-model="factorType.comment">
         <label for="input-penalty-text">{{factor.INPUT_COMMENTS_TEXTBOX}}</label>
       </div>
 
@@ -40,20 +50,20 @@
       <p>{{factor.UPLOAD_PHOTO_TEXT}}</p>
 
 
-    <div ng-class="design.button" ng-click="createFactorPenalty();" class="button-traslucid">
-      {{factor.FMP_MODAL_QUOTATION_SEND_BUTTON}}
+      <div ng-class="design.button" ng-click="createFactorPenalty();" class="button-traslucid">
+        {{factor.FMP_MODAL_QUOTATION_SEND_BUTTON}}
+      </div>
+
+
     </div>
+  </ion-content>
 
-
-  </div>
-</ion-content>
-
-<footbar></footbar>
+  <footbar></footbar>
 </ion-view>
 
 
 <style>
-  .content{
+  .content {
     height: 100vh !important;
   }
 </style>

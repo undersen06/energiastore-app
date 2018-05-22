@@ -161,7 +161,8 @@
         "DASHBOARD": {
             "MOTOR_DASHBOARD_TEXT": "Energy efficiency in Electrical Motors",
             "PENALTY_DASHBOARD_TEXT": " Power Factor",
-            "PENALTY_PRODUCTS_TEXT": "Products"
+            "PENALTY_PRODUCTS_TEXT": "Products",
+            "PENALTY_NEWS_TEXT": "News"
         },
         "FACTOR_MP": {
             "FMP_HEADER": "Power Factor",

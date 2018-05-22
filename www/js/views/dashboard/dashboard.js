@@ -40,6 +40,11 @@ CONTROLLER DEFINITION
 					$state.go('project');
 				};
 
+				$scope.goToNews = function () {
+					$state.go('news');
+				};
+
+
 				$ionicPlatform.registerBackButtonAction(function () {
 					ionic.Platform.exitApp();
 				}, 100);

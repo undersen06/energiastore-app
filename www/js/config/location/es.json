@@ -161,7 +161,8 @@
         "DASHBOARD": {
             "MOTOR_DASHBOARD_TEXT": "Eficiencia de motores",
             "PENALTY_DASHBOARD_TEXT": "Mal factor de potencia",
-            "PENALTY_PRODUCTS_TEXT": "Productos"
+            "PENALTY_PRODUCTS_TEXT": "Productos",
+            "PENALTY_NEWS_TEXT": "Noticias"
         },
         "FACTOR_MP": {
             "FMP_HEADER": "Mal factor de potencia",
