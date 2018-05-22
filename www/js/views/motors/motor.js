@@ -82,80 +82,83 @@ CONTROLLER DEFINITION
 
 				$scope.createMotor = function () {
 
-					if ($scope.motor.name === undefined || $scope.motor.name === '') {
+
+					var aux = Object.assign({}, $scope.motor);
+
+					if (aux.name === undefined || aux.name === '') {
 						Utils.validateToast('MOTOR_COMPLETE_NAME');
 						return;
 					}
 
-					if ($scope.motor.voltaje === undefined || $scope.motor.voltaje === 0) {
+					if (aux.voltaje === undefined || aux.voltaje === 0) {
 						Utils.validateToast('MOTOR_COMPLETE_VOLT');
 						return;
 					}
 
-					if ($scope.motor.voltaje <= 0) {
+					if (aux.voltaje <= 0) {
 						Utils.validateToast('MOTOR_COMPLETE_VOLTAJE_MINIMUM');
 						// El voltaje debe ser mayor a 0
 						return;
 					}
 
-					if ($scope.motor.amp === undefined || $scope.motor.amp === 0) {
+					if (aux.amp === undefined || aux.amp === 0) {
 						Utils.validateToast('MOTOR_COMPLETE_AMP');
 						return;
 					}
 
-					if ($scope.motor.amp <= 0) {
+					if (aux.amp <= 0) {
 						Utils.validateToast('MOTOR_COMPLETE_AMP_MINIMUM');
 						// El amperaje debe ser mayor a 0
 						return;
 					}
 
 
-					if ($scope.motor.power_factor === undefined || $scope.motor.power_factor === 0) {
+					if (aux.power_factor === undefined || aux.power_factor === 0) {
 						Utils.validateToast('MOTOR_COMPLETE_FTP');
 						return;
 					}
 
 
-					if ($scope.motor.power_factor >= 10) {
-						$scope.motor.power_factor = ($scope.motor.power_factor / 100);
+					if (aux.power_factor >= 10) {
+						aux.power_factor = (aux.power_factor / 100);
 					} else {
-						$scope.motor.power_factor = ($scope.motor.power_factor / 10);
+						aux.power_factor = (aux.power_factor / 10);
 					}
 
-					if ($scope.motor.power_factor > 1) {
+					if (aux.power_factor > 1) {
 						Utils.validateToast('Factor de potencia debe varia entre 0.0 y 1');
 						return;
 					}
 
-					if ($scope.motor.power_factor < 0) {
+					if (aux.power_factor < 0) {
 						Utils.validateToast('Factor de potencia debe varia entre 0.0 y 1');
 						return;
 					}
 
-					if ($scope.motor.rated_power === undefined || $scope.motor.rated_power === 0) {
+					if (aux.rated_power === undefined || aux.rated_power === 0) {
 						Utils.validateToast('MOTOR_COMPLETE_KW_EMPTY');
 						// Los KW deben ser mayor a 0
 						return;
 					}
 
-					if ($scope.motor.rated_power <= 0) {
+					if (aux.rated_power <= 0) {
 						Utils.validateToast('MOTOR_COMPLETE_KW_MINIMUM');
 						// El amperaje debe ser mayor a 0
 						return;
 					}
 
 
-					if ($scope.motor.hours === undefined || $scope.motor.hours === 0) {
+					if (aux.hours === undefined || aux.hours === 0) {
 						Utils.validateToast('MOTOR_COMPLETE_HOURS_DAY');
 						return;
 					}
 
-					if ($scope.motor.days === undefined || $scope.motor.days === 0) {
+					if (aux.days === undefined || aux.days === 0) {
 						Utils.validateToast('MOTOR_COMPLETE_DAYS_MONTH');
 						return;
 					}
 
-					$Motors.create($scope.user, $scope.motor, $state.params.id_quotation).then(function (_response) {
+					$Motors.create($scope.user, aux, $state.params.id_quotation).then(function (_response) {
 						$scope.modalMotor.hide();
 						Utils.validateToast('MOTOR_ADD_SUCCESS');
 						$log.info(_response);
@@ -174,6 +177,7 @@ CONTROLLER DEFINITION
 
 				$scope.getMotors = function () {
 					$Motors.getByCalculation($state.params.id_quotation, StorageUserModel.getCurrentUser()).then(function (_response) {
+						debugger;
 						$scope.motors = _response.data;
 						$scope.$broadcast('scroll.refreshComplete');
 

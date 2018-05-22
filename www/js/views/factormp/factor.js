@@ -6,7 +6,7 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer', '$log', '$rootScope', '$filter','StorageCountryModel',
+	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer', '$log', '$rootScope', '$filter', 'StorageCountryModel',
 		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer, $log, $rootScope, $filter, StorageCountryModel) {
 
 			$ionicPlatform.ready(function () {
@@ -21,9 +21,9 @@ CONTROLLER DEFINITION
 				};
 
 				$scope.values = [];
-				$scope.curr = StorageCountryModel.getSelectedCurrency().symbol;
-				
-				
+				$scope.curr = StorageCountryModel.getSelectedCurrency().symbol + '  ';
+
+
 
 				// $scope.options = {
 				// 	title: $rootScope.quotation.ACTION_SHEET_PHOTO_TITLE,
@@ -49,14 +49,18 @@ CONTROLLER DEFINITION
 				$scope.factorType = {};
 
 				$scope.back = function () {
-					$state.go('dashboard', { options: 'reload' }, { reload: true });
+					$state.go('dashboard', {
+						options: 'reload'
+					}, {
+						reload: true
+					});
 				};
 
 				$scope.help = function () {
 					$state.go('dashboard');
 				};
 
-		
+
 
 				$scope.openCamera = function () {
 
@@ -112,25 +116,16 @@ CONTROLLER DEFINITION
 
 
 				$scope.createFactorPenalty = function () {
-					if ($scope.factorType.power_factor_1 === undefined || $scope.factorType.power_factor_1 === 0) {
+					if ($scope.values.lenght === 0) {
 						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
 						return;
 					}
 
-					if ($scope.factorType.power_factor_2 === undefined || $scope.factorType.power_factor_2 === 0) {
-						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
-						return;
-					}
+					var aux = 0;
+					$scope.values.forEach(element => {
+						aux = element + aux;
+					});
 
-					if ($scope.factorType.power_factor_3 === undefined || $scope.factorType.power_factor_3 === 0) {
-						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
-						return;
-					}
-
-					var total = $scope.factorType.power_factor_1 + $scope.factorType.power_factor_2 + $scope.factorType.power_factor_3;
-					total = (total / 3);
-
-					
 
 					if ($scope.factorType.power_factor < 100) {
 						Utils.validateToast('QUOTATION_AMOUNT_MINIMUM');
@@ -139,8 +134,9 @@ CONTROLLER DEFINITION
 
 					var calculation = $scope.factorType;
 
-					calculation.power_factor = total;
-
+					calculation.power_factor = (aux / $scope.values.length);
+					
+		
 
 					$ionicLoading.show({
 						templateUrl: 'loading.html'
@@ -165,35 +161,41 @@ CONTROLLER DEFINITION
 						$log.error(_error);
 						$ionicLoading.hide();
 						popUpService.showPopUpFailCreateFactor($scope.translations).then(function () {
-							$state.go('dashboard', {}, { reload: true });
+							$state.go('dashboard', {}, {
+								reload: true
+							});
 						});
 					});
 				};
 
 
 
-				
+
 				$scope.showPopUpImage = function () {
 					$cordovaActionSheet.show($scope.options).then(function (btnIndex) {
 						switch (btnIndex) {
-						case 1:
-							$scope.openCamera();
-							break;
-						case 2:
-							$scope.openGallery();
-							break;
-						default:
-							break;
+							case 1:
+								$scope.openCamera();
+								break;
+							case 2:
+								$scope.openGallery();
+								break;
+							default:
+								break;
 
 						}
 
 					});
 				};
-				
+
 
 				$ionicPlatform.registerBackButtonAction(function () {
 					// $state.go("dashboard");
-					$state.go('dashboard', {}, { reload: true, inherit: false, notify: true });
+					$state.go('dashboard', {}, {
+						reload: true,
+						inherit: false,
+						notify: true
+					});
 				}, 100);
 
 
@@ -226,8 +228,7 @@ CONTROLLER DEFINITION
 							$log.error(_error);
 							// Error
 						},
-						function () {
-						}
+						function () {}
 					);
 				};
 
@@ -252,16 +253,22 @@ CONTROLLER DEFINITION
 							}
 						);
 				};
-				
 
-				$scope.addValue = function(){
-					
+
+				$scope.addValue = function () {
+
+					if ($scope.factorType.power_factor_1 === undefined || $scope.factorType.power_factor_1 === 0) {
+						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
+						return;
+					}
+
 					$scope.values.push($scope.factorType.power_factor_1);
 					debugger;
-					
+
 				};
 
 
 			});
-		}]);
+		}
+	]);
 }).call(this);
