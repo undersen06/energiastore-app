@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer', '$log', '$rootScope', '$filter', 'StorageCountryModel',
-		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer, $log, $rootScope, $filter, StorageCountryModel) {
+	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer', '$log', '$rootScope', '$filter', 'StorageCountryModel', '$Formulas',
+		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer, $log, $rootScope, $filter, StorageCountryModel, $Formulas) {
 
 			$ionicPlatform.ready(function () {
 
@@ -135,8 +135,8 @@ CONTROLLER DEFINITION
 					var calculation = $scope.factorType;
 
 					calculation.power_factor = (aux / $scope.values.length);
-					
-		
+
+
 
 					$ionicLoading.show({
 						templateUrl: 'loading.html'
@@ -263,9 +263,31 @@ CONTROLLER DEFINITION
 					}
 
 					$scope.values.push($scope.factorType.power_factor_1);
-					debugger;
 
 				};
+
+				$scope.getMinValues = function () {
+					$Formulas.getFormulas().then(function (_data) {
+						//Parse by country
+
+						var aux = _.find(_data.data, {
+							'country_id': StorageCountryModel.getSelectedCountry().id,
+							'name': 'ROI',
+						});
+
+						aux = aux.object;
+
+						var numb = aux.ranges[0].statement.match(/\d/g);
+						numb = numb.join('');
+						$scope.minValue = numb; 
+
+					}, function (_error) {
+						$log.error(_error);
+
+					})
+				}
+
+				$scope.getMinValues();
 
 
 			});
