@@ -10,10 +10,11 @@
 
     <ion-list>
       <ion-item ng-repeat="category in categories" ng-click="goToProductsByCategory({{category.id}})">
-        {{category.name}}
+        {{category.title}}
+        <p style="white-space:normal">{{category.description}}</p>
       </ion-item>
 
-      </ion-list>
+    </ion-list>
 
 
 

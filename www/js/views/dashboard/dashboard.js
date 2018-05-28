@@ -10,7 +10,8 @@ CONTROLLER DEFINITION
 		function($scope, $state,$ionicPlatform,StorageUserModel,$User,$timeout,popUpService) {
 
 			$scope.goToProducts =  function (){
-				popUpService.workingOnPopUp();
+				// popUpService.workingOnPopUp();
+				$state.go('categories');
 			};
 
 			$scope.isIphoneX =  function(){
