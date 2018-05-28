@@ -1,6 +1,11 @@
-#login-view #login-content #login-container {
-  margin-top: 70px; }
-  #login-view #login-content #login-container i {
+#login-view #content #image-logo.background-introduction {
+  width: 100%;
+  position: absolute; }
+
+#login-view #content #login-container {
+  top: 70px;
+  position: relative; }
+  #login-view #content #login-container i {
     margin-left: 15px;
     font-size: 30px;
     color: white;
@@ -8,33 +13,19 @@
     position: absolute;
     width: 44px;
     height: 44px; }
-  #login-view #login-content #login-container img.logo-login {
+  #login-view #content #login-container img.logo-login {
     position: absolute;
     width: 70px;
     z-index: 99;
     transform: translate(-50%);
-    left: 50%;
-    top: -15px; }
-  #login-view #login-content #login-container .row {
-    margin-top: 10vw; }
-    #login-view #login-content #login-container .row div.card-login {
-      padding: 20px 20px 20px 20px; }
-      #login-view #login-content #login-container .row div.card-login span.login-title {
-        color: black;
-        text-align: center; }
-    #login-view #login-content #login-container .row a {
-      width: 100%; }
-    #login-view #login-content #login-container .row p {
-      color: black;
-      text-align: center;
-      margin-bottom: 10px; }
+    left: 50%; }
 
 #facebook-button {
-  background-color: #3b5998; }
+  background-color: #3b5998;
+  color: white; }
 
 #linkedin-button {
-  background-color: #ffffff;
-  border: 1px solid #0077b5;
-  color: #0077b5; }
+  background-color: #0077b5;
+  color: white; }
 
 /*# sourceMappingURL=login.css.map */

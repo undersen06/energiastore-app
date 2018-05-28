@@ -52,4 +52,8 @@
   #welcome-view #welcome-content .slider-slides .slider-box-2 div.country-opt p {
     text-align: center; }
 
+#country-align {
+  padding: 0px;
+  display: -webkit-inline-box; }
+
 /*# sourceMappingURL=welcome.css.map */

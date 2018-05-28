@@ -16,8 +16,8 @@
                 "POSITIVE": "Entendido"
             }
         },
-        "ERROR_EMAIL_ALL_READY_IN_USE":{
-            "TITLE":"Ups! este correo esta en uso",
+        "ERROR_EMAIL_ALL_READY_IN_USE": {
+            "TITLE": "Ups! este correo esta en uso",
             "BODY": "Aparentemente este correo ya fue registrado en nuestros sistemas, intenta con otro correo.",
             "BUTTON": {
                 "POSITIVE": "Entendido"
@@ -155,7 +155,12 @@
         "MOTOR_COMPLETE_AMP": "Complete amperaje del motor",
         "MOTOR_COMPLETE_VOLT": "Complete voltaje del motor",
         "MOTOR_COMPLETE_NAME": "Complete nombre del motor",
-        "MOTOR_ADD_FAIL": "Problemas al agregar motor"
+        "MOTOR_ADD_FAIL": "Problemas al agregar motor",
+        "REGISTER_EMAIL_EMPTY_ERROR": "Complete Correo",
+        "REGISTER_PASSWORD_EMPTY_ERROR":"Complete contraseña",
+        "REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR":"Complete confirmación contraseña",
+        "REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR":"Password no coinciden"
+
     },
     "VIEWS": {
         "DASHBOARD": {

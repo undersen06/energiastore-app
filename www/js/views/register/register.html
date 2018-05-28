@@ -1,12 +1,17 @@
 <ion-view id="register-view">
   <ion-content class="color-1 user-color" id="content-register">
+    <div class="bar bar-header">
+      <button class="button button-icon icon ion-ios-arrow-back" ng-click="onBack();"></button>
+      <div class="h1 title">Sign-Up</div>
 
-    <i class="ion-ios-arrow-back" ng-click="onBack();"></i>
+    </div>
+
+
 
     <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-init="disableSwipe()" show-pager="false">
       <ion-slide class="slider-box-1">
 
-        <div class="row" >
+        <!-- <div class="row" >
           <div class="col s12 m6">
             <div class="card card-register">
               <div class="card-content">
@@ -28,6 +33,41 @@
             </div>
             <a class="btn-floating btn-large waves-effect waves-light register-float-button" ng-click="nextButton(0);"><i class="ion-android-arrow-forward"></i></a>
           </div>
+        </div> -->
+
+        <div class="card">
+
+          <div class="item item-text-wrap">
+            {{register.REGISTER_SLIDER_1_HEADER}}
+            <br>
+            <br>
+            <div class="list">
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">{{register.REGISTER_SLIDER_1_PLACEHOLDER_EMAIL}}</span>
+                <input type="text" placeholder="{{register.REGISTER_SLIDER_1_PLACEHOLDER_EMAIL}}" ng-model="user.email">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">{{register.REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD}}</span>
+                <input type="text" placeholder="{{register.REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD}}" ng-model="user.password">
+              </label>
+              <label class="item item-input item-stacked-label">
+                <span class="input-label"></span>
+                <input type="password" placeholder="{{register.REGISTER_SLIDER_1_CONFIRMATION_PASSWORD}}" ng-model="user.password_confirmation">
+              </label>
+            </div>
+
+            <p>
+              <!-- <a href="#" class="subdued">1 Like</a> -->
+              <a class="subdued" style="float:right" ng-click="nextButton(0);">
+                <button class="button button-clear button-balanced">
+                  Continuar <i class="icon ion-ios-arrow-forward"></i>
+                </button>
+              </a>
+            </p>
+          </div>
+          
+
+          
         </div>
 
       </ion-slide>
@@ -47,7 +87,9 @@
               </div>
 
             </div>
-            <a class="btn-floating btn-large waves-effect waves-light register-float-button"><i class="ion-android-arrow-forward" ng-click="finish()"></i></a>
+            <a class="btn-floating btn-large waves-effect waves-light register-float-button">
+              <i class="ion-android-arrow-forward" ng-click="finish()"></i>
+            </a>
           </div>
         </div>
       </ion-slide>
