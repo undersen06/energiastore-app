@@ -166,12 +166,12 @@ CONTROLLER DEFINITION
 							} else {
 
 								$User.registerUserFacebook(_data.authResponse.userID).then(function (_response) {
-									debugger;
+									
 									var country = StorageCountryModel.getSelectedCountry().name;
 									$User.updateCountry(_response.data, country).then(function (_response_country) {
 										$log.info(_response_country);
 										$User.registerUserFacebookInfo(_response.data, result).then(function (_response_user) {
-											debugger;
+											
 											$ionicLoading.hide();
 											$log.info(_response_user);
 											StorageUserModel.setCurrentUser(_response.data);
@@ -179,23 +179,23 @@ CONTROLLER DEFINITION
 
 
 										}, function (_error) {
-											debugger;
+											
 											$ionicLoading.hide();
 											$log.error(_error);
 										});
 									}, function (_error) {
-										debugger;
+										
 										$ionicLoading.hide();
 										$log.error(_error);
 									});
 								}, function (_error) {
-									debugger;
+									
 									$ionicLoading.hide();
 									$log.error(_error);
 								});
 							}
 						}, function onError(error) {
-							debugger;
+							
 							$log.error(error);
 						}
 					);

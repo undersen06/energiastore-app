@@ -1,10 +1,8 @@
 <ion-view id="factor-view">
-  <ion-header-bar align-title="center" ng-class="design.header">
-    <h5 ng-click="back()">
-      <i class="ion-chevron-left"></i>
-    </h5>
-    <h1 class="title">{{factor.FMP_HEADER}}</h1>
-  </ion-header-bar>
+  <div class="bar bar-header header-energiaStore">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="back();"></button>
+    <div class="h1 title">{{factor.FMP_HEADER}}</div>
+  </div>
 
 
   <ion-content scroll="true" class="content">
@@ -17,10 +15,10 @@
       <p style="text-align:left;" ng-repeat="value in values track by $index">{{value | currency : curr : 0}}
         <br>
       </p>
-<br>
+      <br>
 
 
-      <div class="input-field col s12" >
+      <div class="input-field col s12">
         <input id="input-penalty" type="number" min="{{minValue}}" class="validate" ng-model="factorType.power_factor_1" pattern="[0-9]*">
         <label for="input-penalty">{{factor.FMP_MODAL_QUOTATION_AMOUNT}} </label>
       </div>

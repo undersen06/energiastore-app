@@ -1,11 +1,11 @@
-<ion-view>
-  <ion-header-bar align-title="center" ng-class="design.header" ng-init="init()">
-    <h5 ng-click="backButton()" style="margin-left:10px;;width: 30px;">
-      <i class="ion-chevron-left" style="z-index:999;"></i>
-    </h5>
-    <h1 class="title">{{profile.MENU_PROFILE}}</h1>
-  </ion-header-bar>
-  <ion-content>
+<ion-view ng-init="init()">
+    <div class="bar bar-header header-energiaStore">
+      <button class="button button-icon icon ion-ios-arrow-back" ng-click="backButton();"></button>
+      <div class="h1 title">{{profile.MENU_PROFILE}}</div>
+    </div>
+
+
+  <ion-content class="has-header">
 
     <div class="" style="margin: 0 5vw 0 5vw;top :10vw; position:relative;">
       <div class="col s12 ">

@@ -177,7 +177,7 @@ CONTROLLER DEFINITION
 
 				$scope.getMotors = function () {
 					$Motors.getByCalculation($state.params.id_quotation, StorageUserModel.getCurrentUser()).then(function (_response) {
-						debugger;
+						
 						$scope.motors = _response.data;
 						$scope.$broadcast('scroll.refreshComplete');
 

@@ -22,7 +22,6 @@ CONTROLLER DEFINITION
 				$scope.init = function () {
 
 					$Products.getCategories().then(function (_response) {
-						debugger;
 						$scope.categories = _response.data;
 
 					}, function (_error) {

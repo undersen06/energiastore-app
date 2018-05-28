@@ -1,12 +1,17 @@
 <ion-view id="categories-view">
-  <ion-header-bar align-title="center" ng-class="design.header">
-    <h5 ng-click="back()">
-      <i class="ion-chevron-left"></i>
-    </h5>
-    <h1 class="title">{{translations.FMP_HEADER}}</h1>
-  </ion-header-bar>
 
-  <ion-content scrolleable="true" class="has-footer has-header" has-bouncing="false">
+  <div class="bar bar-header header-energiaStore">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
+    <div class="h1 title">Categorias</div>
+  </div>
+  <div class="item item-input-inset header-energiaStore has-header">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Buscar">
+    </label>
+  </div>
+
+  <ion-content scrolleable="true" class="has-footer has-subheader" has-bouncing="false">
+
 
     <ion-list>
       <ion-item ng-repeat="category in categories" ng-click="goToProductsByCategory({{category.id}})">

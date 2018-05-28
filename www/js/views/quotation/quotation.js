@@ -35,7 +35,7 @@ CONTROLLER DEFINITION
 				$scope.getFactors = function () {
 					$Factor.getAllFactors(StorageUserModel.getCurrentUser()).then(function (_response) {
 						$scope.factors = _response.data;
-						debugger;
+						
 						$scope.$broadcast('scroll.refreshComplete');
 					}, function (_error) {
 						$log.error(_error);

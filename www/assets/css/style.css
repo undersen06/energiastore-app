@@ -84,6 +84,22 @@ h5 {
   text-transform: uppercase;
 }
 
+.header-energiaStore {
+  background-color: #61d484;
+  border: none;
+  background-image: none;
+  background-position: bottom;
+  background-size: none;
+}
+
+.header-energiaStore button.button-icon {
+  font-size: 17px;
+  color: white;
+}
+.header-energiaStore .title {
+  color:white;
+}
+
 .popup-title {
   font-size: 22px;
   color: #656565;

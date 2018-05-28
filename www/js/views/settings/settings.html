@@ -1,27 +1,15 @@
 <ion-view ng-init="init();" id="settings-view">
+  <div class="bar bar-header">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
+    <div class="h1 title">{{settings.SETTINGS_MENU_TITLE}}</div>
+  </div>
 
-  <ion-header-bar align-title="left" class="">
-
-    <h5 ng-click="goBack()">
-      <i class="ion-chevron-left"></i>
-    </h5>
-    <h5 style="text-transform: capitalize;
-bottom: 5px;
-position: absolute;
-left: 35px;
-font-size: 1.3rem;">{{settings.SETTINGS_MENU_TITLE}}</h5>
-
-  </ion-header-bar>
-
-  <ion-content id="content-id">
-
+  <ion-content id="content-id" class="has-header">
 
     <ion-list>
-      <ion-item ng-click="goToProfile()" ng-if="user.type_user != 'explorer'">
-        <span>{{settings.SETTINGS_MENU_PROFILE}}</span>
-
-        <i class="ion-chevron-right button-right"></i>
-      </ion-item>
+      <div class="item item-divider">
+        Candy Bars
+      </div>
 
       <ion-item ng-click="goToRegister()" ng-if="user.type_user == 'explorer'">
         <span>{{settings.SETTINGS_MENU_SIGN_UP}}</span>
@@ -45,8 +33,9 @@ font-size: 1.3rem;">{{settings.SETTINGS_MENU_TITLE}}</h5>
 
 
 
-    <br />
-    <br />
+    <div class="item item-divider">
+      Candy Bars
+    </div>
     <ion-list>
       <ion-item ng-click="goToTutorials()">
         <span>{{settings.SETTINGS_MENU_TUTORIAL}}</span>
@@ -56,9 +45,9 @@ font-size: 1.3rem;">{{settings.SETTINGS_MENU_TITLE}}</h5>
     </ion-list>
 
 
-    <br />
-    <br />
-
+    <div class="item item-divider">
+      Candy Bars
+    </div>
     <ion-list>
 
       <ion-item ng-click="FAQ()">
@@ -74,15 +63,25 @@ font-size: 1.3rem;">{{settings.SETTINGS_MENU_TITLE}}</h5>
     </ion-list>
 
 
-    <br />
-    <br />
+    <div class="item item-divider">
+      Candy Bars
+    </div>
 
     <ion-list>
+
+      <ion-item ng-click="goToProfile()" ng-if="user.type_user != 'explorer'">
+        <span>{{settings.SETTINGS_MENU_PROFILE}}</span>
+
+        <i class="ion-chevron-right button-right"></i>
+      </ion-item>
+
+
       <ion-item ng-click="logOut()">
         <span>{{settings.SETTINGS_MENU_LOG_OUT}}</span>
 
         <i class="ion-chevron-right button-right"></i>
       </ion-item>
+
     </ion-list>
   </ion-content>
 

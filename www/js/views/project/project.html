@@ -1,12 +1,10 @@
 <ion-view id="project-view" ng-init="init()">
-  <ion-header-bar align-title="center" ng-class="design.header">
-    <h5 ng-click="back()">
-      <i class="ion-chevron-left"></i>
-    </h5>
-    <h1 class="title">{{project.QUOTATION_HEADER}}</h1>
-  </ion-header-bar>
+  <div class="bar bar-header header-energiaStore">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="back();"></button>
+    <div class="h1 title">{{project.QUOTATION_HEADER}}</div>
+  </div>
 
-  <ion-content id="content-id">
+  <ion-content id="content-id" class="has-header">
     <ion-refresher on-refresh="doRefreshQuotation()">
     </ion-refresher>
 

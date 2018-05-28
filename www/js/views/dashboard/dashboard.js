@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function() {
-	this.app.controller('DashboardController', ['$scope', '$state','$ionicPlatform','StorageUserModel','$User','$timeout','popUpService',
-		function($scope, $state,$ionicPlatform,StorageUserModel,$User,$timeout,popUpService) {
+	this.app.controller('DashboardController', ['$scope', '$state','$ionicPlatform','StorageUserModel',
+		function($scope, $state,$ionicPlatform,StorageUserModel) {
 
 			$scope.goToProducts =  function (){
 				// popUpService.workingOnPopUp();

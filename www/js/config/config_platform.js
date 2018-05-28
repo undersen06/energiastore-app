@@ -11,7 +11,6 @@ PLATFORM CONFIGURATION
 		$ionicPlatform.ready(function () {
 
 			if (window.cordova && window.cordova.plugins.Keyboard) {
-				debugger;
 				Keyboard.hideFormAccessoryBar(false);
 				// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 				// for form inputs)
