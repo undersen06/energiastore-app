@@ -44,6 +44,7 @@ CONTROLLER DEFINITION
 				$scope.factorType = {};
 
 				$scope.back = function () {
+					// TODO: ask if the user wanna leave
 					$state.go('dashboard', {
 						options: 'reload'
 					}, {
@@ -131,13 +132,9 @@ CONTROLLER DEFINITION
 
 					calculation.power_factor = (aux / $scope.values.length);
 
-
-
 					$ionicLoading.show({
 						templateUrl: 'loading.html'
 					}).then(function () {
-
-
 						$scope.CreateQuoate(calculation);
 					});
 				};
@@ -285,8 +282,8 @@ CONTROLLER DEFINITION
 					}, function (_error) {
 						$log.error(_error);
 
-					})
-				}
+					});
+				};
 
 				$scope.getMinValues();
 
