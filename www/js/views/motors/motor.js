@@ -70,12 +70,12 @@ CONTROLLER DEFINITION
 					// Execute action
 				});
 
-				$scope.back = function () {
+				$scope.goBack = function () {
 					$state.go('project');
 				};
 
 				$ionicPlatform.registerBackButtonAction(function () {
-					$scope.back();
+					$scope.goBack();
 				}, 100);
 
 

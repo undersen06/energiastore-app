@@ -1,49 +1,29 @@
 <ion-modal-view id="create_project_modals">
-    <ion-header-bar align-title="center" ng-class="design.header">
-        <div class="buttons">
-        </div>
-        <!-- <h1 class="title">{{translations.APP_NAME}}</h1> -->
-        <h1 class="title">{{project.CREATE_PROJECT_TITLE}}</h1>
+    <div class="bar bar-header header-energiaStore">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="closeModalProject();"></button>
+        <div class="h1 title">{{project.CREATE_PROJECT_TITLE}}</div>
+    </div>
 
-        
-        <h5 class="" ng-click="closeModalProject();" style="top: 2px;
-    position: absolute;
-    left: 15px;
-">
-            <i class="ion-android-close"></i>
-        </h5>
-    </ion-header-bar>
-
-    <ion-content id="content">
-
-        <!-- <img src="assets/img/project.png" class="createProjectImg" style="margin:0 auto;"> -->
-
-        <!-- <span class="popup-title">{{popup.CREATE_PROJECT.TITLE}</span> -->
-
-        <div class="input-field col s12">
-            <input id="quotation_name" type="text" class="validate" ng-model="project_create.name">
-            <label for="quotation_name">{{project.ADD_QUOTATION_POPUP_FIRST_INPUT}}</label>
+    <ion-content id="content" class="has-header">
+ 
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" placeholder="{{project.ADD_QUOTATION_POPUP_FIRST_INPUT}}" ng-model="project_create.name">
+            </label>
         </div>
 
         <p style="text-align: center">{{project.CREATE_PROJECT_SELECT_PROVIDER}}</p>
 
-        <ul class="list">
+        
 
+        <ion-list>
+        
             <ion-checkbox ng-repeat="provider in providers" ng-click="selectProvider(provider)" ng-model="filter.red">{{provider.name}}</ion-checkbox>
-
-        </ul>
-
-
-
-        <!-- <button ng-click="createCalculation(project.name)"></button> -->
-
+        
+        </ion-list>
     </ion-content>
 
     <ion-footer-bar ng-class="design.header" ng-click="validateProject()">
-        <!-- <button ng-click="add()" class="button button-block dialog-footer">
-           
-        </button> -->
         <p style="color:white;font-size:16px;margin:auto;">Create</p>
-
     </ion-footer-bar>
 </ion-modal-view>

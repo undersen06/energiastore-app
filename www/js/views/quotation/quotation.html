@@ -1,128 +1,137 @@
-<ion-view ng-init="init();" >
-  <ion-header-bar align-title="center" ng-class="design.header">
-    <h5 ng-click="goBack()" style="margin-left:10px;;width: 30px;"><i class="ion-chevron-left" style="z-index:999;" ></i></h5>
+<ion-view ng-init="init();">
+  <div class="bar bar-header header-energiaStore">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
+    <div class="h1 title">{{quotation.QUOTATION_HEADER}}</div>
   </div>
-  <h1 class="title">{{quotation.QUOTATION_HEADER}}</h1>
-</ion-header-bar>
 
 
-<ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-color-light" ng-class="design.header">
-  <ion-tab title="{{quotation.PROJECT_TAB_TITLE}}" ng-click="left();">
-  </ion-tab>
+  <ion-tabs class="tabs-striped tabs-top tabs-background-positive tabs-color-light" ng-class="design.header">
+    <ion-tab title="{{quotation.PROJECT_TAB_TITLE}}" ng-click="left();">
+    </ion-tab>
 
-  <ion-tab title="{{quotation.MFP_TAB_TITLE}}" ng-click="right();">
-  </ion-tab>
-</ion-tabs>
+    <ion-tab title="{{quotation.MFP_TAB_TITLE}}" ng-click="right();">
+    </ion-tab>
+  </ion-tabs>
 
 
 
-<div id="tabulator" ng-class="platform == 'ios' ? 'tabulator-ios' : 'tabulator-android'"></div>
+  <div id="tabulator" ng-class="platform == 'ios' ? 'tabulator-ios' : 'tabulator-android'"></div>
 
-<ion-slide-box show-pager="false" on-slide-changed="slideChanged(index)">
-  <ion-slide>
-    <ion-content overflow-scroll="false">
-      <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-        <ion-item ng-repeat="calculation in calculations" style="height:100px;display: -webkit-box;" ng-click="viewPdfProject({{calculation}})">
-          <div style="width:50px;position:relative;">
-            <i  class="ion-document" aria-hidden="true" style="color:#a82d2d !important;font-size:40px;"></i>
-          </div>
+  <ion-slide-box show-pager="false" on-slide-changed="slideChanged(index)">
+    <ion-slide>
+      <ion-content overflow-scroll="false">
+        <ion-list show-delete="shouldShowDelete" can-swipe="listCanSwipe">
+          <ion-item ng-repeat="calculation in calculations" style="height:100px;display: -webkit-box;" ng-click="viewPdfProject({{calculation}})">
+            <div style="width:50px;position:relative;">
+              <i class="ion-document" aria-hidden="true" style="color:#a82d2d !important;font-size:40px;"></i>
+            </div>
 
-          <div class="">
+            <div class="">
 
-            <h2>{{calculation.name}}</h2>
-            <!-- <p>{{calculation.energy_cost | number : fractionSize}} {{currency}}</p> -->
-            <p>{{project.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
+              <h2>{{calculation.name}}</h2>
+              <!-- <p>{{calculation.energy_cost | number : fractionSize}} {{currency}}</p> -->
+              <p>{{project.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
 
-          </div>
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-slide>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-slide>
 
-  <ion-slide>
-    <ion-content>
-      <ion-list  show-delete="shouldShowDelete"  can-swipe="listCanSwipe">
-        <ion-item ng-repeat="factor in factors" style="height:100px;display: -webkit-box;" ng-class="{'extra-margin-bottom':$last}" ng-click="viewPdf({{factor}})" >
+    <ion-slide>
+      <ion-content>
+        <ion-list show-delete="shouldShowDelete" can-swipe="listCanSwipe">
+          <ion-item ng-repeat="factor in factors" style="height:100px;display: -webkit-box;" ng-class="{'extra-margin-bottom':$last}"
+            ng-click="viewPdf({{factor}})">
 
-          <div style="width:50px;position:relative;">
-            <i  class="ion-document" aria-hidden="true" style="color:#a82d2d !important;font-size:40px;"></i>
-          </div>
+            <div style="width:50px;position:relative;">
+              <i class="ion-document" aria-hidden="true" style="color:#a82d2d !important;font-size:40px;"></i>
+            </div>
 
-          <div class="">
+            <div class="">
 
-            <p>Id: {{factor.id}}</p>
-            <p>{{project.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{factor.created_at | date: 'dd-MM-yyyy'}}</p>
-          </div>
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-slide>
-</ion-slide-box>
+              <p>Id: {{factor.id}}</p>
+              <p>{{project.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{factor.created_at | date: 'dd-MM-yyyy'}}</p>
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-slide>
+  </ion-slide-box>
 
 
-<footbar></footbar>
+  <footbar></footbar>
 
 </ion-view>
 
 
 <style media="screen">
+  .tabs-background-positive .tabs,
+  .tabs-background-positive>.tabs {
+    border-color: #FFC107;
+  }
 
+  .tabs-striped.tabs-background-positive .tabs {
+    background-color: {
+        {
+        design.color
+      }
+    }
+    ;
+    background-image: none;
+  }
 
+  .tabs-color-light .tab-item.tab-item-active,
+  .tabs-color-light .tab-item.active,
+  .tabs-color-light .tab-item.activated {
+    color: #fff;
+    border: 0 solid rgba(255, 255, 255, 0) !important;
+  }
 
-.tabs-background-positive .tabs, .tabs-background-positive > .tabs {
-  border-color: #FFC107;
-}
+  .total-left {
+    transition: all 4s cubic-bezier(0, 1.15, 0.32, 1.01);
+    ;
+    left: 50vw !important;
+  }
 
-.tabs-striped.tabs-background-positive .tabs {
-  background-color: {{design.color}};
-  background-image: none;
-}
+  .tabs-striped.tabs-color-light .tab-item {
+    color: rgb(255, 255, 255);
+    opacity: 1;
+  }
 
-.tabs-color-light .tab-item.tab-item-active, .tabs-color-light .tab-item.active, .tabs-color-light .tab-item.activated {
-  color: #fff;
-  border: 0 solid rgba(255, 255, 255, 0) !important;
-}
+  .tabulator-ios {
+    background-color: white;
+    height: 4px;
+    width: 50vw;
+    top: 60px !important;
+    z-index: 9;
+    -webkit-transition: 0.3s cubic-bezier(.21, 0, .13, .99);
+    position: relative;
+    left: 0px;
+  }
 
-.total-left{
-  transition: all 4s cubic-bezier(0, 1.15, 0.32, 1.01);;
-  left: 50vw !important; 
-}
+  .tabulator-android {
+    background-color: white;
+    height: 4px;
+    width: 50vw;
+    top: 41px;
+    z-index: 9;
+    -webkit-transition: 0.3s cubic-bezier(.21, 0, .13, .99);
+    position: relative;
+    left: 0px;
+  }
 
-.tabs-striped.tabs-color-light .tab-item {
-  color: rgb(255, 255, 255);
-  opacity: 1;
-}
+  .bar-footer {
+    height: 50px !important;
+    background-color: #8bcb71;
+  }
 
-.tabulator-ios{
-  background-color: white;
-  height: 4px;
-  width: 50vw;
-  top: 60px !important;
-  z-index: 9;
-  -webkit-transition: 0.3s cubic-bezier(.21, 0, .13, .99);
-  position: relative;left:0px;
-}
-.tabulator-android{
-  background-color: white;
-  height: 4px;
-  width: 50vw;
-  top: 41px;
-  z-index: 9;
-  -webkit-transition: 0.3s cubic-bezier(.21, 0, .13, .99);
-  position: relative;left:0px;
-}
+  .extra-margin-bottom {
+    margin-bottom: 45px;
+  }
 
-.bar-footer {
-  height: 50px !important;
-  background-color: #8bcb71;
-}
-
-.extra-margin-bottom{
-  margin-bottom:45px;
-}
-
-.tabs-striped.tabs-background-positive .tabs {
+  .tabs-striped.tabs-background-positive .tabs {
     background-color: #62D485;
     background-image: none;
-}
+  }
 </style>

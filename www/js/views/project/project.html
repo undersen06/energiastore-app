@@ -3,8 +3,15 @@
     <button class="button button-icon icon ion-ios-arrow-back" ng-click="back();"></button>
     <div class="h1 title">{{project.QUOTATION_HEADER}}</div>
   </div>
+  <div class="item item-input-inset header-energiaStore has-header">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Buscar">
+    </label>
+  </div>
+  <ion-content id="content-id" class="has-subheader">
 
-  <ion-content id="content-id" class="has-header">
+
+
     <ion-refresher on-refresh="doRefreshQuotation()">
     </ion-refresher>
 
@@ -50,7 +57,6 @@
 
       </ion-item>
     </ion-list>
-
   </ion-content>
   <foot-bar></foot-bar>
 </ion-view>

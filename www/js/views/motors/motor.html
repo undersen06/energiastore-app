@@ -1,10 +1,16 @@
 <ion-view>
   <div class="bar bar-header header-energiaStore">
-    <button class="button button-icon icon ion-ios-arrow-back" ng-click="onBack();"></button>
-    <div class="h1 title">{{translations.project_name}}</div>
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
+    <div class="h1 title">{{project_name}}</div>
   </div>
 
-  <ion-content style="overflow:scroll !important">
+
+  <div class="button-bar has-header" style="position:absolute;">
+    <a class="button button-outline button-balanced" ng-click="openModalMotor();">{{motorButtonText}}</a>
+    <a class="button button-balanced" style="background-color: #5fd583;" ng-click="goToQuotation();">{{motors_t.SEND_QUOTATION_BUTTON_BOTTOM}}</a>
+  </div>
+
+  <ion-content style="overflow:scroll !important" class="has-subheader">
 
     <ion-refresher on-refresh="doRefreshMotors()">
     </ion-refresher>
@@ -37,16 +43,7 @@
       </ion-item>
     </ion-list>
 
-      <div style="display: -webkit-inline-box;
-          width: 100vw;">
-        <div ng-class="design.button" ng-click="openModalMotor();" class="button-traslucid" style="margin:0px;padding :10px;width:50vw;">
-          {{motorButtonText}}
-        </div>
       
-        <div ng-class="design.buttonSolid" class="button-traslucid" style="margin:0px;padding :10px;width:50vw;" ng-click="goToQuotation();">
-          {{motors_t.SEND_QUOTATION_BUTTON_BOTTOM}}
-        </div>
-      </div>
 
 
   </ion-content>
