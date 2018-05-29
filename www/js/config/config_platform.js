@@ -11,11 +11,11 @@ PLATFORM CONFIGURATION
 		$ionicPlatform.ready(function () {
 
 			if (window.cordova && window.cordova.plugins.Keyboard) {
-				Keyboard.hideFormAccessoryBar(false);
+				// Keyboard.hideFormAccessoryBar(false);
 				// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 				// for form inputs)
-				// cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-                // cordova.plugins.Keyboard.disableScroll(true);
+				cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+				cordova.plugins.Keyboard.disableScroll(true);
 
 
 				window.plugins.OneSignal.startInit('344f2a67-3475-4b44-8aeb-f5bcdab1049c')
