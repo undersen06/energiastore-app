@@ -14,7 +14,7 @@
 
         <div class="list card" ng-repeat="new in news">
             <div class="item item-body" style="padding:0px;">
-                <img class="full-image" ng-src="http://energiastoreapp.com/{{new.news_attachments[0].image.url}}">
+                <img class="full-image" src="./assets/img/loading.gif" lazy-img='http://energiastoreapp.com/{{new.news_attachments[0].image.url}}'>
                 <div style="padding:10px;">
                     <p style="color:black;font-size:17px;">{{new.title}}</p>
                     <p style="color:grey;">{{new.body}}</p>
