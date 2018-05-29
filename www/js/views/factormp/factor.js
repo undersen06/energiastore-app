@@ -10,8 +10,7 @@ CONTROLLER DEFINITION
 		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer, $log, $rootScope, $filter, StorageCountryModel, $Formulas) {
 
 			$ionicPlatform.ready(function () {
-
-
+			
 				$scope.options = {
 					title: $rootScope.generic.SELECT_CAMERA_GALLERY,
 					buttonLabels: [$rootScope.generic.SELECTED_CAMERA, $rootScope.generic.SELECT_GALLERY],
@@ -23,15 +22,11 @@ CONTROLLER DEFINITION
 				$scope.values = [];
 				$scope.curr = StorageCountryModel.getSelectedCurrency().symbol + '  ';
 
-
-
-				// $scope.options = {
-				// 	title: $rootScope.quotation.ACTION_SHEET_PHOTO_TITLE,
-				// 	buttonLabels: [$rootScope.quotation.ACTION_SHEET_PHOTO_CAMERA, $rootScope.quotation.ACTION_SHEET_PHOTO_GALERY],
-				// 	addCancelButtonWithLabel: $rootScope.quotation.CHOOSE_LANGUAGE_CANCEL,
-				// 	androidEnableCancelButton: true,
-				// 	winphoneEnableCancelButton: true
-				// };
+				$scope.removeValue = function (_index){
+					_.remove($scope.values, function (n,index) {
+						return _index == index;
+					});
+				};
 
 				$scope.isIphoneX = function () {
 					if (ionic.Platform.device().model != undefined) {
@@ -262,7 +257,13 @@ CONTROLLER DEFINITION
 						return;
 					}
 
+					if ($scope.factorType.power_factor_1 <= $scope.minValue){
+						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
+						return;
+					}
+
 					$scope.values.push($scope.factorType.power_factor_1);
+					$scope.factorType.power_factor_1 ='';
 
 				};
 
