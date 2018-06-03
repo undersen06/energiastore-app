@@ -7,21 +7,29 @@
 
   <ion-content class="has-header">
 
+    <div class="post-header" style="height:25vh;background-color:#5fd583;" >
+
+      <!-- <div class="avatar" style=""> -->
+        <!-- <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
+          <ion-slide class="slider-box-1" ng-repeat="avatar in avatars"> -->
+            <img src="http://energiastoreapp.com/{{avatars[0].avatar_url}}" alt="" style="display: block;margin: auto;height: 13vh;display: block;margin: auto;height: 13vh;border-radius: 60px;border: 5px solid white;">
+          <!-- </ion-slide>
+        </ion-slide-box> -->
+      <!-- </div> -->
+
+      <p style="color:white;">{{user.name}}</p>
+      <p style="color:white;">{{user.last_name}}</p>
+
+    </div>
+
+    
     <div class="" style="margin: 0 5vw 0 5vw;top :10vw; position:relative;">
       <div class="col s12 ">
 
-        <div class="avatar">
 
 
-
-          <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
-            <ion-slide class="slider-box-1" ng-repeat="avatar in avatars">
-              <img src="http://energiastoreapp.com/{{avatar.avatar_url}}" alt="" style="display: block;margin: auto;height: 13vh;">
-            </ion-slide>
-          </ion-slide-box>
-
-
-        </div>
+        
+       
 
 
         <div class="input-field col s12">

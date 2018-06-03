@@ -6,7 +6,7 @@
   </div>
   <div class="item item-input-inset header-energiaStore has-header">
     <label class="item-input-wrapper">
-      <input type="text" placeholder="Buscar">
+      <input type="text" placeholder="Buscar" ng-model="query[queryBy]">
     </label>
   </div>
 
@@ -14,7 +14,7 @@
 
 
     <ion-list>
-      <ion-item ng-repeat="category in categories" ng-click="goToProductsByCategory({{category.id}})">
+      <ion-item ng-repeat="category in categories | filter:query" ng-click="goToProductsByCategory({{category.id}})">
         {{category.title}}
         <p style="white-space:normal">{{category.description}}</p>
       </ion-item>

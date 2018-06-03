@@ -8,11 +8,13 @@ CONTROLLER DEFINITION
 (function () {
 	this.app.controller('NewsController', ['$scope', '$state', '$ionicPlatform', '$News', '$log',
 		function ($scope, $state, $ionicPlatform, $News, $log) {
-        
 			$ionicPlatform.ready(function () {
 
+				$scope.query = {};
+				$scope.queryBy = '$';
+
+
 				$scope.init = function () {
-                    
 					$News.getNews().then(function (_response) {
 						$scope.news = _response.data;
 						

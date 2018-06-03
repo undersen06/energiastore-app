@@ -5,7 +5,7 @@
   </div>
   <div class="item item-input-inset header-energiaStore has-header">
     <label class="item-input-wrapper">
-      <input type="text" placeholder="Buscar">
+      <input type="text" placeholder="Buscar" ng-model="query['name']">
     </label>
   </div>
   <ion-content id="content-id" class="has-subheader">
@@ -30,8 +30,7 @@
 
 
     <ion-list show-delete="shouldShowDelete" can-swipe="listCanSwipe">
-      <ion-item ng-repeat="calculation in calculations" class="item" ng-click="goToCalculation(calculation)" ng-if="calculation.energy_cost != null"
-        ng-class="{'last-project':$last}">
+      <ion-item ng-repeat="calculation in calculations | filter:query" class="item" ng-click="goToCalculation(calculation)" ng-class="{'last-project':$last}">
 
         <div class="item-container">
           <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot success" aria-hidden="true"></i>
@@ -39,19 +38,12 @@
         </div>
 
         <div class="">
-
-
-
           <h2>{{calculation.name}}</h2>
-          <!-- <p>{{calculation.energy_cost | number : fractionSize}} {{currency}}</p> -->
           <p>{{project.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
 
           <ion-option-button ng-if="calculation.estimated_cost != null" class="button-positive" ng-click="duplicateProject(calculation)">
             {{project.DUPLICATE_OPTION}}
           </ion-option-button>
-          <!-- <ion-option-button class="button-danger" ng-click="delete(calculation.id)">
-            Eliminar
-          </ion-option-button> -->
 
         </div>
 

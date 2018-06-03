@@ -9,6 +9,9 @@ CONTROLLER DEFINITION
 	this.app.controller('CategoriesController', ['$scope', '$state', '$ionicPlatform', '$log', '$Products',
 		function ($scope, $state, $ionicPlatform, $log, $Products) {
 
+			$scope.queryBy = '$'
+
+
 			$scope.isIphoneX = function () {
 				if (ionic.Platform.device().model != undefined) {
 					if (ionic.Platform.device().model.startsWith('iPhone10')) {
@@ -20,12 +23,9 @@ CONTROLLER DEFINITION
 			$ionicPlatform.ready(function () {
 
 				$scope.init = function () {
-
 					$Products.getCategories().then(function (_response) {
 						$scope.categories = _response.data;
-
 					}, function (_error) {
-						//TODO show error
 						$log.error(_error);
 
 					});
@@ -38,8 +38,8 @@ CONTROLLER DEFINITION
 					$state.go('dashboard');
 				};
 
-				$scope.goToProductsByCategory = function(){
-					$state.go();
+				$scope.goToProductsByCategory = function(_id){
+					$state.go('products', { category_id:_id});
 				};
 
 			});

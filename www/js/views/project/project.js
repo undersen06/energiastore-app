@@ -9,6 +9,8 @@ CONTROLLER DEFINITION
 	this.app.controller('ProjectController', ['$scope', '$state', '$ionicPlatform', '$ionicPopup', 'StorageUserModel', '$Calculation', 'IonicClosePopupService', 'Utils', '$ionicLoading', 'httpUtilities', 'popUpService', 'StorageProject', '$Quotation', '$cordovaActionSheet', '$cordovaStatusbar', '$Motors', 'StorageCountryModel', '$rootScope', '$log', '$Providers', '$ionicModal',
 		function ($scope, $state, $ionicPlatform, $ionicPopup, StorageUserModel, $Calculation, IonicClosePopupService, Utils, $ionicLoading, httpUtilities, popUpService, StorageProject, $Quotation, $cordovaActionSheet, $cordovaStatusbar, $Motors, StorageCountryModel, $rootScope, $log, $Providers, $ionicModal) {
 
+			$scope.query = {};
+			$scope.queryBy = '$';
 
 			$scope.currency = StorageCountryModel.getSelectedCurrency().symbol;
 			$scope.price = StorageCountryModel.getSelectedCountry().energy_cost;
@@ -67,13 +69,7 @@ CONTROLLER DEFINITION
 							$scope.closeModalProject();
 							$scope.calculations = {};
 							$scope.getCalculation();
-							// try{
-							// 	if (cordova != undefined) {
-							// 		cordova.plugins.Keyboard.close();
-							// 	}
-							// }catch(e){
-							// 	$log.error(e);
-							// }
+							
 							
 						},
 						function (_error) {
@@ -88,7 +84,7 @@ CONTROLLER DEFINITION
 					$Calculation.getAll(StorageUserModel.getCurrentUser()).then(
 						function (_response) {
 							
-							$scope.calculations = _response.data;
+							$scope.calculations = _.filter(_response.data, { 'motor_based': true});
 							$scope.$broadcast('scroll.refreshComplete');
 							$ionicLoading.hide();
 						},
@@ -96,7 +92,6 @@ CONTROLLER DEFINITION
 							$ionicLoading.hide();
 							$log.error(_error);
 							// httpUtilities.validateHTTPResponse(_error, popUpService, $scope.translations);
-
 							 Utils.validateToast('QUOTATION_ERROR_DOWNLOAD_INFO');
 							$scope.$broadcast('scroll.refreshComplete');
 						}

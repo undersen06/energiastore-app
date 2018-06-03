@@ -23,6 +23,23 @@
 						defer.reject(_error);
 					});
 					return defer.promise;
+				},
+				getProductByCategory: function () {
+					var defer = $q.defer();
+					$http({
+						url: `${ENV.LOCAL}/products/by_category?category_id=1`,
+						method: 'GET',
+						headers: {
+							username: user.username,
+							token: user.authentication_token
+						},
+					}).then(function (_response) {
+						defer.resolve(_response);
+
+					}, function (_error) {
+						defer.reject(_error);
+					});
+					return defer.promise;
 				}
 
 			};

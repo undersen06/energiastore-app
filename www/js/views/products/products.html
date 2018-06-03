@@ -1,10 +1,13 @@
-<ion-view id="products-view">
-  <ion-header-bar align-title="center" ng-class="design.header">
-    <h5 ng-click="back()">
-      <i class="ion-chevron-left"></i>
-    </h5>
-    <h1 class="title">{{translations.FMP_HEADER}}</h1>
-  </ion-header-bar>
+<ion-view id="products-view" ng-init="init();">
+  <div class="bar bar-header header-energiaStore">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
+    <div class="h1 title">Products</div>
+  </div>
+  <div class="item item-input-inset header-energiaStore has-header">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Buscar">
+    </label>
+  </div> 
 
   <ion-content scrolleable="true" class="has-footer has-header" has-bouncing="false">
 
@@ -13,7 +16,7 @@
         {{product.name}}
       </ion-item>
 
-      </ion-list>
+    </ion-list>
 
 
 

@@ -11,58 +11,15 @@ CONTROLLER DEFINITION
 
 			$ionicPlatform.ready(function () {
 
-
-				$User.getAvatars().then(function (_response) {
-					$log.info(_response);
-
-				}, function (_error) {
-					$log.info(_error);
-				});
 				$scope.placeholder = {};
 				$scope.user = {};
 
 				$scope.init = function () {
-					var user = StorageUserModel.getCurrentUser();
 					$scope.getAvailableAvatar();
-
-
-					$scope.placeholder.name = 'Nombre';
-					$scope.placeholder.last_name = 'Apellido';
-					$scope.placeholder.phone = 'Teléfono';
-					$scope.placeholder.address = 'Dirección';
-
-					if (user.name !== null) {
-						$scope.placeholder.name = user.name;
-					}
-					if (user.last_name !== null) {
-						$scope.placeholder.last_name = user.last_name;
-					}
-					if (user.phone !== null) {
-						$scope.placeholder.phone = user.phone;
-					}
-					if (user.address !== null) {
-						$scope.placeholder.address = user.address;
-					}
+					$scope.user = StorageUserModel.getCurrentUser();
 
 				};
 
-
-				$scope.$on('$ionicView.beforeEnter', function () {
-					var user = Object.assign({}, StorageUserModel.getCurrentUser());
-
-					if (user.name !== undefined)
-						$scope.placeholder.name = user.name;
-
-					if (user.last_name !== undefined)
-						$scope.placeholder.last_name = user.last_name;
-
-					if (user.phone !== undefined)
-						$scope.placeholder.phone = user.phone;
-
-					if (user.address !== undefined)
-						$scope.placeholder.address = user.address;
-
-				});
 
 				$scope.getAvailableAvatar = function () {
 					$User.getAvatars().then(function (_response) {
@@ -74,11 +31,6 @@ CONTROLLER DEFINITION
 					}, function (_error) {
 						$log.error(_error);
 					});
-				};
-
-
-				$scope.changeLanguage = function () {
-
 				};
 
 				$scope.backButton = function () {

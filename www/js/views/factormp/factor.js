@@ -153,9 +153,7 @@ CONTROLLER DEFINITION
 						$log.error(_error);
 						$ionicLoading.hide();
 						popUpService.showPopUpFailCreateFactor($scope.translations).then(function () {
-							$state.go('dashboard', {}, {
-								reload: true
-							});
+							$state.go('dashboard', {}, {reload: true});
 						});
 					});
 				};
@@ -166,14 +164,14 @@ CONTROLLER DEFINITION
 				$scope.showPopUpImage = function () {
 					$cordovaActionSheet.show($scope.options).then(function (btnIndex) {
 						switch (btnIndex) {
-							case 1:
-								$scope.openCamera();
-								break;
-							case 2:
-								$scope.openGallery();
-								break;
-							default:
-								break;
+						case 1:
+							$scope.openCamera();
+							break;
+						case 2:
+							$scope.openGallery();
+							break;
+						default:
+							break;
 
 						}
 

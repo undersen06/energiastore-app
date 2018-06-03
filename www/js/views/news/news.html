@@ -6,13 +6,13 @@
     </div>
     <div class="item item-input-inset header-energiaStore has-header">
         <label class="item-input-wrapper">
-            <input type="text" placeholder="Buscar">
+            <input type="text" placeholder="Buscar" ng-model="query[queryBy]">
         </label>
     </div>
     <ion-content class=" has-subheader">
 
 
-        <div class="list card" ng-repeat="new in news">
+        <div class="list card" ng-repeat="new in news | filter:query">
             <div class="item item-body" style="padding:0px;">
                 <img class="full-image" src="./assets/img/loading.gif" lazy-img='http://energiastoreapp.com/{{new.news_attachments[0].image.url}}'>
                 <div style="padding:10px;">
