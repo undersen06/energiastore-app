@@ -1,0 +1,27 @@
+<ion-view id="categories-view">
+
+  <div class="bar bar-header header-energiaStore">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
+    <div class="h1 title">Categorias</div>
+    <button class="button button-icon icon ion-ios-cart" ng-click="goToCart();"></button>
+  </div>
+  <div class="item item-input-inset header-energiaStore has-header">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="Buscar" ng-model="query[queryBy]">
+    </label>
+  </div>
+
+  <ion-content class=" has-subheader has-footer" has-bouncing="true">
+
+
+    <ion-list>
+      <ion-item ng-repeat="category in categories | filter:query" ng-click="goToProductsByCategory({{category.id}})">
+        {{category.title}}
+        <p style="white-space:normal">{{category.description}}</p>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+
+  <foot-bar></foot-bar>
+</ion-view>

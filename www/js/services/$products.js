@@ -24,10 +24,10 @@
 					});
 					return defer.promise;
 				},
-				getProductByCategory: function () {
+				getProductByCategory: function (_id) {
 					var defer = $q.defer();
 					$http({
-						url: `${ENV.LOCAL}/products/by_category?category_id=1`,
+						url: `${ENV.LOCAL}api/products/by_category?category_id=${_id}`,
 						method: 'GET',
 						headers: {
 							username: user.username,

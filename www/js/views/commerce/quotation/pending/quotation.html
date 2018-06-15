@@ -1,0 +1,30 @@
+<ion-view id="products-view" ng-init="init();">
+        <div class="bar bar-header header-energiaStore">
+          <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
+          <div class="h1 title">Products</div>
+        </div>
+        <div class="item item-input-inset header-energiaStore has-header">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="Buscar">
+          </label>
+        </div> 
+      
+        <ion-content scrolleable="true" class="has-footer has-subheader" has-bouncing="false">
+      
+          <!-- <ion-list> -->
+            <div class="list" style="margin-bottom:0px;padding-bottom:0px;" ng-repeat="product in products" ng-click="viewProduct({{product._id}})">
+              <a class="item item-avatar">
+                <img ng-src="{{product.images[0].url}}">
+                <h2>{{product.name}}</h2>
+                <p>{{product.description}}</p>
+              </a>
+            </div>
+      
+          <!-- </ion-list> -->
+      
+      
+      
+        </ion-content>
+      
+        <footbar></footbar>
+      </ion-view>

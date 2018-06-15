@@ -2,15 +2,18 @@
 
   <div class="bar bar-header header-energiaStore">
     <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
-    <div class="h1 title">Categorias</div>
-  </div>
-  <div class="item item-input-inset header-energiaStore has-header">
-    <label class="item-input-wrapper">
-      <input type="text" placeholder="Buscar" ng-model="query[queryBy]">
-    </label>
+    <div class="h1 title">{{product.name}}</div>
+    <button class="button button-icon icon ion-ios-cart" ng-click="goToCart();"></button>
   </div>
 
-  <ion-content scrolleable="true" class="has-footer has-subheader" has-bouncing="false">
+  <ion-content scrolleable="true" class="has-footer has-header" has-bouncing="false">
+
+    <ion-slides options="options" slider="data.slider">
+      <ion-slide-page ng-repeat="image in product.images">
+        <img ng-src="{{image.url}}" alt="">
+      </ion-slide-page>
+    </ion-slides>
+
 
 
     <ion-list>

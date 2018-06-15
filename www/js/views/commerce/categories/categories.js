@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('CategoriesController', ['$scope', '$state', '$ionicPlatform', '$log', '$Products',
-		function ($scope, $state, $ionicPlatform, $log, $Products) {
+	this.app.controller('CategoriesController', ['$scope', '$state', '$ionicPlatform', '$log', '$Products', '$ionicHistory',
+		function ($scope, $state, $ionicPlatform, $log, $Products, $ionicHistory) {
 
 			$scope.queryBy = '$'
 
@@ -35,11 +35,20 @@ CONTROLLER DEFINITION
 				$scope.init();
 
 				$scope.goBack = function () {
-					$state.go('dashboard');
+					var backView = $ionicHistory.backView();
+					if (backView != undefined) {
+						$state.go('dashboard');
+					} else {
+						backView.go();
+					}
 				};
 
-				$scope.goToProductsByCategory = function(_id){
-					$state.go('products', { category_id:_id});
+				$scope.goToProductsByCategory = function (_id) {
+					$state.go('products', { category_id: _id });
+				};
+
+				$scope.goToCart = function () {
+					$state.go('cart');
 				};
 
 			});
