@@ -36,7 +36,7 @@ CONTROLLER DEFINITION
 
 				$scope.goBack = function () {
 					var backView = $ionicHistory.backView();
-					if (backView != undefined) {
+					if (backView == undefined) {
 						$state.go('dashboard');
 					} else {
 						backView.go();
