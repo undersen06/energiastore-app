@@ -11,73 +11,72 @@ CONTROLLER DEFINITION
 
 
 
-			$scope.products =[
-				{
-					name:'Bombillo #1',
-					description:'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
-					_id:'1',
-					images:[
-						{
-							_id:'1',
-							url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-						},
-						{
-							_id:'2',
-							url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-						}
-					],
+			// $scope.products =[
+			// 	{
+			// 		name:'Bombillo #1',
+			// 		description:'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
+			// 		_id:'1',
+			// 		images:[
+			// 			{
+			// 				_id:'1',
+			// 				url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
+			// 			},
+			// 			{
+			// 				_id:'2',
+			// 				url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
+			// 			}
+			// 		],
 
-				},
+			// 	},
 
-				{
-					name:'Bombillo #2',
-					description:'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
-					_id:'1',
-					images:[
-						{
-							_id:'1',
-							url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-						},
-						{
-							_id:'2',
-							url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-						}
-					],
+			// 	{
+			// 		name:'Bombillo #2',
+			// 		description:'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
+			// 		_id:'1',
+			// 		images:[
+			// 			{
+			// 				_id:'1',
+			// 				url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
+			// 			},
+			// 			{
+			// 				_id:'2',
+			// 				url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
+			// 			}
+			// 		],
 
-				},
-				{
-					name:'Bombillo #3',
-					description:'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
-					_id:'1',
-					images:[
-						{
-							_id:'1',
-							url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-						},
-						{
-							_id:'2',
-							url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-						}
-					],
+			// 	},
+			// 	{
+			// 		name:'Bombillo #3',
+			// 		description:'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
+			// 		_id:'1',
+			// 		images:[
+			// 			{
+			// 				_id:'1',
+			// 				url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
+			// 			},
+			// 			{
+			// 				_id:'2',
+			// 				url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
+			// 			}
+			// 		],
 
-				}
+			// 	}
 
 
-			];
+			// ];
 
 			$ionicPlatform.ready(function () {
 
 				$scope.init =  function (){
-					// $Products.getProductByCategory($state.params.category_id).then(function (_response){
-					// 	// $scope.products = _response.data;
-					// },function(_error){
-						
-					// 	$log.error(_error);
-					// });
+					$Products.getAllProducts().then(function (_response){
+						$scope.products = _response.data;
+					},function(_error){
+						$log.error(_error);
+					});
 				};
 
-				$scope.viewProduct = function (_id){
-					$state.go('product',{category_id:$state.params.category_id,product_id:_id});
+				$scope.viewProduct = function (_product){
+					$state.go('product',{category_id:$state.params.category_id,product_id:_product.id});
 				};
 
 				

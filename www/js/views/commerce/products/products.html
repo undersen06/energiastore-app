@@ -13,11 +13,12 @@
   <ion-content scrolleable="true" class="has-footer has-subheader" has-bouncing="false">
 
     <!-- <ion-list> -->
-      <div class="list" style="margin-bottom:0px;padding-bottom:0px;" ng-repeat="product in products" ng-click="viewProduct({{product._id}})">
+      <div class="list" style="margin-bottom:0px;padding-bottom:0px;" ng-repeat="product in products" ng-click="viewProduct(product)">
         <a class="item item-avatar">
-          <img ng-src="{{product.images[0].url}}">
-          <h2>{{product.name}}</h2>
-          <p>{{product.description}}</p>
+          <img ng-if="product.product_images.length != 0" ng-src="{{product.product_images[0].url}}">
+          <img ng-if="product.product_images.length == 0" src="assets/img/no-image.jpg">
+          <h2>{{product.title}}</h2>
+          <p>{{product.comments}}</p>
         </a>
       </div>
 

@@ -1,7 +1,12 @@
 <ion-view id="products-view" ng-init="init();">
     <div class="bar bar-header header-energiaStore">
-        <button class="button button-icon icon ios-folder-open" ng-click="goBack();"></button>
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
         <div class="h1 title">Carrito</div>
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="goQuotationCommerce();">
+
+
+
+        </button>
     </div>
     <div class="item item-input-inset header-energiaStore has-header">
         <label class="item-input-wrapper">
@@ -11,21 +16,16 @@
 
     <ion-content scrolleable="true" class="has-footer has-subheader" has-bouncing="false">
 
-        <!-- <ion-list> -->
-        <!-- <div class="list" style="margin-bottom:0px;padding-bottom:0px;" ng-repeat="product in products" ng-click="viewProduct({{product._id}})">
-              <a class="item item-avatar">
-                <img ng-src="{{product.images[0].url}}">
-                <h2>{{product.name}}</h2>
-                <p>{{product.description}}</p>
-              </a>
-            </div> -->
-
         <ion-list can-swipe="true">
             <ion-item ng-repeat="product in products" class="list" style="margin-bottom:0px;padding-bottom:0px;">
                 <a class="item item-avatar">
                     <img ng-src="{{product.images[0].url}}">
                     <h2>{{product.name}}</h2>
                     <p>{{product.description}}</p>
+
+                    <div>
+
+                    </div>
                 </a>
 
                 <ion-option-button class="button-positive" ng-click="delete(product)">
@@ -35,19 +35,28 @@
             </ion-item>
         </ion-list>
 
-        <!-- </ion-list> -->
-
 
 
     </ion-content>
 
-    <foot-bar></foot-bar>
+    <ion-footer-bar ng-class="isIphoneX == true ? 'iphone-x' : ''; ">
+            <div class="bar bar-footer" style="background-color:#61d484">
+                    <h4 style="    text-align: center;
+                    margin: 0 auto;
+                    color: white;
+                    line-height: 30px;">Cotizar</h4>
+                  </div>
+    </ion-footer-bar>
+
+
+
+
+
 </ion-view>
 
 
 <style>
-    .item .item-avatar{
+    .item .item-avatar {
         border-color: white;
     }
-    
 </style>

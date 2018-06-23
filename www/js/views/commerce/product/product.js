@@ -6,29 +6,52 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('ProductController', ['$scope', '$state', '$ionicPlatform','$ionicHistory',
-		function ($scope, $state, $ionicPlatform,$ionicHistory) {
+	this.app.controller('ProductController', ['$scope', '$state', '$ionicPlatform', '$ionicHistory', '$Products', '$q', '$ionicSlideBoxDelegate',
+		function ($scope, $state, $ionicPlatform, $ionicHistory, $Products, $q, $ionicSlideBoxDelegate) {
 
 			$ionicPlatform.ready(function () {
 
 				$scope.init = function () {
 
-					$scope.product = {
-						name: 'Bombillo #1',
-						description: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
-						_id: '1',
-						images: [
-							{
-								_id: '1',
-								url: 'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-							},
-							{
-								_id: '2',
-								url: 'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-							}
-						],
+					var promises = [];
+					promises.push($Products.getProduct($state.params.product_id));
+					promises.push($Products.getProductImages($state.params.product_id));
+					promises.push($Products.getProductSheet($state.params.product_id));
 
-					};
+
+					$q.all(promises).then(function (_response) {
+
+						$scope.product = {};
+						$scope.product.data = _response[0].data;
+						$scope.product.images = _response[1].data;
+						$scope.product.sheet = [];
+
+						Object.keys($scope.product.data.specs).forEach(function (key) {
+
+							$scope.product.sheet.push({
+								key: key,
+								value: $scope.product.data.specs[key]
+							});
+						});
+						$ionicSlideBoxDelegate.update();
+						debugger;
+
+					}, function (_error) {
+						$log.error(_error)
+						debugger;
+					})
+
+
+
+					// $Products.getProduct($state.params.product_id).then(function (_response){
+					// 	$scope.product = _response.data;
+					// 	debugger;
+					// },function(_error){
+
+					// 	$log.error(_error);
+					// });
+
+
 
 				};
 

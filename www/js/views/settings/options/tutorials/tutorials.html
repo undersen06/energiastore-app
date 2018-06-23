@@ -1,16 +1,13 @@
 <ion-view ng-init="init();">
-  <ion-header-bar align-title="left" class="">
-
-    <h5 ng-click="goBack()" style="margin-left:10px;;width: 30px;">
-      <i class="ion-chevron-left" style="z-index:999;"></i>
-    </h5>
-    <h5>{{tutorials.TUTORIALS_TITLE}}</h5>
-
-  </ion-header-bar>
+  
+  <div class="bar bar-header">
+      <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
+      <div class="h1 title">{{tutorials.TUTORIALS_TITLE}}</div>
+    </div>
 
 
 
-  <ion-content style="background-color:rgba(175, 175, 175, 0.30);" class="has-header">
+  <ion-content style="background-color:#f6f5f6;" class="has-header">
 
 
     <ion-list>
