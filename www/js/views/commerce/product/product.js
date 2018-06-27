@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('ProductController', ['$scope', '$state', '$ionicPlatform', '$ionicHistory', '$Products', '$q', '$ionicSlideBoxDelegate',
-		function ($scope, $state, $ionicPlatform, $ionicHistory, $Products, $q, $ionicSlideBoxDelegate) {
+	this.app.controller('ProductController', ['$scope', '$state', '$ionicPlatform', '$ionicHistory', '$Products', '$q', '$ionicSlideBoxDelegate','$log','StorageCartModel','popUpService',
+		function ($scope, $state, $ionicPlatform, $ionicHistory, $Products, $q, $ionicSlideBoxDelegate,$log,StorageCartModel,popUpService) {
 
 			$ionicPlatform.ready(function () {
 
@@ -34,13 +34,13 @@ CONTROLLER DEFINITION
 							});
 						});
 						$ionicSlideBoxDelegate.update();
-						debugger;
+						
 
 					}, function (_error) {
-						$log.error(_error)
-						debugger;
+						$log.error(_error);
 					})
 
+					
 
 
 					// $Products.getProduct($state.params.product_id).then(function (_response){
@@ -70,9 +70,7 @@ CONTROLLER DEFINITION
 				// });
 
 				$scope.goToCart = function () {
-
 					$state.go('cart');
-
 				};
 
 				$scope.goBack = function () {
@@ -84,6 +82,24 @@ CONTROLLER DEFINITION
 					}
 				};
 
+				$scope.showQtyPopUp = function(){
+					var qty;
+
+					popUpService.qtyProductPopup().then(function(){
+
+						debugger;
+
+					});	
+
+					
+					StorageCartModel.addCart();
+
+				};
+
+
+				$scope.sendOrder = function (){
+					debugger;
+				};
 
 				$scope.init();
 

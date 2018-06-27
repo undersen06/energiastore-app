@@ -6,8 +6,8 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('CartController', ['$scope', '$state', '$ionicPlatform', '$log', '$Products','$ionicHistory',
-		function ($scope, $state, $ionicPlatform, $log, $Products,$ionicHistory) {
+	this.app.controller('CartController', ['$scope', '$state', '$ionicPlatform', '$log', '$Products','$ionicHistory','StorageCartModel',
+		function ($scope, $state, $ionicPlatform, $log, $Products,$ionicHistory,StorageCartModel) {
 
             $scope.queryBy = '$';
             
@@ -77,12 +77,14 @@ CONTROLLER DEFINITION
 			$ionicPlatform.ready(function () {
 
 				$scope.init = function () {
-					$Products.getCategories().then(function (_response) {
-						$scope.categories = _response.data;
-					}, function (_error) {
-						$log.error(_error);
 
-					});
+					$scope.products = StorageCartModel.getCart();
+					// $Products.getCategories().then(function (_response) {
+					// 	$scope.categories = _response.data;
+					// }, function (_error) {
+					// 	$log.error(_error);
+
+					// });
 				};
 
 
@@ -90,7 +92,7 @@ CONTROLLER DEFINITION
 
 				$scope.goBack = function () {
 					var backView = $ionicHistory.backView();
-					debugger;
+					
 					if (backView == undefined) {
 						$state.go('dashboard');
 					} else {

@@ -19,24 +19,24 @@ CONTROLLER DEFINITION
 
 			if (StorageUserModel.getCurrentUser() != undefined) {
 				switch (StorageUserModel.getCurrentUser().type_user) {
-					case 'user':
-						$scope.design.header = 'user-color';
-						$scope.design.color = 'user-color-font';
-						break;
+				case 'user':
+					$scope.design.header = 'user-color';
+					$scope.design.color = 'user-color-font';
+					break;
 
-					case 'partner':
-						$scope.design.header = 'partner-color';
-						$scope.design.color = 'partner-color-font';
-						break;
+				case 'partner':
+					$scope.design.header = 'partner-color';
+					$scope.design.color = 'partner-color-font';
+					break;
 
-					case 'explorer':
-						$scope.design.header = 'explorer-color';
-						$scope.design.color = 'explorer-color-font';
-						break;
-					default:
-						$scope.design.header = 'user-color';
-						$scope.design.color = 'user-color-font';
-						break;
+				case 'explorer':
+					$scope.design.header = 'explorer-color';
+					$scope.design.color = 'explorer-color-font';
+					break;
+				default:
+					$scope.design.header = 'user-color';
+					$scope.design.color = 'user-color-font';
+					break;
 				}
 			} else {
 
@@ -148,10 +148,10 @@ CONTROLLER DEFINITION
 					facebookConnectPlugin.login(['public_profile', 'email', 'user_friends'], function success(success) {
 						get_facebook_user_info(success);
 					},
-						function loginError(error) {
-							$log.error(error);
-							$ionicLoading.hide();
-						}
+					function loginError(error) {
+						$log.error(error);
+						$ionicLoading.hide();
+					}
 					);
 				}
 

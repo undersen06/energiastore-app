@@ -292,6 +292,31 @@
 
 					});
 					return deferred.promise;
+				},
+
+				qtyProductPopup: function () {
+
+					var deferred = $q.defer();
+					var button_exit_lesson = [{
+						text: $rootScope.popup.ERROR_EMAIL_ALL_READY_IN_USE.BUTTON.POSITIVE,
+						type: 'button-affirmative',
+						onTap: function () {
+							return true;
+						}
+					}];
+
+					$ionicPopup.show({
+						animation: 'fade-in',
+						// title: '<img src="assets/img/error.png" class="img-about-us">',
+						subTitle: '<span class="popup-title">Cantidad del producto</span>',
+						template: `<button class="button button-full button-positive" ng-click="sendOrder()">Finished</button>'
+                         '<button class="button button-full button-positive" ng-click="sendOrder()">In Progress</button>`,
+						buttons: button_exit_lesson,
+					}, null).then(function (_res) {
+						deferred.resolve(_res);
+
+					});
+					return deferred.promise;
 				}
 			};
 

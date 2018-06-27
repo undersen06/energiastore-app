@@ -20,7 +20,7 @@
     "cordova-plugin-firebase-crash-report": "^1.0.8",
     "cordova-plugin-hidden-statusbar-overlay": "^2.0.1",
     "cordova-plugin-inappbrowser": "^2.0.2",
-    "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "cordova-plugin-ionic-keyboard": "^2.1.2",
     "cordova-plugin-ionic-webview": "^1.2.1",
     "cordova-plugin-ios-camera-permissions": "^1.2.0",
     "cordova-plugin-linkedin": "^1.2.1",
@@ -42,7 +42,7 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglifycss": "^1.0.9",
     "lodash": "^4.17.4",
-    "onesignal-cordova-plugin": "^2.3.3",
+    "onesignal-cordova-plugin": "^2.4.1",
     "validator": "^9.1.1"
   },
   "devDependencies": {

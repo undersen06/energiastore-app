@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.spa.energiaStore" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.spa.energiaStore" version="1.0.20" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>energiaStore</name>
-    <description>An awesome Ionic/Cordova app.</description>
+    <description />
     <author email="tomas.diaz06.p@gmail.com" href="http://developmind.cl/">Developmind Team</author>
     <content src="index.html" />
     <access origin="*" />
