@@ -6,11 +6,11 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('ProductsController', ['$scope', '$state', '$ionicPlatform', '$Products','$log','$ionicHistory',
-		function ($scope, $state, $ionicPlatform, $Products, $log,$ionicHistory) {
+	this.app.controller('ProductsController', ['$scope', '$state', '$ionicPlatform', '$Products', '$log', '$ionicHistory','$q',
+		function ($scope, $state, $ionicPlatform, $Products, $log, $ionicHistory,$q) {
 
 
-
+			$scope.products = [];
 			// $scope.products =[
 			// 	{
 			// 		name:'Bombillo #1',
@@ -67,19 +67,72 @@ CONTROLLER DEFINITION
 
 			$ionicPlatform.ready(function () {
 
-				$scope.init =  function (){
-					$Products.getAllProducts().then(function (_response){
-						$scope.products = _response.data;
-					},function(_error){
-						$log.error(_error);
+				// $state;
+				// console.log($state);
+
+
+				$scope.init = function () {
+
+
+					$Products.getProductByCategory($state.params.category_id).then(function (_response) {
+						// $scope.products = _response.data;
+
+						// var promises =[];
+						// _response.data.forEach(element => {
+						// 	debugger;
+						// 	promises.push($Products.getProductSheet($state.params.product_id));				
+						// });
+
+
+						// $q.all(promises).then(function(_response){
+
+						// },function(_error){
+						// 	$log.error(_error);
+						// });
+						
+						
+						for (var i = 0; i < _response.data.length; i++) {
+							var product = _response.data[i];
+
+							debugger;
+
+							if(typeof(product.specs) === 'string'){
+								//parwse specs
+								product.specs = JSON.parse(product.specs);
+							}
+
+							product.technical_info = [];
+							Object.keys(product.specs).forEach(function (key) {
+								product.technical_info.push({
+									key: key,
+									value: product.specs[key]
+								});
+							});
+
+
+						}
+
+						$scope.products.push(product);
+						$log.info($scope.products);		
+
+					}, function (_error) {
+						debugger;
 					});
 				};
 
-				$scope.viewProduct = function (_product){
-					$state.go('product',{category_id:$state.params.category_id,product_id:_product.id});
+				// $scope.init =  function (){
+				// 	$Products.getAllProducts().then(function (_response){
+				// 		$scope.products = _response.data;
+				// 	},function(_error){
+				// 		$log.error(_error);
+				// 	});
+				// };
+
+				$scope.viewProduct = function (_product) {
+					$state.go('product', { category_id: $state.params.category_id, product_id: _product.id });
 				};
 
-				
+
 				$scope.goBack = function () {
 					var backView = $ionicHistory.backView();
 					if (backView == undefined) {

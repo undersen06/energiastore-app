@@ -64,6 +64,7 @@ CONTROLLER DEFINITION
 				$scope.createCalculation = function (data) {
 					$Calculation.create(data, StorageUserModel.getCurrentUser()).then(
 						function (_response) {
+							debugger;
 							$log.info(_response);
 							Utils.validateToast('QUOTATION_CREATED_MESSAGE');
 							$scope.closeModalProject();
@@ -84,7 +85,8 @@ CONTROLLER DEFINITION
 					$Calculation.getAll(StorageUserModel.getCurrentUser()).then(
 						function (_response) {
 							
-							$scope.calculations = _.filter(_response.data, { 'motor_based': true});
+							// $scope.calculations = _.filter(_response.data, { 'motor_based': true});
+							$scope.calculations = _response.data;
 							$scope.$broadcast('scroll.refreshComplete');
 							$ionicLoading.hide();
 						},
