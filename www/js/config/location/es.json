@@ -10,8 +10,23 @@
                 "POSITIVE": "Entendido"
             }
         },
+
+        "QUOTATION_AMOUNT_EMPTY":{
+            "TITLE": "Ups!",
+            "BODY": "Debes agregar al menos 1 valor solicitar una cotización",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
         "ERROR_LINKEDIN_APP_NOT_FOUND": {
             "BODY": "Al parecer no tienes LinkedIn instalado en tu dispositivo.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
+        "ERROR_EMAIL_ALL_READY_IN_USE": {
+            "TITLE": "Ups! este correo esta en uso",
+            "BODY": "Aparentemente este correo ya fue registrado en nuestros sistemas, intenta con otro correo.",
             "BUTTON": {
                 "POSITIVE": "Entendido"
             }
@@ -82,29 +97,29 @@
             "TITLE": "Ups.",
             "BODY": "No hemos podido crear tu cuenta, por favor intentalo más tarde."
         },
-            "FAIL_OPEN_PDF": {
-                "BUTTON": {
-                    "POSITIVE": "Entendido"
-                },
-                "TITLE": "Ups.",
-                "BODY": "No hemos podido descargar el pdf, intentalo más tarde."
+        "FAIL_OPEN_PDF": {
+            "BUTTON": {
+                "POSITIVE": "Entendido"
             },
-            "FAIL_CREATE_FACTOR": {
-                "BUTTON": {
-                    "POSITIVE": "Entendido"
-                },
-                "TITLE": "Ups.",
-                "BODY": "Ups, no hemos podido completar tu cotización, por favor intentalo más tarde."
-            }
+            "TITLE": "Ups.",
+            "BODY": "No hemos podido descargar el pdf, intentalo más tarde."
+        },
+        "FAIL_CREATE_FACTOR": {
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            },
+            "TITLE": "Ups.",
+            "BODY": "Ups, no hemos podido completar tu cotización, por favor intentalo más tarde."
+        }
 
-            
+
 
 
 
     },
     "TOAST": {
         "UNKNOWN_ERROR": "Error, intentalo más tarde",
-
+        "PRODUCT_ADD_CART":"Producto agregado",
         "COMPLETE_NAME": "",
         "COMPLETE_LASTNAME": "",
         "COMPLETE_PHONE": "",
@@ -148,13 +163,19 @@
         "MOTOR_COMPLETE_AMP": "Complete amperaje del motor",
         "MOTOR_COMPLETE_VOLT": "Complete voltaje del motor",
         "MOTOR_COMPLETE_NAME": "Complete nombre del motor",
-        "MOTOR_ADD_FAIL": "Problemas al agregar motor"
+        "MOTOR_ADD_FAIL": "Problemas al agregar motor",
+        "REGISTER_EMAIL_EMPTY_ERROR": "Complete Correo",
+        "REGISTER_PASSWORD_EMPTY_ERROR":"Complete contraseña",
+        "REGISTER_PASSWORD_CONFIRMATION_EMPTY_ERROR":"Complete confirmación contraseña",
+        "REGISTER_PASSWORD_CONFIRMATION_UNMATCH_ERROR":"Password no coinciden"
+
     },
     "VIEWS": {
         "DASHBOARD": {
             "MOTOR_DASHBOARD_TEXT": "Eficiencia de motores",
             "PENALTY_DASHBOARD_TEXT": "Mal factor de potencia",
-            "PENALTY_PRODUCTS_TEXT": "Productos"
+            "PENALTY_PRODUCTS_TEXT": "Productos",
+            "PENALTY_NEWS_TEXT": "Noticias"
         },
         "FACTOR_MP": {
             "FMP_HEADER": "Mal factor de potencia",
@@ -162,6 +183,8 @@
             "FMP_PRE_TEXT": "Solicitar evaluación de",
             "FMP_PRE_TEXT_STRONG": "Factor de mala potencia",
             "FMP_BUTTON": "Ingresar multa",
+            "FMP_PRICE_PLACEHOLDER": "Precio",
+            "FMP_COMMENT_PLACEHOLDER": "Comentarios",
             "FMP_MODAL_QUOTATION_HEADER": "Proyecto Factor de potencia",
             "FMP_MODAL_QUOTATION_OPTION_MANUAL": "Ingresa multa manual",
             "FMP_MODAL_QUOTATION_AMOUNT": "Monto de multa",
@@ -177,9 +200,9 @@
             "SLIDER_2": "El cambio está en ti ¡comienza a hacer la diferencia y ahorra energía eléctrica!",
             "SLIDER_3": "! Comienza hoy & contagia la eficiencia energética ¡nuestro planeta lo agradecerá",
             "SLIDER_BUTTON": "Comenzar con el cambio",
-            "NEXT":"Siguiente",
-            "BACK":"Atras",
-            "SKIP":"Saltar"
+            "NEXT": "Siguiente",
+            "BACK": "Atras",
+            "SKIP": "Saltar"
         },
         "LOGIN": {
             "HEADER": "Iniciar en EnergiaStore",
@@ -229,11 +252,19 @@
             "MODAL_HELPER_DAYS_MONTH_TITLE": "Días al mes",
             "MODAL_HELPER_DAYS_MONTH_BODY": "",
             "MOTOR_CARD_ELEMENT_CREATED_AT": "Fecha de creación"
-            
+
         },
         "PRODUCTS": {
+            "PRODUCTS": {
+                "TITLE_VIEW":"Productos"
+            },
+            "CART": {
+                "TITLE_VIEW":"Carrito"
+            },
             "PRODUCT": {},
-            "CATEGORIES": {}
+            "CATEGORIES": {
+                "TITLE_VIEW":"Categorias"
+            }
         },
         "PROJECT": {
             "QUOTATION_POPUP_CANCEL_BUTTON": "Cancelar",
@@ -257,7 +288,7 @@
             "CREATE_PROJECT_SELECT_PROVIDER": "Seleccione proveedor de servicio."
         },
         "QUOTATION": {
-      
+
             "ADD_PHOTO_BUTTON_TEXT": "AGREGAR FOTO",
             "FINALIZE_QUOTATION_HEADER": "Finalizar Proyecto",
             "INPUT_COMMENTS_TEXT_BOX": "Comentarios (opcional)",
@@ -346,12 +377,23 @@
             "LOG_OUT_CANCEL_BUTTON": "Cancelar",
             "LOG_OUT_LEAVE_BUTTON": "Salir"
         },
-        "WELCOME":{
+        "WELCOME": {
             "CHOOSE_YOUR_COUNTRY": "Selecciona tu país"
         },
         "FOOTBAR": {
             "PROJECTS": "Proyectos",
             "QUOTATIONS": "Cotizaciones"
+        },
+        "GENERIC": {
+            "SELECT_CAMERA_GALLERY": "Accón a utilizar",
+            "SELECTED_CAMERA": "Cámara",
+            "SELECT_GALLERY": "Galeria",
+            "CANCEL": "Cancelar",
+            "PLACEHOLDER_SEARCH":"Buscar",
+            "LOADING_INFORMATION":"Cargando informacion ...",
+            "EMPTY_DATA":"No existe data disponible para mostrar"
+            
+
         }
     }
 }

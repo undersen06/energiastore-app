@@ -1,10 +1,16 @@
-#login-view{
-
-  #login-content{
-    #login-container{
-      margin-top:70px;
-
-      i{
+#login-view {
+  #content {
+    #image-logo {
+      &.background-introduction {
+        width: 100%;
+        position: absolute;
+        // transform: translate(0, 50%);
+      }
+    }
+    #login-container {
+      top: 70px;
+      position: relative;
+      i {
         margin-left: 15px;
         font-size: 30px;
         color: white;
@@ -13,53 +19,25 @@
         width: 44px;
         height: 44px;
       }
-      img.logo-login{
+      img.logo-login {
         position: absolute;
         width: 70px;
         z-index: 99;
         transform: translate(-50%);
         left: 50%;
-        top: -15px;
-      }
-
-      .row{
-        margin-top: 10vw;
-
-        div.card-login{
-          padding: 20px 20px 20px 20px;
-
-          span.login-title{
-            color: black;
-            text-align: center;
-          }
-        }
-
-        a{
-          width:100%;
-        }
-
-        p{
-          color: black;
-          text-align: center;
-          margin-bottom: 10px;
-        }
       }
     }
   }
 }
 
-#facebook-button{
+#facebook-button {
   background-color: #3b5998;
+  color:white;
 }
 
-#linkedin-button{
-  background-color: #ffffff;
-  border: 1px solid #0077b5;
-  color:#0077b5;
+#linkedin-button {
+  background-color: #0077b5;
+  // border: 1px solid #0077b5;
+  color: white;
 }
 
-
-// .login-title{
-
-// }
-//

@@ -8,38 +8,51 @@
     </div>
   </ion-header-bar>
 
-  <ion-content has-bouncing="true">
+  <ion-content has-bouncing="true" style="margin-bottom:55px;">
 
-
-    <ion-list>
-      <ion-item>
-        <div class="dashboard-item">
-          <img src="assets/img/ef.jpg" class="dashboard-img" alt="" ng-click="goToProjects()" ng-class="isIphoneX() == true ? 'iphone-x' : ''; ">
-          <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{dashboard.MOTOR_DASHBOARD_TEXT}}</h4>
+    <div class="list card" ng-click="goToProjects()">
+      <div class="item item-body" style="padding:0px;">
+        <img class="full-image" src="assets/img/ef.jpg">
+        <div style="padding:10px;">
+          {{dashboard.MOTOR_DASHBOARD_TEXT}}
+          <i class="icon ion-ios-arrow-forward" style="float:right;"></i>
         </div>
-      </ion-item>
+      </div>
+    </div>
 
-      <ion-item>
-        <div class="dashboard-item">
-          <img src="assets/img/fp.jpg" class="dashboard-img" alt="" ng-click="goToPenaltyEnergyEfficiency()" ng-class="isIphoneX() == true ? 'iphone-x' : ''; ">
-          <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{dashboard.PENALTY_DASHBOARD_TEXT}}</h4>
+    <div class="list card" ng-click="goToPenaltyEnergyEfficiency()">
+      <div class="item item-body" style="padding:0px;">
+        <img class="full-image" src="assets/img/fp.jpg">
+        <div style="padding:10px;">
+          {{dashboard.PENALTY_DASHBOARD_TEXT}}
+          <i class="icon ion-ios-arrow-forward" style="float:right;"></i>
         </div>
-      </ion-item>
+      </div>
 
-      <ion-item>
-        <div class="dashboard-item" style="margin-bottom: 50px;">
-          <img src="assets/img/products.jpg" class="dashboard-img" alt="" ng-click="goToProducts()" ng-class="isIphoneX() == true ? 'iphone-x' : ''; ">
-          <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{dashboard.PENALTY_PRODUCTS_TEXT}}</h4>
-        </div>
-      </ion-item>
+    </div>
 
-      <!-- <ion-item>
-        <div class="dashboard-item" style="margin-bottom: 50px;">
-          <img src="assets/img/products.jpg" class="dashboard-img" alt="" ng-click="goToProducts()" ng-class="isIphoneX() == true ? 'iphone-x' : ''; ">
-          <h4 class="main-title" style="background: linear-gradient(to right, #6c6c6c6b , #6c6c6c);">{{translations.PENALTY_PRODUCTS_TEXT}}</h4>
+    <div class="list card" ng-click="goToProducts()">
+      <div class="item item-body" style="padding:0px;">
+        <img class="full-image" src="assets/img/products.jpg">
+        <div style="padding:10px;">
+          {{dashboard.PENALTY_PRODUCTS_TEXT}}
+
+          <i class="icon ion-ios-arrow-forward" style="float:right;"></i>
         </div>
-      </ion-item> -->
-    </ion-list>
+      </div>
+
+    </div>
+
+    <div class="list card" ng-click="goToNews()" >
+      <div class="item item-body" style="padding:0px;">
+        <img class="full-image" src="assets/img/news.jpeg">
+        <div style="padding:10px;">
+          {{dashboard.PENALTY_NEWS_TEXT}}
+          <i class="icon ion-ios-arrow-forward" style="float:right;"></i>
+        </div>
+      </div>
+
+    </div>
 
   </ion-content>
 

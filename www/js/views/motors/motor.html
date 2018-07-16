@@ -1,83 +1,77 @@
 <ion-view>
-  <ion-header-bar align-title="center" class="bar-positive" ng-class="design.header">
-
-    <h5 ng-click="back()" style="margin-left:10px;;width: 30px;">
-      <i class="ion-chevron-left" style="z-index:999;" ></i>
-    </h5>
-    <h1 class="title">{{project_name}}</h1>
-  </ion-header-bar>
+  <div class="bar bar-header header-energiaStore">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
+    <div class="h1 title">{{project_name}}</div>
+  </div>
 
 
-  <ion-content style="overflow:scroll !important">
+  <div class="button-bar has-header" style="position:absolute;">
+    <a class="button button-outline button-balanced" ng-click="openModalMotor();">{{motorButtonText}}</a>
+    <a class="button button-balanced" style="background-color: #5fd583;" ng-click="goToQuotation();">{{motors_t.SEND_QUOTATION_BUTTON_BOTTOM}}</a>
+  </div>
 
-    <ion-refresher  on-refresh="doRefreshMotors()">
-        </ion-refresher>
+  <ion-content style="overflow:scroll !important" class="has-subheader">
 
-
-        <h6 ng-hide="motors.length != 0" style="text-align: center;margin: 30px 50px 0 50px;font-size: 15px;">
-          {{motors_t.MOTOR_CARD_TITLE_EMPTY}}
-        </h6>
-
-
-<!-- <button class="waves-effect waves-light btn factor-send-button button-john" type="button" name="button" ng-click="openModalMotor()">{{motorButtonText}} </button> -->
+    <ion-refresher on-refresh="doRefreshMotors()">
+    </ion-refresher>
 
 
-<div ng-class="design.button" ng-click="openModalMotor();" class="button-traslucid">
-  {{motorButtonText}}
-</div>
-
-      <ion-list  show-delete="shouldShowDelete" style="margin-bottom:20px;">
-    <ion-item ng-repeat="motor in motors | orderBy: 'created_at'" ng-class="{'last-item-motor':$last}">
+    <h6 ng-hide="motors.length != 0" style="text-align: center;margin: 30px 50px 0 50px;font-size: 15px;">
+      {{motors_t.MOTOR_CARD_TITLE_EMPTY}}
+    </h6>
 
 
+    <!-- <button class="waves-effect waves-light btn factor-send-button button-john" type="button" name="button" ng-click="openModalMotor()">{{motorButtonText}} </button> -->
 
-<div class="">
+  
 
-      <h2>{{motors_t.MOTOR_NAME_LIST}} :{{motor.name}}</h2>
-      <p>{{motors_t.AMP_NAME_LIST}}: {{motor.amp}}</p>
-      <p>{{motors_t.HOURS_NAME_LIST}}: {{motor.average_time}}</p>
-      <p>{{motors_t.VOLTS_NAME_LIST}}: {{motor.volts}}</p>
-      <p>{{motors_t.KW_NAME_LIST}}: {{motor.rated_power}}</p>
-      <p>{{motors_t.POWER_FACTOR_NAME_LIST}}: {{motor.efficiency}}</p>
-      <p ng-if="user.type_user === undefined">{{motors_t.MOTOR_CARD_ELEMENT_CREATED_AT}}: {{motor.created_at | date: 'dd-MM-yyyy'}}</p>
-</div>
-    </ion-item>
-  </ion-list>
-
-
-</ion-content>
-
-<foot-bar></foot-bar>
+    <ion-list show-delete="shouldShowDelete" style="margin-bottom:20px;" ng-if="motors.length != 0">
+      <ion-item ng-repeat="motor in motors | orderBy: 'created_at'" ng-class="{'last-item-motor':$last}">
 
 
 
-    <div ng-class="design.buttonSolid" class="button-traslucid" style="left:50%;transform:translate(-50%);position: absolute;bottom:50px;" ng-click="goToQuotation();">
-  {{motors_t.SEND_QUOTATION_BUTTON_BOTTOM}}
-    </div>
+        <div class="">
+
+          <h2>{{motors_t.MOTOR_NAME_LIST}} :{{motor.name}}</h2>
+          <p>{{motors_t.AMP_NAME_LIST}}: {{motor.amp}}</p>
+          <p>{{motors_t.HOURS_NAME_LIST}}: {{motor.average_time}}</p>
+          <p>{{motors_t.VOLTS_NAME_LIST}}: {{motor.volts}}</p>
+          <p>{{motors_t.KW_NAME_LIST}}: {{motor.rated_power}}</p>
+          <p>{{motors_t.POWER_FACTOR_NAME_LIST}}: {{motor.efficiency}}</p>
+          <p ng-if="user.type_user === undefined">{{motors_t.MOTOR_CARD_ELEMENT_CREATED_AT}}: {{motor.created_at | date: 'dd-MM-yyyy'}}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+      
+
+
+  </ion-content>
+
+  <foot-bar></foot-bar>
+
+
+
+
 
 </ion-view>
 
 
 <style media="screen">
+  /* .list {
+    margin-bottom: 50px !important;
+  } */
 
-.list{
-  margin-bottom:50px !important;
-}
+  .overflow-scroll {
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+  }
 
-.overflow-scroll{
-  overflow-x:hidden !important;
- overflow-y: visible !important;
-}
+  .scroll-content {
+    overflow: visible !important;
+  }
 
-.scroll-content{
-  overflow:visible !important;
-}
-
-.last-item-motor{
+  /* .last-item-motor {
     margin-bottom: 70px
-}
-
-
-
-
+  } */
 </style>

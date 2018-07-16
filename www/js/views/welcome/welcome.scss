@@ -1,94 +1,84 @@
-#welcome-view{
-  #welcome-content{
-
-    &.iphone-x{
-      top:30px !important;
+#welcome-view {
+  #welcome-content {
+    &.iphone-x {
+      top: 30px !important;
     }
-    #image-logo{
-      &.background-welcome{
+    #image-logo {
+      &.background-welcome {
         width: 60%;
         position: absolute;
-        left:50%;
-        transform:translate(-50%);
+        left: 50%;
+        transform: translate(-50%);
       }
     }
-
-    .slider-slides{
-      .slider-box-1{
-
-        h5{
+    .slider-slides {
+      .slider-box-1 {
+        h5 {
           top: 20vh;
           position: relative;
           text-align: center;
-          color:black;
+          color: black;
         }
-
-        h6{
+        h6 {
           top: 22vh;
           position: relative;
           text-align: center;
         }
-
-        .language-container{
+        .language-container {
           display: flex;
           top: 30vh;
           position: relative;
-
-
-
-
-          div{ 
-            &.country-opt{
+          div {
+            &.country-opt {
               margin: 0 auto;
-
-              p{
-                text-align:center
+              p {
+                text-align: center
               }
             }
           }
         }
-
-        .country-container{
+        .country-container {
           position: relative;
-          margin-top:10vh;
-          div{
-            &.country-opt{
+          margin-top: 10vh;
+          div {
+            &.country-opt {
               margin: 0 auto 20px auto;
-              img{
+              img {
                 margin: 0 auto;
                 display: block;
               }
-              p{
-                text-align:center
+              p {
+                text-align: center
               }
             }
           }
         }
       }
-
-      .slider-box-2{
-
-        h5{
+      .slider-box-2 {
+        h5 {
           top: 4vh;
           position: relative;
           text-align: center;
-          color:black;
+          color: black;
         }
-
-        div{
-          &.country-opt{
+        div {
+          &.country-opt {
             margin: 40px auto 20px auto;
-            img{
+            img {
               margin: 0 auto;
               display: block;
             }
-            p{
-              text-align:center
+            p {
+              text-align: center
             }
           }
         }
-
       }
     }
   }
+}
+
+#country-align {
+  padding: 0px;
+  display: -webkit-inline-box;
 }

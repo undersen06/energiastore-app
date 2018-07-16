@@ -12,6 +12,9 @@ CONTROLLER DEFINITION
 
 			$ionicPlatform.ready(function () {
 
+				window.screen.orientation.lock('portrait');
+				window.screen.orientation.unlock();
+
 				$scope.calculations = [];
 				$scope.platform = ionic.Platform.platform();
 
@@ -35,7 +38,7 @@ CONTROLLER DEFINITION
 				$scope.getFactors = function () {
 					$Factor.getAllFactors(StorageUserModel.getCurrentUser()).then(function (_response) {
 						$scope.factors = _response.data;
-						debugger;
+						
 						$scope.$broadcast('scroll.refreshComplete');
 					}, function (_error) {
 						$log.error(_error);

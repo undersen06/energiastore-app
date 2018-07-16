@@ -1,12 +1,17 @@
 <ion-view id="project-view" ng-init="init()">
-  <ion-header-bar align-title="center" ng-class="design.header">
-    <h5 ng-click="back()">
-      <i class="ion-chevron-left"></i>
-    </h5>
-    <h1 class="title">{{project.QUOTATION_HEADER}}</h1>
-  </ion-header-bar>
+  <div class="bar bar-header header-energiaStore">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="back();"></button>
+    <div class="h1 title">{{project.QUOTATION_HEADER}}</div>
+  </div>
+  <div class="item item-input-inset header-energiaStore has-header">
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="{{generic.PLACEHOLDER_SEARCH}}" ng-model="query['name']">
+    </label>
+  </div>
+  <ion-content id="content-id" class="has-subheader">
 
-  <ion-content id="content-id">
+
+
     <ion-refresher on-refresh="doRefreshQuotation()">
     </ion-refresher>
 
@@ -25,8 +30,7 @@
 
 
     <ion-list show-delete="shouldShowDelete" can-swipe="listCanSwipe">
-      <ion-item ng-repeat="calculation in calculations" class="item" ng-click="goToCalculation(calculation)" ng-if="calculation.energy_cost != null"
-        ng-class="{'last-project':$last}">
+      <ion-item ng-show="calculation.name != null" ng-repeat="calculation in calculations | filter:query" class="item" ng-click="goToCalculation(calculation)" ng-class="{'last-project':$last}">
 
         <div class="item-container">
           <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot success" aria-hidden="true"></i>
@@ -34,25 +38,17 @@
         </div>
 
         <div class="">
-
-
-
           <h2>{{calculation.name}}</h2>
-          <!-- <p>{{calculation.energy_cost | number : fractionSize}} {{currency}}</p> -->
           <p>{{project.QUOTATION_CARD_ELEMENT_CREATED_AT}}: {{calculation.created_at | date: 'dd-MM-yyyy'}}</p>
 
           <ion-option-button ng-if="calculation.estimated_cost != null" class="button-positive" ng-click="duplicateProject(calculation)">
             {{project.DUPLICATE_OPTION}}
           </ion-option-button>
-          <!-- <ion-option-button class="button-danger" ng-click="delete(calculation.id)">
-            Eliminar
-          </ion-option-button> -->
 
         </div>
 
       </ion-item>
     </ion-list>
-
   </ion-content>
   <foot-bar></foot-bar>
 </ion-view>

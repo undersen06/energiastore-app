@@ -5,8 +5,8 @@ ROUTES CONFIGURATION
 =========================================
 */
 
-(function() {
-	this.app.config(function($stateProvider, $urlRouterProvider, $httpProvider,$ionicConfigProvider) {
+(function () {
+	this.app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider) {
 
 
 		// $ionicConfigProvider.navBar.alignTitle('center');
@@ -35,7 +35,7 @@ ROUTES CONFIGURATION
 		// $stateProvider
 
 		$stateProvider
-	
+
 
 			.state('welcome', {
 				url: '/welcome',
@@ -171,7 +171,7 @@ ROUTES CONFIGURATION
 				url: '/categories',
 				cache: false,
 				abstract: false,
-				templateUrl: 'js/views/products/categories/categories.html',
+				templateUrl: 'js/views/commerce/categories/categories.html',
 				controller: 'CategoriesController'
 			})
 
@@ -179,7 +179,7 @@ ROUTES CONFIGURATION
 				url: '/categories/:category_id/products',
 				cache: false,
 				abstract: false,
-				templateUrl: 'js/views/products/products.html',
+				templateUrl: 'js/views/commerce/products/products.html',
 				controller: 'ProductsController'
 			})
 
@@ -187,8 +187,24 @@ ROUTES CONFIGURATION
 				url: '/categories/:category_id/product/:product_id',
 				cache: false,
 				abstract: false,
-				templateUrl: 'js/views/products/product/product.html',
+				templateUrl: 'js/views/commerce/product/product.html',
 				controller: 'ProductController'
+			})
+
+			.state('cart', {
+				url: '/cart',
+				cache: false,
+				abstract: false,
+				templateUrl: 'js/views/commerce/cart/cart.html',
+				controller: 'CartController'
+			})
+
+			.state('news', {
+				url: '/news/',
+				cache: false,
+				abstract: false,
+				templateUrl: 'js/views/news/news.html',
+				controller: 'NewsController'
 			});
 
 

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.spa.energiaStore" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.spa.energiaStore" version="1.0.20" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>energiaStore</name>
-    <description>An awesome Ionic/Cordova app.</description>
+    <description />
     <author email="tomas.diaz06.p@gmail.com" href="http://developmind.cl/">Developmind Team</author>
     <content src="index.html" />
     <access origin="*" />
@@ -12,6 +12,8 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="http://localhost:8080/*" />
+    <preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />
     <preference name="webviewbounce" value="true" />
     <preference name="UIWebViewBounce" value="true" />
     <preference name="DisallowOverscroll" value="true" />
@@ -24,7 +26,6 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
-    <preference name="orientation" value="portrait" />
     <preference name="EnableViewportScale" value="true" />
     <platform name="android">
         <allow-intent href="market:*" />
@@ -91,10 +92,10 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="EnergiaStore desea acceder a tus fotos." />
     </plugin>
     <plugin name="cordova-plugin-ios-camera-permissions" spec="^1.2.0">
-        <variable name="CAMERA_USAGE_DESCRIPTION" value="This app needs camera access" />
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="EnergiaStore desea acceder a tu camara." />
         <variable name="MICROPHONE_USAGE_DESCRIPTION" value="This app needs microphone access" />
-        <variable name="PHOTOLIBRARY_ADD_USAGE_DESCRIPTION" value="This app needs write-access to photo library" />
-        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="This app needs read/write-access photo library access" />
+        <variable name="PHOTOLIBRARY_ADD_USAGE_DESCRIPTION" value="EnergiaStore desea acceder a tus fotos." />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="EnergiaStore desea acceder a tus fotos." />
     </plugin>
     <plugin name="cordova-plugin-statusbar" spec="~2.2.1" />
     <plugin name="cordova-plugin-file-opener2" spec="git+https://github.com/pwlin/cordova-plugin-file-opener2.git" />
@@ -103,8 +104,6 @@
     <plugin name="cordova-plugin-device" spec="^1.1.6" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-actionsheet" spec="git+https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git" />
-    <plugin name="onesignal-cordova-plugin" spec="^2.2.5" />
-    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.1" />
     <plugin name="cordova-plugin-camera" spec="^2.4.1">
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
@@ -119,6 +118,9 @@
     </plugin>
     <plugin name="cordova-plugin-appavailability" spec="https://github.com/ohh2ahh/AppAvailability.git" />
     <plugin name="cordova-plugin-app-version" spec="https://github.com/whiteoctober/cordova-plugin-app-version.git" />
-    <engine name="android" spec="6.4.0" />
+    <plugin name="onesignal-cordova-plugin" spec="^2.3.3" />
+    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^1.2.1" />
+    <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
     <engine name="ios" spec="4.5.4" />
 </widget>

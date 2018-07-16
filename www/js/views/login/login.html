@@ -1,55 +1,47 @@
-<ion-view id="login-view">
-  <ion-content id="login-content" ng-class="design.header">
+<ion-view id="login-view" ng-class="design.header">
+  <ion-content id="content">
+    <img id="image-logo" src="assets/img/introduction/map.svg" class="background-introduction" />
 
     <div id="login-container">
       <i class="ion-ios-arrow-back" ng-click="Back();"></i>
       <img src="assets/img/logo.png" class="logo-login">
 
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="card card-login">
-            <div class="card-content">
+
+      <!-- <div class="card-content"> -->
 
 
-              <span class="card-title login-title">{{login.HEADER}}</span>
+      <span class="login-title" style="color:#61d484">s</span>
 
-              <div class="input-field col s12">
-                <input id="email" type="email" class="validate" ng-model="user.email">
-                <label for="email">{{login.EMAIL}}</label>
-              </div>
-
-              <div class="input-field col s12">
-                <input id="password" type="password" class="validate" ng-model="user.password">
-                <label for="password">{{login.PASSWORD}}</label>
-              </div>
-
-              <br />
-
-              <a class="waves-effect waves-light btn" ng-click="initLogin()" ng-class="design.header">{{login.LOGIN_BUTTON}}</a>
-
-              </br>
-              </br>
-
-              <p> {{login.SIGNUP_TEXT}}</p>
-
-              <a class="waves-effect waves-light btn" ng-click="goToRegister()" ng-class="design.header">{{login.SIGNUP_BUTTON}}</a>
-              </br>
-              </br>
-              <a class="waves-effect waves-light btn social-media-buttons" id="facebook-button" ng-click="useFacebook()">{{login.INIT_FACEBOOK}}</a>
-              </br>
-              </br>
-              <a class="waves-effect waves-light btn social-media-buttons" id="linkedin-button" ng-click="useLinkedIn()">{{login.INIT_LINKEDIN}}</a>
-
-            </div>
-          </div>
-        </div>
+      <div class="list list-inset" style="margin: 90px 50px 20px;">
+        <label class="item item-input">
+          <input type="email" placeholder="{{login.EMAIL}}" ng-model="user.email">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="{{login.PASSWORD}}" ng-model="user.password">
+        </label>
       </div>
+
+      <br />
+
+      <button class="button button-outline button-white" ng-click="initLogin()" style="display: block;margin: 0 auto; width: 40vw;">
+        {{login.LOGIN_BUTTON}}
+      </button>
+
+
+      </br>
+      </br>
+
+      <p style="text-align:center"> {{login.SIGNUP_TEXT}}</p>
+      </br>
+      <!-- <a class="waves-effect waves-light btn"  ng-class="design.header"></a> -->
+      <button class="button button-outline button-white" ng-click="goToRegister()" style="display: block;margin: 0 auto; width: 40vw;">
+        {{login.SIGNUP_BUTTON}}
+      </button>
     </div>
+        <div class="button-bar" style="position:absolute;bottom:0px;">
+          <a class="button" id="facebook-button" ng-click="useFacebook()">Facebook</a>
+          <a class="button" id="linkedin-button" ng-click="useLinkedIn()">LinkedIn</a>
+        </div>
   </ion-content>
 </ion-view>
 
-  <style>
-    .social-media-buttons{
-      font-size:10px !important;
-    }
-  </style>

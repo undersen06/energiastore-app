@@ -7,52 +7,66 @@
         "ERROR_LINKEDIN_LOGIN": {
             "BODY": "LinkedIn denied access, try again.",
             "BUTTON": {
-                "POSITIVE": "It is understood"
+                "POSITIVE": "Ok"
+            }
+        },
+        "QUOTATION_AMOUNT_EMPTY":{
+            "TITLE": "Ups!",
+            "BODY": "You must add at least 1 value request a quote",
+            "BUTTON": {
+                "POSITIVE": "Ok"
             }
         },
         "ERROR_LINKEDIN_APP_NOT_FOUND": {
             "BODY": "Apparently you do not have LinkedIn installed on your device.",
             "BUTTON": {
-                "POSITIVE": "It is understood"
+                "POSITIVE": "Ok"
             }
         },
         "ERROR_LINKEDIN_IS_WEBVIEW": {
             "BODY": "LinkedIn can only be used from the App.",
             "BUTTON": {
-                "POSITIVE": "It is understood"
+                "POSITIVE": "Ok"
+            }
+        },
+        "ERROR_EMAIL_ALL_READY_IN_USE": {
+            "TITLE": "Ups! this email is already in use",
+            "BODY": "Apparently this email was already registered in our systems, try another email.",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
             }
         },
         "ERROR_FACEBOOK_LOGIN": {
             "BODY": "Facebook denied access, try again.",
             "BUTTON": {
-                "POSITIVE": "It is understood"
+                "POSITIVE": "Ok"
             }
         },
         "ERROR_FACEBOOK_IS_WEBVIEW": {
             "BODY": "Facebook can only be used from the App.",
             "BUTTON": {
-                "POSITIVE": "It is understood"
+                "POSITIVE": "Ok"
             }
         },
         "WORKING_ON": {
             "TITLE": "Ups!",
             "BODY": "This section is still in development, come back soon",
             "BUTTON": {
-                "POSITIVE": "It is understood"
+                "POSITIVE": "Ok"
             }
         },
         "UPDATE_PROFILE_ERROR": {
             "TITLE": "Ups!",
             "BODY": "Problems updating your profile, try later",
             "BUTTON": {
-                "POSITIVE": "It is understood"
+                "POSITIVE": "Ok"
             }
         },
 
         "UPDATE_PROFILE_SUCCESS": {
             "BODY": "Profile successfully updated.",
             "BUTTON": {
-                "POSITIVE": "It is understood"
+                "POSITIVE": "Ok"
             }
         },
         "LEAVE_SIGN_UP": {
@@ -65,7 +79,7 @@
         "TOKEN_PROBLEM": {
             "BODY": "This account is in use from another device, re-login.",
             "BUTTON": {
-                "POSITIVE": "It is understood"
+                "POSITIVE": "Ok"
             }
         },
         "FACEBOOK_EMAIL_ERROR": {
@@ -77,63 +91,53 @@
         },
         "FAIL_CREATE_USER": {
             "BUTTON": {
-                "POSITIVE": "It is understood"
+                "POSITIVE": "Ok"
             },
             "TITLE": "Ups.",
             "BODY": "We were unable to create your account, please try again later."
         },
-            "FAIL_OPEN_PDF": {
-                "BUTTON": {
-                    "POSITIVE": "It is understood"
-                },
-                "TITLE": "Ups.",
-                "BODY": "We could not download the pdf, try it later."
+        "FAIL_OPEN_PDF": {
+            "BUTTON": {
+                "POSITIVE": "Ok"
             },
-            "FAIL_CREATE_FACTOR": {
-                "BUTTON": {
-                    "POSITIVE": "It is understood"
-                },
-                "TITLE": "Ups.",
-                "BODY": "Oops, we could not complete your quote, please try again later."
-            }
+            "TITLE": "Ups.",
+            "BODY": "We could not download the pdf, try it later."
+        },
+        "FAIL_CREATE_FACTOR": {
+            "BUTTON": {
+                "POSITIVE": "Ok"
+            },
+            "TITLE": "Ups.",
+            "BODY": "Oops, we could not complete your quote, please try again later."
+        }
 
-            
+
 
 
 
     },
     "TOAST": {
         "UNKNOWN_ERROR": "Error, Try again later",
-
         "COMPLETE_NAME": "",
         "COMPLETE_LASTNAME": "",
         "COMPLETE_PHONE": "",
         "COMPLETE_ADDRESS": "",
-
         "COMPLETE_EMAIL": "Complete Email",
         "COMPLETE_PASSWORD": "Complete Password",
         "LOGIN_ERROR": "Wrong User",
-
-
         "ERROR_CAMERA": "",
         "ERROR_GALLERY": "",
         "QUOTATION_AMOUNT_EMPTY": "",
         "QUOTATION_AMOUNT_MINIMUM": "",
-
         "COMPLETE_PROJECT_NAME": "Enter project name",
         "SELECT_PROVIDER": "Select a provider",
-
         "QUOTATION_ERROR_DOWNLOAD_INFO": "Error downloading projects",
         "QUOTATION_CREATED_MESSAGE": "Project created",
         "QUOTATION_FAIL_MESSAGE": "Error creating the project",
-
-
         "COMPLETE_NAME_PROFILE": "Fill in your name",
         "COMPLETE_LAST_NAME_PROFILE": "Fill in your last name",
         "COMPLETE_PHONE_PROFILE": "Fill in your telephone number",
         "COMPLETE_ADDRESS_PROFILE": "Complete your address",
-
-
         "MOTOR_COMPLETE_VOLTAJE_MINIMUM": "The voltage must be greater than 0",
         "MOTOR_COMPLETE_AMP_MINIMUM": "The amperage must be greater than 0",
         "MOTOR_COMPLETE_KW_MINIMUM": "The KW must be greater than 0",
@@ -154,12 +158,15 @@
         "DASHBOARD": {
             "MOTOR_DASHBOARD_TEXT": "Energy efficiency in Electrical Motors",
             "PENALTY_DASHBOARD_TEXT": " Power Factor",
-            "PENALTY_PRODUCTS_TEXT": "Products"
+            "PENALTY_PRODUCTS_TEXT": "Products",
+            "PENALTY_NEWS_TEXT": "News"
         },
         "FACTOR_MP": {
             "FMP_HEADER": "Power Factor",
             "INPUT_COMMENTS_TEXTBOX": "Comments (optional)",
             "FMP_PRE_TEXT": "Request evaluation of",
+            "FMP_PRICE_PLACEHOLDER": "Price",
+            "FMP_COMMENT_PLACEHOLDER": "Comments",
             "FMP_PRE_TEXT_STRONG": "Power Factor",
             "FMP_BUTTON": "Enter Power Factor Penalty",
             "FMP_MODAL_QUOTATION_HEADER": "Project Power Factor",
@@ -229,11 +236,19 @@
             "MODAL_HELPER_DAYS_MONTH_TITLE": "Days a month",
             "MODAL_HELPER_DAYS_MONTH_BODY": "",
             "MOTOR_CARD_ELEMENT_CREATED_AT": "Creation date"
-            
+
         },
         "PRODUCTS": {
+            "PRODUCTS": {
+                "TITLE_VIEW":"Products"
+            },
+            "CART": {
+                "TITLE_VIEW":"Cart"
+            },
             "PRODUCT": {},
-            "CATEGORIES": {}
+            "CATEGORIES": {
+                "TITLE_VIEW":"Categories"
+            }
         },
         "PROJECT": {
             "QUOTATION_POPUP_CANCEL_BUTTON": "Cancel",
@@ -257,7 +272,7 @@
             "CREATE_PROJECT_SELECT_PROVIDER": "Select service provider."
         },
         "QUOTATION": {
-      
+
             "ADD_PHOTO_BUTTON_TEXT": "ADD PHOTO",
             "FINALIZE_QUOTATION_HEADER": "Finish Project",
             "INPUT_COMMENTS_TEXT_BOX": "Comments (optional)",
@@ -290,7 +305,7 @@
                 "COUNTRY": {
                     "CHOOSE_LANGUAGE_TEXT": "Select the language.",
                     "CHOOSE_LANGUAGE_SPANISH": "Spanish",
-                    "CHOOSE_LANGUAGE_ENGLISH": "english",
+                    "CHOOSE_LANGUAGE_ENGLISH": "English",
                     "CHOOSE_LANGUAGE_CANCEL": "Cancel"
                 },
                 "PROFILE": {
@@ -340,18 +355,27 @@
             "SETTINGS_MENU_LOG_OUT": "Sign off",
             "ABOUT_US_TITLE": "EnergiaStore",
             "ABOUT_US_TEXT": "All rights reserved 2018",
-            "ABOUT_US_BUTTON_TEXT": "It is understood",
+            "ABOUT_US_BUTTON_TEXT": "Ok",
             "LOG_OUT_TITLE": "Exit EnergiaStore",
             "LOG_OUT_TEXT": "¿Are you sure you want to log out?",
             "LOG_OUT_CANCEL_BUTTON": "Cancel",
             "LOG_OUT_LEAVE_BUTTON": "Exit"
         },
-        "WELCOME":{
+        "WELCOME": {
             "CHOOSE_YOUR_COUNTRY": "Select your country"
         },
         "FOOTBAR": {
             "PROJECTS": "Projects",
             "QUOTATIONS": "Quotes"
+        },
+        "GENERIC": {
+            "SELECT_CAMERA_GALLERY": "Choose",
+            "SELECTED_CAMERA": "Camera",
+            "SELECT_GALLERY": "Gallery",
+            "CANCEL": "Cancel",
+            "PLACEHOLDER_SEARCH":"Search",
+            "LOADING_INFORMATION":"Loading data ...",
+            "EMPTY_DATA":"There is no data available"
         }
     }
 }

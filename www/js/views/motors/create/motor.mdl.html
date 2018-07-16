@@ -1,4 +1,3 @@
-
 <ion-modal-view id="create_motor-view">
   <ion-header-bar align-title="center" ng-class="design.header">
     <div class="buttons">
@@ -9,48 +8,161 @@
     </div>
   </ion-header-bar>
 
-  <ion-content id="create_motor-content" >
-    <div id="create_motor-content-div" >
+  <ion-content id="create_motor-content">
+    <div id="create_motor-content-div">
 
 
-      <div class="input-field" >
-        <input id="motor-name"  type="text" class="validate" ng-model="motor.name">
+      <!-- <div class="input-field" > -->
+      <!-- <input id="motor-name"  type="text" class="validate" ng-model="motor.name">
         <label class="" for="motor-name">{{motors_t.MODAL_HELPER_MOTOR_TITLE}}</label>
-        <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(1)"></i>
+        <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(1)"></i> -->
+
+
+
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="{{motors_t.MODAL_HELPER_MOTOR_TITLE}}" ng-model="motor.name">
+        </label>
+        <label class="item item-input">
+          <input type="number" step="0.01" ng-model="motor.voltaje" pattern="[0-9]*" placeholder="{{motors_t.MODAL_HELPER_MOTOR_TITLE}}"
+            ng-model="motor.voltaje">
+        </label>
+        <label class="item item-input">
+          <input type="number" step="0.01" ng-model="motor.amp" pattern="[0-9]*" placeholder="{{motors_t.MODAL_HELPER_AMP_TITLE}}">
+        </label>
+
+        <label class="item item-input">
+          <span style="font-size: 14px;
+              top: 1px;
+              position: relative;">0.</span>
+          <input id="rated-power" type="number" ng-model="motor.power_factor" max="99" pattern="[0-9]*" placeholder="{{motors_t.MODAL_HELPER_POWER_FACTOR_TITLE}}"
+          />
+        </label>
+
+        <label class="item item-input">
+          <input id="rated-power" type="number" ng-model="motor.rated_power" pattern="[0-9]*" placeholder="{{motors_t.MODAL_HELPER_RATED_POWER_TITLE}}">
+        </label>
+
+        <label class="item item-input">
+          <input id="rated-power" type="number" ng-model="motor.power_factor" pattern="[0-9]*" placeholder="{{motors_t.MODAL_HELPER_POWER_FACTOR_TITLE}}">
+        </label>
+
+
+        <div class="list">
+
+            <label class="item item-input item-select">
+              <div class="input-label">
+                  {{motors_t.MODAL_HELPER_HOURS_DAY_TITLE}}
+              </div>
+              <select name="singleSelect" ng-model="motor.hours" class="native-select">
+                  <option value="" disabled>{{motors_t.MOTOR_SELECT_HOURS}}</option>
+                  <option value="1">1 hora</option>
+                  <option value="2">2 horas</option>
+                  <option value="3">3 horas</option>
+                  <option value="4">4 horas</option>
+                  <option value="5">5 horas</option>
+                  <option value="6">6 horas</option>
+                  <option value="7">7 horas</option>
+                  <option value="8">8 horas</option>
+                  <option value="9">9 horas</option>
+                  <option value="10">10 horas</option>
+                  <option value="11">11 horas</option>
+                  <option value="12">12 horas</option>
+                  <option value="13">13 horas</option>
+                  <option value="14">14 horas</option>
+                  <option value="15">15 horas</option>
+                  <option value="16">16 horas</option>
+                  <option value="17">17 horas</option>
+                  <option value="18">18 horas</option>
+                  <option value="19">19 horas</option>
+                  <option value="20">20 horas</option>
+                  <option value="21">21 horas</option>
+                  <option value="22">22 horas</option>
+                  <option value="23">23 horas</option>
+                  <option value="24">24 horas</option>
+        
+                </select>
+            </label>
+
+              <label class="item item-input item-select">
+                <div class="input-label">
+                    {{motors_t.MODAL_HELPER_DAYS_MONTH_TITLE}}
+                </div>
+                <select ng-model="motor.days" class="native-select">
+                    <option value="" disabled>{{motors_t.MOTOR_SELECT_DAYS}}</option>
+                    <option value="1">1 dia</option>
+                    <option value="2">2 dias</option>
+                    <option value="3">3 dias</option>
+                    <option value="4">4 dias</option>
+                    <option value="5">5 dias</option>
+                    <option value="6">6 dias</option>
+                    <option value="7">7 dias</option>
+                    <option value="8">8 dias</option>
+                    <option value="9">9 dias</option>
+                    <option value="10">10 dias</option>
+                    <option value="11">11 dias</option>
+                    <option value="12">12 dias</option>
+                    <option value="13">13 dias</option>
+                    <option value="14">14 dias</option>
+                    <option value="15">15 dias</option>
+                    <option value="16">16 dias</option>
+                    <option value="17">17 dias</option>
+                    <option value="18">18 dias</option>
+                    <option value="19">19 dias</option>
+                    <option value="20">20 dias</option>
+                    <option value="21">21 dias</option>
+                    <option value="22">22 dias</option>
+                    <option value="23">23 dias</option>
+                    <option value="25">25 dias</option>
+                    <option value="26">26 dias</option>
+                    <option value="27">27 dias</option>
+                    <option value="28">28 dias</option>
+                    <option value="29">29 dias</option>
+                    <option value="30">30 dias</option>
+                    <option value="31">31 dias</option>
+          
+          
+                  </select>
+      
+              </label>
+            
+            </div>
+
+
+
+
       </div>
+    </div>
 
 
-      <div class="input-field" >
+      <!-- </div> -->
+
+
+      <!-- <div class="input-field" >
         <input id="motor-voltaje"  type="number" step="0.01" class="validate" ng-model="motor.voltaje" pattern="[0-9]*">
         <label for="motor-voltaje" id="voltaje-id">{{motors_t.MODAL_HELPER_VOLTAJE_TITLE}}</label>
         <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(2)"></i>
-      </div>
+      </div> -->
 
-      <div class="input-field" style="width:80%; display: -webkit-box;">
+      <!-- <div class="input-field" style="width:80%; display: -webkit-box;">
         <input id="motor-amp"  type="number" step="0.01" class="validate" ng-model="motor.amp" pattern="[0-9]*">
         <label for="motor-amp">{{motors_t.MODAL_HELPER_AMP_TITLE}}</label>
         <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(3)"></i>
-      </div>
+      </div> -->
 
 
-      <div class="input-field special" >
+      <!-- <div class="input-field special" >
         <span>0.</span>
         <input id="rated-power" type="number" class="validate special" ng-model="motor.power_factor" max="99" pattern="[0-9]*">
         <label for="rated-power" id="rated-power-label">{{motors_t.MODAL_HELPER_POWER_FACTOR_TITLE}}</label>
         <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(4)"></i>
-      </div>
+      </div> -->
 
 
-      <div class="input-field">
-        <input id="rated-power" type="number" class="validate" ng-model="motor.rated_power" pattern="[0-9]*" >
-        <label for="rated-power">{{motors_t.MODAL_HELPER_RATED_POWER_TITLE}}</label>
-        <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(4)"></i>
-      </div>
-
-      <!-- <div class="input-field" style="width:80%; display: -webkit-box;"> -->
+      <!--  <div class="input-field" style="width:80%; display: -webkit-box;"> -->
       <!-- <input id="hours-day" type="number" min="1" max="24" class="validate" ng-model="motor.hours"> -->
-      <label for="hours-day">{{motors_t.MODAL_HELPER_HOURS_DAY_TITLE}}</label>
-      <div  style="width:80%; display: -webkit-box;">
+      <!-- <label for="hours-day">{{motors_t.MODAL_HELPER_HOURS_DAY_TITLE}}</label>
+      <div style="width:80%; display: -webkit-box;">
         <select name="singleSelect" ng-model="motor.hours" class="native-select">
           <option value="" disabled>{{motors_t.MOTOR_SELECT_HOURS}}</option>
           <option value="1">1 hora</option>
@@ -80,14 +192,14 @@
 
         </select>
         <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(5)"></i>
-      </div>
+      </div> -->
 
       <!-- </div> -->
 
       <!-- <div class="input-field" style="width:80%; display: -webkit-box;"> -->
       <!-- <input id="days-month" type="number" min="1" max="31" class="validate" ng-model="motor.days"> -->
-      <label for="days-month">{{motors_t.MODAL_HELPER_DAYS_MONTH_TITLE}}</label>
-      <div  style="width:80%; display: -webkit-box;">
+      <!-- <label for="days-month">{{motors_t.MODAL_HELPER_DAYS_MONTH_TITLE}}</label>
+      <div style="width:80%; display: -webkit-box;">
         <select name="singleSelect" ng-model="motor.days" class="native-select">
           <option value="" disabled>{{motors_t.MOTOR_SELECT_DAYS}}</option>
           <option value="1">1 dia</option>
@@ -119,12 +231,12 @@
           <option value="28">28 dias</option>
           <option value="29">29 dias</option>
           <option value="30">30 dias</option>
-          <option value="31">31 dias</option>
+          <option value="31">31 dias</option> -->
 
 
-        </select>
+        <!-- </select>
         <i class="ion-ios-help-outline help-icon" ng-click="chooseShowpopUpHelp(6)"></i>
-      </div>
+      </div> -->
 
 
 

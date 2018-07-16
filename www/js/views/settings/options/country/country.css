@@ -13,10 +13,10 @@
   #country-modal-view #content-id .close-button.left {
     left: 35px; }
   #country-modal-view #content-id .close-button.top {
-    top: 30px;
+    top: 0px;
     z-index: 999; }
   #country-modal-view #content-id .close-button.iphone-x {
-    top: 60px !important; }
+    top: 0px !important; }
 
 #country-modal-view #content-id h5 {
   top: 4vh;

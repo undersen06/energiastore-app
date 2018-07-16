@@ -1,59 +1,54 @@
 <ion-view id="factor-view">
-  <ion-header-bar align-title="center" ng-class="design.header">
-    <h5 ng-click="back()">
-      <i class="ion-chevron-left"></i>
-    </h5>
-    <h1 class="title">{{factor.FMP_HEADER}}</h1>
-  </ion-header-bar>
+  <div class="bar bar-header header-energiaStore">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="back();"></button>
+    <div class="h1 title">{{factor.FMP_HEADER}}</div>
+  </div>
 
 
-  <ion-content scroll="true" class="content">
-    <div class="container" ng-class="os === 'android' ? 'android-content' : 'ios-content'">
+  <ion-content id="content" class="has-header">
 
-      <h6 style="text-align: center">{{factor.FMP_QUOTATION_TITLE}}</h6>
+    <div class="bar bar-header item-input-inset" ng-repeat="value in values track by $index">
+      <label class="item-input-wrapper">
+        <i class="icon  placeholder-icon"></i>
+        <input type="search" placeholder="{{factor.FMP_PRICE_PLACEHOLDER}}" value="{{value | currency : curr : 0}}" disabled>
+      </label>
+      <button class="button button-clear" ng-click="removeValue($index);">
+        <div style="background-color:#d62222;width:28px;height:28px;border-radius:30px;">
+          <i class="ion-trash-a" style="color:white;font-size:17px;line-height: normal;"></i>
+        </div>
+      </button>
+    </div>
 
-      <br>
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon  placeholder-icon"></i>
+        <input type="search" placeholder="{{factor.FMP_PRICE_PLACEHOLDER}}" ng-model="factorType.power_factor_1" pattern="\d*">
+      </label>
+      <button class="button button-clear" ng-click="addValue();">
 
-      <div class="input-field col s12">
-        <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor_1" pattern="[0-9]*">
-        <label for="input-penalty">{{factor.FMP_MODAL_QUOTATION_AMOUNT}} 1</label>
-      </div>
+        <div style="background-color:#00bb39;width:28px;height:28px;border-radius:30px;">
+          <i class="ion-plus" style="color:white;font-size: x-large;line-height: normal;"></i>
+        </div>
 
-      <div class="input-field col s12">
-        <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor_2" pattern="[0-9]*">
-        <label for="input-penalty">{{factor.FMP_MODAL_QUOTATION_AMOUNT}} 2</label>
-      </div>
-
-      <div class="input-field col s12">
-        <input id="input-penalty" type="number" min="1000" class="validate" ng-model="factorType.power_factor_3" pattern="[0-9]*">
-        <label for="input-penalty">{{factor.FMP_MODAL_QUOTATION_AMOUNT}} 3</label>
-      </div>
-
-
-      <div class="input-field col s12">
-        <input id="input-penalty-text" type="text" class="validate" ng-model="factorType.comment" >
-        <label for="input-penalty-text">{{factor.INPUT_COMMENTS_TEXTBOX}}</label>
-      </div>
-
-
-      <img ng-src="{{image}}" ng-click="showPopUpImage();" />
-      <p>{{factor.UPLOAD_PHOTO_TEXT}}</p>
-
-
-    <div ng-class="design.button" ng-click="createFactorPenalty();" class="button-traslucid">
-      {{factor.FMP_MODAL_QUOTATION_SEND_BUTTON}}
+      </button>
     </div>
 
 
-  </div>
-</ion-content>
+    <img ng-src="{{image}}" style="display: block;margin: 0 auto;width: 31vw;" ng-click="showPopUpImage();" />
 
-<footbar></footbar>
+
+    <p style="margin: 30px;text-align: center;">{{quotation.UPLOAD_PHOTO_TEXT}}</p>
+
+
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="text" placeholder="{{factor.FMP_COMMENT_PLACEHOLDER}}" ng-model="factorType.comment">
+      </label>
+    </div>
+
+  </ion-content>
+
+  <ion-footer-bar ng-class="design.header" ng-click="createFactorPenalty()">
+    <p style="color:white;font-size:16px;margin:auto;">Create</p>
+  </ion-footer-bar>
 </ion-view>
-
-
-<style>
-  .content{
-    height: 100vh !important;
-  }
-</style>

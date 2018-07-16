@@ -38,12 +38,10 @@
         <div class="country-container">
 
           <div class="row ">
-            <div class="col col-100">
-
-
-              <div class="col col-33" ng-repeat="country in countries" style="padding:0px;">
+            <div class="col col-100" >
+              <div id="country-align" class="col col-33 " ng-repeat="country in countries">
                 <div class="country-opt" ng-click="chooseCountry({{country}})">
-                  <!-- {{country}} -->
+                  
                   <img ng-src="http://energiastoreapp.com/{{country.image.thumb.url}}" alt="" />
                   <p>{{country.name | capitalize }}</p>
                 </div>

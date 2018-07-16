@@ -1,0 +1,37 @@
+<ion-view id="welcome-view" init="init();">
+
+    <div class="bar bar-header header-energiaStore">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
+        <div class="h1 title">News</div>
+    </div>
+    <div class="item item-input-inset header-energiaStore has-header">
+        <label class="item-input-wrapper">
+            <input type="text" placeholder="{{generic.PLACEHOLDER_SEARCH}}" ng-model="query[queryBy]">
+        </label>
+    </div>
+    <ion-content class="has-subheader" style="padding-bottom:40px;">
+
+
+        <div ng-show="isLoading == true" style="margin:0 auto;margin-top:20vh;display: block;text-align:center;">
+                {{generic.LOADING_INFORMATION}}
+        </div>
+
+        <div ng-show="isLoading == false && news.length == 0" style="margin:0 auto;margin-top:20vh;display: block;text-align:center;">
+                {{generic.EMPTY_DATA}}
+        </div>
+
+        <div class="list card" ng-repeat="new in news | filter:query">
+            <div class="item item-body" style="padding:0px;">
+                <img class="full-image" src="./assets/img/loading.gif" lazy-img='http://energiastoreapp.com/{{new.news_attachments[0].image.url}}'>
+                <div style="padding:10px;">
+                    <p style="color:black;font-size:17px;">{{new.title}}</p>
+                    <p style="color:grey;">{{new.body}}</p>
+
+                </div>
+            </div>
+
+        </div>
+
+        </ion-slide-box>
+    </ion-content>
+</ion-view>

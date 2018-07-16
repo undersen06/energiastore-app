@@ -5,22 +5,23 @@
     <h5>{{welcome.CHOOSE_YOUR_COUNTRY}}</h5>
 
 
-    <div class="country-container" >
 
-      <div class="row " >
+    <div class="country-container">
+      <div class="row">
         <div class="col col-100">
-
-
-  <div class="col col-33" ng-repeat="country in countries" style="padding:0px;">
-    <div class="country-opt" ng-click="chooseCountry({{country}})">
-      <!-- {{country}} -->
-      <img ng-src="http://energiastoreapp.com/{{country.image.thumb.url}}" alt="" />
-      <p>{{country.name | capitalize }}</p>
+          <div id="country-align" class="col col-33 " ng-repeat="country in countries" >
+            <div class="country-opt" ng-click="chooseCountry({{country}})">
+              <img ng-src="http://energiastoreapp.com/{{country.image.thumb.url}}" alt="" />
+              <p>{{country.name | capitalize }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-    <img id="image-logo" src="assets/img/introduction/map.svg"  class="background-world" />
-    <span class="close-button left" style="top:10px;" ng-click="modalChooseCountry.hide()">{{SkipButtonText}}
+
+    <img id="image-logo" src="assets/img/introduction/map.svg" class="background-world" />
+    <span class="close-button left" style="top:40px;" ng-click="modalChooseCountry.hide()">{{SkipButtonText}}
       <i class="ion-chevron-left"></i>
     </span>
 

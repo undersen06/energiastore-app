@@ -1,56 +1,48 @@
-<ion-view>
-  <ion-header-bar align-title="center" ng-class="design.header" ng-init="init()">
-    <h5 ng-click="backButton()" style="margin-left:10px;;width: 30px;">
-      <i class="ion-chevron-left" style="z-index:999;"></i>
-    </h5>
-    <h1 class="title">{{profile.MENU_PROFILE}}</h1>
-  </ion-header-bar>
-  <ion-content>
-
-    <div class="" style="margin: 0 5vw 0 5vw;top :10vw; position:relative;">
-      <div class="col s12 ">
-
-        <div class="avatar">
+<ion-view ng-init="init()">
+  <div class="bar bar-header header-energiaStore">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="backButton();"></button>
+    <div class="h1 title">{{profile.MENU_PROFILE}}</div>
+  </div>
 
 
+  <ion-content class="has-header">
 
-          <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false">
-            <ion-slide class="slider-box-1" ng-repeat="avatar in avatars">
-              <img src="http://energiastoreapp.com/{{avatar.avatar_url}}" alt="" style="display: block;margin: auto;height: 13vh;">
-            </ion-slide>
-          </ion-slide-box>
-
-
-        </div>
-
-
-        <div class="input-field col s12">
-          <input id="name" type="text" class="validate" ng-model="user.name">
-          <label for="name">{{placeholder.name}}</label>
-        </div>
-        <div class="input-field col s12">
-          <input id="last_name" type="text" class="validate" ng-model="user.last_name">
-          <label for="last_name">{{placeholder.last_name}}</label>
-        </div>
-
-        <div class="input-field col s12">
-          <input id="phone" type="tel" class="validate" ng-model="user.phone">
-          <label for="phone">{{placeholder.phone}}</label>
-        </div>
-
-        <div class="input-field col s12">
-          <input id="address" type="text" class="validate" ng-model="user.address">
-          <label for="address">{{placeholder.address}}</label>
-        </div>
-
-
-        <div ng-class="design.button" ng-click="updateInfo();" class="button-traslucid">
-          {{profile.UPDATE_BUTTON}}
-        </div>
-
-
+    <div class="post-header" style="height:25vh;background-color:#5fd583;">
+      <img ng-show="avatars[0].avatar_url != undefined" src="http://energiastoreapp.com/{{avatars[0].avatar_url}}" alt="" style="display: block;margin: auto;height: 13vh;display: block;margin: auto;height: 13vh;border-radius: 60px;border: 5px solid white;">
+      <div>
+        <p style="text-align:center;color:white;font-weight: bold;margin-top:30px">{{user.name}} {{user.last_name}}</p>
       </div>
-    </div>
+
+
+      <div class="" style="margin: 0 5vw 0 5vw;top :10vw; position:relative;">
+        <div class="col s12 ">
+
+          <label class="item item-input">
+            <input id="name" type="text" class="validate" ng-model="user.name">
+            <label for="name">{{placeholder.name}}</label>
+          </label>
+
+          <label class="item item-input">
+            <input id="last_name" type="text" class="validate" ng-model="user.last_name">
+            <label for="last_name">{{placeholder.last_name}}</label>
+          </label>
+
+          <label class="item item-input">
+            <input id="phone" type="tel" class="validate" ng-model="user.phone">
+            <label for="phone">{{placeholder.phone}}</label>
+          </label>
+
+          <label class="item item-input">
+            <input id="address" type="text" class="validate" ng-model="user.address">
+            <label for="address">{{placeholder.address}}</label>
+          </label>
+
+
+          <div ng-class="design.button" ng-click="updateInfo();" class="button-traslucid">
+            {{profile.UPDATE_BUTTON}}
+          </div>
+        </div>
+      </div>
 
   </ion-content>
 
@@ -71,7 +63,7 @@
     background-color: #8bcb71;
   }
 
-  .slider{
-    height:15vh !important;
+  .slider {
+    height: 15vh !important;
   }
 </style>

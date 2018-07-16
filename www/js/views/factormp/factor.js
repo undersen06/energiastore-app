@@ -6,11 +6,27 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer','$log','$rootScope',
-		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer, $log, $rootScope) {
+	this.app.controller('FactorController', ['$scope', '$state', '$ionicPlatform', '$cordovaCamera', '$FactorPenalty', 'StorageUserModel', '$resource', 'popUpService', '$cordovaStatusbar', 'Utils', '$cordovaActionSheet', '$ionicLoading', '$cordovaFileOpener2', '$cordovaFileTransfer', '$log', '$rootScope', '$filter', 'StorageCountryModel', '$Formulas',
+		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer, $log, $rootScope, $filter, StorageCountryModel, $Formulas) {
 
 			$ionicPlatform.ready(function () {
 
+				$scope.options = {
+					title: $rootScope.generic.SELECT_CAMERA_GALLERY,
+					buttonLabels: [$rootScope.generic.SELECTED_CAMERA, $rootScope.generic.SELECT_GALLERY],
+					addCancelButtonWithLabel: $rootScope.generic.CANCEL,
+					androidEnableCancelButton: true,
+					winphoneEnableCancelButton: true
+				};
+
+				$scope.values = [];
+				$scope.curr = StorageCountryModel.getSelectedCurrency().symbol + '  ';
+
+				$scope.removeValue = function (_index) {
+					_.remove($scope.values, function (n, index) {
+						return _index == index;
+					});
+				};
 
 				$scope.isIphoneX = function () {
 					if (ionic.Platform.device().model != undefined) {
@@ -28,14 +44,19 @@ CONTROLLER DEFINITION
 				$scope.factorType = {};
 
 				$scope.back = function () {
-					$state.go('dashboard', { options: 'reload' }, { reload: true });
+					// TODO: ask if the user wanna leave
+					$state.go('dashboard', {
+						options: 'reload'
+					}, {
+							reload: true
+						});
 				};
 
 				$scope.help = function () {
 					$state.go('dashboard');
 				};
 
-		
+
 
 				$scope.openCamera = function () {
 
@@ -57,7 +78,7 @@ CONTROLLER DEFINITION
 						$scope.image = $scope.factorType.photo;
 
 					}, function (_error) {
-						Utils.validateToast('ERROR_CAMERA');
+						// Utils.validateToast('ERROR_CAMERA');
 						$log.error(_error);
 
 
@@ -83,7 +104,7 @@ CONTROLLER DEFINITION
 						$scope.image = $scope.factorType.photo;
 					}, function (_err) {
 
-						Utils.validateToast('ERROR_GALLERY');
+						// Utils.validateToast('ERROR_GALLERY');
 						$log.error(_err);
 
 					});
@@ -91,25 +112,19 @@ CONTROLLER DEFINITION
 
 
 				$scope.createFactorPenalty = function () {
-					if ($scope.factorType.power_factor_1 === undefined || $scope.factorType.power_factor_1 === 0) {
-						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
+
+					if ($scope.values.length === 0) {
+						popUpService.genericInputError('QUOTATION_AMOUNT_EMPTY').then(function () {
+
+						});
 						return;
 					}
 
-					if ($scope.factorType.power_factor_2 === undefined || $scope.factorType.power_factor_2 === 0) {
-						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
-						return;
-					}
+					var aux = 0;
+					$scope.values.forEach(element => {
+						aux = element + aux;
+					});
 
-					if ($scope.factorType.power_factor_3 === undefined || $scope.factorType.power_factor_3 === 0) {
-						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
-						return;
-					}
-
-					var total = $scope.factorType.power_factor_1 + $scope.factorType.power_factor_2 + $scope.factorType.power_factor_3;
-					total = (total / 3);
-
-					debugger;
 
 					if ($scope.factorType.power_factor < 100) {
 						Utils.validateToast('QUOTATION_AMOUNT_MINIMUM');
@@ -118,14 +133,11 @@ CONTROLLER DEFINITION
 
 					var calculation = $scope.factorType;
 
-					calculation.power_factor = total;
-
+					calculation.power_factor = (aux / $scope.values.length);
 
 					$ionicLoading.show({
 						templateUrl: 'loading.html'
 					}).then(function () {
-
-
 						$scope.CreateQuoate(calculation);
 					});
 				};
@@ -151,30 +163,32 @@ CONTROLLER DEFINITION
 
 
 
-				if (window.cordova) {
-					$scope.showPopUpImage = function () {
-						$cordovaActionSheet
-							.show($scope.options)
-							.then(function (btnIndex) {
-								switch (btnIndex) {
-								case 1:
-									$scope.openCamera();
-									break;
-								case 2:
-									$scope.openGallery();
-									break;
-								default:
-									break;
 
-								}
+				$scope.showPopUpImage = function () {
+					$cordovaActionSheet.show($scope.options).then(function (btnIndex) {
+						switch (btnIndex) {
+							case 1:
+								$scope.openCamera();
+								break;
+							case 2:
+								$scope.openGallery();
+								break;
+							default:
+								break;
 
-							});
-					};
-				}
+						}
+
+					});
+				};
+
 
 				$ionicPlatform.registerBackButtonAction(function () {
 					// $state.go("dashboard");
-					$state.go('dashboard', {}, { reload: true, inherit: false, notify: true });
+					$state.go('dashboard', {}, {
+						reload: true,
+						inherit: false,
+						notify: true
+					});
 				}, 100);
 
 
@@ -207,8 +221,7 @@ CONTROLLER DEFINITION
 							$log.error(_error);
 							// Error
 						},
-						function () {
-						}
+						function () { }
 					);
 				};
 
@@ -235,6 +248,48 @@ CONTROLLER DEFINITION
 				};
 
 
+				$scope.addValue = function () {
+
+					if ($scope.factorType.power_factor_1 === undefined || $scope.factorType.power_factor_1 === 0) {
+						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
+						return;
+					}
+
+					if ($scope.factorType.power_factor_1 <= $scope.minValue) {
+						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
+						return;
+					}
+
+					$scope.values.push($scope.factorType.power_factor_1);
+					$scope.factorType.power_factor_1 = '';
+
+				};
+
+				$scope.getMinValues = function () {
+					$Formulas.getFormulas().then(function (_data) {
+						//Parse by country
+
+						var aux = _.find(_data.data, {
+							'country_id': StorageCountryModel.getSelectedCountry().id,
+							'name': 'ROI',
+						});
+
+						aux = aux.object;
+
+						var numb = aux.ranges[0].statement.match(/\d/g);
+						numb = numb.join('');
+						$scope.minValue = numb;
+
+					}, function (_error) {
+						$log.error(_error);
+
+					});
+				};
+
+				$scope.getMinValues();
+
+
 			});
-		}]);
+		}
+	]);
 }).call(this);

@@ -1,57 +1,31 @@
 <ion-view id="register-view">
-  <ion-content class="color-1 user-color" id="content-register">
-
-    <i class="ion-ios-arrow-back" ng-click="onBack();"></i>
-
-    <ion-slide-box on-slide-changed="slideHasChanged($index)" ng-init="disableSwipe()" show-pager="false">
-      <ion-slide class="slider-box-1">
-
-        <div class="row" >
-          <div class="col s12 m6">
-            <div class="card card-register">
-              <div class="card-content">
-                <span class="card-title register-title">{{register.REGISTER_SLIDER_1_HEADER}}</span>
-
-                <div class="input-field col s12">
-                  <input id="email" type="text" class="validate" ng-model="user.email">
-                  <label for="email">{{register.REGISTER_SLIDER_1_PLACEHOLDER_EMAIL}}</label>
-                </div>
-                <div class="input-field col s12">
-                  <input id="password" type="password" class="validate" ng-model="user.password">
-                  <label for="password">{{register.REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD}}</label>
-                </div>
-                <div class="input-field col s12">
-                  <input id="password_confirmation" type="password" class="validate" ng-model="user.password_confirmation">
-                  <label for="password_confirmation">{{register.REGISTER_SLIDER_1_CONFIRMATION_PASSWORD}}</label>
-                </div>
-              </div>
-            </div>
-            <a class="btn-floating btn-large waves-effect waves-light register-float-button" ng-click="nextButton(0);"><i class="ion-android-arrow-forward"></i></a>
-          </div>
-        </div>
-
-      </ion-slide>
-
-      <ion-slide class="slider-box-2">
-        <div class="row">
-          <div class="col s12 m6">
-            <div class="card card-register">
-              <div class="card-content">
-                <span class="card-title register-title">{{register.REGISTER_SLIDER_2_HEADER}}</span>
-                <br>
-                <img class="logo-register" src="assets/img/logo_white.png" alt="">
-                <br>
-                <span class="card-title login-subtitle">{{register.REGISTER_SLIDER_2_SUBTITLE}}</span>
+  <div class="bar bar-header header-energiaStore">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="onBack();"></button>
+    <div class="h1 title">Sign-Up</div>
+  </div>
+  <ion-content class="color-1 user-color has-header" id="content-register">
 
 
-              </div>
 
-            </div>
-            <a class="btn-floating btn-large waves-effect waves-light register-float-button"><i class="ion-android-arrow-forward" ng-click="finish()"></i></a>
-          </div>
-        </div>
-      </ion-slide>
-    </ion-slide-box>
+
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="email" placeholder="{{register.REGISTER_SLIDER_1_PLACEHOLDER_EMAIL}}" ng-model="user.email">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="{{register.REGISTER_SLIDER_1_PLACEHOLDER_PASSWORD}}" ng-model="user.password">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="{{register.REGISTER_SLIDER_1_CONFIRMATION_PASSWORD}}" ng-model="user.password_confirmation">
+      </label>
+    </div>
+
+    <button class="button button-outline button-white" ng-click="registerUser();" style="width:40vh;display:block;margin:0 auto;">
+      Registrar
+      <i class="icon ion-ios-arrow-forward" style="float:right;"></i>
+    </button>
+
+
 
 
 

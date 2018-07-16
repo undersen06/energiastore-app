@@ -21,7 +21,13 @@ this.app.service('$Localization',
 						$rootScope.introduction = data.VIEWS.INTRODUCTION;
 						$rootScope.middleware = data.VIEWS.MIDDLEWARE;
 						$rootScope.motors_t = data.VIEWS.MOTORS;
-						$rootScope.products = data.VIEWS.PRODUCTS;
+
+						$rootScope._products = data.VIEWS.PRODUCTS.PRODUCTS;
+						$rootScope._product = data.VIEWS.PRODUCTS.PRODUCT;
+						$rootScope._cart = data.VIEWS.PRODUCTS.CART;
+						$rootScope._categories = data.VIEWS.PRODUCTS.CATEGORIES;
+
+
 						$rootScope.project = data.VIEWS.PROJECT;
 						$rootScope.quotation = data.VIEWS.QUOTATION;
 						$rootScope.finish_quotation = data.VIEWS.QUOTATION.FINALIZE;
@@ -32,6 +38,7 @@ this.app.service('$Localization',
 						$rootScope.welcome = data.VIEWS.WELCOME;
 						$rootScope.footbar = data.VIEWS.FOOTBAR;
 						$rootScope.app = data.APP;
+						$rootScope.generic = data.VIEWS.GENERIC;
 
 						// Toast
 						$rootScope.toast = data.TOAST;

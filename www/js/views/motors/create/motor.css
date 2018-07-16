@@ -18,7 +18,7 @@
       #create_motor-view #create_motor-content #create_motor-content-div .input-field.special {
         width: calc(80% - 25px); }
         #create_motor-view #create_motor-content #create_motor-content-div .input-field.special span {
-          top: 11px;
+          top: 12px;
           position: relative;
           left: 10px; }
         #create_motor-view #create_motor-content #create_motor-content-div .input-field.special input.special {
