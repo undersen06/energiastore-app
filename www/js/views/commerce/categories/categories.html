@@ -2,25 +2,42 @@
 
   <div class="bar bar-header header-energiaStore">
     <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
-    <div class="h1 title">Categorias</div>
-    <button class="button button-icon icon ion-ios-cart" ng-click="goToCart();"></button>
+    <div class="h1 title">{{_categories.TITLE_VIEW}}</div>
+    <button class="button button-icon icon ion-ios-cart" ng-click="goToCart();">
+
+        <span style="    display: -webkit-inline-box;
+        position: fixed;
+        top: 5px;
+        right: 5px;" class="badge badge-assertive" ng-show="cartProduct.length != 0">{{cartProduct.length}}</span>
+
+    </button>
+    
   </div>
   <div class="item item-input-inset header-energiaStore has-header">
     <label class="item-input-wrapper">
-      <input type="text" placeholder="Buscar" ng-model="query[queryBy]">
+      <input type="text" placeholder="{{generic.PLACEHOLDER_SEARCH}}" ng-model="query[queryBy]">
     </label>
   </div>
 
   <ion-content class=" has-subheader has-footer" has-bouncing="true">
 
+    <div ng-show="isLoading == true" style="margin:0 auto;margin-top:20vh;display: block;text-align:center;">
+        {{generic.LOADING_INFORMATION}}
+    </div>
 
-    <ion-list>
-      <ion-item ng-repeat="category in categories | filter:query" ng-click="goToProductsByCategory({{category.id}})">
-        {{category.title}}
-        <p style="white-space:normal">{{category.description}}</p>
-      </ion-item>
+    <div ng-show="isLoading == false && categories.length == 0" style="margin:0 auto;margin-top:20vh;display: block;text-align:center;">
+      {{generic.EMPTY_DATA}}
+    </div>
 
-    </ion-list>
+    <div ng-show="isLoading == false && categories.length != 0">
+      <ion-list>
+        <ion-item ng-repeat="category in categories | filter:query" ng-click="goToProductsByCategory({{category.id}})">
+          {{category.title}}
+          <p style="white-space:normal">{{category.description}}</p>
+        </ion-item>
+      </ion-list>
+
+    </div>
   </ion-content>
 
   <foot-bar></foot-bar>

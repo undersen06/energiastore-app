@@ -1,34 +1,67 @@
 <ion-view id="products-view" ng-init="init();">
   <div class="bar bar-header header-energiaStore">
     <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
-    <div class="h1 title">Products</div>
-    <button class="button button-icon icon ion-ios-cart" ng-click="goToCart();"></button>
+    <div class="h1 title">{{_products.TITLE_VIEW}}</div>
+    <button class="button button-icon icon ion-ios-cart" ng-click="goToCart();">
+        <span style="    display: -webkit-inline-box;
+        position: fixed;
+        top: 5px;
+        right: 5px;" class="badge badge-assertive" ng-show="cartProduct.length != 0">{{cartProduct.length}}</span>
+    </button>
   </div>
   <div class="item item-input-inset header-energiaStore has-header">
     <label class="item-input-wrapper">
-      <input type="text" placeholder="Buscar">
+      <input type="text" placeholder="{{generic.PLACEHOLDER_SEARCH}}" ng-model="query[queryBy]">
     </label>
-  </div> 
+  </div>
 
   <ion-content scrolleable="true" class="has-footer has-subheader" has-bouncing="false">
 
-    <!-- <ion-list> -->
-      <div class="list" style="margin-bottom:0px;padding-bottom:0px;" ng-repeat="product in products" ng-click="viewProduct(product )">
+      <div ng-show="isLoading == true" style="margin:0 auto;margin-top:20vh;display: block;text-align:center;">
+          
+          {{generic.LOADING_INFORMATION}}
+        </div>
+    
+        <div ng-show="isLoading == false && products.length == 0" style="margin:0 auto;margin-top:20vh;display: block;text-align:center;">
+            {{generic.EMPTY_DATA}}
+        </div>
+    
+    <div ng-show="isLoading == false && products.length != 0" style="padding-bottom:40px;">
+      <div class="list" style="margin-bottom:0px;padding-bottom:0px;" ng-repeat="product in products | filter:query" ng-click="viewProduct(product )">
         <a class="item item-avatar">
+
           <img ng-if="product.product_images.length != 0" ng-src="http://energiastoreapp.com/{{product.product_images[0].path.url}}">
           <img ng-if="product.product_images.length == 0" src="assets/img/no-image.jpg">
           <h2>{{product.title}}</h2>
           <p>{{product.comments}}</p>
 
+
           <div class="row header" ng-repeat="spec in product.technical_info track by $index">
+
             <div class="col">{{spec.key}}</div>
             <div class="col col-white">{{spec.value}}</div>
-            
+
           </div>
+
+          <div ng-click="interactCart($event,product)" style="    width: 40px;
+          height: 40px;
+          border: 1px solid grey;
+          border-radius: 30px;
+          position: relative;
+          float:right;
+          z-index: 999" ng-class="product.isInTheCart ? 'inCart' : ''">
+            <i class="ion-ios-cart" style="
+          position: absolute;
+    transform: translate(-50%,50%);
+    left: 50%;"></i>
+          </div>
+
+
 
 
         </a>
       </div>
+    </div>
 
     <!-- </ion-list> -->
 
@@ -40,12 +73,22 @@
 </ion-view>
 
 <style>
-  .item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
+  .item-avatar,
+  .item-avatar .item-content,
+  .item-avatar-left,
+  .item-avatar-left .item-content {
     padding-left: 200px;
     min-height: 200px;
-}
+  }
 
-.item-avatar > img:first-child, .item-avatar .item-image, .item-avatar .item-content > img:first-child, .item-avatar .item-content .item-image, .item-avatar-left > img:first-child, .item-avatar-left .item-image, .item-avatar-left .item-content > img:first-child, .item-avatar-left .item-content .item-image {
+  .item-avatar>img:first-child,
+  .item-avatar .item-image,
+  .item-avatar .item-content>img:first-child,
+  .item-avatar .item-content .item-image,
+  .item-avatar-left>img:first-child,
+  .item-avatar-left .item-image,
+  .item-avatar-left .item-content>img:first-child,
+  .item-avatar-left .item-content .item-image {
     position: absolute;
     top: 16px;
     left: 16px;
@@ -54,5 +97,11 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-}
+  }
+
+  .inCart{
+    background-color: goldenrod;
+    color:white;
+    border:none !important;
+  }
 </style>

@@ -12,6 +12,9 @@ CONTROLLER DEFINITION
 
 			$ionicPlatform.ready(function () {
 
+				window.screen.orientation.lock('portrait');
+				window.screen.orientation.unlock();
+
 				$scope.calculations = [];
 				$scope.platform = ionic.Platform.platform();
 

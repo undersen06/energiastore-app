@@ -10,7 +10,7 @@ CONTROLLER DEFINITION
 		function ($scope, $state, $ionicPlatform, $cordovaCamera, $FactorPenalty, StorageUserModel, $resource, popUpService, $cordovaStatusbar, Utils, $cordovaActionSheet, $ionicLoading, $cordovaFileOpener2, $cordovaFileTransfer, $log, $rootScope, $filter, StorageCountryModel, $Formulas) {
 
 			$ionicPlatform.ready(function () {
-			
+
 				$scope.options = {
 					title: $rootScope.generic.SELECT_CAMERA_GALLERY,
 					buttonLabels: [$rootScope.generic.SELECTED_CAMERA, $rootScope.generic.SELECT_GALLERY],
@@ -22,8 +22,8 @@ CONTROLLER DEFINITION
 				$scope.values = [];
 				$scope.curr = StorageCountryModel.getSelectedCurrency().symbol + '  ';
 
-				$scope.removeValue = function (_index){
-					_.remove($scope.values, function (n,index) {
+				$scope.removeValue = function (_index) {
+					_.remove($scope.values, function (n, index) {
 						return _index == index;
 					});
 				};
@@ -48,8 +48,8 @@ CONTROLLER DEFINITION
 					$state.go('dashboard', {
 						options: 'reload'
 					}, {
-						reload: true
-					});
+							reload: true
+						});
 				};
 
 				$scope.help = function () {
@@ -112,8 +112,11 @@ CONTROLLER DEFINITION
 
 
 				$scope.createFactorPenalty = function () {
-					if ($scope.values.lenght === 0) {
-						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
+
+					if ($scope.values.length === 0) {
+						popUpService.genericInputError('QUOTATION_AMOUNT_EMPTY').then(function () {
+
+						});
 						return;
 					}
 
@@ -153,7 +156,7 @@ CONTROLLER DEFINITION
 						$log.error(_error);
 						$ionicLoading.hide();
 						popUpService.showPopUpFailCreateFactor($scope.translations).then(function () {
-							$state.go('dashboard', {}, {reload: true});
+							$state.go('dashboard', {}, { reload: true });
 						});
 					});
 				};
@@ -164,14 +167,14 @@ CONTROLLER DEFINITION
 				$scope.showPopUpImage = function () {
 					$cordovaActionSheet.show($scope.options).then(function (btnIndex) {
 						switch (btnIndex) {
-						case 1:
-							$scope.openCamera();
-							break;
-						case 2:
-							$scope.openGallery();
-							break;
-						default:
-							break;
+							case 1:
+								$scope.openCamera();
+								break;
+							case 2:
+								$scope.openGallery();
+								break;
+							default:
+								break;
 
 						}
 
@@ -218,7 +221,7 @@ CONTROLLER DEFINITION
 							$log.error(_error);
 							// Error
 						},
-						function () {}
+						function () { }
 					);
 				};
 
@@ -252,13 +255,13 @@ CONTROLLER DEFINITION
 						return;
 					}
 
-					if ($scope.factorType.power_factor_1 <= $scope.minValue){
+					if ($scope.factorType.power_factor_1 <= $scope.minValue) {
 						Utils.validateToast('QUOTATION_AMOUNT_EMPTY');
 						return;
 					}
 
 					$scope.values.push($scope.factorType.power_factor_1);
-					$scope.factorType.power_factor_1 ='';
+					$scope.factorType.power_factor_1 = '';
 
 				};
 
@@ -275,7 +278,7 @@ CONTROLLER DEFINITION
 
 						var numb = aux.ranges[0].statement.match(/\d/g);
 						numb = numb.join('');
-						$scope.minValue = numb; 
+						$scope.minValue = numb;
 
 					}, function (_error) {
 						$log.error(_error);

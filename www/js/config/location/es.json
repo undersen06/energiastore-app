@@ -10,6 +10,14 @@
                 "POSITIVE": "Entendido"
             }
         },
+
+        "QUOTATION_AMOUNT_EMPTY":{
+            "TITLE": "Ups!",
+            "BODY": "Debes agregar al menos 1 valor solicitar una cotización",
+            "BUTTON": {
+                "POSITIVE": "Entendido"
+            }
+        },
         "ERROR_LINKEDIN_APP_NOT_FOUND": {
             "BODY": "Al parecer no tienes LinkedIn instalado en tu dispositivo.",
             "BUTTON": {
@@ -111,7 +119,7 @@
     },
     "TOAST": {
         "UNKNOWN_ERROR": "Error, intentalo más tarde",
-
+        "PRODUCT_ADD_CART":"Producto agregado",
         "COMPLETE_NAME": "",
         "COMPLETE_LASTNAME": "",
         "COMPLETE_PHONE": "",
@@ -175,6 +183,8 @@
             "FMP_PRE_TEXT": "Solicitar evaluación de",
             "FMP_PRE_TEXT_STRONG": "Factor de mala potencia",
             "FMP_BUTTON": "Ingresar multa",
+            "FMP_PRICE_PLACEHOLDER": "Precio",
+            "FMP_COMMENT_PLACEHOLDER": "Comentarios",
             "FMP_MODAL_QUOTATION_HEADER": "Proyecto Factor de potencia",
             "FMP_MODAL_QUOTATION_OPTION_MANUAL": "Ingresa multa manual",
             "FMP_MODAL_QUOTATION_AMOUNT": "Monto de multa",
@@ -245,8 +255,16 @@
 
         },
         "PRODUCTS": {
+            "PRODUCTS": {
+                "TITLE_VIEW":"Productos"
+            },
+            "CART": {
+                "TITLE_VIEW":"Carrito"
+            },
             "PRODUCT": {},
-            "CATEGORIES": {}
+            "CATEGORIES": {
+                "TITLE_VIEW":"Categorias"
+            }
         },
         "PROJECT": {
             "QUOTATION_POPUP_CANCEL_BUTTON": "Cancelar",
@@ -370,7 +388,11 @@
             "SELECT_CAMERA_GALLERY": "Accón a utilizar",
             "SELECTED_CAMERA": "Cámara",
             "SELECT_GALLERY": "Galeria",
-            "CANCEL": "Cancelar"
+            "CANCEL": "Cancelar",
+            "PLACEHOLDER_SEARCH":"Buscar",
+            "LOADING_INFORMATION":"Cargando informacion ...",
+            "EMPTY_DATA":"No existe data disponible para mostrar"
+            
 
         }
     }

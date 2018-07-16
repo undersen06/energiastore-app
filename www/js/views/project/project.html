@@ -5,7 +5,7 @@
   </div>
   <div class="item item-input-inset header-energiaStore has-header">
     <label class="item-input-wrapper">
-      <input type="text" placeholder="Buscar" ng-model="query['name']">
+      <input type="text" placeholder="{{generic.PLACEHOLDER_SEARCH}}" ng-model="query['name']">
     </label>
   </div>
   <ion-content id="content-id" class="has-subheader">
@@ -30,7 +30,7 @@
 
 
     <ion-list show-delete="shouldShowDelete" can-swipe="listCanSwipe">
-      <ion-item ng-repeat="calculation in calculations | filter:query" class="item" ng-click="goToCalculation(calculation)" ng-class="{'last-project':$last}">
+      <ion-item ng-show="calculation.name != null" ng-repeat="calculation in calculations | filter:query" class="item" ng-click="goToCalculation(calculation)" ng-class="{'last-project':$last}">
 
         <div class="item-container">
           <i ng-if="calculation.estimated_cost != null" class="fa fa-circle item-content-dot success" aria-hidden="true"></i>

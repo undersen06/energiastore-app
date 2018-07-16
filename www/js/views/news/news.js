@@ -12,14 +12,16 @@ CONTROLLER DEFINITION
 
 				$scope.query = {};
 				$scope.queryBy = '$';
+				$scope.isLoading=true;
 
 
 				$scope.init = function () {
 					$News.getNews().then(function (_response) {
 						$scope.news = _response.data;
+						$scope.isLoading=false;
 						
 					}, function (_error) {
-						//TODO show error
+						$scope.isLoading=false;
 						$log.error(_error);
                         
 					});

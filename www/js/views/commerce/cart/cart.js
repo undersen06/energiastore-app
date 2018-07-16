@@ -6,64 +6,11 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('CartController', ['$scope', '$state', '$ionicPlatform', '$log', '$Products','$ionicHistory','StorageCartModel',
-		function ($scope, $state, $ionicPlatform, $log, $Products,$ionicHistory,StorageCartModel) {
+	this.app.controller('CartController', ['$scope', '$state', '$ionicPlatform', '$log','$ionicHistory','StorageCartModel',
+		function ($scope, $state, $ionicPlatform, $log,$ionicHistory,StorageCartModel) {
 
-            $scope.queryBy = '$';
-            
-            $scope.products =[
-				{
-					name:'Bombillo #1',
-					description:'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
-					_id:'1',
-					images:[
-						{
-							_id:'1',
-							url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-						},
-						{
-							_id:'2',
-							url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-						}
-					],
-
-				},
-
-				{
-					name:'Bombillo #2',
-					description:'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
-					_id:'1',
-					images:[
-						{
-							_id:'1',
-							url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-						},
-						{
-							_id:'2',
-							url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-						}
-					],
-
-				},
-				{
-					name:'Bombillo #3',
-					description:'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
-					_id:'1',
-					images:[
-						{
-							_id:'1',
-							url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-						},
-						{
-							_id:'2',
-							url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-						}
-					],
-
-				}
-
-
-			];
+			$scope.queryBy = '$';
+			$scope.isLoading = true;
 
 
 			$scope.isIphoneX = function () {
@@ -77,18 +24,18 @@ CONTROLLER DEFINITION
 			$ionicPlatform.ready(function () {
 
 				$scope.init = function () {
-
+					
 					$scope.products = StorageCartModel.getCart();
-					// $Products.getCategories().then(function (_response) {
-					// 	$scope.categories = _response.data;
-					// }, function (_error) {
-					// 	$log.error(_error);
+					$log.info($scope.products) ;
 
-					// });
+					$scope.isLoading = false;
 				};
 
 
 				$scope.init();
+
+				window.screen.orientation.lock('portrait');
+				window.screen.orientation.unlock();
 
 				$scope.goBack = function () {
 					var backView = $ionicHistory.backView();
@@ -100,8 +47,8 @@ CONTROLLER DEFINITION
 					}
 				};
 
-				$scope.goToProductsByCategory = function(_id){
-					$state.go('products', { category_id:_id});
+				$scope.delete = function (_product){
+					StorageCartModel.removeFromCart(_product);
 				};
 
 			});

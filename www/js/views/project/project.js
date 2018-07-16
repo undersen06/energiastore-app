@@ -28,6 +28,8 @@ CONTROLLER DEFINITION
 				};
 
 				$scope.init = function () {
+					window.screen.orientation.lock('portrait');
+					window.screen.orientation.unlock();
 					$ionicLoading.show({
 						templateUrl: 'loading.html'
 					}).then(function () {
@@ -57,21 +59,20 @@ CONTROLLER DEFINITION
 					$scope.modalProject.remove();
 				});
 
-				$scope.$on('modalProject.hidden', function () {});
+				$scope.$on('modalProject.hidden', function () { });
 
-				$scope.$on('modalProject.removed', function () {});
+				$scope.$on('modalProject.removed', function () { });
 
 				$scope.createCalculation = function (data) {
 					$Calculation.create(data, StorageUserModel.getCurrentUser()).then(
 						function (_response) {
-							debugger;
 							$log.info(_response);
 							Utils.validateToast('QUOTATION_CREATED_MESSAGE');
 							$scope.closeModalProject();
 							$scope.calculations = {};
 							$scope.getCalculation();
-							
-							
+
+
 						},
 						function (_error) {
 							Utils.validateToast('QUOTATION_FAIL_MESSAGE');
@@ -84,8 +85,6 @@ CONTROLLER DEFINITION
 				$scope.getCalculation = function () {
 					$Calculation.getAll(StorageUserModel.getCurrentUser()).then(
 						function (_response) {
-							
-							// $scope.calculations = _.filter(_response.data, { 'motor_based': true});
 							$scope.calculations = _response.data;
 							$scope.$broadcast('scroll.refreshComplete');
 							$ionicLoading.hide();
@@ -93,8 +92,7 @@ CONTROLLER DEFINITION
 						function (_error) {
 							$ionicLoading.hide();
 							$log.error(_error);
-							// httpUtilities.validateHTTPResponse(_error, popUpService, $scope.translations);
-							 Utils.validateToast('QUOTATION_ERROR_DOWNLOAD_INFO');
+							Utils.validateToast('QUOTATION_ERROR_DOWNLOAD_INFO');
 							$scope.$broadcast('scroll.refreshComplete');
 						}
 					);
@@ -172,7 +170,7 @@ CONTROLLER DEFINITION
 					}).then(function () {
 
 						calculation.name = calculation.name + '_duplicated';
-						
+
 
 						$Calculation.create(calculation, StorageUserModel.getCurrentUser()).then(
 							function (_response) {
@@ -241,7 +239,7 @@ CONTROLLER DEFINITION
 
 
 					$scope.createCalculation(prepareDataToServer($scope.project_create, $scope.provider));
-					
+
 				};
 
 				function prepareDataToServer(project, provider) {

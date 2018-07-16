@@ -6,75 +6,25 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('ProductsController', ['$scope', '$state', '$ionicPlatform', '$Products', '$log', '$ionicHistory','$q',
-		function ($scope, $state, $ionicPlatform, $Products, $log, $ionicHistory,$q) {
-
-
+	this.app.controller('ProductsController', ['$scope', '$state', '$ionicPlatform', '$Products', '$log', '$ionicHistory', '$q', 'StorageCartModel',
+		function ($scope, $state, $ionicPlatform, $Products, $log, $ionicHistory, $q, StorageCartModel) {
 			$scope.products = [];
-			// $scope.products =[
-			// 	{
-			// 		name:'Bombillo #1',
-			// 		description:'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
-			// 		_id:'1',
-			// 		images:[
-			// 			{
-			// 				_id:'1',
-			// 				url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-			// 			},
-			// 			{
-			// 				_id:'2',
-			// 				url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-			// 			}
-			// 		],
+			$scope.isLoading = true;
+			$scope.cartProduct = [];
+			$scope.cartProduct = StorageCartModel.getCart();
 
-			// 	},
-
-			// 	{
-			// 		name:'Bombillo #2',
-			// 		description:'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
-			// 		_id:'1',
-			// 		images:[
-			// 			{
-			// 				_id:'1',
-			// 				url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-			// 			},
-			// 			{
-			// 				_id:'2',
-			// 				url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-			// 			}
-			// 		],
-
-			// 	},
-			// 	{
-			// 		name:'Bombillo #3',
-			// 		description:'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto',
-			// 		_id:'1',
-			// 		images:[
-			// 			{
-			// 				_id:'1',
-			// 				url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-			// 			},
-			// 			{
-			// 				_id:'2',
-			// 				url:'https://www.masterled.es/1365-thickbox_default/bombilla-led-3w-esfera-e14.jpg',
-			// 			}
-			// 		],
-
-			// 	}
-
-
-			// ];
 
 			$ionicPlatform.ready(function () {
-
-				// $state;
-				// console.log($state);
 
 
 				$scope.init = function () {
 
+					window.screen.orientation.lock('landscape');
+
 
 					$Products.getProductByCategory($state.params.category_id).then(function (_response) {
+						debugger;
+						$scope.isLoading = false;
 						// $scope.products = _response.data;
 
 						// var promises =[];
@@ -89,34 +39,42 @@ CONTROLLER DEFINITION
 						// },function(_error){
 						// 	$log.error(_error);
 						// });
-						
-						
-						for (var i = 0; i < _response.data.length; i++) {
-							var product = _response.data[i];
 
-							debugger;
+						if (_response.data.length != 0) {
+							for (var i = 0; i < _response.data.length; i++) {
+								var product = _response.data[i];
 
-							if(typeof(product.specs) === 'string'){
-								//parwse specs
-								product.specs = JSON.parse(product.specs);
+
+
+								if (typeof (product.specs) === 'string') {
+									//parwse specs
+									product.specs = JSON.parse(product.specs);
+								}
+
+								product.technical_info = [];
+								Object.keys(product.specs).forEach(function (key) {
+									product.technical_info.push({
+										key: key,
+										value: product.specs[key]
+									});
+								});
 							}
 
-							product.technical_info = [];
-							Object.keys(product.specs).forEach(function (key) {
-								product.technical_info.push({
-									key: key,
-									value: product.specs[key]
-								});
-							});
 
+							if (StorageCartModel.findProduct(product) == undefined) {
+								product.isInTheCart = false;
+							} else {
+								product.isInTheCart = true;
+							}
+
+							$scope.products.push(product);
+							$log.info($scope.products);
 
 						}
 
-						$scope.products.push(product);
-						$log.info($scope.products);		
-
 					}, function (_error) {
-						debugger;
+						$log.error(_error);
+						$scope.isLoading = false;
 					});
 				};
 
@@ -140,6 +98,30 @@ CONTROLLER DEFINITION
 					} else {
 						backView.go();
 					}
+				};
+
+
+
+				$scope.addCart = function (_product) {
+					StorageCartModel.addCart(_product);
+				};
+
+				$scope.interactCart = function ($event, _product) {
+
+					if (_.find(StorageCartModel.getCart(), { 'sku_name': _product.sku_name })) {
+						StorageCartModel.removeFromCart(_product);
+						_product.isInTheCart = false;
+					} else {
+						StorageCartModel.addCart(_product);
+						_product.isInTheCart = true;
+					}
+					$event.stopPropagation();
+
+				};
+
+
+				$scope.goToCart = function () {
+					$state.go('cart');
 				};
 
 

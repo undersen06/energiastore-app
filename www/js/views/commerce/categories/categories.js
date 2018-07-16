@@ -6,10 +6,13 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('CategoriesController', ['$scope', '$state', '$ionicPlatform', '$log', '$Products', '$ionicHistory',
-		function ($scope, $state, $ionicPlatform, $log, $Products, $ionicHistory) {
+	this.app.controller('CategoriesController', ['$scope', '$state', '$ionicPlatform', '$log', '$Products', '$ionicHistory','StorageCartModel',
+		function ($scope, $state, $ionicPlatform, $log, $Products, $ionicHistory,StorageCartModel) {
 
-			$scope.queryBy = '$'
+			$scope.queryBy = '$';
+			$scope.isLoading =true;
+			$scope.cartProduct = [];
+			$scope.cartProduct = StorageCartModel.getCart();
 
 
 			$scope.isIphoneX = function () {
@@ -22,11 +25,17 @@ CONTROLLER DEFINITION
 
 			$ionicPlatform.ready(function () {
 
+				window.screen.orientation.lock('portrait');
+				window.screen.orientation.unlock();
+
 				$scope.init = function () {
 					$Products.getCategories().then(function (_response) {
 						$scope.categories = _response.data;
+						$scope.isLoading =false;
+						
 					}, function (_error) {
 						$log.error(_error);
+						$scope.isLoading =false;
 
 					});
 				};

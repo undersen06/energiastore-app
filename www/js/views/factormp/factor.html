@@ -10,7 +10,7 @@
     <div class="bar bar-header item-input-inset" ng-repeat="value in values track by $index">
       <label class="item-input-wrapper">
         <i class="icon  placeholder-icon"></i>
-        <input type="search" placeholder="Price" value="{{value | currency : curr : 0}}" disabled>
+        <input type="search" placeholder="{{factor.FMP_PRICE_PLACEHOLDER}}" value="{{value | currency : curr : 0}}" disabled>
       </label>
       <button class="button button-clear" ng-click="removeValue($index);">
         <div style="background-color:#d62222;width:28px;height:28px;border-radius:30px;">
@@ -22,7 +22,7 @@
     <div class="bar bar-header item-input-inset">
       <label class="item-input-wrapper">
         <i class="icon  placeholder-icon"></i>
-        <input type="search" placeholder="Price" ng-model="factorType.power_factor_1" pattern="\d*">
+        <input type="search" placeholder="{{factor.FMP_PRICE_PLACEHOLDER}}" ng-model="factorType.power_factor_1" pattern="\d*">
       </label>
       <button class="button button-clear" ng-click="addValue();">
 
@@ -42,7 +42,7 @@
 
     <div class="list list-inset">
       <label class="item item-input">
-        <input type="text" placeholder="Comentarios" ng-model="factorType.comment">
+        <input type="text" placeholder="{{factor.FMP_COMMENT_PLACEHOLDER}}" ng-model="factorType.comment">
       </label>
     </div>
 

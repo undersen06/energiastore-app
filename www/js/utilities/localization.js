@@ -21,7 +21,13 @@ this.app.service('$Localization',
 						$rootScope.introduction = data.VIEWS.INTRODUCTION;
 						$rootScope.middleware = data.VIEWS.MIDDLEWARE;
 						$rootScope.motors_t = data.VIEWS.MOTORS;
-						$rootScope.products = data.VIEWS.PRODUCTS;
+
+						$rootScope._products = data.VIEWS.PRODUCTS.PRODUCTS;
+						$rootScope._product = data.VIEWS.PRODUCTS.PRODUCT;
+						$rootScope._cart = data.VIEWS.PRODUCTS.CART;
+						$rootScope._categories = data.VIEWS.PRODUCTS.CATEGORIES;
+
+
 						$rootScope.project = data.VIEWS.PROJECT;
 						$rootScope.quotation = data.VIEWS.QUOTATION;
 						$rootScope.finish_quotation = data.VIEWS.QUOTATION.FINALIZE;

@@ -1,7 +1,7 @@
 <ion-view id="products-view" ng-init="init();">
     <div class="bar bar-header header-energiaStore">
         <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
-        <div class="h1 title">Carrito</div>
+        <div class="h1 title">{{_cart.TITLE_VIEW}}</div>
         <button class="button button-icon icon ion-ios-arrow-back" ng-click="goQuotationCommerce();">
 
 
@@ -10,7 +10,7 @@
     </div>
     <div class="item item-input-inset header-energiaStore has-header">
         <label class="item-input-wrapper">
-            <input type="text" placeholder="Buscar">
+            <input type="text" placeholder="{{generic.PLACEHOLDER_SEARCH}}">
         </label>
     </div>
 
@@ -19,9 +19,12 @@
         <ion-list can-swipe="true">
             <ion-item ng-repeat="product in products" class="list" style="margin-bottom:0px;padding-bottom:0px;">
                 <a class="item item-avatar">
-                    <img ng-src="{{product.images[0].url}}">
-                    <h2>{{product.name}}</h2>
-                    <p>{{product.description}}</p>
+
+                    <img ng-if="product.product_images.length != 0" ng-src="http://energiastoreapp.com/{{product.product_images[0].path.url}}">
+                    <img ng-if="product.product_images.length == 0" src="assets/img/no-image.jpg">
+                    <h2>Nombre: {{product.title}}</h2>
+                    <p>Descripción: {{product.description}}</p>
+                    <p>Sku: {{product.sku_name}}</p>
 
                     <div>
 
@@ -29,7 +32,7 @@
                 </a>
 
                 <ion-option-button class="button-positive" ng-click="delete(product)">
-                    delete
+                    eliminar
                 </ion-option-button>
 
             </ion-item>
@@ -40,12 +43,12 @@
     </ion-content>
 
     <ion-footer-bar ng-class="isIphoneX == true ? 'iphone-x' : ''; ">
-            <div class="bar bar-footer" style="background-color:#61d484">
-                    <h4 style="    text-align: center;
+        <div class="bar bar-footer" style="background-color:#61d484">
+            <h4 style="    text-align: center;
                     margin: 0 auto;
                     color: white;
                     line-height: 30px;">Cotizar</h4>
-                  </div>
+        </div>
     </ion-footer-bar>
 
 

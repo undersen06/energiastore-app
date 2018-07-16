@@ -6,12 +6,20 @@ CONTROLLER DEFINITION
 =============================================================================
 */
 (function () {
-	this.app.controller('ProductController', ['$scope', '$state', '$ionicPlatform', '$ionicHistory', '$Products', '$q', '$ionicSlideBoxDelegate','$log','StorageCartModel','popUpService',
-		function ($scope, $state, $ionicPlatform, $ionicHistory, $Products, $q, $ionicSlideBoxDelegate,$log,StorageCartModel,popUpService) {
+	this.app.controller('ProductController', ['$scope', '$state', '$ionicPlatform', '$ionicHistory', '$Products', '$q', '$ionicSlideBoxDelegate', '$log', 'StorageCartModel', 'popUpService','Utils',
+		function ($scope, $state, $ionicPlatform, $ionicHistory, $Products, $q, $ionicSlideBoxDelegate, $log, StorageCartModel, popUpService,Utils) {
 
 			$ionicPlatform.ready(function () {
 
+				$scope.queryBy = '$';
+				$scope.isLoading = true;
+				$scope.cartProduct = [];
+				$scope.cartProduct = StorageCartModel.getCart();
+
 				$scope.init = function () {
+
+					window.screen.orientation.lock('portrait');
+					window.screen.orientation.unlock();
 
 					var promises = [];
 					promises.push($Products.getProduct($state.params.product_id));
@@ -25,6 +33,7 @@ CONTROLLER DEFINITION
 						$scope.product.data = _response[0].data;
 						$scope.product.images = _response[1].data;
 						$scope.product.sheet = [];
+						$scope.isLoading = false;
 
 						Object.keys($scope.product.data.specs).forEach(function (key) {
 
@@ -34,24 +43,12 @@ CONTROLLER DEFINITION
 							});
 						});
 						$ionicSlideBoxDelegate.update();
-						
+
 
 					}, function (_error) {
 						$log.error(_error);
-					})
-
-					
-
-
-					// $Products.getProduct($state.params.product_id).then(function (_response){
-					// 	$scope.product = _response.data;
-					// 	debugger;
-					// },function(_error){
-
-					// 	$log.error(_error);
-					// });
-
-
+						$scope.isLoading = false;
+					});
 
 				};
 
@@ -82,24 +79,18 @@ CONTROLLER DEFINITION
 					}
 				};
 
-				$scope.showQtyPopUp = function(){
-					var qty;
-
-					popUpService.qtyProductPopup().then(function(){
-
-						debugger;
-
-					});	
-
-					
-					StorageCartModel.addCart();
-
-				};
-
-
-				$scope.sendOrder = function (){
+				$scope.addCart = function (_product) {
 					debugger;
+					if (_.find(StorageCartModel.getCart(), { 'sku_name': _product.data.sku_name })) {
+						Utils.validateToast('PRODUCT_ADD_CART');
+					} else {
+						StorageCartModel.addCart(_product.data);
+					}
+
 				};
+
+
+
 
 				$scope.init();
 

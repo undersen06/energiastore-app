@@ -6,11 +6,19 @@
     </div>
     <div class="item item-input-inset header-energiaStore has-header">
         <label class="item-input-wrapper">
-            <input type="text" placeholder="Buscar" ng-model="query[queryBy]">
+            <input type="text" placeholder="{{generic.PLACEHOLDER_SEARCH}}" ng-model="query[queryBy]">
         </label>
     </div>
     <ion-content class="has-subheader" style="padding-bottom:40px;">
 
+
+        <div ng-show="isLoading == true" style="margin:0 auto;margin-top:20vh;display: block;text-align:center;">
+                {{generic.LOADING_INFORMATION}}
+        </div>
+
+        <div ng-show="isLoading == false && news.length == 0" style="margin:0 auto;margin-top:20vh;display: block;text-align:center;">
+                {{generic.EMPTY_DATA}}
+        </div>
 
         <div class="list card" ng-repeat="new in news | filter:query">
             <div class="item item-body" style="padding:0px;">

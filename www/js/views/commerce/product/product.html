@@ -1,78 +1,97 @@
 <ion-view id="categories-view">
 
-  <div class="bar bar-header header-energiaStore">
-    <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
-    <div class="h1 title">{{product.name}}</div>
-    <button class="button button-icon icon ion-ios-cart" ng-click="goToCart();"></button>
-  </div>
+    <div class="bar bar-header header-energiaStore">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack();"></button>
+        <div class="h1 title">{{product.name}}</div>
+        <button class="button button-icon icon ion-ios-cart" ng-click="goToCart();">
+                <span style="    display: -webkit-inline-box;
+                position: fixed;
+                top: 5px;
+                right: 5px;" class="badge badge-assertive" ng-show="cartProduct.length != 0">{{cartProduct.length}}</span>
+        </button>
+    </div>
 
-  <ion-content scrolleable="true" class="has-footer has-header" has-bouncing="false">
-    
-        <ion-slide-box show-pager="product.images != null">
-          <ion-slide ng-repeat="image in product.image" ng-if="product.images.length != 0">
-              <img ng-src="{{image.url}}" alt="">
-          </ion-slide>
-          <ion-slide ng-if="product.images == null">
-              <img src="assets/img/no-image.jpg" alt="" style=" display: -webkit-box;margin: 0 auto;max-height: 200px;">
-          </ion-slide>
-        </ion-slide-box>
-      
-
-        <div style="margin:20px">
-
-            <h3>
-                {{product.data.title}}
-            </h3>
-    
-            <p>{{product.data.comments}}</p>
+    <ion-content scrolleable="true" class="has-footer has-header" has-bouncing="false">
 
 
-            <div class="row header" ng-repeat="spec in product.sheet">
-                <div class="col">{{spec.key}}</div>
-                <div class="col col-white">{{spec.value}}</div>
-              </div>
-             
+            <div ng-show="isLoading == true" style="margin:0 auto;margin-top:20vh;display: block;text-align:center;">
+                    {{generic.LOADING_INFORMATION}}
+                  </div>
               
+                  <div ng-show="isLoading == false && product == null" style="margin:0 auto;margin-top:20vh;display: block;text-align:center;">
+                        {{generic.EMPTY_DATA}}
+                  </div>
 
+
+        <div ng-show="isLoading == false && product != null">
+
+            <ion-slide-box show-pager="product.images != null">
+                <ion-slide ng-repeat="image in product.image" ng-if="product.images.length != 0">
+                    <img ng-src="{{image.url}}" alt="">
+                </ion-slide>
+                <ion-slide ng-if="product.images == null">
+                    <img src="assets/img/no-image.jpg" alt="" style=" display: -webkit-box;margin: 0 auto;max-height: 200px;">
+                </ion-slide>
+            </ion-slide-box>
+
+
+            <div style="margin:20px">
+
+                <h3>
+                    {{product.data.title}}
+                </h3>
+
+                <p>{{product.data.comments}}</p>
+
+
+                <div class="row header" ng-repeat="spec in product.sheet">
+                    <div class="col">{{spec.key}}</div>
+                    <div class="col col-white">{{spec.value}}</div>
+                </div>
+
+
+
+            </div>
         </div>
-      
-  </ion-content>
-  <ion-footer-bar ng-class="isIphoneX == true ? 'iphone-x' : ''; ">
-      <div class="bar bar-footer" style="background-color:#61d484" ng-click="showQtyPopUp()">
-              <h4 style="    text-align: center;
+
+    </ion-content>
+    <ion-footer-bar ng-class="isIphoneX == true ? 'iphone-x' : ''; ">
+        <div ng-disabled="isLoading == true" class="bar bar-footer" style="background-color:#61d484" ng-click="addCart(product)">
+            <h4 style="    text-align: center;
               margin: 0 auto;
               color: white;
               line-height: 30px;">Agregar al carro</h4>
-            </div>
-</ion-footer-bar>
+        </div>
+    </ion-footer-bar>
 
-  
+
 </ion-view>
 
 <style>
-  .slider {
-    height: 200px;
-    top: 0;
-}
-.header .col {
-    background-color:#f1f1f1;
-}
+    .slider {
+        height: 200px;
+        top: 0;
+    }
 
-.col-white{
-  background-color:white !important;
-}
+    .header .col {
+        background-color: #f1f1f1;
+    }
 
-.col {
-    border: solid 1px grey;
-    border-bottom-style: none;
-    border-right-style: none;
-}
+    .col-white {
+        background-color: white !important;
+    }
 
-.col:last-child {
-    border-right: solid 1px grey;
-}
+    .col {
+        border: solid 1px grey;
+        border-bottom-style: none;
+        border-right-style: none;
+    }
 
-.row:last-child .col {
-    border-bottom: solid 1px grey;
-}
+    .col:last-child {
+        border-right: solid 1px grey;
+    }
+
+    .row:last-child .col {
+        border-bottom: solid 1px grey;
+    }
 </style>

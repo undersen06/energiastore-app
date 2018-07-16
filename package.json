@@ -25,6 +25,7 @@
     "cordova-plugin-ios-camera-permissions": "^1.2.0",
     "cordova-plugin-linkedin": "^1.2.1",
     "cordova-plugin-media-capture": "^1.4.3",
+    "cordova-plugin-screen-orientation": "^3.0.1",
     "cordova-plugin-splashscreen": "^4.1.0",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-team": "https://github.com/apache/cordova-plugin-whitelist.git",
@@ -119,7 +120,8 @@
       "cordova-plugin-appavailability": {},
       "onesignal-cordova-plugin": {},
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-ionic-webview": {}
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-screen-orientation": {}
     },
     "platforms": [
       "ios"
